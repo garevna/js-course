@@ -20,9 +20,9 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
-			firebase.auth().onAuthStateChanged ( firebaseUser => {
-					firebaseUser ? store.dispatch ('autoSignIn', firebaseUser ) : return
-			})
+			//firebase.auth().onAuthStateChanged ( firebaseUser => {
+			//		firebaseUser ? store.dispatch ('autoSignIn', firebaseUser ) : return
+			//})
 			this.$http.get ( this.mainDataSource )
 				.then ( response => {
 					this.$store.commit ( 'getMainData', response.body )
