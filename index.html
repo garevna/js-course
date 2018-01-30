@@ -25,11 +25,6 @@
         console.log ( 'firebaseApp messagesRef: ', messagesRef )
 
     </script>
-    <!--<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>-->
 
     <!-- Auth -->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
@@ -40,30 +35,30 @@
 
     <script>
     // FirebaseUI config.
-  var uiConfig = {
-    signInSuccessUrl: '<url-to-redirect-to-on-success>',
-    signInOptions: [
-      // Leave the lines as is for the providers you want to offer your users
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-      firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      firebase.auth.PhoneAuthProvider.PROVIDER_ID
-    ],
-    // Terms of service url.
-    tosUrl: '<your-tos-url>'
-  };
+    var uiConfig = {
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+            // Leave the lines as is for the providers you want to offer your users
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+            firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            firebase.auth.PhoneAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url
+        tosUrl: '/'
+    }
 
-  // Initialize the FirebaseUI Widget using Firebase.
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  // The start method will wait until the DOM is loaded.
-  ui.start('#firebaseui-auth-container', uiConfig);
+    // Initialize the FirebaseUI Widget using Firebase
+    var ui = new firebaseui.auth.AuthUI(firebase.auth())
+    // The start method will wait until the DOM is loaded
+    ui.start('#firebaseui-auth-container', uiConfig)
     </script>
 
     <script>
       initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged ( function ( user ) {
           if ( user ) {
             var displayName = user.displayName
             var email = user.email
@@ -124,10 +119,6 @@
   </head>
 
   <body>
-<!--
-    <script src = "./js/stylesAndScriptsRegistry.js"></script>
-    <script src = "./js/registryInit.js"></script>
--->
     <main class = "main-content" id = "VueCourseware">
         <v-app dark >
           <v-card flat height = "40px" depressed>
