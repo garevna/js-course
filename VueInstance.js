@@ -4,7 +4,6 @@ const app = new Vue ( {
 	data: {
 		mainDataSource: "./data/mainData.json",
 		postDataSource: "./data/posts.json",
-		user: null,
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {}
@@ -12,6 +11,7 @@ const app = new Vue ( {
 	computed: {
 		localComputed () {
 			currentSectionId: () => this.$store.currentSectionId
+			user: () => this.$store.user
 		}
 	},
 	computed: Vuex.mapGetters ([
@@ -35,26 +35,26 @@ const app = new Vue ( {
 	},
 	mounted: function () {
 		this.$vuetify.theme = {
-      primary: '#36465d',
-      secondary: '#005d40',
-      accent: '#9b03a5',
-      error: '#d00',
-      info: '#09a',
-      success: '#048a4d',
-      warning: '#fa0',
-      transparent: "transparent",
+      			primary: '#36465d',
+      			secondary: '#005d40',
+      			accent: '#9b03a5',
+      			error: '#d00',
+      			info: '#09a',
+      			success: '#048a4d',
+      			warning: '#fa0',
+      			transparent: "transparent",
 			glass: 'rgba(255,255,255,0.4)'
-    }
+    		}
 		//this.winResize ()
 		//window.addEventListener ( 'resize', this.winResize )
 	},
 	methods: {
 		sendMessage: function () {
-       messagesRef.push ( this.newMessage )
-       this.newMessage.time = new Date ()
-       this.newMessage.text = 'Новое сообщение'
-       this.newMessage.user = 'Администратор'
-    },
+       			messagesRef.push ( this.newMessage )
+       			this.newMessage.time = new Date ()
+       			this.newMessage.text = 'Новое сообщение'
+       			this.newMessage.user = 'Администратор'
+    		},
 		//winResize: function ( event ) {
 		//	var asp = window.innerWidth / window.innerHeight
 		//	document.body.style.backgroundPosition = "center top"
@@ -63,11 +63,11 @@ const app = new Vue ( {
 		//				"10%" : ( asp < 0.9 ? ( -10 / asp ) + "%" : "10%" )
 		//},
 		gotoAbout: function () {
-      this.$root.$router.push ( { name: "about", props: true } )
-    },
-    gotoDetails: function () {
-      this.$root.$router.push ( { name: "details", props: true } )
-    },
+      			this.$root.$router.push ( { name: "about", props: true } )
+    		},
+    		gotoDetails: function () {
+      			this.$root.$router.push ( { name: "details", props: true } )
+    		},
 	},
 	components: {
 		'dropdown-menu': CustomSelect,
