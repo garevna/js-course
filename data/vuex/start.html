@@ -1,0 +1,65 @@
+<style>
+  .spec {
+    display:inline-block;
+    margin: 0 8px;
+    font-size: 20px;
+    color:orange;
+  }
+</style>
+<p>Ядром любого Vuex-приложения явлется реактивный объект, 
+создать который можно с помощью конструктора <span class="spec">Vuex.Store</span>:</p>
+<pre class="code-snippet">
+const store = new Vuex.Store({
+  state: {
+    currentCounterValue:  0,
+    previousCounterValue: 0,
+  },
+  mutations: {
+    nextPicture: state => { ... },
+    previousPicture: state => { ... }
+  }
+})
+</pre>
+<p>Он хранит состояние приложения</p>
+
+<p>Реактивные данные объекта store находятся в свойстве <span class="spec">state</span></p>
+<p>Изменение реактивных данных состояния приведет к изменениям во всех компонентах модели</p>
+
+<p>Именно поэтому изменения состояния этого объекта называют 
+  <i>мутациями</i> (<span class="spec">mutations</span>), а не методами</p>
+
+<p>Мутации являются синхронными операциями</p>
+<p>Они подобны обработчикам событий</p>
+
+<p>Вызвать мутацию (измененить состояние объекта <span class="spec">store</span>) можно 
+  с помощью метода <span class="spec">commit</span></p>
+
+<p>Параметром метода <span class="spec">commit</span> будет любая мутация из 
+описанных в свойстве <span class="spec">mutations</span>:</p>
+<pre class="code-snippet">
+methods: {
+    gotoNext: () => store.commit('nextPicture'),
+    gotoPrevious: () => store.commit('previousPicture'),
+  }
+</pre>
+
+<p>Доступ к глобальному объекту <span class="spec">store</span>, а, следовательно,
+  к его состоянию <span class="spec">store.state</span> возможен из любого компонента</p>
+<pre class="code-snippet">
+computed: {
+    img: () => 
+      store.state.pictures [ store.state.currentCounterValue ],
+  }
+</pre>
+<p>При этом в компонентах нужно создавать вычисляемые свойства 
+(<span class="spec">computed</span>), чтобы все мутации объекта <span class="spec">store</span> (изменения его 
+состояния) реактивно отражались в компонентах.</p>
+
+<p>Любой компонент может вызвать мутацию <span class="spec">store</span> с помощью метода 
+<span class="spec">commit</span>:</p>
+<pre class="code-snippet">
+methods: {
+    gotoNext: () => store.commit ( 'nextPicture' ),
+    gotoPrevious: () => store.commit ( 'previousPicture' ),
+}
+</pre>

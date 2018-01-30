@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Vue.js</title>
+    <!--<base href="https://garevna.github.io/vue.github.io/">-->
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        const config = {
+          apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
+          authDomain: "vue-course-b1571.firebaseapp.com",
+          databaseURL: "https://vue-course-b1571.firebaseio.com",
+          projectId: "vue-course-b1571",
+          storageBucket: "vue-course-b1571.appspot.com",
+          messagingSenderId: "329391650263"
+        }
+        const firebaseApp = firebase.initializeApp ( config )
+        const firebaseDB = firebaseApp.database()
+        const usersRef = firebaseDB.ref ( 'users' )
+        const messagesRef = firebaseDB.ref ( 'message' )
+
+        console.log ( 'firebaseApp usersRef: ', usersRef )
+        console.log ( 'firebaseApp messagesRef: ', messagesRef )
+
+    </script>
+    <!--<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-messaging.js"></script>-->
+
+    <!-- Auth -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <!-- Auth   Подключаем виджет на русском языке -->
+    <script src="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth__ru.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+
+    <script>
+    // FirebaseUI config.
+  var uiConfig = {
+    signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.PhoneAuthProvider.PROVIDER_ID
+    ],
+    // Terms of service url.
+    tosUrl: '<your-tos-url>'
+  };
+
+  // Initialize the FirebaseUI Widget using Firebase.
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  // The start method will wait until the DOM is loaded.
+  ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+
+    <script>
+      initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if ( user ) {
+            var displayName = user.displayName
+            var email = user.email
+            var emailVerified = user.emailVerified
+            var photoURL = user.photoURL
+            var uid = user.uid
+            var phoneNumber = user.phoneNumber
+            var providerData = user.providerData
+            user.getIdToken().then ( function ( accessToken ) {
+                document.getElementById('sign-in-status').textContent = 'Signed in';
+                document.getElementById('sign-in').textContent = 'Sign out';
+                document.getElementById('account-details').textContent = JSON.stringify({
+                displayName: displayName,
+                email: email,
+                emailVerified: emailVerified,
+                phoneNumber: phoneNumber,
+                photoURL: photoURL,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ')
+            })
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out'
+            document.getElementById('sign-in').textContent = 'Sign in'
+            document.getElementById('account-details').textContent = 'null'
+          }
+        }, function(error) {
+          console.log(error)
+        })
+      }
+
+      window.addEventListener('load', function() {
+        initApp()
+      })
+    </script>
+    
+    <script src="/components/loginComponent.js.js"></script>
+
+
+    <link rel="shortcut icon" href="/images/a-level-ico.png" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vuetify/dist/vuetify.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel|Amatic+SC|Caveat|Comfortaa|Didact+Gothic|Kurale|Montserrat|Pacifico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/sectionInfo.css">
+    <link rel="stylesheet" href="/css/sectionDetails.css">
+    <link rel="stylesheet" href="/css/transitions.css">
+
+    <script src = "https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
+    <script src = "https://unpkg.com/vue-router/dist/vue-router.min.js"></script>
+    <script src = "https://unpkg.com/vuex@3.0.1/dist/vuex.min.js"></script>
+    <script src = "https://unpkg.com/vuetify/dist/vuetify.min.js"></script>
+
+  </head>
+
+  <body>
+<!--
+    <script src = "./js/stylesAndScriptsRegistry.js"></script>
+    <script src = "./js/registryInit.js"></script>
+-->
+    <main class = "main-content" id = "VueCourseware">
+        <v-app dark >
+          <v-card flat height = "40px" depressed>
+            <v-toolbar flat class="primary">
+                <nav-panel :states = "mainMenuItems">
+                </nav-panel>
+                <v-spacer></v-spacer>
+                <div id="sign-in-status"></div>
+                <div id="sign-in"></div>
+                <div id="account-details"></div>
+                <send-message></send-message>
+                <toggle-buttons :__buttons = "sectionMenu"
+                                class="primary">
+                </toggle-buttons>
+            </v-toolbar>
+          </v-card>
+          <h1>Welcome to Vue courseware</h1>
+          <div id="firebaseui-auth-container"></div>
+          <app-footer></app-footer>
+        <v-app>
+        <router-view class = "inner-content"></router-view>
+    </main>
+
+    <script src="/components/SendMessage.js"></script>
+    <script src="/components/HomePage.js"></script>
+    <script src="/components/CustomSelect.js"></script>
+
+    <script src="/components/appFooter.js"></script>
+    <script src="/components/bottomSheet.js"></script>
+    <script src="/components/FullScreenDialogWindow.js"></script>
+    <script src="/components/currentPost.js"></script>
+
+    <script src="/components/toggleButtons.js"></script>
+    <script src="/components/mainSection.js"></script>
+    <script src="/components/NavigationPanel.js"></script>
+
+    <script src="/components/SectionInfo.js"></script>
+    <script src="/components/SectionDetails.js"></script>
+    <script src="/components/routerInstance.js"></script>
+
+
+    <script src="DataStore.js"></script>
+    <script src="VueInstance.js"></script>
+    <script src="/js/filters.js"></script>
+  </body>
+
+</html>

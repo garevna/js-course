@@ -1,0 +1,71 @@
+Используем компонент-шаблон 'main-content' 
+для вывода данных компонентов 
+'first-component' и 'second-component'<br/>
+
+Содержимое этих компонентов - кнопка, окошко 
+для вывода контента загруженных файлов и 
+футер, куда выводится сообщение о получении 
+данных или ошибке<br/>
+
+Компонент 'main-content' должен быть дочерним 
+для 'first-component' и 'second-component', 
+т.е. внутри каждого из этих компонентов задаем 
+свойство components<br/>
+<br/>
+<pre>
+components: {
+    'main-content': MainContent
+}
+</pre>
+<br/>
+Внутри 'main-content' определяем плейсхолдеры 
+для контента родительских компонентов 
+'first-component' и 'second-component' 
+с помощью именованных слотов <br/>
+<br/>
+<pre>
+const MainContent = ( 'main-content', {
+    template: `
+        &lt;div>
+          &lt;nav>
+            &lt;slot name="button">&lt;/slot>
+          &lt;/nav>
+          &lt;slot name="content">&lt;/slot>
+          &lt;slot name="footer">&lt;/slot>
+            
+        &lt;/div>
+      `
+})
+</pre>
+<br/>
+Теперь привязываем контент наших компонентов 
+'first-component' и 'second-component' 
+к плейсхолдерам в 'main-content' 
+с помощью атрибутов <br/>
+slot = "button",<br/>
+slot="content"   и   <br/>
+slot="footer"<br/>
+<br/>
+<pre>
+template: `
+    &lt;main-content>
+        &lt;button @click="thisClickHandler" 
+                v-if = "dataIsReady"
+                slot = "button">
+          first
+        &lt;/button>
+        &lt;div class="demo"
+              slot="content"
+              v-html="mess"
+              v-if="contentIsVisible">
+        &lt;/div>
+        &lt;div slot="footer"
+              v-html="messageToShow">
+        &lt;/div>
+    &lt;/main-content>
+`
+</pre>
+<br/>
+Теперь стилизуйте контент (слоты) внутри 
+'main-content'
+<br/>

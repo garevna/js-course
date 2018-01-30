@@ -1,0 +1,98 @@
+<style>
+    .spec, .words {
+        display: inline-block;
+        margin: 0 7px;
+        font-size: 20px;
+    }
+    .spec {
+        color: orange;
+    }
+    .words {
+        color: #0ef;
+    }
+</style>
+
+<span class="spec">Vue Router</span> ходит по маршрутам...<br/>
+На самом деле не совсем так<br/>
+
+Роутер монтирует нужный компонент в нужный момент времени в нужном месте<br/>
+
+Нужное место указывается с помощью плейсхолдера <br/>
+<br/>
+&lt;router-view>&lt;/router-view>
+<br/>
+Компоненты, которые будут смонтированы в "нужном месте", нужно привязать к маршрутам<br/>
+<br/>
+<pre class="code-snippet">
+{
+    path: "/articles",
+    component: ArticlesStore
+}
+</pre>
+<br/>
+Из таких объектов составляется массив<br/>
+<br/>
+<pre class="code-snippet">
+routes: [
+     {
+       path: '/library',
+       component: ...
+     },
+     ...
+}
+</pre>
+<br/>
+('/' означает маршрут приложения по умолчанию)<br/>
+и этот массив передается роутеру. Можно это сделать сразу при создании роутера:<br/>
+<br/>
+<pre class="code-snippet">
+const router = new VueRouter ( {
+    routes: routes
+})
+</pre>
+<br/>
+
+Роутер нужно привязать к экземпляру <span class="spec">Vue</span>:<br/>
+<br/>
+<pre class="code-snippet">
+new Vue ({
+  el: '#app',
+  router,
+  components: { ... }
+})
+</pre>
+<br/>
+
+Машинка роутера готова<br/>
+Теперь осталось только связать всю эту машинку с UI<br/>
+Для этого вставляем теги:<br/>
+<br/>
+<pre class="code-snippet">
+&lt;router-link to = "/library">&lt;/router-link><br/>
+</pre>
+в html-код или в темплейт компонента (в общем, туда, где должна появиться ссылка 
+на маршрут<br/>
+
+После рендеринга этот тег будет заменен на обычную гиперссылку<br/>
+
+Маршруты могут быть вложенными:<br/>
+<pre class="code-snippet">
+routes: [
+     {
+       path: '/...',
+       name: '...',
+       component: ...
+     },
+     {
+       path: '/firstroute/:name',
+       name: 'FirstRoute',
+       component: FirstRoute,
+       children: [
+         {
+           path: 'child',
+           component: FirstRouteChild
+         }
+       ]
+     }
+   ]
+</pre>

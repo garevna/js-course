@@ -1,0 +1,138 @@
+<style>
+  .spec, .word {
+    display:inline-block;
+    margin: 0 7px;
+    font-size: 20px;
+  }
+  .spec {
+    color:orange;
+  }
+  .word {
+    color:#7cdef3;
+  }
+  .rule {
+      color: #75f17e;
+  }
+  .rule:before {
+      content:"\2776 ";
+      font-size:25px;
+  }
+  .rule-text {
+    border: dotted 3px #75f17e;
+    padding: 4px 8px;
+  }
+</style>
+
+<p>Свойства объекта <span class="spec">Vuex.Store</span></p>
+<hr/>
+<p><span class="spec">getters</span> - аналог вычисляемых свойств компонентов</p>
+<p>В геттеры можно вынести вычисление индекса следующего слайда (<span class="word">nextCounterValue</span>), 
+вытягивание текущей (<span class="word">currentPicture</span>) и 
+следующей (<span class="word">nextPicture</span>) картинки из массива <span class="word">pictures</span>:</p>
+
+<pre class="code-snippet">
+getters: {
+    nextCounterValue ( state ) {
+      return state.currentCounterValue === 
+  	               state.pictures.length - 1 ? 0 : 
+  	               state.currentCounterValue + 1
+    },
+    currentPicture ( state ) {
+      return state.pictures [ state.currentCounterValue ]
+    },
+    nextPicture ( state ) {
+      return state.pictures [ store.getters.nextCounterValue ]
+    }
+}
+</pre>
+<p>доступ к свойству в геттере:</p>
+<pre class="code-snippet">
+store.getters.nextCounterValue
+</pre><hr/>
+<p>Действия (<span class="spec">actions</span>) предназначены для выполнения асинхронных операций, 
+возвращающих промисы</p>
+<pre class="code-snippet">
+actions: {
+  getNextPicture: function ( context ) {
+      var theNext = context.getters.nextCounterValue
+      var imgUrl = context.state.pictures [ theNext ].url
+      function testImage ( imgUrl ) {
+        return new Promise ( ( resolve, reject ) => {
+            var img = new Image ()
+            img.onerror = () => reject ()
+            img.onload = () => resolve ()
+            img.src = imgUrl
+        })
+      }
+      testImage ( imgUrl )
+          .then ( function ( res ) {
+              store.commit ('nextPicture')
+            })
+          .catch ( function ( res ) {
+              store.commit ('setAlternative')
+              store.commit ('nextPicture')
+          })
+  }
+}
+</pre>
+<p>Вызывать действие из компонента или корневого экземпляра нужно с помощью метода <span class="spec">dispatch</span></p>
+<pre class="code-snippet">
+methods: {
+    gotoNext: () => store.dispatch ( 'getNextPicture' ),
+}
+</pre>
+<p>В функции-обработчики передаётся объект <span class="spec">context</span>:</p>
+<pre class="code-snippet">
+actions: {
+    getNextPicture: function ( context ) {
+      var theNext = context.getters.nextCounterValue
+      var imgUrl = context.state.pictures [ theNext ].url
+      function testImage ( imgUrl ) {
+        return new Promise ( ( resolve, reject ) => {
+            var img = new Image ()
+            img.onerror = () => reject ()
+            img.onload = () => resolve ()
+            img.src = imgUrl
+        })
+      }
+      testImage ( imgUrl )
+          .then ( res => {
+              store.commit ('nextPicture')
+            })
+          .catch ( res => {
+              store.commit ('setAlternative')
+              store.commit ('nextPicture')
+          })
+    }
+  }
+</pre>
+<p>Операторы отображения свойств объекта <span class="spec">store</span> 
+в область видимости компонента</p>
+<p>
+<span class="spec">Vuex.mapState</span>,<br/>
+<span class="spec">Vuex.mapMutations</span>,<br/>
+<span class="spec">Vuex.mapActions</span>,<br/>
+<span class="spec">Vuex.mapGetters</span><br/>
+</p>
+<p>В компонентах можно упростить доступ к состоянию, геттерам, мутациям и 
+действиям с помощью <span class="spec">Vuex.mapState</span>, <span class="spec">Vuex.mapGetters</span>, 
+<span class="spec">Vuex.mapMutations</span> и <span class="spec">Vuex.mapActions</span> соответственно</p>
+<pre class="code-snippet">
+computed: Vuex.mapState ( {
+    img ( state ) {
+      var ind = state.currentCounterValue
+      return state.pictures [ ind ]
+    },
+})
+</pre>
+
+<pre class="code-snippet">
+computed: {
+    Vuex.mapGetters ([
+       nextInd: 'nextCounterValue',
+       pict: 'currentPicture'
+    ])
+}
+</pre>
+<p>Теперь геттеры <span class="word">nextCounterValue</span> и <span class="word">currentPicture</span> доступны в 
+компоненте как вычисляемые свойства <span class="word">nextInd</span> и <span class="word">pict</span></p>

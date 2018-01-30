@@ -1,0 +1,155 @@
+<style>
+  .spec, .words {
+    display:inline-block;
+    margin: 0 7px;
+    font-size: 20px;
+  }
+  .spec {
+    color:orange;
+  }
+  .words {
+    color:#7cdef3;
+  }
+  .rule {
+      color: #75f17e;
+  }
+  .rule:before {
+      content:"\2776 ";
+      font-size:25px;
+  }
+</style>
+
+<p>В этом примере мы выносим в компоненты работу с данными, включая коммиты мутаций состояния <span class="spec">Vuex-store</span></p>
+
+<p>Свойство <span class="spec">data</span> экземпляра <span class="spec">Vue</span> содержит объект <span class="words">localdata</span>, инициализированный при создании 
+  экземпляра со значением из <span class="spec">Vuex-store</span>:<br/>
+
+<pre class="code-snippet">
+localdata: this.$store.state.theRecord
+</pre>
+
+<p>По факту, <span class="words">localdata</span> - это ссылка на объект <span class="words">theRecord</span>, 
+который находится в хранилище <span class="spec">Vuex</span></p>
+
+<p>Мы не будем менять свойства этого объекта, поскольку тогда мы нарушим <span class="rule"></span> - изменим 
+состояние хранилища напрямую, минуя мутации</p>
+
+<p>В компоненты мы передаем значения свойств <span class="words">localdata</span> 
+(через <span class="spec">props</span> в компоненте и <span class="spec">v-bind</span> при его вызове)</p>
+
+<pre class="code-snippet">
+&lt;change-city :the_city="localdata.address.city">
+&lt;/change-city>
+</pre>
+
+<p>Когда мы передаем не объект и не массив, то передается значение, а не ссылка, и внутри компонента это будет новая 
+локальная переменная, изменение значения которой не отразится на родительском экземпляре (тем более, что 
+мы не используем директиву <span class="spec">v-model</span>)</p>
+
+<p>Поэтому с чистой совестью отправляем это значение в <span class="spec">input</span> 
+(в <span class="spec">template</span> компонента, конечно)</p>
+
+<pre class="code-snippet">
+const changeCity = ( 'change-city', {
+  props:['the_city'],
+  template: `
+    &lt;fieldset>
+      &lt;legend>Город: &lt;/legend>
+      &lt;input type="text" :value="the_city"
+            @input="changeStoreValue"/>&lt;br/>
+    &lt;/fieldset>
+  `,
+  methods: {
+    changeStoreValue: function () { 
+        this.$root.$store.commit('updateCity', 
+                          event.target.value )
+    }
+  }
+})
+</pre>
+<p>Из кода видно, что обработчиком события <span class="spec">input</span> назначен метод 
+  <span class="words">changeStoreValue</span>, который активирует мутацию 
+  состояния <span class="spec">Vuex-store</span></p>
+
+<p>Несколько сложнее работа со свойством <span class="word">places</span>, поскольку это 
+массив, а значит, передается по ссылке</p>
+
+<p><i>Массивы, как и объекты, передаются по ссылке</i></p>
+
+<pre class="code-snippet">
+&lt;change-places :the_places="localdata.address.places">
+&lt;/change-places>
+</pre>
+
+<p>Иными словами, в компоненте мы получим не сам массив, а ссылку <span class="words">the_places</span> 
+на массив <span class="words">localdata.address.places</span>, который, в свою очередь, является ссылкой на 
+  <span class="words">theRecord.address.places</span> в хранилище <span class="spec">Vuex</span> 
+(поскольку <span class="words">localdata</span> является ссылкой на <span class="words">theRecord</span>)</p>
+
+<pre class="code-snippet">
+const changePlaces = ( 'change-places', {
+  props:['the_places'],
+  ...
+})
+</pre>
+
+<p>В темплейте компонента с помощью диретивы <span class="spec">v-for</span> мы создаем элементы 
+<span class="spec">input</span> для каждого элемента массива <span class="words">the_places</span></p>
+
+<pre class="code-snippet">
+template: `
+    &lt;fieldset>
+      &lt;legend>Места: &lt;/legend>
+      &lt;input type="text" 
+            v-for = "(place, index) in the_places"
+            :value = "place"
+            @input = "changeStoreValue (index)"/>
+      &lt;button class = "plus-button"
+            @click="addNewStoreValue">
+      &lt;/button>
+    &lt;/fieldset>
+  `
+</pre>
+
+<p><span class="spec">input</span>-элементы не связаны с элементами массива (нет директивы <span class="spec">v-model</span>)</p>
+<p>Таким образом, изменение значения свойства value элемента input не представляет угрозы для реактивной системы 
+<span class="spec">Vue</span> (родительский экземпляр это не затронет)</p>
+<p>Однако обработчик <span class="words">changeStoreValue</span> события <span class="spec">input</span>, 
+которому мы передаем индекс измененного элемента массива</p>
+
+<pre class="code-snippet">
+@input="changeStoreValue (index)"
+</pre>
+
+<p>будет активировать мутацию updatePlaces состояния <span class="spec">Vuex-store</span></p>
+<pre class="code-snippet">
+methods: {
+    changeStoreValue: function ( index ) {
+        this.$root.$store.commit ( 'updatePlaces', {
+          index: index,
+          value: event.target.value
+        } )
+    },
+    ...
+}
+</pre>
+<p>Мутации <span class="words">updatePlaces</span> будет передан в качестве параметра объект с индексом 
+изменяемого элемента массива и значением свойства <span class="spec">value</span> элемента input:</p>
+<pre class="code-snippet">
+{
+    index: index,
+    value: event.target.value
+}
+</pre>
+<p>и которая, в свою очередь, изменит массив <span class="words">theRecord.address.places</span></p>
+<pre class="code-snippet">
+mutations: {
+    ...,
+    updatePlaces: function ( state, params ) {
+      var ind = params.index
+      var new_value = params.value
+      state.theRecord.address.places.splice( params.index, 1, params.value )
+    },
+}
+</pre>
+<p>Все корректно, чисто, никакой контрабанды ;)</p>

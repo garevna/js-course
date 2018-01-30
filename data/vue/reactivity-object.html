@@ -1,0 +1,73 @@
+<style>
+    .spec, .words {
+        font-size: 20px;
+        display:inline-block;
+        margin: 0 7px;
+    }
+    .spec {
+        color: #f90;
+    }
+    .words {
+        color: #0ef;
+    }
+</style>
+
+<p>Предположим, у нас есть объект <span class="words">sampleData</span> с глубокой структурой, 
+т.е. его свойства также являются объектами</p>
+
+<pre class="code-snippet">
+new Vue({
+  el: '#sample',
+  data: {
+      sampleData: {
+        figure: { id:'Кофе', type:'Лате' },
+        subject: {
+          type: 'чашка',
+          details: { volume: '250 мл', color: 'Синяя' }
+        }
+      }
+  }
+})
+</pre>
+
+<p>Свяжем свойства объекта с элементами <span class="spec">input</span> с помощью директивы <span class="spec">v-model</span></p>
+
+<pre class="code-snippet">
+&lt;input v-model="sampleData.figure.id" />
+&lt;input v-model="sampleData.figure.type" />
+&lt;input v-model="sampleData.subject.type" />
+...
+</pre>
+
+<p>Установим наблюдателя на наш объект</p>
+
+
+<pre class="code-snippet">
+watch: {
+    'sampleData': function ( newVal, oldVal ) {
+        console.warn ( 'Объект sampleData был изменен' )
+    }
+}
+</pre>
+
+<p>При изменении значений свойств объекта наблюдатель не срабатывает, т.е. объект не реактивен</p>
+
+<p>Теперь используем свойство <span class="spec">handler</span> наблюдателя объекта <span class="words">sampleData</span> 
+и его опцию <span class="spec">deep</span>:</p>
+<p><span class="spec">handler</span> - это обработчик события изменения наблюдаемого значения</p>
+
+<pre class="code-snippet">
+watch: {
+    'sampleData': {
+        handler: function ( newVal, oldVal ) {
+           console.warn ( 'Объект sampleData был изменен' )
+        }, deep: true
+    }
+}
+</pre>
+<p>Теперь изменение значений свойств объекта <span class="words">sampleData</span> реактивно отбражается наблюдателем за счет того, 
+что для свойства <span class="spec">handler</span> мы установили опцию 
+<span class="spec">deep</span>: <span class="words">true</span></p>
+<p>Попробуйте убрать эту опцию, и глубокие изменения в объекте <span class="words">sampleData</span> перестанут быть реактивными <br/>
+( глубокие изменения - это изменение значений свойств вложенных объектов, 
+например, <span class="words">sampleData.subject.details</span> )</p>
