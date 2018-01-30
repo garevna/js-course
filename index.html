@@ -6,7 +6,7 @@
     <base href="https://garevna.github.io/vue.github.io/">
 
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-    <script>
+    <!--<script>
         // Initialize Firebase
         const config = {
           apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
@@ -24,7 +24,7 @@
         console.log ( 'firebaseApp usersRef: ', usersRef )
         console.log ( 'firebaseApp messagesRef: ', messagesRef )
 
-    </script>
+    </script>-->
 
     <!-- Auth -->
     <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
@@ -33,7 +33,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth__ru.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
 
-    <script>
+    <!--<script>
     // FirebaseUI config.
     var uiConfig = {
         signInSuccessUrl: '/vue-course.github.io',
@@ -95,11 +95,11 @@
       window.addEventListener('load', function() {
         initApp()
       })
-    </script>
+    </script>-->
     
-    <script src="/components/loginComponent.js.js"></script>
-
-
+    <script src="firebaseUserAuth.js"></script>
+    <!--<script src="/components/loginComponent.js"></script>-->
+    
     <link rel="shortcut icon" href="/images/a-level-ico.png" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
@@ -126,17 +126,23 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <div id="sign-in-status"></div>
+                <v-button icon @click = "initApp()" v-if = "!user">
+                    <v-icon>person_outline</v-icon>
+                </v-button>
+                <v-button icon @click = "" v-if = "user">
+                    <v-icon>person</v-icon>
+                </v-button>
+                <!--<div id="sign-in-status"></div>
                 <div id="sign-in"></div>
-                <div id="account-details"></div>
+                <div id="account-details"></div>-->
                 <send-message></send-message>
                 <toggle-buttons :__buttons = "sectionMenu"
                                 class="primary">
                 </toggle-buttons>
             </v-toolbar>
           </v-card>
-          <h1>Welcome to Vue courseware</h1>
-          <div id="firebaseui-auth-container"></div>
+          <!--<h1>Welcome to Vue courseware</h1>-->
+          <div id = "firebaseui-auth-container" v-if = "false"></div>
           <app-footer></app-footer>
         <v-app>
         <router-view class = "inner-content"></router-view>
