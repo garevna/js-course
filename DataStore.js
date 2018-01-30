@@ -18,7 +18,7 @@ const store = new Vuex.Store ({
           pict: "./images/smile-03.gif",
           text: `К сожалению, материал еще не готов`
       }],
-
+      user: null
   },
   getters: {
     dataIsReady:  state => state.mainDataIsReady && state.postDataIsReady,
@@ -36,6 +36,9 @@ const store = new Vuex.Store ({
             ] : null
   },
   mutations: {
+    setUser: ( state, user ) => {
+        state.user = user
+    },
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
