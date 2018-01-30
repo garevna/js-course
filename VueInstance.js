@@ -4,6 +4,7 @@ const app = new Vue ( {
 	data: {
 		mainDataSource: "./data/mainData.json",
 		postDataSource: "./data/posts.json",
+		user: null,
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {}
