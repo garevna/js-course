@@ -24,9 +24,8 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
-			//firebase.auth().onAuthStateChanged ( firebaseUser => {
-			//		firebaseUser ? store.dispatch ('autoSignIn', firebaseUser ) : return
-			//})
+		console.log ( 'localStorage: ', localStorage.displayName )
+		console.log ( 'localStorage: ', localStorage.providerData )
 			this.$http.get ( this.mainDataSource )
 				.then ( response => {
 					this.$store.commit ( 'getMainData', response.body )
