@@ -43,32 +43,41 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <v-layout row wrap>
-                  <v-flex>
-                    <v-button icon 
-                              @click = "loginForm = true; initApp()" 
-                              v-if = "!firebaseAuthObject.currentUser">
+                <v-expansion-panel>
+                  <v-expansion-panel-content hide-actions v-if = "firebaseAuthObject.currentUser">
+                    <v-layout slot = "header">
+                      <v-flex>
+                          <v-avatar size="36px" 
+                                    slot = "activator">
+                              <img :src = "firebaseAuthObject.currentUser.photoURL" 
+                                   :alt = "firebaseAuthObject.currentUser.displayName">
+                          </v-avatar>
+                      </v-flex>
+                    </v-layout>
+                    <v-card>
+                        <v-card-text>
+                          <p>{{  firebaseAuthObject.currentUser.displayName }}</p>
+                          <p>{{  firebaseAuthObject.currentUser.email }}</p>
+                          <p>{{  firebaseAuthObject.currentUser.phoneNumber }}</p>
+                          <v-button flat @click = "userLogOut">
+                            <v-button-text>exit</v-button-text>
+                          </v-button>
+                        </v-card-text>
+                    </v-card>
+                  </v-expansion-panel-content>
+                </v-expansion-panel>
+                <v-button v-else
+                          icon @click = "loginForm = true; initApp()">
                         <v-icon>person_outline</v-icon>
-                    </v-button>
-                    <v-avatar size="36px" 
-                              v-if = "firebaseAuthObject.currentUser.photoURL">
-                        <img :src = "firebaseAuthObject.currentUser.photoURL" alt="">
-                    </v-avatar>
-                    <v-button icon 
-                              @click = "userLogOut" 
-                              v-if = "!firebaseAuthObject.currentUser.photoURL">
-                        <v-icon>person</v-icon>
-                    </v-button>
-                  </v-flex>
-                </v-layout>
+                </v-button>
                 
                 <v-text v-if = "firebaseAuthObject.currentUser.displayName">
                     {{ firebaseAuthObject.currentUser.displayName }}
                 </v-text>
-                <div id="sign-in-status"></div>
-                <div id="sign-in"></div>
-                <div id="account-details"></div>
-                <send-message></send-message>
+                <div id="sign-in-status" style="display:none"></div>
+                <div id="sign-in" style="display:none"></div>
+                <div id="account-details" style="display:none"></div>
+                <send-message :loginName = ""></send-message>
                 <toggle-buttons :__buttons = "sectionMenu"
                                 class="primary">
                 </toggle-buttons>
