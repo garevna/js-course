@@ -10,7 +10,7 @@ const app = new Vue ( {
 	},
 	computed: {
 		localComputed () {
-			currentSectionId: () => this.$store.state.currentSectionId
+			currentSectionId: () => this.$store.state.currentSectionId,
 			user: () => this.$store.state.user
 		}
 	},
