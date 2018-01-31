@@ -6,6 +6,16 @@ const config = {
           storageBucket: "vue-course-b1571.appspot.com",
           messagingSenderId: "329391650263"
 }
+// ========================
+var displayName = ''
+var email = ''
+var emailVerified = false
+var photoURL = null
+var uid = ''
+var phoneNumber = null
+var accessToken = ''
+var providerData = null
+// ========================          
 const firebaseApp = firebase.initializeApp ( config )
 const firebaseDB = firebaseApp.database()
 const usersRef = firebaseDB.ref ( 'users' )
@@ -35,13 +45,13 @@ ui.start( '#firebaseui-auth-container', uiConfig )
 initApp = function () {
     firebase.auth().onAuthStateChanged ( function ( user ) {
        if ( user ) {
-            var displayName = user.displayName
-            var email = user.email
-            var emailVerified = user.emailVerified
-            var photoURL = user.photoURL
-            var uid = user.uid
-            var phoneNumber = user.phoneNumber
-            var providerData = user.providerData
+            displayName = user.displayName
+            email = user.email
+            emailVerified = user.emailVerified
+            photoURL = user.photoURL
+            uid = user.uid
+            phoneNumber = user.phoneNumber
+            providerData = user.providerData
             user.getIdToken().then ( function ( accessToken ) {
                       console.log ( 'app.sendMessage: ', app.sendMessage )
                 document.getElementById('sign-in-status').textContent = 'Signed in';
