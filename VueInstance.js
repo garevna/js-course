@@ -9,12 +9,6 @@ const app = new Vue ( {
 		newMessage: {},
 		user: this.$store.state.user
 	},
-	computed: {
-		localComputed () {
-			currentSectionId: () => this.$store.state.currentSectionId,
-			
-		}
-	},
 	computed: Vuex.mapGetters ([
 			'mainMenuReady',
 			'mainMenuItems',
