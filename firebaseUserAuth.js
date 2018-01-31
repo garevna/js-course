@@ -30,6 +30,7 @@ var uiConfig = {
 }
 
 var ui = new firebaseui.auth.AuthUI ( firebase.auth () )
+console.log ( 'instance of firebaseui.auth.AuthUI: ', ui )
 
 // The start method will wait until the DOM is loaded
 
