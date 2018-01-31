@@ -7,7 +7,7 @@ const app = new Vue ( {
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {},
-		user: this.$store.state.user
+		user: store.state.user
 	},
 	computed: Vuex.mapGetters ([
 			'mainMenuReady',
