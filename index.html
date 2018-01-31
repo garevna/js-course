@@ -47,23 +47,23 @@
                   <v-flex>
                     <v-button icon 
                               @click = "loginForm = true; initApp()" 
-                              v-if = "!firebaseUser">
+                              v-if = "!firebaseAuthObject.currentUser">
                         <v-icon>person_outline</v-icon>
                     </v-button>
                     <v-avatar size="36px" 
-                              v-if = "firebaseUser && firebaseUser.photoURL">
-                        <img :src = "firebaseUser.photoURL" alt="">
+                              v-if = "firebaseAuthObject.currentUser.photoURL">
+                        <img :src = "firebaseAuthObject.currentUser.photoURL" alt="">
                     </v-avatar>
                     <v-button icon 
                               @click = "userLogOut" 
-                              v-if = "firebaseUser && !firebaseUser.photoURL">
+                              v-if = "!firebaseAuthObject.currentUser.photoURL">
                         <v-icon>person</v-icon>
                     </v-button>
                   </v-flex>
                 </v-layout>
                 
-                <v-text v-if = "firebaseUser">
-                    {{ firebaseUser.displayName }}
+                <v-text v-if = "firebaseAuthObject.currentUser.displayName">
+                    {{ firebaseAuthObject.currentUser.displayName }}
                 </v-text>
                 <div id="sign-in-status"></div>
                 <div id="sign-in"></div>
