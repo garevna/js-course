@@ -11,6 +11,11 @@ const app = new Vue ( {
 		loginForm: false,
 		firebaseAuthObject: firebase.auth()
 	},
+	watch: {
+		firebaseAuthObject: function ( val ) {
+			console.log ( 'VUE instance: firebaseAuthObject changed: ', val )
+		}
+	},
 	computed: Vuex.mapGetters ([
 			'mainMenuReady',
 			'mainMenuItems',
