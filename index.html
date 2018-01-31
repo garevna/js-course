@@ -143,8 +143,8 @@
                 </toggle-buttons>
             </v-toolbar>
           </v-card>
-          <!--<h1>Welcome to Vue courseware</h1>-->
-          <div id = "firebaseui-auth-container" v-if = "loginForm"></div>
+          <!-- container for Firebase login form -->
+          <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
           <app-footer></app-footer>
         <v-app>
         <router-view class = "inner-content"></router-view>
