@@ -7,7 +7,8 @@ const app = new Vue ( {
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {},
-		user: store.state.user
+		firebaseUser: null,
+		loginForm: false
 	},
 	computed: Vuex.mapGetters ([
 			'mainMenuReady',
