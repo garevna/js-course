@@ -23,7 +23,7 @@ var uiConfig = {
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
         ],
         // Terms of service url
-        tosUrl: '/vue-course.github.io/firebaseUserAuth.html'
+        tosUrl: '/vue-course.github.io/'
 }
 
 var ui = new firebaseui.auth.AuthUI ( firebase.auth () )
@@ -35,16 +35,15 @@ ui.start( '#firebaseui-auth-container', uiConfig )
 initApp = function () {
     firebase.auth().onAuthStateChanged ( function ( user ) {
        if ( user ) {
-            this.$root.store.commit ( 'setUser', user )
-            // var displayName = user.displayName
-            // var email = user.email
-            // var emailVerified = user.emailVerified
-            // var photoURL = user.photoURL
-            // var uid = user.uid
-            // var phoneNumber = user.phoneNumber
-            // var providerData = user.providerData
+            var displayName = user.displayName
+            var email = user.email
+            var emailVerified = user.emailVerified
+            var photoURL = user.photoURL
+            var uid = user.uid
+            var phoneNumber = user.phoneNumber
+            var providerData = user.providerData
             user.getIdToken().then ( function ( accessToken ) {
-                this.$root.store.commit ( 'setUserIn', user )
+                      console.log ( 'app.sendMessage: ', app.sendMessage )
                 document.getElementById('sign-in-status').textContent = 'Signed in';
                 document.getElementById('sign-in').textContent = 'Sign out';
                 document.getElementById('account-details').textContent = JSON.stringify({
