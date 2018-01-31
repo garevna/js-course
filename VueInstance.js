@@ -36,15 +36,16 @@ const app = new Vue ( {
 	mounted: function () {
 		console.log ( 'VUE instance: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( '*** ', this.firebaseAuthObject.currentUser )
-		public void addAuthStateListener ( FirebaseAuth.AuthStateListener function ( user ) {
-			if ( user ) {
-				console.log ( 'VUE instance: provider data: ', user.providerData )
-				this.firebaseUser = user.providerData
-				console.log ( 'VUE instance: this.firebaseUser: ', this.firebaseUser )
-			} else {
-				console.warn ( 'VUE instance: provider data: no user signed in' )
-				// No user is signed in.
-			}
+		console.log ( '### ', Firebase.Auth.FirebaseAuth.DefaultInstance )
+		//public void addAuthStateListener ( function ( user ) {
+		//	if ( user ) {
+		//		console.log ( 'VUE instance: provider data: ', user.providerData )
+		//		this.firebaseUser = user.providerData
+		//		console.log ( 'VUE instance: this.firebaseUser: ', this.firebaseUser )
+		//	} else {
+		//		console.warn ( 'VUE instance: provider data: no user signed in' )
+		//		// No user is signed in.
+		//	}
 		})
 		this.$vuetify.theme = {
       			primary: '#36465d',
