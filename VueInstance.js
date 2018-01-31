@@ -27,6 +27,7 @@ const app = new Vue ( {
 			})
 	},
 	mounted: function () {
+		console.log ( '*** ', firebase.auth().currentUser )
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			if ( user ) {
 				console.log ( 'VUE instance: provider data: ', user.providerData )
@@ -35,7 +36,7 @@ const app = new Vue ( {
 				console.warn ( 'VUE instance: provider data: no user signed in' )
 				// No user is signed in.
 			}
-})
+		})
 		this.$vuetify.theme = {
       			primary: '#36465d',
       			secondary: '#005d40',
