@@ -8,7 +8,8 @@ const app = new Vue ( {
 		messages: messagesRef,
 		newMessage: {},
 		firebaseUser: firebase.auth().currentUser,
-		loginForm: false
+		loginForm: false,
+		firebaseAuthObject: firebase.auth()
 	},
 	computed: Vuex.mapGetters ([
 			'mainMenuReady',
@@ -17,21 +18,24 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
-			this.$http.get ( this.mainDataSource )
-				.then ( response => {
+		this.firebaseUser = firebase.auth().currentUser
+		this.$http.get ( this.mainDataSource )
+			.then ( response => {
 					this.$store.commit ( 'getMainData', response.body )
 			})
-			this.$http.get ( this.postDataSource )
-				.then ( response => {
+		this.$http.get ( this.postDataSource )
+			.then ( response => {
 					this.$store.commit ( 'getPostData', response.body )
 			})
 	},
 	mounted: function () {
+		console.log ( 'VUE instance: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( '*** ', firebase.auth().currentUser )
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			if ( user ) {
 				console.log ( 'VUE instance: provider data: ', user.providerData )
-				// User is signed in.
+				this.firebaseUser = user.providerData
+				console.log ( 'VUE instance: this.firebaseUser: ', this.firebaseUser )
 			} else {
 				console.warn ( 'VUE instance: provider data: no user signed in' )
 				// No user is signed in.
@@ -48,8 +52,6 @@ const app = new Vue ( {
       			transparent: "transparent",
 			glass: 'rgba(255,255,255,0.4)'
     		}
-		//this.winResize ()
-		//window.addEventListener ( 'resize', this.winResize )
 	},
 	methods: {
 		userLogOut: function () {
