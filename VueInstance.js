@@ -46,7 +46,7 @@ const app = new Vue ( {
 		//		console.warn ( 'VUE instance: provider data: no user signed in' )
 		//		// No user is signed in.
 		//	}
-		})
+		//})
 		this.$vuetify.theme = {
       			primary: '#36465d',
       			secondary: '#005d40',
