@@ -36,7 +36,7 @@ const app = new Vue ( {
 	mounted: function () {
 		console.log ( 'VUE instance: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( '*** ', this.firebaseAuthObject.currentUser )
-		console.log ( '### ', Firebase.Auth.FirebaseAuth.DefaultInstance )
+		console.log ( '### ', this.firebaseAuthObject.DefaultInstance )
 		//public void addAuthStateListener ( function ( user ) {
 		//	if ( user ) {
 		//		console.log ( 'VUE instance: provider data: ', user.providerData )
