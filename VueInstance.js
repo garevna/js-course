@@ -6,12 +6,13 @@ const app = new Vue ( {
 		postDataSource: "./data/posts.json",
 		users: usersRef,
 		messages: messagesRef,
-		newMessage: {}
+		newMessage: {},
+		user: this.$store.state.user
 	},
 	computed: {
 		localComputed () {
 			currentSectionId: () => this.$store.state.currentSectionId,
-			user: () => this.$store.state.user
+			
 		}
 	},
 	computed: Vuex.mapGetters ([
