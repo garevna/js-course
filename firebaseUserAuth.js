@@ -6,16 +6,9 @@ const config = {
           storageBucket: "vue-course-b1571.appspot.com",
           messagingSenderId: "329391650263"
 }
-// ========================
-var displayName = ''
-var email = ''
-var emailVerified = false
-var photoURL = null
-var uid = ''
-var phoneNumber = null
-var accessToken = ''
-var providerData = null
-// ========================          
+// =============================
+var firebaseProviderData = null
+// =============================     
 const firebaseApp = firebase.initializeApp ( config )
 const firebaseDB = firebaseApp.database()
 const usersRef = firebaseDB.ref ( 'users' )
