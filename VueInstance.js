@@ -10,8 +10,8 @@ const app = new Vue ( {
 	},
 	computed: {
 		localComputed () {
-			currentSectionId: () => this.$store.currentSectionId
-			user: () => this.$store.user
+			currentSectionId: () => this.$store.state.currentSectionId
+			user: () => this.$store.state.user
 		}
 	},
 	computed: Vuex.mapGetters ([
