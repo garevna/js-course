@@ -126,13 +126,25 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <v-button icon @click = "loginForm = true; initApp()" v-if = "!firebaseUser">
-                    <v-icon>person_outline</v-icon>
-                </v-button>
-                <v-button icon @click = "" v-if = "firebaseUser">
-                    <v-icon>person</v-icon>
-                    
-                </v-button>
+                <v-layout row wrap>
+                  <v-flex>
+                    <v-button icon 
+                              @click = "loginForm = true; initApp()" 
+                              v-if = "!firebaseUser">
+                        <v-icon>person_outline</v-icon>
+                    </v-button>
+                    <v-avatar size="36px" 
+                              v-if = "firebaseUser && firebaseUser.photoURL">
+                        <img :src = "firebaseUser.photoURL" alt="">
+                    </v-avatar>
+                    <v-button icon 
+                              @click = "userLogOut" 
+                              v-if = "firebaseUser && !firebaseUser.photoURL">
+                        <v-icon>person</v-icon>
+                    </v-button>
+                  </v-flex>
+                </v-layout>
+                
                 <v-text>{{ firebaseUser.displayName }}</v-text>
                 <div id="sign-in-status"></div>
                 <div id="sign-in"></div>
