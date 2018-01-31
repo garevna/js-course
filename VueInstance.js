@@ -7,14 +7,7 @@ const app = new Vue ( {
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {},
-		firebaseUser: {
-			displayName: displayName,
-			email: email,
-			photoURL: photoURL,
-			uid: uid,
-			phoneNumber: phoneNumber,
-			providerData: providerData
-		},
+		firebaseUser: firebase.auth().currentUser,
 		loginForm: false
 	},
 	computed: Vuex.mapGetters ([
@@ -24,8 +17,6 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
-		console.log ( 'localStorage: ', localStorage.displayName )
-		console.log ( 'localStorage: ', localStorage.providerData )
 			this.$http.get ( this.mainDataSource )
 				.then ( response => {
 					this.$store.commit ( 'getMainData', response.body )
@@ -60,19 +51,19 @@ const app = new Vue ( {
 		//window.addEventListener ( 'resize', this.winResize )
 	},
 	methods: {
+		userLogOut: function () {
+			firebase.auth().signOut().then ( function() {
+				this.firebaseUser = null
+			}).catch ( function ( error ) {
+				console.error ( 'Ошибка: ', error )
+			})
+		},
 		sendMessage: function () {
        			messagesRef.push ( this.newMessage )
        			this.newMessage.time = new Date ()
        			this.newMessage.text = 'Новое сообщение'
        			this.newMessage.user = 'Администратор'
     		},
-		//winResize: function ( event ) {
-		//	var asp = window.innerWidth / window.innerHeight
-		//	document.body.style.backgroundPosition = "center top"
-		//	document.body.style.backgroundSize = Math.min ( window.innerHeight, window.innerWidth )*1.4 + "px"
-		//	document.body.style.backgroundPositionY = ( asp <= 1.1 && asp >= 0.9 ) ?
-		//				"10%" : ( asp < 0.9 ? ( -10 / asp ) + "%" : "10%" )
-		//},
 		gotoAbout: function () {
       			this.$root.$router.push ( { name: "about", props: true } )
     		},
