@@ -7,7 +7,14 @@ const app = new Vue ( {
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {},
-		firebaseUser: null,
+		firebaseUser: {
+			displayName: displayName,
+			email: email,
+			photoURL: photoURL,
+			uid: uid,
+			phoneNumber: phoneNumber,
+			providerData: providerData
+		},
 		loginForm: false
 	},
 	computed: Vuex.mapGetters ([
