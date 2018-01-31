@@ -126,12 +126,14 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <v-button icon @click = "initApp()" v-if = "!user">
+                <v-button icon @click = "loginForm = true; initApp()" v-if = "!firebaseUser">
                     <v-icon>person_outline</v-icon>
                 </v-button>
-                <v-button icon @click = "" v-if = "user">
+                <v-button icon @click = "" v-if = "firebaseUser">
                     <v-icon>person</v-icon>
+                    
                 </v-button>
+                <v-text>{{ firebaseUser.displayName }}</v-text>
                 <div id="sign-in-status"></div>
                 <div id="sign-in"></div>
                 <div id="account-details"></div>
@@ -142,7 +144,7 @@
             </v-toolbar>
           </v-card>
           <!--<h1>Welcome to Vue courseware</h1>-->
-          <div id = "firebaseui-auth-container" v-if = "false"></div>
+          <div id = "firebaseui-auth-container" v-if = "loginForm"></div>
           <app-footer></app-footer>
         <v-app>
         <router-view class = "inner-content"></router-view>
