@@ -18,7 +18,6 @@ const ToggleButtons = ( 'toggle-buttons', {
       return this.$root.$store.getters.sectionIsReady
     },
     toggle_exclusive: function () {
-      console.log ( 'ToggleButtons this.route.name: ', this.route.name )
       return this.route.name === 'about' ? 0 :
                   ( this.route.name === 'details' || this.route.name === 'section' ? 1 : null )
     }
