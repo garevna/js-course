@@ -7,9 +7,8 @@ const NavigationPanel = ( 'nav-panel', {
     },
     template: `
       <v-layout wrap justify-left>
-        <v-btn  icon  large
-                @click.stop="drawer = !drawer"
-                dark color="#36465d">
+        <v-btn  icon  large dark
+                @click.stop = "drawer = !drawer">
             <v-icon>menu</v-icon>
         </v-btn>
         <v-navigation-drawer  temporary
@@ -21,7 +20,7 @@ const NavigationPanel = ( 'nav-panel', {
           <v-list class="pa-1">
             <v-list-tile>
                 <v-list-tile-avatar>
-                    <img src="/images/vue.svg" />
+                    <img src="./images/vue.svg" />
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>
