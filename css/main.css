@@ -1,11 +1,11 @@
 @charset "utf-8";
 :root {
-	--magenta-color: #9b03a5!important;
-	--cyan-color: #5df!important;
-	--orange-color: #fa0!important;
-	--green-color: #3b9d7090!important;
-	--main-color: #36465d!important;
-	--code-snippet: #fff!important;
+	--magenta-color: #9b03a5;
+	--cyan-color: #5df;
+	--orange-color: #fa0;
+	--green-color: #3b9d7090;
+	--main-color: #36465d;
+	--code-snippet: #fff;
 }
 @font-face {
   font-family: 'Comic Sans MS';
@@ -101,31 +101,31 @@ body {
   right:0;
   margin:0px;
   overflow:hidden;
-  background-color: var(--main-color);
+  background-color: var(--main-color)!important;
   font-family: 'Papyrus', 'Abel', 'Comfortaa', 'Caveat'!important;
   font-size:15px;
 }
 .toolbar, .card__actions {
-    background-color: var(--magenta-color);
+    background-color: var(--magenta-color)!important;
 }
 .card {
-	background-color: var(--green-color);
+	background-color: var(--green-color)!important;
 }
 .card__title {
-	background-color: var(--orange-color);
-	color: var(--magenta-color);
+	background-color: var(--orange-color)!important;
+	color: var(--magenta-color)!important;
 	mix-blend-mode: hard-light;
 }
 
 .card__actions .btn, .card__actions>* {
-    color: var(--orange-color);
+    color: var(--orange-color)!important;
     font-weight: 700;
 }
 .list {
-    background-color: #9b03a5!important;
+    background-color: var(--magenta-color)!important;
 }
 .input-group--select .input-group__append-icon {
-    color: var(--orange-color);
+    color: var(--orange-color)!important;
 }
 .customSelect {
     max-width: 90%;
@@ -179,20 +179,20 @@ footer {
 	font-family:monospace;
 }
 .my-photo {
-  width:80px;
+  	width:80px;
 	background-image:url(./images/my-photo.png);
-  background-size:contain;
-  background-repeat:no-no-repeat;
+  	background-size:contain;
+  	background-repeat:no-no-repeat;
 }
 .main-content-header {
-  position:fixed;
-  top:0;
-  left:80px;
-  font-size:25px;
-  font-weight:200;
-  text-align:center;
-  padding:10px;
-  color:#dde;
+  	position:fixed;
+  	top:0;
+  	left:80px;
+  	font-size:25px;
+  	font-weight:200;
+  	text-align:center;
+  	padding:10px;
+  	color:var(--orange-color)!important;
 }
 .container {
   /*background-image: linear-gradient(to right,#ffffff20, #ffffff99, #ffffff99, #ffffff20);*/
