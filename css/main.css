@@ -9,7 +9,7 @@
 }
 @font-face {
   font-family: 'Comic Sans MS';
-    src: url("./fonts/Comic Sans MS.ttf");
+    src: url("../fonts/Comic Sans MS.ttf");
     src: local('Comic Sans MS'), local('Comic Sans MS'),
     url("./fonts/Comic Sans MS.eot") format("embedded-opentype"),
     url("./fonts/Comic Sans MS.otf") format("opentype"),
@@ -18,7 +18,7 @@
 }
 @font-face {
   font-family: 'Papyrus';
-    src: url("./fonts/papyrus.ttf");
+    src: url("../fonts/papyrus.ttf");
     src: local('Papyrus'), local('papyrus')
 }
 .comfortaa {
@@ -72,10 +72,10 @@
     font-weight: 100;
 }
 .spec_words {
-    color: var ( --orange-color );
+    color: var(--orange-color);
 }
 .var_names {
-    color: var ( --cyan-color );
+    color: var(--cyan-color);
 }
 .application--wrap, .application.theme--light, .application.theme--dark {
 	background-color:transparent!important;
@@ -101,31 +101,31 @@ body {
   right:0;
   margin:0px;
   overflow:hidden;
-  background-color: var ( --main-color );
+  background-color: var(--main-color);
   font-family: 'Papyrus', 'Abel', 'Comfortaa', 'Caveat'!important;
   font-size:15px;
 }
 .toolbar, .card__actions {
-    background-color: var ( --magenta-color );
+    background-color: var(--magenta-color);
 }
 .card {
-	background-color: var ( --green-color );
+	background-color: var(--green-color);
 }
 .card__title {
-	background-color: var ( --orange-color );
-	color: var ( --orange-color );
+	background-color: var(--orange-color);
+	color: var(--orange-color);
 	mix-blend-mode: hard-light;
 }
 
 .card__actions .btn, .card__actions>* {
-    color: var ( --orange-color );
+    color: var(--orange-color);
     font-weight: 700;
 }
 .list {
     background-color: #9b03a5!important;
 }
 .input-group--select .input-group__append-icon {
-    color: var ( --orange-color );
+    color: var(--orange-color);
 }
 .customSelect {
     max-width: 90%;
@@ -282,30 +282,7 @@ input[type="checkbox"] {
   font-family: Papyrus, monospace;
 }
 .expand-elem {
-  /*position:relative;*/
-  border: inset 1px;
-  background-image: linear-gradient(#ffffffb7, #ffffff70, #ffffffaa, #ffffff80);
-  /*padding:7px 10px 20px 15px;
-  transition: height 1s, opacity 1s;
-  transform-origin:0 0;*/
-}
-
-.expand-elem-enter, .expand-elem-leave-to {
-  opacity:0;
-  height:0;
-  transform: translate(0,var(--y));
-
-}
-.expand-elem-enter-active {
-  animation: mc-dropdown 1s forwards;
-}
-.expand-elem-leave, .expand-elem-enter-to {
-  opacity: 1;
-  height: var(--y);
-  transform: translate(0,0);
-}
-.expand-elem-leave-active {
-  animation: mc-dropdown reverse 1s forwards;
+  
 }
 
 .demo-button {
