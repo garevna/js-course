@@ -1,7 +1,7 @@
 @charset "utf-8";
 :root {
 	--magenta-color: #9b03a5;
-	--cyan-color: #5df;
+	--cyan-color: #7df;
 	--orange-color: #fa0;
 	--green-color: #3b9d7090;
 	--main-color: #36465d;
@@ -78,7 +78,7 @@
     color: var(--cyan-color);
 }
 .application--wrap, .application.theme--light, .application.theme--dark {
-	/*background-color:transparent!important;*/
+	background-color:transparent!important;
 	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
 }
 .application.theme--dark {
@@ -87,7 +87,7 @@
   background-size:cover;
   background-position: center center;
 }
-.application .theme--dark.btn-toggle {
+.application.theme--dark.btn-toggle {
 	background-color: transparent!important;
 }
 .expansion-panel__header {
@@ -105,7 +105,7 @@ body {
   font-family: 'Papyrus', 'Abel', 'Comfortaa', 'Caveat'!important;
   font-size:15px;
 }
-.toolbar, .card__actions {
+.toolbar, .card__actions, .list {
     background-color: var(--magenta-color)!important;
 }
 .card {
@@ -113,16 +113,13 @@ body {
 }
 .card__title {
 	background-color: var(--orange-color)!important;
-	color: var(--magenta-color)!important;
+	color: var(--green-color)!important;
 	mix-blend-mode: hard-light;
 }
 
 .card__actions .btn, .card__actions>* {
     color: var(--orange-color)!important;
     font-weight: 700;
-}
-.list {
-    background-color: var(--magenta-color)!important;
 }
 .input-group--select .input-group__append-icon {
     color: var(--orange-color)!important;
