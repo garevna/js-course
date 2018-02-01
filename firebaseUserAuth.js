@@ -48,9 +48,9 @@ initApp = function () {
             var providerData = user.providerData
             user.getIdToken().then ( function ( accessToken ) {
                       console.log ( 'app.sendMessage: ', app.sendMessage )
-                document.getElementById('sign-in-status').textContent = 'Signed in';
-                document.getElementById('sign-in').textContent = 'Sign out';
-                document.getElementById('account-details').textContent = JSON.stringify({
+                //document.getElementById('sign-in-status').textContent = 'Signed in';
+                //document.getElementById('sign-in').textContent = 'Sign out';
+                //document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
                 emailVerified: emailVerified,
