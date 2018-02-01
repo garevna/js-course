@@ -14,7 +14,9 @@ const app = new Vue ( {
 	},
 	watch: {
 		firebaseAuthObject: function ( val ) {
-			console.log ( 'VUE instance: firebaseAuthObject changed: ', val )
+			console.log ( 'WATCH: firebaseAuthObject changed: ', val )
+			this.firebaseUser = val.currentUser
+			console.log ( 'WATCH: firebaseUser: ', this.firebaseUser )
 		}
 	},
 	computed: Vuex.mapGetters ([
