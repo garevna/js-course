@@ -53,7 +53,7 @@ const app = new Vue ( {
 					console.error ( 'accessToken ERROR ' + error )
 				}
 			)
-		}
+		})
 		this.$vuetify.theme = {
       			primary: '#36465d',
       			secondary: '#005d40',
