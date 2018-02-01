@@ -41,13 +41,13 @@ const SectionDetails = {
 
     <!--
       <v-expansion-panel focusable v-if = "sectionIsReady">
-        <v-expansion-panel-content class = "expanded-panel"
+        <v-expansion-panel-content
                 :key = "index">
-            <div class="title" slot = "header" color="white">
+            <div class="title" slot = "header">
               {{ item.head }}
             </div>
             <v-card>
-              <v-card-text class="v-section">
+              <v-card-text>
                   <current-post
                       :index = "index"
                       :postObject = "item">
