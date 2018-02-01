@@ -1,4 +1,5 @@
 const SendMessage = ( 'send-message', {
+    props: [ 'loginName' ],
     data: function () {
         return {
             topic: [],
@@ -26,7 +27,7 @@ const SendMessage = ( 'send-message', {
     <v-layout row justify-center>
       <v-dialog v-model = "dialog"
                 persistent
-                dark accent
+                dark color = "accent"
                 max-width = "500px">
         <v-btn  icon color = "primary" dark
                 slot = "activator">
@@ -40,11 +41,8 @@ const SendMessage = ( 'send-message', {
               <v-container grid-list-md>
                   <v-layout wrap>
                       <v-flex xs12 sm6 md4>
-                          <v-text-field
-                                  label = "login"
-                                  v-model = "user"
-                                  required>
-                          </v-text-field>
+                          <v-card-text v-text = "loginName">
+                          </v-card-text>
                       </v-flex>
                       <v-flex xs12 sm6 md4>
                           <v-select
