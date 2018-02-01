@@ -48,21 +48,23 @@ initApp = function () {
             var providerData = user.providerData
             user.getIdToken().then ( function ( accessToken ) {
                       console.log ( 'app.sendMessage: ', app.sendMessage )
+                      console.log ( 'accessToken: ', accessToken )
                 //document.getElementById('sign-in-status').textContent = 'Signed in';
                 //document.getElementById('sign-in').textContent = 'Sign out';
                 //document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ')
+                //displayName: displayName,
+                //email: email,
+                //emailVerified: emailVerified,
+                //phoneNumber: phoneNumber,
+                //photoURL: photoURL,
+                //uid: uid,
+                //accessToken: accessToken,
+                //providerData: providerData
+              //}, null, '  ')
             })
           } else {
             // User is signed out
+                    console.log ( 'User is signed out', accessToken )
             document.getElementById('sign-in-status').textContent = 'Signed out'
             document.getElementById('sign-in').textContent = 'Sign in'
             document.getElementById('account-details').textContent = 'null'
