@@ -8,14 +8,13 @@ const BottomSheet = ( {
   template: `
     <div class="text-xs-right pa-0 ma-0" height = "35px">
       <v-bottom-sheet v-model = "sheet"
-                      dark secondary
                       class="text-xs-right pa-0 ma-0">
           <v-btn  icon ripple
                   class = "dark accent"
                   slot = "activator">
             <v-icon>link</v-icon>
           </v-btn>
-        <v-list class="dark secondary">
+        <v-list>
           <v-subheader>Полезные ссылки</v-subheader>
           <v-list-tile  v-for="item in usefull_links"
                         :key="item.ref"
@@ -39,7 +38,6 @@ const BottomSheet = ( {
   },
   methods: {
     resolveLink: function ( ref ) {
-      console.info ( ref )
       this.sheet = false
       window.open ( ref )
     }
