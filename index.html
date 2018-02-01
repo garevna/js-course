@@ -43,7 +43,7 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <v-expansion-panel>
+                <v-expansion-panel  v-if = "firebaseAuthObject">
                   <v-expansion-panel-content hide-actions v-if = "firebaseAuthObject.currentUser">
                     <v-layout slot = "header">
                       <v-flex>
