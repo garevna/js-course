@@ -78,7 +78,7 @@
     color: var(--cyan-color);
 }
 .application--wrap, .application.theme--light, .application.theme--dark {
-	background-color:transparent!important;
+	/*background-color:transparent!important;*/
 	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
 }
 .application.theme--dark {
