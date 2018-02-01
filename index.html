@@ -54,9 +54,10 @@
                         </v-avatar>
                         <v-icon v-else>person</v-icon>
                     </v-btn>
-                    <v-dialog v-model = "dialog" max-width = "290">
+                    <v-dialog v-model = "dialog" dark color = "info" max-width = "290">
                             <v-card>
                                 <v-card-title class = "headline"
+                                              dark color = "warning"
                                               v-text = "firebaseAuthObject.currentUser.providerData.providerId">
                                 </v-card-title>
                                 <v-card-text v-text = "firebaseAuthObject.currentUser.displayName"></v-card-text>
