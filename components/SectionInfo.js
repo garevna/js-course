@@ -2,7 +2,6 @@ const SectionInfo = {
   props:[ 'id' ],
   computed: {
     sectionIsReady: function () {
-      console.info ( 'sectionIsReady: ' + this.$root.$store.getters.sectionIsReady )
       return this.$root.$store.getters.sectionIsReady
     },
     sectionInfo: function () {
@@ -18,8 +17,8 @@ const SectionInfo = {
   },
   template: `
       <v-app v-if = "sectionIsReady">
-        <bottom-sheet v-if="sectionInfo.usefull"
-              :usefull_links="sectionInfo.usefull">
+        <bottom-sheet v-if = "sectionInfo.usefull"
+              :usefull_links = "sectionInfo.usefull">
         </bottom-sheet>
         <v-container>
           <img v-if="sectionInfo.picture"
@@ -33,10 +32,10 @@ const SectionInfo = {
           <div class="section-title">
               {{ sectionInfo.title }}
           </div>
-          <p v-html="sectionInfo.comment"></p>
-          <div v-if="sectionInfo.code"
-                class="code-snippet">
-            <p v-for="item in sectionInfo.code">
+          <p v-html = "sectionInfo.comment"></p>
+          <div v-if = "sectionInfo.code"
+                class = "code-snippet">
+            <p v-for = "item in sectionInfo.code">
                 {{ item.replace(/ /g,"&nbsp;") }}
             </p>
           </div>
