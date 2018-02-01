@@ -7,9 +7,10 @@ const app = new Vue ( {
 		users: usersRef,
 		messages: messagesRef,
 		newMessage: {},
-		firebaseUser: firebase.auth().currentUser,
+		firebaseUser: null,
 		loginForm: false,
-		firebaseAuthObject: firebase.auth()
+		firebaseAuthObject: null,
+		dialog: false
 	},
 	watch: {
 		firebaseAuthObject: function ( val ) {
@@ -23,7 +24,11 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
-		this.firebaseUser = firebase.auth().currentUser
+		this.firebaseAuthObject: firebase.auth()
+		this.firebaseUser = this.firebaseAuthObject.currentUser
+		console.log ( 'START firebaseAuthObject: ', this.firebaseUser )
+		console.log ( 'START firebaseUser: ', this.firebaseUser )
+		
 		this.$http.get ( this.mainDataSource )
 			.then ( response => {
 					this.$store.commit ( 'getMainData', response.body )
@@ -34,8 +39,8 @@ const app = new Vue ( {
 			})
 	},
 	mounted: function () {
-		console.log ( 'VUE instance: firebaseAuthObject ', this.firebaseAuthObject )
-		console.log ( '*** ', this.firebaseAuthObject.currentUser )
+		console.log ( 'MOUNTED: firebaseAuthObject ', this.firebaseAuthObject )
+		console.log ( 'MOUNTED: firebaseUser ', this.firebaseUser )
 		
 		this.$vuetify.theme = {
       			primary: '#36465d',
