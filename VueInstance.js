@@ -44,8 +44,15 @@ const app = new Vue ( {
 		console.log ( 'MOUNTED: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( 'MOUNTED: firebaseUser ', this.firebaseUser )
 		firebase.auth().onAuthStateChanged ( function ( user ) {
-			console.log ( this )
-		})
+			console.log ( 'firebase.auth().onAuthStateChanged: ', this )
+			user.getIdToken().then ( 
+				accessToken => {
+					console.info ( 'accessToken: ' + accessToken )
+				},
+				error => {
+					console.error ( 'accessToken ERROR ' + error )
+				}
+			)
 		this.$vuetify.theme = {
       			primary: '#36465d',
       			secondary: '#005d40',
