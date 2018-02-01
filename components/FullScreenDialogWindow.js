@@ -8,7 +8,6 @@ const FullScreenDialogWindow = ({
     template: `
     <v-layout row justify-left>
       <v-btn  icon ripple
-              color = "accent"
               @click.native.stop = "dialog = true">
             <v-icon> description </v-icon>
       </v-btn>
@@ -17,11 +16,9 @@ const FullScreenDialogWindow = ({
                   transition="dialog-bottom-transition"
                   :overlay = false  scrollable>
           <v-card>
-            <v-toolbar style = "flex: 0 0 auto;"
-                       class = "dark primary"
-                       dark>
-              <v-btn  icon class = "dark secondary"
-                      @click.native="dialog = false">
+            <v-toolbar style = "flex: 0 0 auto;">
+              <v-btn  icon
+                      @click.native = "dialog = false">
                 <v-icon> close </v-icon>
               </v-btn>
               <v-toolbar-title>{{ __title }}</v-toolbar-title>
