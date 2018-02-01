@@ -34,16 +34,16 @@ const SendMessage = ( 'send-message', {
             <v-icon>message</v-icon>
         </v-btn>
         <v-card>
-          <v-card-title>
-            <span class="headline">Message</span>
+          <v-card-title class = "warning">
+            <span class = "headline" v-text = "loginName"></span>
           </v-card-title>
-          <v-card-text>
+          <v-card-text class = "accent">
               <v-container grid-list-md>
                   <v-layout wrap>
-                      <v-flex xs12 sm6 md4>
+                      <!--<v-flex xs12 sm6 md4>
                           <v-card-text v-text = "loginName">
                           </v-card-text>
-                      </v-flex>
+                      </v-flex>-->
                       <v-flex xs12 sm6 md4>
                           <v-select
                               v-bind:items = "topicItems"
