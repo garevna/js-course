@@ -24,7 +24,7 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
-		this.firebaseAuthObject: firebase.auth()
+		this.firebaseAuthObject = firebase.auth()
 		this.firebaseUser = this.firebaseAuthObject.currentUser
 		console.log ( 'START firebaseAuthObject: ', this.firebaseUser )
 		console.log ( 'START firebaseUser: ', this.firebaseUser )
