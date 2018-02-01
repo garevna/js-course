@@ -113,7 +113,7 @@ body {
 }
 .card__title {
 	background-color: var(--orange-color);
-	color: var(--orange-color);
+	color: var(--magenta-color);
 	mix-blend-mode: hard-light;
 }
 
