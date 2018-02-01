@@ -36,8 +36,6 @@ const app = new Vue ( {
 	mounted: function () {
 		console.log ( 'VUE instance: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( '*** ', this.firebaseAuthObject.currentUser )
-		const __listener = new FirebaseAuth.AuthStateListener ()
-		console.log ( 'VUE instance: FirebaseAuth.AuthStateListener: ', __listener )
 		
 		this.$vuetify.theme = {
       			primary: '#36465d',
