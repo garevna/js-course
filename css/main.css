@@ -89,6 +89,9 @@
   background-size:cover;
   background-position: center center;
 }
+.application .theme--dark.btn-toggle {
+	background-color: transparent!important;
+}
 .expansion-panel__header {
   font-family:Papyrus, monospace;
 }
