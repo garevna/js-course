@@ -27,17 +27,15 @@ const SendMessage = ( 'send-message', {
     <v-layout row justify-center>
       <v-dialog v-model = "dialog"
                 persistent
-                dark color = "accent"
                 max-width = "500px">
         <v-btn  icon color = "primary" dark
                 slot = "activator">
             <v-icon>message</v-icon>
         </v-btn>
         <v-card>
-          <v-card-title class = "dark warning">
-            <span class = "headline" v-text = "loginName"></span>
+          <v-card-title v-text = "loginName">
           </v-card-title>
-          <v-card-text class = "dark accent">
+          <v-card-text>
               <v-container grid-list-md>
                   <v-layout wrap>
                       <!--<v-flex xs12 sm6 md4>
@@ -75,13 +73,10 @@ const SendMessage = ( 'send-message', {
           </v-card-text>
           <v-card-actions>
               <v-spacer></v-spacer>
-                  <v-btn  color="blue darken-1"
-                          flat @click.native = "dialog = false">
+                  <v-btn flat @click.native = "dialog = false">
                       Close
                   </v-btn>
-                  <v-btn  color="blue darken-1"
-                          flat
-                          @click.native = "sendMessage">
+                  <v-btn flat @click.native = "sendMessage">
                       Send
                   </v-btn>
               </v-card-actions>
