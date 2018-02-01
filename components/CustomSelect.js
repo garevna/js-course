@@ -13,7 +13,7 @@ const CustomSelect = ( 'custom-select', {
     }
   },
   template: `
-        <v-layout row wrap class="dark warning">
+        <v-layout row wrap>
           <v-flex xs10 class="ml-3">
               <v-select class="mt-0 pt-0 pb-3"
                   :items = "states"
@@ -22,7 +22,6 @@ const CustomSelect = ( 'custom-select', {
                   auto
                   hide-details
                   append-icon = "chrome_reader_mode"
-                  class = "accent--text">
                   autocomplete = true>
               </v-select>
           </v-flex>
