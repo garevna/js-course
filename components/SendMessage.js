@@ -34,10 +34,10 @@ const SendMessage = ( 'send-message', {
             <v-icon>message</v-icon>
         </v-btn>
         <v-card>
-          <v-card-title class = "warning">
+          <v-card-title class = "dark warning">
             <span class = "headline" v-text = "loginName"></span>
           </v-card-title>
-          <v-card-text class = "accent">
+          <v-card-text class = "dark accent">
               <v-container grid-list-md>
                   <v-layout wrap>
                       <!--<v-flex xs12 sm6 md4>
@@ -100,6 +100,6 @@ const SendMessage = ( 'send-message', {
       }
     },
     mounted: function () {
-      console.log ( 'SendMessage: ', this.messagesRef )
+      console.log ( 'loginName: ', this.loginName )
     }
 })
