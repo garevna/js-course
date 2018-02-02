@@ -51,7 +51,6 @@ const NavigationPanel = ( 'nav-panel', {
     `,
     methods: {
         clickHandler: function ( event, val ) {
-          console.info ( 'NavigationPanel: ', val )
           this.$root.$store.commit( 'changeCurrentSectionId', val )
           this.$root.$store.commit( 'getCurrentSectionInfo' )
           this.$root.$store.commit( 'getCurrentSectionPosts' )
@@ -59,6 +58,6 @@ const NavigationPanel = ( 'nav-panel', {
         }
     },
     mounted: function () {
-      console.log ( 'NavigationPanel menuItems: ', this.states )
+      
     }
 })
