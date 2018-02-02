@@ -26,7 +26,7 @@ const SendMessage = ( 'send-message', {
     template: `
     <v-layout row justify-center>
       <v-dialog v-model = "dialog"
-                persistent
+                persistent dark
                 max-width = "500px">
         <v-btn  icon color = "primary" dark
                 slot = "activator">
@@ -38,10 +38,6 @@ const SendMessage = ( 'send-message', {
           <v-card-text>
               <v-container grid-list-md>
                   <v-layout wrap>
-                      <!--<v-flex xs12 sm6 md4>
-                          <v-card-text v-text = "loginName">
-                          </v-card-text>
-                      </v-flex>-->
                       <v-flex xs12 sm6 md4>
                           <v-select
                               v-bind:items = "topicItems"
