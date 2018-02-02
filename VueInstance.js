@@ -1,4 +1,3 @@
-// Vue.config.silent = true
 const app = new Vue ( {
 	store,
 	data: {
@@ -10,13 +9,21 @@ const app = new Vue ( {
 		firebaseUser: null,
 		loginForm: false,
 		firebaseAuthObject: null,
-		dialog: false
+		dialog: false,
+		alert: false,
+		alertMessage: "",
+		alertColor: "info",
+		alertIcon: "textsms"
 	},
 	watch: {
 		firebaseAuthObject: function ( val ) {
 			console.log ( 'WATCH: firebaseAuthObject changed: ', val )
+			
 			this.firebaseUser = val.currentUser
 			console.log ( 'WATCH: firebaseUser: ', this.firebaseUser )
+		},
+		alertMessage: function ( val ) {
+			this.alert = !!val
 		}
 	},
 	computed: Vuex.mapGetters ([
@@ -68,10 +75,24 @@ const app = new Vue ( {
 	},
 	methods: {
 		userLogOut: function () {
-			firebase.auth().signOut().then ( function() {
-				this.firebaseUser = null
+			var alertMessage = ""
+			var alertColor = ""
+			var alertIcon = ""
+			var res = null
+			firebase.auth().signOut().then ( function ( result ) {
+				console.log ( 'SIGN OUT: result: ', result )
+				res = "success"
+				alertMessage = "Вы успешно вышли из своего аккаунта"
+				alertColor = "info"
+				alertIcon = "warning"
 			}).catch ( function ( error ) {
-				console.error ( 'Ошибка: ', error )
+				console.error ( 'SIGN OUT: Ошибка: ', error )
+				console.log ( 'SIGN OUT: firebaseUser: ', this.firebaseUser )
+				console.log ( 'SIGN OUT: firebaseAuthObject: ', this.firebaseAuthObject )
+				res = "failure"
+				alertMessage = "Не удалось выйти из аккаунта"
+				alertColor = "error"
+				alertIcon = "error"
 			})
 		},
 		sendMessage: function () {
