@@ -30,7 +30,7 @@ const NavigationPanel = ( 'nav-panel', {
             </v-list-tile>
           </v-list>
 
-          <v-list class="pt-0" dense>
+          <v-list dark class = "warning pt-0" dense>
             <v-divider></v-divider>
             <v-list-tile v-for = "item in states"
                          :key = "item"
