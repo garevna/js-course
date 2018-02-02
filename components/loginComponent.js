@@ -24,6 +24,10 @@ const LoginComponent = ( 'login-component', {
             else return null
         },
     },
+    watch: {
+        firebaseAuthObject: val => { console.log ( 'LoginComponent watch firebaseAuthObject: ', val ) },
+        currentUser: val => { console.log ( 'LoginComponent watch currentUser: ', val ) },
+    },
     template: `
         <v-layout row justify-center v-if = "firebaseAuthObject">
              <v-btn color = "primary" 
