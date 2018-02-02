@@ -43,49 +43,9 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <v-layout row justify-center v-if = "firebaseAuthObject">
-                    <v-btn color = "primary" dark icon
-                           v-if = "firebaseAuthObject.currentUser"
-                           @click.native.stop = "dialog = true">
-                        <v-avatar size = "36px" 
-                                  v-if = "firebaseAuthObject.currentUser.photoURL">
-                            <img :src = "firebaseAuthObject.currentUser.photoURL" 
-                                 :alt = "firebaseAuthObject.currentUser.displayName">
-                        </v-avatar>
-                        <v-icon v-else>person</v-icon>
-                    </v-btn>
-                    <v-dialog v-model = "dialog" class = "dark info" max-width = "290">
-                            <v-card>
-                                <v-card-title class = "headline"
-                                              class = "dark warning"
-                                              v-text = "firebaseAuthObject.currentUser.providerData[0].providerId">
-                                </v-card-title>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.displayName"></v-card-text>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.email"></v-card-text>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.phoneNumber"></v-card-text>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.metadata.lastSignInTime"></v-card-text>
-                                
-                                <v-card-actions>
-                                    <v-spacer></v-spacer>
-                                    <v-btn  color = "info darken-1" 
-                                            flat = "flat" 
-                                            @click.native = "dialog = false">
-                                        Close
-                                    </v-btn>
-                                    <v-btn  color = "error darken-1" 
-                                            flat = "flat" 
-                                            @click.native = "dialog = false; userLogOut">
-                                        Sign out
-                                    </v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        </v-dialog>
-                </v-layout>
                 
-                <v-button v-else
-                          icon @click = "loginForm = true; initApp()">
-                        <v-icon>person_outline</v-icon>
-                </v-button>
+                <login-component></login-component>
+                
                 <v-alert :color = "alertColor" 
                          :icon = "alertIcon" 
                          dismissible 
@@ -93,9 +53,9 @@
                          v-model = "alert">
                     {{ message }}
                 </v-alert>
-                <div id="sign-in-status" style="display:none"></div>
+                <!-- <div id="sign-in-status" style="display:none"></div>
                 <div id="sign-in" style="display:none"></div>
-                <div id="account-details" style="display:none"></div>
+                <div id="account-details" style="display:none"></div> -->
                 <send-message v-if = "firebaseUser"
                               :loginName = "firebaseUser.displayName">
                 </send-message>
@@ -105,7 +65,7 @@
             </v-toolbar>
           </v-card>
           <!-- container for Firebase login form -->
-          <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
+          <!-- <div id = "firebaseui-auth-container" v-show = "loginForm"></div> -->
           <app-footer></app-footer>
         <v-app>
         <router-view class = "inner-content"></router-view>
