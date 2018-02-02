@@ -47,12 +47,12 @@ const MainSection = {
     'toggle-buttons': ToggleButtons
   },
   template: `
-    <div class = "inner-content">
+    <div>
       <div class = "main-content-header" v-if = "id">
         <span>&nbsp;{{ id }}</span>
       </div>
 
-      <router-view class="section-info"></router-view>
+      <router-view></router-view>
     </div>
   `
 }
