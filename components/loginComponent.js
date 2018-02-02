@@ -7,9 +7,12 @@ const LoginComponent = ( 'login-component', {
     },
     computed: {
         firebaseAuthObject: function () {
+            console.log ( 'LoginComponent: firebaseAuthObject', this.$root.firebaseAuthObject )
             return this.$root.firebaseAuthObject
         },
         currentUser: function () {
+            console.log ( 'LoginComponent: *firebaseAuthObject', this.firebaseAuthObject )
+            console.log ( 'LoginComponent: currentUser', this.firebaseAuthObject.currentUser )
             if ( this.$root.firebaseAuthObject )
                 return this.$root.firebaseAuthObject.currentUser
             else return null
