@@ -103,12 +103,16 @@ body {
   font-family: 'Papyrus', 'Abel', 'Comfortaa', 'Caveat'!important;
   font-size:15px;
 }
+.application .theme--dark.toolbar, 
+.application .theme--dark.card__actions, 
+.application .theme--dark.list,
 .toolbar, .card__actions, .list {
-    background-color: var(--magenta-color)!important;
+	background-color: var(--magenta-color)!important;
 }
-.card {
+.application .theme--dark.card, .theme--dark .card, .card {
 	background-color: var(--green-color)!important;
 }
+.application .theme--dark.card__title, .application .theme--dark .card__title,
 .card__title {
 	background-color: var(--orange-color)!important;
 	color: var(--green-color)!important;
