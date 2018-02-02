@@ -16,7 +16,7 @@ const SectionInfo = {
     'bottom-sheet': BottomSheet
   },
   template: `
-      <v-app v-if = "sectionIsReady">
+      <v-app dark v-if = "sectionIsReady">
         <bottom-sheet v-if = "sectionInfo.usefull"
               :usefull_links = "sectionInfo.usefull">
         </bottom-sheet>
