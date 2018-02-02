@@ -77,13 +77,13 @@
 .var_names {
     color: var(--cyan-color);
 }
-.application--wrap, .application.theme--dark {
+.application--wrap, .application.theme--dark, .application.theme--light {
 	background-color:transparent!important;
 }
 .application--wrap, .application.theme--light, .application.theme--dark {
 	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
 }
-.application.theme--dark {
+.application.theme--dark, .application.theme--light {
   background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE)!important;
   background-repeat:no-repeat;
   background-size:cover;
