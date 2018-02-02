@@ -70,5 +70,8 @@ const LoginComponent = ( 'login-component', {
     `,
     methods: {
         
+    },
+    mounted: function () {
+        console.info ( 'Login component has been mounted' )
     }
 })
