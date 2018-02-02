@@ -86,7 +86,13 @@
                           icon @click = "loginForm = true; initApp()">
                         <v-icon>person_outline</v-icon>
                 </v-button>
-                
+                <v-alert :color = "alertColor" 
+                         :icon = "alertIcon" 
+                         dismissible 
+                         :message = "alertMessage"
+                         v-model = "alert">
+                    {{ message }}
+                </v-alert>
                 <div id="sign-in-status" style="display:none"></div>
                 <div id="sign-in" style="display:none"></div>
                 <div id="account-details" style="display:none"></div>
