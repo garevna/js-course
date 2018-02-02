@@ -12,7 +12,9 @@ const FullScreenDialogWindow = ({
             <v-icon> description </v-icon>
       </v-btn>
 
-      <v-dialog   v-model = "dialog"  fullscreen
+      <v-dialog   dark
+                  v-model = "dialog"
+                  fullscreen
                   transition="dialog-bottom-transition"
                   :overlay = false  scrollable>
           <v-card>
