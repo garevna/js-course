@@ -13,7 +13,19 @@ const app = new Vue ( {
 		alert: false,
 		alertMessage: "",
 		alertColor: "info",
-		alertIcon: "textsms"
+		alertIcon: "textsms",
+		authUI: null,
+		uiConfig: {
+			signInSuccessUrl: '/vue-course.github.io/#/',
+			signInOptions: [
+				firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+				firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+				firebase.auth.GithubAuthProvider.PROVIDER_ID,
+				firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        		],
+        		// Terms of service url
+        		tosUrl: '/vue-course.github.io/'
+		}
 	},
 	watch: {
 		firebaseAuthObject: function ( val ) {
@@ -33,10 +45,11 @@ const app = new Vue ( {
 			'sectionMenu',
 	]),
 	created: function () {
+		this.authUI = new firebaseui.auth.AuthUI( firebase.auth() )
 		this.firebaseAuthObject = firebase.auth()
 		this.firebaseUser = this.firebaseAuthObject.currentUser
-		console.log ( 'START firebaseAuthObject: ', this.firebaseUser )
-		console.log ( 'START firebaseUser: ', this.firebaseUser )
+		console.log ( 'CREATED: firebaseAuthObject: ', this.firebaseUser )
+		console.log ( 'CREATED: firebaseUser: ', this.firebaseUser )
 		
 		this.$http.get ( this.mainDataSource )
 			.then ( response => {
@@ -48,8 +61,10 @@ const app = new Vue ( {
 			})
 	},
 	mounted: function () {
+		this.authUI.start( '#firebaseui-auth-container', uiConfig )
 		console.log ( 'MOUNTED: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( 'MOUNTED: firebaseUser ', this.firebaseUser )
+		
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			console.log ( 'firebase.auth().onAuthStateChanged: ', this )
 			user.getIdToken().then ( 
