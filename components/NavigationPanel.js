@@ -13,7 +13,7 @@ const NavigationPanel = ( 'nav-panel', {
         </v-btn>
         <v-navigation-drawer  temporary
                               v-model = "drawer"
-                              light
+                              dark
                               clipped = true
                               height = "80%"
                               fixed>
