@@ -77,8 +77,10 @@
 .var_names {
     color: var(--cyan-color);
 }
-.application--wrap, .application.theme--light, .application.theme--dark {
+.application--wrap {
 	background-color:transparent!important;
+}
+.application--wrap, .application.theme--light, .application.theme--dark {
 	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
 }
 .application.theme--dark {
