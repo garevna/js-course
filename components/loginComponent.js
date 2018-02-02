@@ -36,24 +36,22 @@ const LoginComponent = ( 'login-component', {
                     </v-btn>
                     
                     <v-dialog v-model = "dialog" max-width = "290">
-                            <v-card>
+                            <v-card v-if = "currentUser">
                                 <v-card-title class = "headline"
-                                              v-text = "currentUser.providerData[0].providerId">
+                                              v-text = "currentProvider">
                                 </v-card-title>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.displayName"></v-card-text>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.email"></v-card-text>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.phoneNumber"></v-card-text>
-                                <v-card-text v-text = "firebaseAuthObject.currentUser.metadata.lastSignInTime"></v-card-text>
+                                <v-card-text v-text = "currentUser.displayName"></v-card-text>
+                                <v-card-text v-text = "currentUser.email"></v-card-text>
+                                <v-card-text v-text = "currentUser.phoneNumber"></v-card-text>
+                                <v-card-text v-text = "currentUser.metadata.lastSignInTime"></v-card-text>
                                 
                                 <v-card-actions>
                                     <v-spacer></v-spacer>
-                                    <v-btn  color = "info darken-1" 
-                                            flat = "flat" 
+                                    <v-btn  flat = "flat" 
                                             @click.native = "dialog = false">
                                         Close
                                     </v-btn>
-                                    <v-btn  color = "error darken-1" 
-                                            flat = "flat" 
+                                    <v-btn  flat = "flat"
                                             @click.native = "dialog = false; userLogOut">
                                         Sign out
                                     </v-btn>
@@ -70,5 +68,7 @@ const LoginComponent = ( 'login-component', {
                 </v-btn>
                 <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
     `,
-    
+    methods: {
+        
+    }
 })
