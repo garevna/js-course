@@ -61,7 +61,7 @@ const app = new Vue ( {
 			})
 	},
 	mounted: function () {
-		this.authUI.start( '#firebaseui-auth-container', uiConfig )
+		this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
 		console.log ( 'MOUNTED: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( 'MOUNTED: firebaseUser ', this.firebaseUser )
 		
