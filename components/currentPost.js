@@ -29,7 +29,7 @@ const currentPost = ( 'current-post', {
     <v-section dark v-if = "postObject">
       <v-toolbar prominent height = "48px">
 
-        <full-screen-dialog-window
+        <full-screen-dialog-window v-if = "readmeContent"
                   :__title = "postObject.head"
                   :__text = "readmeContent">
         </full-screen-dialog-window>
