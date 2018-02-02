@@ -61,6 +61,7 @@ const app = new Vue ( {
 			})
 	},
 	mounted: function () {
+		console.log ( 'LoginComponent: ', LoginComponent )
 		console.log ( 'WIDGET CONTAINER: ', document.getElementById ( 'firebaseui-auth-container' ) )
 		this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
 		console.log ( 'MOUNTED: firebaseAuthObject ', this.firebaseAuthObject )
