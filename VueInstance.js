@@ -128,6 +128,7 @@ const app = new Vue ( {
 		'dropdown-menu': CustomSelect,
 		MainSection,
 		SendMessage,
+		'login-component': LoginComponent,
 		'nav-panel': NavigationPanel,
 		'toggle-buttons': ToggleButtons,
 		'app-footer': appFooter
