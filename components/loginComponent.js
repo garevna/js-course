@@ -23,29 +23,29 @@ const LoginComponent = ( 'login-component', {
     },
     template: `
         <v-layout row justify-center v-if = "firebaseAuthObject">
-                    <v-btn color = "primary" 
+             <v-btn color = "primary" 
                            dark icon
                            v-if = "currentUser"
                            @click.native.stop = "dialog = true">
-                        <v-avatar size = "36px" 
+                    <v-avatar size = "36px" 
                                   v-if = "currentUser.photoURL">
                             <img :src = "currentUser.photoURL" 
                                  :alt = "currentUser.displayName">
-                        </v-avatar>
-                        <v-icon v-else>person</v-icon>
-                    </v-btn>
+                    </v-avatar>
+                    <v-icon v-else>person</v-icon>
+             </v-btn>
                     
-                    <v-dialog v-model = "dialog" max-width = "290">
-                            <v-card v-if = "currentUser">
-                                <v-card-title class = "headline"
+             <v-dialog v-model = "dialog" max-width = "290">
+                    <v-card v-if = "currentUser">
+                          <v-card-title class = "headline"
                                               v-text = "currentProvider">
-                                </v-card-title>
-                                <v-card-text v-text = "currentUser.displayName"></v-card-text>
-                                <v-card-text v-text = "currentUser.email"></v-card-text>
-                                <v-card-text v-text = "currentUser.phoneNumber"></v-card-text>
-                                <v-card-text v-text = "currentUser.metadata.lastSignInTime"></v-card-text>
+                          </v-card-title>
+                          <v-card-text v-text = "currentUser.displayName"></v-card-text>
+                          <v-card-text v-text = "currentUser.email"></v-card-text>
+                          <v-card-text v-text = "currentUser.phoneNumber"></v-card-text>
+                          <v-card-text v-text = "currentUser.metadata.lastSignInTime"></v-card-text>
                                 
-                                <v-card-actions>
+                          <v-card-actions>
                                     <v-spacer></v-spacer>
                                     <v-btn  flat = "flat" 
                                             @click.native = "dialog = false">
@@ -55,18 +55,18 @@ const LoginComponent = ( 'login-component', {
                                             @click.native = "dialog = false; userLogOut">
                                         Sign out
                                     </v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        </v-dialog>
-                </v-layout>
+                          </v-card-actions>
+                    </v-card>
+             </v-dialog>
+        </v-layout>
                 
-                <v-btn color = "primary" 
+        <v-btn color = "primary" 
                            dark icon
                            v-if = "!currentUser"
                            @click.native.stop = "loginForm = true">
-                        <v-icon v-else>perm_identity</v-icon>
-                </v-btn>
-                <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
+               <v-icon v-else>perm_identity</v-icon>
+        </v-btn>
+        <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
     `,
     methods: {
         
