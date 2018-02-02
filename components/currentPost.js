@@ -26,8 +26,7 @@ const currentPost = ( 'current-post', {
     }
   },
   template: `
-  <v-app>
-    <v-section v-if = "postObject">
+    <v-section dark v-if = "postObject">
       <v-toolbar prominent height = "48px">
 
         <full-screen-dialog-window
@@ -64,7 +63,7 @@ const currentPost = ( 'current-post', {
           </v-card-actions>
         </v-card>
     </v-section>
-  </v-app>`,
+  `,
   methods: {
     openRef: ref => window.open ( ref, "_blank" )
   },
