@@ -36,14 +36,12 @@ const MainSection = {
     }
   },
   mounted: function () {
-    console.log ( 'MainSection: ', this.id )
     this.$root.$store.commit ( 'changeCurrentSectionId', this.id )
     this.$on ( 'menuSelect', function ( val ) {
       this.$router.push ( { name: val, props: true } )
     } )
   },
   components: {
-    //'dropdown-menu': BaseDropdownMenu,
     'toggle-buttons': ToggleButtons
   },
   template: `
@@ -52,7 +50,7 @@ const MainSection = {
         <span>&nbsp;{{ id }}</span>
       </div>
 
-      <router-view></router-view>
+      <router-view id = "main-router-view"></router-view>
     </div>
   `
 }
