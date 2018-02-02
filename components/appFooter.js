@@ -2,7 +2,6 @@ const appFooter = ( 'app-footer', {
     template: `
     <footer class = "text-xs-right">
       <div>
-        <v-app>
           <div class="text-xs-right">
             <v-tooltip bottom nudge-top="-80">
               <span slot="activator">
@@ -13,7 +12,6 @@ const appFooter = ( 'app-footer', {
               </span>
             </v-tooltip>
           </div>
-        </v-app>
       </div>
     </footer>`
 })
