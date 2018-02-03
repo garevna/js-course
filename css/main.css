@@ -81,7 +81,7 @@
 	background-color:transparent!important;
 	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
 }
-.application.theme--dark, .application.theme--light {
+.application.theme--dark {
   background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE)!important;
   background-repeat:no-repeat;
   background-size:cover;
@@ -103,7 +103,7 @@ body {
   font-family: 'Papyrus', 'Abel', 'Comfortaa', 'Caveat'!important;
   font-size:15px;
 }
-.application .theme--dark.toolbar, 
+/*.application .theme--dark.toolbar, 
 .application .theme--dark.card__actions, 
 .application .theme--dark.list,
 .toolbar, .card__actions, .list {
@@ -151,9 +151,9 @@ body {
 .dialog--active {
 	background-color: var(--orange-color)!important;
 }*/
-.application .theme--dark.dialog--fullscreen>.card {
+/*.application .theme--dark.dialog--fullscreen>.card {
 	background-color:#ff0!important;
-}
+}*/
 /*.router-view {
 
 }*/
