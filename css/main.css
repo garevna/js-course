@@ -150,9 +150,11 @@ body {
 }
 .dialog--active {
 	background-color: var(--orange-color)!important;
+}*/
+.application .theme--dark.dialog--fullscreen>.card {
+	background-color:#ff0!important;
 }
-
-.router-view {
+/*.router-view {
 
 }*/
 
