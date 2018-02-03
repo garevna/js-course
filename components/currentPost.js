@@ -71,6 +71,7 @@ const currentPost = ( 'current-post', {
     if ( !this.postObject.readme ) return
     this.$root.$http.get ( this.postObject.readme ).then ( response => {
             this.readmeContent = response.body
+        console.log ( 'README: ', this.readmeContent )
     })
     if ( !this.postObject.textURL ) return
     this.$root.$http.get ( this.postObject.textURL ).then ( response => {
