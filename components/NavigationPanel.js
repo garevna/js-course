@@ -13,9 +13,7 @@ const NavigationPanel = ( 'nav-panel', {
         </v-btn>
         <v-navigation-drawer  temporary
                               v-model = "drawer"
-                              dark
                               clipped = true
-                              height = "80%"
                               fixed>
           <v-list class="pa-1">
             <v-list-tile>
@@ -30,11 +28,10 @@ const NavigationPanel = ( 'nav-panel', {
             </v-list-tile>
           </v-list>
 
-          <v-list dark class = "warning pt-0" dense>
+          <v-list class = "warning pt-0" dense>
             <v-divider></v-divider>
             <v-list-tile v-for = "item in states"
                          :key = "item"
-                         class = "white"
                          @click = "clickHandler ( event, item )">
                   <v-list-tile-action>
                         <v-icon>assignment</v-icon>
