@@ -12,13 +12,13 @@ const FullScreenDialogWindow = ({
             <v-icon> description </v-icon>
       </v-btn>
 
-      <v-dialog   dark
-                  v-model = "dialog"
+      <v-dialog   v-model = "dialog"
                   fullscreen
-                  transition="dialog-bottom-transition"
-                  :overlay = false  scrollable>
+                  transition = "dialog-bottom-transition"
+                  :overlay = false
+                  scrollable>
           <v-card>
-            <v-toolbar style = "flex: 0 0 auto;">
+            <v-toolbar style = "flex: 0 0 auto;" dark class = "accent">
               <v-btn  icon
                       @click.native = "dialog = false">
                 <v-icon> close </v-icon>
