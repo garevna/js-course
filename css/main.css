@@ -103,7 +103,7 @@ body {
   font-family: 'Papyrus', 'Abel', 'Comfortaa', 'Caveat'!important;
   font-size:15px;
 }
-/*.application .theme--dark.toolbar, 
+.application .theme--dark.toolbar, 
 .application .theme--dark.card__actions, 
 .application .theme--dark.list,
 .toolbar, .card__actions, .list {
@@ -134,7 +134,7 @@ body {
 .application .theme--dark.navigation-drawer, .theme--dark .navigation-drawer {
     background-color: var(--green-color);
 }
-/*.application .theme--dark.navigation-drawer .list, 
+.application .theme--dark.navigation-drawer .list, 
 .application .theme--dark.navigation-drawer a:not(.list__tile--active), 
 .theme--dark .navigation-drawer .list, 
 .theme--dark .navigation-drawer a:not(.list__tile--active) {
@@ -143,14 +143,13 @@ body {
 }
 .list__tile--active {
 	background-color: var(--orange-color);
-}*/
-
-/*.dialog__content__active {
+}
+.dialog__content__active {
 	background-color: var(--green-color)!important;
 }
 .dialog--active {
 	background-color: var(--orange-color)!important;
-}*/
+}
 /*.application .theme--dark.dialog--fullscreen>.card {
 	background-color:#ff0!important;
 }*/
