@@ -26,23 +26,23 @@ const LoginComponent = ( 'login-component', {
         currentUser: val => { console.log ( 'LoginComponent watch currentUser: ', val ) },
     },
     template: `
-        <v-layout row justify-center v-if = "firebaseAuthObject">
-             <v-btn color = "primary" 
-                           dark icon
-                           v-if = "currentUser"
-                           @click.native.stop = "dialog = true">
+        <v-layout row justify-center v-if = "firebaseAuthObject">  
+             <v-dialog v-model = "dialog" max-width = "290">
+                <v-btn color = "primary" 
+                       dark icon
+                       v-if = "currentUser"
+                       slot = "activator"
+                       @click.native.stop = "dialog = true">
                     <v-avatar size = "36px" 
-                                  v-if = "currentUser.photoURL">
-                            <img :src = "currentUser.photoURL" 
-                                 :alt = "currentUser.displayName">
+                              v-if = "currentUser.photoURL">
+                         <img :src = "currentUser.photoURL" 
+                              :alt = "currentUser.displayName">
                     </v-avatar>
                     <v-icon v-else>person</v-icon>
-             </v-btn>
-                    
-             <v-dialog v-model = "dialog" max-width = "290">
+                </v-btn>
                     <v-card v-if = "currentUser">
                           <v-card-title class = "headline"
-                                              v-text = "currentProvider">
+                                        v-text = "currentProvider">
                           </v-card-title>
                           <v-card-text v-text = "currentUser.displayName"></v-card-text>
                           <v-card-text v-text = "currentUser.email"></v-card-text>
@@ -64,8 +64,7 @@ const LoginComponent = ( 'login-component', {
              </v-dialog>
         </v-layout>
                 
-        <v-btn color = "primary" 
-                           dark icon
+        <v-btn color = "primary" dark icon
                            v-if = "!currentUser"
                            @click.native.stop = "loginForm = true">
                <v-icon v-else>perm_identity</v-icon>
