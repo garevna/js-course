@@ -48,8 +48,9 @@ const app = new Vue ( {
 		this.authUI = new firebaseui.auth.AuthUI( firebase.auth() )
 		this.firebaseAuthObject = firebase.auth()
 		this.firebaseUser = this.firebaseAuthObject.currentUser
-		console.log ( 'CREATED: firebaseAuthObject: ', this.firebaseUser )
-		console.log ( 'CREATED: firebaseUser: ', this.firebaseUser )
+		console.log ( 'CREATED: firebaseAuthObject: ', this.firebaseAuthObject )
+		if ( !this.firebaseUser ) console.info ( 'CREATED: unknown user' )
+		else console.log ( 'CREATED: firebaseUser: ', this.firebaseUser )
 		
 		this.$http.get ( this.mainDataSource )
 			.then ( response => {
@@ -61,8 +62,8 @@ const app = new Vue ( {
 			})
 	},
 	mounted: function () {
-		console.log ( 'LoginComponent: ', LoginComponent )
-		console.log ( 'WIDGET CONTAINER: ', document.getElementById ( 'firebaseui-auth-container' ) )
+		console.log ( 'MOUNTED: LoginComponent: ', LoginComponent )
+		console.log ( 'MOUNTED: WIDGET CONTAINER: ', document.getElementById ( 'firebaseui-auth-container' ) )
 		this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
 		console.log ( 'MOUNTED: firebaseAuthObject ', this.firebaseAuthObject )
 		console.log ( 'MOUNTED: firebaseUser ', this.firebaseUser )
