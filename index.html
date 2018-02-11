@@ -36,8 +36,7 @@
   </head>
 
   <body>
-    <main class = "main-content" id = "VueCourseware">
-        <v-app dark >
+    <v-app dark class = "main-content" id = "VueCourseware">
           <v-card flat height = "40px" depressed>
             <v-toolbar flat class="primary">
                 <nav-panel :states = "mainMenuItems">
@@ -53,9 +52,6 @@
                          v-model = "alert">
                     {{ alertMessage }}
                 </v-alert>
-                <!-- <div id="sign-in-status" style="display:none"></div>
-                <div id="sign-in" style="display:none"></div>
-                <div id="account-details" style="display:none"></div> -->
                 <send-message v-if = "firebaseUser"
                               :loginName = "firebaseUser.displayName">
                 </send-message>
@@ -68,8 +64,7 @@
           <!-- <div id = "firebaseui-auth-container" v-show = "loginForm"></div> -->
           <router-view></router-view>
           <app-footer></app-footer>
-        </v-app>
-    </main>
+    </v-app>
           
     <script src="components/loginComponent.js"></script>
     <script src="components/SendMessage.js"></script>
