@@ -80,5 +80,7 @@ const LoginComponent = ( 'login-component', {
     },
     mounted: function () {
         console.info ( 'Login component has been mounted' )
+        console.info ( 'Login component: loginForm ' +  this.loginForm )
+        console.log ( 'Login component: firebaseui-auth-container ', document.getElementById ( "firebaseui-auth-container" ) )
     }
 })
