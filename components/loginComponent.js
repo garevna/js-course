@@ -145,6 +145,7 @@ const LoginComponent = ( 'login-component', {
     },
     mounted: function () {
         console.info ( 'Login component has been mounted' )
+	this.loginForm = true
         this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
         console.log ( 'LoginComponent this.authUI: ', this.authUI )
     }
