@@ -1,8 +1,25 @@
 const LoginComponent = ( 'login-component', {
     data: function () {
         return {
+            authUI: null,
+            firebaseAuthObject: null,
             dialog: false,
-            loginForm: false
+            loginForm: false,
+		    alert: false,
+		    alertMessage: "",
+		    alertColor: "info",
+		    alertIcon: "textsms",
+            uiConfig: {
+			    signInSuccessUrl: '/vue-course.github.io/#/',
+			    signInOptions: [
+				    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+				    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+				    firebase.auth.GithubAuthProvider.PROVIDER_ID,
+				    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        		],
+        		// Terms of service url
+        		tosUrl: '/vue-course.github.io/'
+		    }
         }
     },
     computed: {
@@ -40,7 +57,7 @@ const LoginComponent = ( 'login-component', {
                     </v-avatar>
                     <v-icon v-else>person</v-icon>
                 </v-btn>
-                    <v-card v-if = "currentUser">
+                <v-card v-if = "currentUser">
                           <v-card-title class = "headline"
                                         v-text = "currentProvider">
                           </v-card-title>
@@ -60,7 +77,7 @@ const LoginComponent = ( 'login-component', {
                                         Sign out
                                     </v-btn>
                           </v-card-actions>
-                    </v-card>
+                </v-card>
              </v-dialog>
         </v-layout>
                 
@@ -72,11 +89,55 @@ const LoginComponent = ( 'login-component', {
         <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
     `,
     methods: {
-        
+        userLogIn: function () {
+            this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
+        },
+        userLogOut: function () {
+			var alertMessage = ""
+			var alertColor = ""
+			var alertIcon = ""
+			var res = null
+			firebase.auth().signOut().then ( function ( result ) {
+				console.log ( 'SIGN OUT: result: ', result )
+				res = "success"
+				alertMessage = "Вы успешно вышли из своего аккаунта"
+				alertColor = "info"
+				alertIcon = "warning"
+			}).catch ( function ( error ) {
+				console.error ( 'SIGN OUT: Ошибка: ', error )
+				console.log ( 'SIGN OUT: firebaseUser: ', this.firebaseUser )
+				console.log ( 'SIGN OUT: firebaseAuthObject: ', this.firebaseAuthObject )
+				res = "failure"
+				alertMessage = "Не удалось выйти из аккаунта"
+				alertColor = "error"
+				alertIcon = "error"
+			})
+		},
+    },
+    created: function () {
+        console.info ( 'Login component has been created' )
+        this.authUI = new firebaseui.auth.AuthUI( firebase.auth() )
+        this.firebaseAuthObject = firebase.auth()
+        firebase.auth().onAuthStateChanged ( function ( user ) {
+			console.log ( 'firebase.auth().onAuthStateChanged' )
+            if ( user ) {
+			    user.getIdToken().then ( 
+				    accessToken => {
+                        console.log ( 'USER: ', user)
+					    this.$root.$store.commit ( 'user-login-success', user )
+				    },
+				    error => {
+					    console.error ( 'accessToken ERROR ' + error )
+                        this.$root.$store.commit ( 'user-login-error', user )
+				    }
+                )
+            }
+            else this.$root.$store.commit ( 'user-log-out' )
+		})
     },
     mounted: function () {
         console.info ( 'Login component has been mounted' )
-        console.info ( 'Login component: loginForm ' +  this.loginForm )
-        console.log ( 'Login component: firebaseui-auth-container ', document.getElementById ( "firebaseui-auth-container" ) )
+        this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
+        console.log ( 'LoginComponent this.authUI: ', this.authUI )
     }
 })
