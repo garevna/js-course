@@ -33,7 +33,7 @@
 			},
 			{
 				"ref":"https://johnpapa.net/vue-typescript/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-				"ico":"",
+				"ico":"link",
 				"comment":"Vue.js with TypeScript"
 			},
 			{
@@ -127,7 +127,7 @@
 			},
 			{
 				"ref":"http://marcelpociot.de/blog/2017-12-08-using-custom-vuejs-elements?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-				"ico":"",
+				"ico":"link",
 				"comment":"Create custom, distributable web components with VueJS"
 			}
 		]
