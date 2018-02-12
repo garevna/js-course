@@ -1,81 +1,92 @@
+.alligator, .css-tricks, .codesandbox,
+.dev-tools, .firebase, .json-editor,
+.json-placeholder, .habr, .github,
+.laravel, .link, .mdn, .medium,
+.medium-1, .scotch-io, .snipcart, .ssu,
+.stdlib, .tuhub, .vue, .vue-developers,
+.vuetify, .vegibit, .unetway, .xteam {
+  width: 30px;
+  height: 30px;
+  background-size:contain;
+}
+
 .alligator {
-  background-image: url(../images/alligator.svg)
+  background-image: url(../images/alligator.svg);
 }
 .css-tricks {
-  background-image: url(../images/css-tricks.png)
+  background-image: url(../images/css-tricks.png);
 }
 .codesandbox {
-  background-image: url(../images/codesandbox.png)
+  background-image: url(../images/codesandbox.png);
 }
 .dev-tools {
-  background-image: url(../images/dev-tools.png)
+  background-image: url(../images/dev-tools.png);
 }
 .firebase {
-  background-image: url(../images/firebase.png)
+  background-image: url(../images/firebase.png);
 }
 .json-editor {
-  background-image: url(../images/json-editor-online.png)
+  background-image: url(../images/json-editor-online.png);
 }
 .json-placeholder {
-  background-image: url(../images/json-placeholder.png)
+  background-image: url(../images/json-placeholder.png);
 }
 .habr {
-  background-image: url(../images/habr.png)
+  background-image: url(../images/habr.png);
 }
 .github {
-  background-image: url(../images/github.png)
+  background-image: url(../images/github.png);
 }
 .laravel {
-  background-image: url(../images/laravel.png)
+  background-image: url(../images/laravel.png);
 }
 .link {
-  background-image: url(../images/link.ico)
+  background-image: url(../images/link.ico);
 }
 .mdn {
-  background-image: url(../images/mdn-web-docs.jpg)
+  background-image: url(../images/mdn-web-docs.jpg);
 }
 .medium {
-  background-image: url(../images/medium.png)
+  background-image: url(../images/medium.png);
 }
 .medium-1 {
-  background-image: url(../images/medium-1.png)
+  background-image: url(../images/medium-1.png);
 }
 .scotch-io {
-  background-image: url(../images/scotch_io.png)
+  background-image: url(../images/scotch_io.png);
 }
 .snipcart {
-  background-image: url(../images/snipcart.png)
+  background-image: url(../images/snipcart.png);
 }
 .ssu {
-  background-image: url(../images/ssu.svg)
+  background-image: url(../images/ssu.svg);
 }
 .stdlib {
-  background-image: url(../images/stdlib.png)
+  background-image: url(../images/stdlib.png);
 }
 .tuhub {
-  background-image: url(../images/tuhub.svg)
+  background-image: url(../images/tuhub.svg);
 }
 .vue-developers {
-  background-image: url(../images/vue-js-developers.png)
+  background-image: url(../images/vue-js-developers.png);
 }
 .vuetify {
-  background-image: url(../images/vuetify.png)
+  background-image: url(../images/vuetify.png);
 }
 .vue {
-  background-image: url(../images/vue.svg)
+  background-image: url(../images/vue.svg);
 }
 .vegibit {
-  background-image: url(../images/vegibit.png)
+  background-image: url(../images/vegibit.png);
 }
 .web-juice {
-  background-image: url(../images/web-juice.png)
+  background-image: url(../images/web-juice.png);
   width:80px;
+  height:30px;
 }
 .unetway {
-  background-image: url(../images/unetway.png)
-  width:80px;
+  background-image: url(../images/unetway.png);
 }
 .xteam {
-  background-image: url(../images/xteam.png)
-  width:80px;
+  background-image: url(../images/xteam.png);
 }
