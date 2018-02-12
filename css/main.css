@@ -108,19 +108,18 @@ ul {
     color: #ff8!important;
 }
 .navigation-drawer {
-    background-color: #9b03a5;
-    color: #fa0;
+	background-color: #9b03a5;
+	color: #fa0;
 }
 .card__text {
-    min-height: fit-content;
+	min-height: fit-content;
 }
 .card__actions {
-    background-color: #9b03a5;
+	background-color: #9b03a5;
 }
-/*.application a {
-    color: #fa0!important;
-    font-style:italic;
-}*/
+.firebaseui-idp-list {
+	background-color: transparent!important;
+}
 .bottom-of-the-window {
   position: fixed;
   bottom:0;
