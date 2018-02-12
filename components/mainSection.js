@@ -10,7 +10,8 @@ const MainSection = {
         }
       ],
       sectionInfoIsVisible: false,
-      sectionPostsAreVisible: false
+      sectionPostsAreVisible: false,
+      scrollPosition: 0
     }
   },
   computed: {
@@ -33,6 +34,11 @@ const MainSection = {
   methods: {
     selectedSection: val => {
       this.$router.push ( { name: val, props: true } )
+    },
+    handleScroll: function ( event ) {
+        var currentScrollPosition = event.srcElement.scrollTop
+        this.scrollPosition = currentScrollPosition
+        this.$root.$emit ( 'scroll-event', currentScrollPosition )
     }
   },
   mounted: function () {
@@ -42,15 +48,16 @@ const MainSection = {
     } )
   },
   components: {
+    //'dropdown-menu': BaseDropdownMenu,
     'toggle-buttons': ToggleButtons
   },
   template: `
-    <div>
+    <div class = "inner-content" @scroll = "handleScroll" style = "overflow-y: scroll;">
       <div class = "main-content-header" v-if = "id">
         <span>&nbsp;{{ id }}</span>
       </div>
 
-      <router-view id = "main-router-view"></router-view>
+      <router-view class="section-info"></router-view>
     </div>
   `
 }
