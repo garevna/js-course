@@ -25,32 +25,33 @@ const app = new Vue ( {
 			sectionMenu: function () { return this.$store.getters.sectionMenu }
 	},
 	created: function () {
-			const config = {
+		this.$http.get ( this.mainDataSource )
+				.then ( response => {
+					console.log ( response.body )
+					this.$store.commit ( 'getMainData', response.body )
+		})
+		this.$http.get ( this.postDataSource )
+				.then ( response => {
+					console.log ( response.body )
+					this.$store.commit ( 'getPostData', response.body )
+		})
+		const config = {
 					apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
 					authDomain: "vue-course-b1571.firebaseapp.com",
 					databaseURL: "https://vue-course-b1571.firebaseio.com",
 					projectId: "vue-course-b1571",
 					storageBucket: "vue-course-b1571.appspot.com",
 					messagingSenderId: "329391650263"
-			}
-			const firebaseApp = firebase.initializeApp ( config )
-			const firebaseDB = firebaseApp.database()
-			this.usersDBref = firebaseDB.ref ( 'users' )
-			this.messagesDBref = firebaseDB.ref ( 'message' )
+		}
+		const firebaseApp = firebase.initializeApp ( config )
+		const firebaseDB = firebaseApp.database()
+		this.usersDBref = firebaseDB.ref ( 'users' )
+		this.messagesDBref = firebaseDB.ref ( 'message' )
 
-			console.log ( 'firebaseApp usersRef: ', this.usersDBref )
-			console.log ( 'firebaseApp messagesRef: ', this.messagesDBref )
+		console.log ( 'firebaseApp usersRef: ', this.usersDBref )
+		console.log ( 'firebaseApp messagesRef: ', this.messagesDBref )
 
-			this.$http.get ( this.mainDataSource )
-				.then ( response => {
-					console.log ( response.body )
-					this.$store.commit ( 'getMainData', response.body )
-			})
-			this.$http.get ( this.postDataSource )
-				.then ( response => {
-					console.log ( response.body )
-					this.$store.commit ( 'getPostData', response.body )
-			})
+			
 	},
 	mounted: function () {
 		this.$store.commit ( 'changeMessagesData', new Date() )
