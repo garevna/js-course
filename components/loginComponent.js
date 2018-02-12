@@ -118,24 +118,28 @@ const LoginComponent = ( 'login-component', {
         console.info ( 'Login component has been created' )
         const authUI = new firebaseui.auth.AuthUI( firebase.auth() )
         this.firebaseAuthObject = firebase.auth()
+	const __this = this
         this.firebaseAuthObject.onAuthStateChanged ( function ( user ) {
 		console.log ( 'firebase.auth().onAuthStateChanged' )
-		this.$root.$store.commit ( 'userLoginSuccess', user )
 		console.log ( 'THIS: ', this )
+		console.log ( 'SELF: ', self )
+		console.log ( '__this: ', __this )
+		__this.$root.$store.commit ( 'userLoginSuccess', user )
+		
 		if ( user ) {
 			user.getIdToken().then ( 
 				accessToken => {
 					console.log ( 'USER: ', user)
 					console.log ( 'THIS: ', this )
-					this.$root.$store.commit ( 'userLoginSuccess', user )
+					__this.$root.$store.commit ( 'userLoginSuccess', user )
 				},
 				error => {
 					console.error ( 'accessToken ERROR ' + error )
-					this.$root.$store.commit ( 'userLoginError', user )
+					__this.$root.$store.commit ( 'userLoginError', user )
 				}
 			)
 		}
-		else this.$root.$store.commit ( 'userLogOut' )
+		else __this.$root.$store.commit ( 'userLogOut' )
         })
     },
     mounted: function () {
