@@ -63,6 +63,8 @@
 }
 .stdlib {
   background-image: url(../images/stdlib.png);
+  width:80px;
+  height:30px;
 }
 .tuhub {
   background-image: url(../images/tuhub.svg);
