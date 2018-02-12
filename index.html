@@ -52,8 +52,7 @@
                          v-model = "alert">
                     {{ alertMessage }}
                 </v-alert>
-                <send-message v-if = "firebaseUser"
-                              :loginName = "firebaseUser.displayName">
+                <send-message>
                 </send-message>
                 <toggle-buttons :__buttons = "sectionMenu"
                                 class="primary">
