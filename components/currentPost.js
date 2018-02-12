@@ -1,12 +1,20 @@
 const currentPost = ( 'current-post', {
-  props: [ "postId" ],
   data: function () {
     return {
-      readmeContent: null,
-      state: this.$root.$store.state,
+        readmeContent: null,
+        state: this.$root.$store.state,
+        scrollPosition: 0
     }
   },
   computed: {
+      styleObject: {
+        get: function () {
+          return { top: this.scrollPosition + "px" }
+        },
+        set: function ( newValue ) {
+          this.styleObject = { top: newValue + 'px' }
+        }
+      },
       postName: function () { return this.$root.$route.params.post },
       postObject: function () {
           if ( !this.state.sectionPosts || !this.postName ) return null
@@ -21,62 +29,84 @@ const currentPost = ( 'current-post', {
       },
   },
   watch: {
-    readmeContent: function () {
-      
+    postObject: function () {
+      if ( !this.postObject.readme ) this.readmeContent = null
+      else
+          this.$root.$http.get ( this.postObject.readme ).then ( response => {
+              this.readmeContent = response.body
+          })
+      if ( this.postObject.textURL )
+          this.$root.$http.get ( this.postObject.textURL ).then ( response => {
+              this.postObject.text = response.body
+          })
     }
   },
   template: `
-    <v-section dark v-if = "postObject">
-      <v-toolbar prominent height = "48px">
 
-        <full-screen-dialog-window v-if = "readmeContent"
+    <v-section v-if = "postObject">
+      <v-toolbar class = "dark accent" prominent height = "48px">
+
+        <full-screen-dialog-window
                   :__title = "postObject.head"
-                  :__text = "readmeContent">
+                  :__text = "readmeContent"
+                  v-if = "readmeContent">
         </full-screen-dialog-window>
 
-        <bottom-sheet v-if = "postObject.usefull"
+        <bottom-sheet class = "dark accent"
+                      v-if = "postObject.usefull"
                       :usefull_links = "postObject.usefull">
         </bottom-sheet>
       </v-toolbar>
-      <v-card>
-          <v-card-media v-if = "postObject.picture"
-              class = "section-picture"
-              :src = "postObject.picture"
-              max-height="100px">
-          </v-card-media>
-          <v-card-title>
-            <p v-html = "postObject.text"></p>
-          </v-card-title>
-          <v-card-text>
-            <div class = "code-snippet" v-if = "codeExist">
-              <div v-for = "code_item in postObject.code">
-                {{ code_item.replace(/ /g,"&nbsp;") }}
+      <v-card color = "transparent" class = "white--text">
+        <v-container fluid grid-list-lg>
+          <v-layout row wrap>
+            <v-flex xs12 sm8>
+                <p v-html = "postObject.text"></p>
+            </v-flex>
+            <v-flex xs12 sm4>
+              <transition name = "slide-down">
+                <v-card-media v-if = "postObject.picture"
+                  id = "scrollingPicture"
+                  class = "scrollingPicture"
+                  :src = "postObject.picture"
+                  :style = "styleObject"
+                  :key = "scrollPosition"
+                  contain
+                ></v-card-media>
+              </transition>
+            </v-flex>
+            <v-flex xs12>
+              <div class = "code-snippet" v-if = "codeExist">
+                <div v-for = "code_item in postObject.code">
+                      {{ code_item.replace(/ /g,"&nbsp;") }}
                 </div>
+              </div>
+            </v-flex>
+          </v-layout>
+        </v-container>
+          <v-card-actions class = "dark accent">
+            <div class="text-xs-center">
+                <v-btn  flat dark accent
+                        v-for = "( sample, index ) in postObject.samples"
+                        @click = "openRef(sample)">
+                    <span class = "samples-section-item">
+                          {{ " { " + (index+1) + " }" }}
+                    </span>
+                </v-btn>
             </div>
-          </v-card-text>
-          <v-card-actions>
-            <v-btn flat dark accent
-                v-for = "( sample, index ) in postObject.samples"
-                @click = "openRef(sample)">
-                <span class = "samples-section-item">{{ "{ " + (index+1) + " }" }}</span>
-            </v-btn>
           </v-card-actions>
         </v-card>
     </v-section>
   `,
   methods: {
-    openRef: ref => window.open ( ref, "_blank" )
+    openRef: ref => window.open ( ref, "_blank" ),
+
   },
   mounted: function () {
-    if ( !this.postObject.readme ) return
-    this.$root.$http.get ( this.postObject.readme ).then ( response => {
-            this.readmeContent = response.body
-        console.log ( 'README: ', this.readmeContent )
-    })
-    if ( !this.postObject.textURL ) return
-    this.$root.$http.get ( this.postObject.textURL ).then ( response => {
-            this.postObject.text = response.body
-    })
+      const __this = this
+      this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
+          __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
+      } )
   },
   components: {
     'bottom-sheet': BottomSheet,
