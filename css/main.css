@@ -118,7 +118,7 @@ ul {
 	background-color: #9b03a5;
 }
 .firebaseui-container {
-	margin-top: 70px;
+	margin-top: 70px!important;
 }
 .firebaseui-idp-list {
 	background-color: transparent!important;
