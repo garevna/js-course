@@ -1,96 +1,86 @@
-const SendMessage = ( 'send-message', {
-    props: [ 'loginName' ],
+const FullScreenChat = ( 'full-screen-chat', {
+    props: [ "user", "dialog" ],
     data: function () {
         return {
-            topic: [],
-            type: 'message',
-            user: null,
+            menu: false,
+            modal: false,
             text: '',
-            typeItems: [
-              "Вопрос",
-              "Комментарий",
-              "Ссылка"
-            ],
-            newMessage: {},
-            dialog: false
+            newMessage: {}
         }
     },
     computed: {
-        topicItems: function () {
-          return this.$root.$store.getters.mainMenuItems
+        messagesDate: function () {
+            return this.$root.$store.state.messagesDate
+        },
+        messages: function () {
+            return this.$root.$store.state.messages
         },
         messagesRef: function () {
-          return this.$root.messagesRef
+            return this.$root.$store.state.messagesRef
         }
     },
     template: `
-    <v-layout row justify-center>
-      <v-dialog v-model = "dialog"
-                persistent dark
-                max-width = "500px">
-        <v-btn  icon color = "primary" dark
-                slot = "activator">
-            <v-icon>message</v-icon>
-        </v-btn>
-        <v-card>
-          <v-card-title v-text = "loginName">
-          </v-card-title>
-          <v-card-text>
-              <v-container grid-list-md>
-                  <v-layout wrap>
-                      <v-flex xs12 sm6 md4>
-                          <v-select
-                              v-bind:items = "topicItems"
-                              label = "Тема сообщения"
-                              v-model = "topic"
-                              multiple
-                              autocomplete
-                              chips>
-                          </v-select>
-                      </v-flex>
-                      <v-flex xs12 sm6 md4>
-                          <v-select
-                              v-bind:items = "typeItems"
-                              label = "Тип сообщения"
-                              v-model = "type">
-                          </v-select>
-                      </v-flex>
-                      <v-flex xs12>
-                          <v-text-field
-                                label = "Текст сообщения"
-                                v-model = "text"
-                                multi-line
-                                required>
-                          </v-text-field>
-                      </v-flex>
-                  </v-layout>
-              </v-container>
-              <small>*обязательные поля</small>
-          </v-card-text>
-          <v-card-actions>
+    <v-layout row justify-left>
+      <v-dialog   v-model = "dialog"  fullscreen
+                  class = "transparent"
+                  transition = "dialog-bottom-transition"
+                  :overlay = false  scrollable>
+          <!--<v-btn  icon dark ripple
+                  color = "transparent"
+                  slot = "activator">
+                <v-icon>message</v-icon>
+          </v-btn>-->
+          <v-card  class = "secondary">
+            <v-toolbar style = "flex: 0 0 auto;"
+                       class = "accent top-of-the-window"
+                       dark>
+              <v-btn  icon dark class = "transparent"
+                      @click.native = "sendCloseEvent">
+                <v-icon> close </v-icon>
+              </v-btn>
+              <v-toolbar-title class = "transparent">
+                  {{ messagesDate }}
+              </v-toolbar-title>
               <v-spacer></v-spacer>
-                  <v-btn flat @click.native = "dialog = false">
-                      Close
-                  </v-btn>
-                  <v-btn flat @click.native = "sendMessage">
-                      Send
-                  </v-btn>
-              </v-card-actions>
-          </v-card>
+              <vue-data-picker></vue-data-picker>
+            </v-toolbar>
+            <div class = "secondary middle-of-the-window">
+                <v-card-text  class= "secondary"
+                        v-for = "item in messages">
+                    <v-avatar v-if = "item.user.photo">
+                        <img :src = "item.user.photo">
+                    </v-avatar>
+                    <div class = "warning--text">{{ item.user.name }}</div>
+                    <p style = "height:fit-content">{{ item.text }}</p>
+                </v-card-text>
+            </div>
+            <v-card-actions class = "primary bottom-of-the-window">
+                  <v-text-field
+                      label = "Текст сообщения"
+                      v-model = "text"
+                      @change.native.stop = "sendMessage">
+                  </v-text-field>
+            </v-card-actions>
+        </v-card>
       </v-dialog>
     </v-layout>
     `,
     methods: {
+      sendCloseEvent: function () {
+          this.$root.$emit ( 'closeCurrentDialog' )
+      },
       sendMessage: function () {
-         messagesRef.push ( this.newMessage )
-         this.newMessage.time = new Date ()
-         this.newMessage.user = this.user
-         this.newMessage.topic = this.topic
-         this.newMessage.type = this.type
-         this.newMessage.text = this.text
-      }
+          this.messagesRef.push ({
+              user: this.user,
+              text: this.text
+          })
+          this.text = ""
+      },
+    },
+    components: {
+        VueDataPicker
     },
     mounted: function () {
-      console.log ( 'loginName: ', this.loginName )
+        
     }
 })
