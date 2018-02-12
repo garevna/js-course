@@ -36,9 +36,6 @@ const store = new Vuex.Store ({
             ] : null
   },
   mutations: {
-    setUser: ( state, user ) => {
-        state.user = user
-    },
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
@@ -66,12 +63,18 @@ const store = new Vuex.Store ({
     getPostData: ( state, postData ) => {
         state.postData = postData
         state.postDataIsReady = true
-    }
+    },
+    userLoginSuccess: ( state, user ) => {
+        state.user = user
+    },
+    userLoginError: state => {
+        state.user = null
+    },
+    userLogOut: state => {
+        state.user = 'unknown'
+    },
   },
   actions: {
-    
-  },
-  mounted: function () {
     
   }
 })
