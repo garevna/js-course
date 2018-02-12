@@ -117,8 +117,8 @@ const LoginComponent = ( 'login-component', {
     created: function () {
         console.info ( 'Login component has been created' )
         const authUI = new firebaseui.auth.AuthUI( firebase.auth() )
-        const firebaseAuthObject = firebase.auth()
-        firebase.auth().onAuthStateChanged ( function ( user ) {
+        this.firebaseAuthObject = firebase.auth()
+        this.firebaseAuthObject.onAuthStateChanged ( function ( user ) {
 		console.log ( 'firebase.auth().onAuthStateChanged' )
 		this.$root.$store.commit ( 'userLoginSuccess', user )
 		console.log ( 'THIS: ', this )
