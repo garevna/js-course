@@ -122,7 +122,6 @@ const LoginComponent = ( 'login-component', {
 			user.getIdToken().then ( 
 				accessToken => {
 					console.log ( 'USER: ', user)
-					console.log ( 'THIS: ', this )
 					__this.$root.$store.commit ( 'userLoginSuccess', user )
 				},
 				error => {
@@ -135,9 +134,13 @@ const LoginComponent = ( 'login-component', {
         })
     },
     mounted: function () {
-        console.info ( 'Login component has been mounted' )
-	this.loginForm = true
-        this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
-        console.log ( 'LoginComponent this.authUI: ', this.authUI )
+	    console.info ( 'Login component has been mounted' )
+	    this.loginForm = true
+	    var loginWidget = document.createElement ( 'figure' )
+	    document.body.appendChild ( loginWidget )
+	    loginWidget.id = "firebaseui-auth-container"
+	    console.log ( loginWidget )
+	    this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
+	    console.log ( 'LoginComponent this.authUI: ', this.authUI )
     }
 })
