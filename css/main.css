@@ -184,16 +184,7 @@ body {
 }
 .application.theme--light {
       background-color:transparent!important;
-      /*background-image: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.8), rgba(255,255,255,0.4));*/
 }
-/*.application.theme--dark {
-      background-color:transparent!important;
-      background-image: linear-gradient(to bottom, #36465d90, #36465d50, #36465d80);
-}*/
-/*.v-section, .expansion-panel__container {
-      background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.8), rgba(255,255,255,0.4));
-      boder: solid 10px transparent;
-}*/
 footer {
 	position:fixed;
 	box-sizing:border-box;
@@ -204,18 +195,12 @@ footer {
 	padding:8px 10px;
 	text-align:right;
 	background-color: #ffffff70!important;
-	background-image:url(/images/a-level.png);
+	background-image:url(../images/a-level.png);
 	background-size:80px;
 	background-position:10px 3px;
 	background-repeat:no-repeat;
   font-family: Papyrus;
 }
-/*footer:before {
-	content:"\00A9 \0020 Irina Fylyppova 2017";
-	color:#cde;
-	font-size:14px;
-	text-shadow: 0px 0px 2px #10203070;
-}*/
 .main-content {
 	position:fixed;
 	top:0;
