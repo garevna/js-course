@@ -20,7 +20,7 @@ const CustomSelect = ( 'custom-select', {
                   v-model = "selectedItem"
                   single-line
                   auto
-                  class = "select-post-topic"
+                  content-class = "select-post-topic"
                   hide-details
                   append-icon = "chrome_reader_mode">
                   autocomplete = true>
