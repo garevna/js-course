@@ -36,33 +36,46 @@
   </head>
 
   <body>
-    <v-app dark class = "main-content" id = "VueCourseware">
+    <v-app dark  class = "main-content" id = "VueCourseware">
           <v-card flat height = "40px" depressed>
             <v-toolbar flat class="primary">
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                
-                <login-component></login-component>
-                
-                <v-alert :color = "alertColor" 
-                         :icon = "alertIcon" 
-                         dismissible 
-                         :alertMessage = "alertMessage"
-                         v-model = "alert">
-                    {{ alertMessage }}
-                </v-alert>
-                <send-message>
-                </send-message>
+                <full-screen-chat
+                          :user = "currentUser"
+                          :dialog = "chatDialog">
+                </full-screen-chat>
+                <login-component
+                          :dialog = "userLoginDialog">
+                </login-component>
+
                 <toggle-buttons :__buttons = "sectionMenu"
-                                class="primary">
+                                class = "transparent">
                 </toggle-buttons>
+                <v-menu offset-y>
+                    <v-btn icon slot = "activator">
+                        <v-icon>more_vert</v-icon>
+                    </v-btn>
+                    <v-list>
+                        <v-list-tile :disabled = "currentUser" @click = "startUserLogin">
+                            <v-list-tile-title>Sign In</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :disabled = "!currentUser" @click = "startUserLogOut">
+                            <v-list-tile-title>Sign Out</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :disabled = "!currentUser" @click = "startUserInfo">
+                            <v-list-tile-title>User Info</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :disabled = "!currentUser" @click = "startChat">
+                            <v-list-tile-title>Chat</v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
             </v-toolbar>
           </v-card>
-          <!-- container for Firebase login form -->
-          <!-- <div id = "firebaseui-auth-container"></div> -->
-          <router-view></router-view>
           <app-footer></app-footer>
+          <router-view class = "inner-content"></router-view>
     </v-app>
           
     <script src="components/loginComponent.js"></script>
