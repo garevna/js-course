@@ -124,16 +124,16 @@ const LoginComponent = ( 'login-component', {
 			    user.getIdToken().then ( 
 				    accessToken => {
                         console.log ( 'USER: ', user)
-					    this.$root.$store.commit ( 'user-login-success', user )
+					    this.$root.$store.commit ( 'userLoginSuccess', user )
 				    },
 				    error => {
 					    console.error ( 'accessToken ERROR ' + error )
-                        this.$root.$store.commit ( 'user-login-error', user )
+                        this.$root.$store.commit ( 'userLoginError', user )
 				    }
                 )
             }
-            else this.$root.$store.commit ( 'user-log-out' )
-		})
+            else this.$root.$store.commit ( 'userLogOut' )
+        })
     },
     mounted: function () {
         console.info ( 'Login component has been mounted' )
