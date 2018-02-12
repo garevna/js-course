@@ -1,5 +1,5 @@
 const SectionDetails = {
-  props:[ 'id' ],
+  props: [ 'id' ],
   data: function () {
       return {
         currentPostId: ""
@@ -22,12 +22,6 @@ const SectionDetails = {
     'current-post': currentPost,
     'select-post': CustomSelect
   },
-  methods: {
-
-  },
-  mounted: function () {
-      
-  },
   template: `
     <section>
         <select-post  :states = "sectionPostNames"
@@ -35,7 +29,7 @@ const SectionDetails = {
                       v-model = "currentPostId"
                       @change = "console.log ('currentPostId')">
         </select-post>
-        <router-view :postId = "currentPostId">
+        <router-view class = "router-view" :postId = "currentPostId">
         </router-view>
     </section>
     `
