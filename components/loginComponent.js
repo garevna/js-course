@@ -24,17 +24,14 @@ const LoginComponent = ( 'login-component', {
         }
     },
     computed: {
-        firebaseAuthObject: function () {
-            return this.$root.firebaseAuthObject
-        },
         currentUser: function () {
-            if ( this.$root.firebaseAuthObject )
-                return this.$root.firebaseAuthObject.currentUser
+            if ( this.firebaseAuthObject )
+                return this.firebaseAuthObject.currentUser
             else return null
         },
         currentProvider: function () {
-            if ( this.$root.firebaseAuthObject && this.$root.firebaseAuthObject.currentUser )
-                var user = this.$root.firebaseAuthObject.currentUser
+            if ( this.firebaseAuthObject && this.firebaseAuthObject.currentUser )
+                var user = this.firebaseAuthObject.currentUser
                 if ( user.providerData ) return user.providerData[0].providerId
             else return null
         },
@@ -122,11 +119,6 @@ const LoginComponent = ( 'login-component', {
 	const __this = this
         this.firebaseAuthObject.onAuthStateChanged ( function ( user ) {
 		console.log ( 'firebase.auth().onAuthStateChanged' )
-		console.log ( 'THIS: ', this )
-		console.log ( 'SELF: ', self )
-		console.log ( '__this: ', __this )
-		__this.$root.$store.commit ( 'userLoginSuccess', user )
-		
 		if ( user ) {
 			user.getIdToken().then ( 
 				accessToken => {
