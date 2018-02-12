@@ -120,7 +120,8 @@ const LoginComponent = ( 'login-component', {
         const firebaseAuthObject = firebase.auth()
         firebase.auth().onAuthStateChanged ( function ( user ) {
 		console.log ( 'firebase.auth().onAuthStateChanged' )
-		var logRes = false
+		this.$root.$store.commit ( 'userLoginSuccess', user )
+		console.log ( 'THIS: ', this )
 		if ( user ) {
 			user.getIdToken().then ( 
 				accessToken => {
