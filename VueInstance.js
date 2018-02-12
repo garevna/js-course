@@ -3,48 +3,93 @@ const app = new Vue ( {
 	data: {
 		mainDataSource: "./data/mainData.json",
 		postDataSource: "./data/posts.json",
-		alertColor: "#fa7",
-		alertIcon: "account_circle",
-		alertMessage: "",
-		alert: false
+		usersDBref: null,
+		messagesDBref: null,
+		newMessage: {},
+		lastMessages: null,
+		currentUser: {
+				name: "garevna",
+				photo: "https://lh3.googleusercontent.com/-Aml2QMGE_d0/AAAAAAAAAAI/AAAAAAAAAAA/ACSILjXHBzQ8kSQawfuvvj0Qg4fW1VPXZg/s32-c-mo/photo.jpg"
+		},
+		chatDialog: false,
+		userInfoDialog: false,
+		userLoginDialog: false,
+		userLogoutDialog: false
 	},
-	computed: Vuex.mapGetters ([
-			'mainMenuReady',
-			'mainMenuItems',
-			'sectionIsReady',
-			'sectionMenu',
-	]),
+	computed: {
+			currentDate: function () { return this.$store.state.messagesDate },
+			currentSectionId: function () { return this.$store.state.currentSectionId },
+			mainMenuReady: function () { return this.$store.getters.mainMenuReady },
+			mainMenuItems: function () { return this.$store.getters.mainMenuItems },
+			sectionIsReady: function () { return this.$store.getters.sectionIsReady },
+			sectionMenu: function () { return this.$store.getters.sectionMenu }
+	},
 	created: function () {
-		this.$http.get ( this.mainDataSource )
-			.then ( response => {
-					this.$store.commit ( 'getMainData', response.body )
+			const config = {
+					apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
+					authDomain: "vue-course-b1571.firebaseapp.com",
+					databaseURL: "https://vue-course-b1571.firebaseio.com",
+					projectId: "vue-course-b1571",
+					storageBucket: "vue-course-b1571.appspot.com",
+					messagingSenderId: "329391650263"
+			}
+			const firebaseApp = firebase.initializeApp ( config )
+			const firebaseDB = firebaseApp.database()
+			this.usersDBref = firebaseDB.ref ( 'users' )
+			this.messagesDBref = firebaseDB.ref ( 'message' )
+
+			console.log ( 'firebaseApp usersRef: ', this.usersDBref )
+			console.log ( 'firebaseApp messagesRef: ', this.messagesDBref )
+
+			this.$http.get ( this.mainDataSource )
+				.then ( response => {
+						this.$store.commit ( 'getMainData', response.body )
 			})
-		this.$http.get ( this.postDataSource )
-			.then ( response => {
-					this.$store.commit ( 'getPostData', response.body )
+			this.$http.get ( this.postDataSource )
+				.then ( response => {
+						this.$store.commit ( 'getPostData', response.body )
 			})
 	},
 	mounted: function () {
+		this.$store.commit ( 'changeMessagesData', new Date() )
+		this.$on ( 'closeCurrentDialog', function () {
+				this.chatDialog = false
+				this.userInfoDialog = false
+				this.userLoginDialog = false
+				this.userLogoutDialog = false
+		} )
 		this.$vuetify.theme = {
-      			primary: '#36465d',
-      			secondary: '#005d40',
-      			accent: '#9b03a5',
-      			error: '#d00',
-      			info: '#09a',
-      			success: '#048a4d',
-      			warning: '#fa0',
-      			transparent: "transparent",
+			primary: '#36465d',
+			//secondary: '#266150',
+			secondary: '#4a8272',
+			accent: '#9b03a5',
+			error: '#d00',
+			info: '#09a',
+			success: '#266150',
+			warning: '#fa0',
+			transparent: "transparent",
 			glass: 'rgba(255,255,255,0.4)'
-    		}
+		}
 	},
 	methods: {
-		
+		startUserLogin: function () {
+			this.userLoginDialog = true
+		},
+		startUserLogOut: function () {
+			this.userLogoutDialog = true
+		},
+		startUserInfo: function () {
+			this.userInfoDialog = true
+		},
+		startChat: function () {
+			this.chatDialog = true
+		},
 	},
 	components: {
+		EmptyComponent,
 		'dropdown-menu': CustomSelect,
 		MainSection,
-		SendMessage,
-		'login-component': LoginComponent,
+		'full-screen-chat': FullScreenChat,
 		'nav-panel': NavigationPanel,
 		'toggle-buttons': ToggleButtons,
 		'app-footer': appFooter
