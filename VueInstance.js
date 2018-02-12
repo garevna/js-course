@@ -7,10 +7,7 @@ const app = new Vue ( {
 		messagesDBref: null,
 		newMessage: {},
 		lastMessages: null,
-		currentUser: {
-				name: "garevna",
-				photo: "https://lh3.googleusercontent.com/-Aml2QMGE_d0/AAAAAAAAAAI/AAAAAAAAAAA/ACSILjXHBzQ8kSQawfuvvj0Qg4fW1VPXZg/s32-c-mo/photo.jpg"
-		},
+		currentUser: null,
 		chatDialog: false,
 		userInfoDialog: false,
 		userLoginDialog: false,
