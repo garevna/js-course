@@ -20,8 +20,7 @@ const CustomSelect = ( 'custom-select', {
                   v-model = "selectedItem"
                   single-line
                   auto
-                  max-height = "700px"
-                  min-width = "250px"
+                  class = "select-post-topic"
                   hide-details
                   append-icon = "chrome_reader_mode">
                   autocomplete = true>
