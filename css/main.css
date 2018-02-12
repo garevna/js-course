@@ -117,6 +117,9 @@ ul {
 .card__actions {
 	background-color: #9b03a5;
 }
+.firebaseui-container {
+	margin-top: 70px;
+}
 .firebaseui-idp-list {
 	background-color: transparent!important;
 }
