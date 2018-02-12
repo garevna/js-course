@@ -5,11 +5,6 @@ const LoginComponent = ( 'login-component', {
 		return {
 			authUI: null,
 			firebaseAuthObject: null,
-			dialog: false,
-			alert: false,
-			lertMessage: "",
-			alertColor: "info",
-			alertIcon: "textsms",
 			uiConfig: {
 				signInSuccessUrl: '/vue-course.github.io/#/',
 				signInOptions: [
@@ -40,7 +35,7 @@ const LoginComponent = ( 'login-component', {
 		currentUser: val => { console.log ( 'LoginComponent watch currentUser: ', val ) },
 	},
 	template: `
-        	<v-layout row justify-center v-if = "firebaseAuthObject">  
+        	<v-layout row justify-center v-if = "dialog">  
             
         	</v-layout>`,
 	created: function () {
