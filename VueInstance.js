@@ -43,8 +43,16 @@ const app = new Vue ( {
 					storageBucket: "vue-course-b1571.appspot.com",
 					messagingSenderId: "329391650263"
 		}
-		const firebaseApp = firebase.initializeApp ( config )
-		const firebaseDB = firebaseApp.database()
+		try {
+			const firebaseApp = firebase.initializeApp ( config )
+			const firebaseDB = firebaseApp.database()
+		}
+		catch ( err ) {
+			console.error ( 'ERROR: ', err.code )
+			console.error ( 'Error message : ', err.message )
+			console.log ( 'const firebaseApp', firebaseApp )
+			console.log ( 'const firebaseDB', firebaseDB )
+		}
 		this.usersDBref = firebaseDB.ref ( 'users' )
 		this.messagesDBref = firebaseDB.ref ( 'message' )
 
