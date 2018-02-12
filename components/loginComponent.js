@@ -1,3 +1,4 @@
+
 const LoginComponent = ( 'login-component', {
     data: function () {
         return {
@@ -116,7 +117,7 @@ const LoginComponent = ( 'login-component', {
     },
     created: function () {
         console.info ( 'Login component has been created' )
-        const authUI = new firebaseui.auth.AuthUI( firebase.auth() )
+        this.authUI = new firebaseui.auth.AuthUI( firebase.auth() )
         this.firebaseAuthObject = firebase.auth()
 	const __this = this
         this.firebaseAuthObject.onAuthStateChanged ( function ( user ) {
