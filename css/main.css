@@ -11,16 +11,16 @@
 */
 @font-face {
   font-family: 'Comic Sans MS';
-    src: url("./fonts/Comic Sans MS.ttf");
+    src: url("../fonts/Comic Sans MS.ttf");
     src: local('Comic Sans MS'), local('Comic Sans MS'),
-    url("./fonts/Comic Sans MS.eot") format("embedded-opentype"),
-    url("./fonts/Comic Sans MS.otf") format("opentype"),
-    url("./fonts/Comic Sans MS.woff") format("woff"),
-    url("./fonts/Comic Sans MS.svg");
+    url("../fonts/Comic Sans MS.eot") format("embedded-opentype"),
+    url("../fonts/Comic Sans MS.otf") format("opentype"),
+    url("../fonts/Comic Sans MS.woff") format("woff"),
+    url("../fonts/Comic Sans MS.svg");
 }
 @font-face {
   font-family: 'Papyrus';
-    src: url("./fonts/papyrus.ttf");
+    src: url("../fonts/papyrus.ttf");
     src: local('Papyrus'), local('papyrus')
 }
 .comfortaa {
@@ -164,7 +164,6 @@ body {
   margin:0px;
   overflow:hidden;
   background-color: #36465d!important;
-  /*background-image:url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);*/
   background-size:100%;
   background-repeat:no-repeat;
   background-position: top center;
@@ -243,7 +242,6 @@ footer {
   color:#dde;
 }
 .container {
-      /*background-image: linear-gradient(to right,#ffffff20, #ffffff99, #ffffff99, #ffffff20);*/
       background-color: #02420590;
 }
 .application .theme--dark.card, .theme--dark .card {
@@ -315,30 +313,8 @@ input[type="checkbox"] {
   font-family: Papyrus, monospace;
 }
 .expand-elem {
-  /*position:relative;*/
   border: inset 1px;
   background-image: linear-gradient(#ffffffb7, #ffffff70, #ffffffaa, #ffffff80);
-  /*padding:7px 10px 20px 15px;
-  transition: height 1s, opacity 1s;
-  transform-origin:0 0;*/
-}
-
-.expand-elem-enter, .expand-elem-leave-to {
-  opacity:0;
-  height:0;
-  transform: translate(0,var(--y));
-
-}
-.expand-elem-enter-active {
-  animation: mc-dropdown 1s forwards;
-}
-.expand-elem-leave, .expand-elem-enter-to {
-  opacity: 1;
-  height: var(--y);
-  transform: translate(0,0);
-}
-.expand-elem-leave-active {
-  animation: mc-dropdown reverse 1s forwards;
 }
 
 .demo-button {
@@ -350,57 +326,6 @@ input[type="checkbox"] {
     background-repeat:no-repeat;
 }
 
-.popup-window {
-    position: fixed;
-    overflow: auto;
-    border-radius: 5px;
-    border-style:solid;
-    border-width: 40px 15px 15px 10px;
-    border-color: #203438;
-    z-index: 1500;
-    padding: 20px 25px;
-    color: #fff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-    background-image: linear-gradient(to bottom, #1d3c43, #6c7174, #203438 );
-    box-shadow:
-        -0.5px -0.3px 0 0.5px #fefefe,
-         0.1px -0.1px 0 0.3px #777,
-         0.1px -0.1px 0 0.2px #fefefe,
-         0.3px 0.3px 0 0.3px #888,
-         0.7px 0.7px 0 0.7px #fff;
-}
-.popup-window-closeButton {
-    font-size: 25px;
-    position: fixed;
-    top:8%;
-    right:5%;
-    margin:4px 7px;
-    z-index: 2000;
-    border:0;
-    background: none;
-    outline:none;
-    cursor:pointer;
-}
-.popup-window-closeButton:before {
-    content: "❌";
-    color:#eef;
-}
-.popup-window-closeButton:hover:before {
-    content: "❎";
-    color:#fff;
-}
-.popup-window pre {
-	background-color: #fff;
-	color: #345;
-	box-shadow: inset 2px 2px 5px #00000070;
-	padding: 5px 10px;
-	overflow: auto;
-}
-
-@keyframes mc-dropdown {
-  0% { transform: scaleY(0); }
-  100% { transform: scaleY(1); }
-}
 /* =============================================================== */
 @media screen and ( max-width:480px ) {
 	.main-content-header { font-size:20px; padding:20px 0px 0px 10px; }
