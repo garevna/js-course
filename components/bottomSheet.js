@@ -8,21 +8,22 @@ const BottomSheet = ( {
   template: `
     <div class="text-xs-right pa-0 ma-0" height = "35px">
       <v-bottom-sheet v-model = "sheet"
-                      class="text-xs-right pa-0 ma-0">
-          <v-btn  icon ripple
-                  class = "dark accent"
+                      dark
+                      class = "transparent text-xs-right pa-0 ma-0">
+          <v-btn  icon ripple dark
+                  class = "accent"
                   slot = "activator">
             <v-icon>link</v-icon>
           </v-btn>
         <v-list>
-          <v-subheader>Полезные ссылки</v-subheader>
-          <v-list-tile  v-for="item in usefull_links"
-                        :key="item.ref"
-                        @click="resolveLink ( item.ref )">
+          <v-subheader class = "dark accent">Полезные ссылки</v-subheader>
+          <v-list-tile  v-for = "item in usefull_links"
+                        :key = "item.ref"
+                        @click = "resolveLink ( item.ref )">
             <v-list-tile-avatar>
-              <v-avatar size="36px" elevation="1" tile>
-                <img v-if="item.ico" :src="item.ico">
-                <img v-else src="./images/vue.svg">
+              <v-avatar size = "36px" elevation = "1" tile>
+                <img v-if = "item.ico" :src = "item.ico">
+                <img v-else src = "./images/vue.svg">
               </v-avatar>
             </v-list-tile-avatar>
             <v-list-tile-title>{{ item.comment }}</v-list-tile-title>
@@ -38,6 +39,7 @@ const BottomSheet = ( {
   },
   methods: {
     resolveLink: function ( ref ) {
+      console.info ( ref )
       this.sheet = false
       window.open ( ref )
     }
