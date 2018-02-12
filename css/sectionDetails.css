@@ -1,5 +1,10 @@
 @charset "utf-8";
-
+.select-post-topic {
+	top: 110px!important;
+	left: 55px!important;
+	width: 75%!important;
+	max-height: 90%!important;
+}
 .section-container,
 .section-article {
 	position:absolute;
