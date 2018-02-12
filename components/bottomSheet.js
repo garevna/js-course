@@ -20,11 +20,8 @@ const BottomSheet = ( {
           <v-list-tile  v-for = "item in usefull_links"
                         :key = "item.ref"
                         @click = "resolveLink ( item.ref )">
-            <v-list-tile-avatar>
-              <v-avatar size = "36px" elevation = "1" tile>
-                <img v-if = "item.ico" :src = "item.ico">
-                <img v-else src = "./images/vue.svg">
-              </v-avatar>
+            <span :class = "item.ico" elevation = "1"></span>
+              &nbsp;
             </v-list-tile-avatar>
             <v-list-tile-title>{{ item.comment }}</v-list-tile-title>
           </v-list-tile>
