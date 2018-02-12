@@ -13,15 +13,15 @@ const CustomSelect = ( 'custom-select', {
     }
   },
   template: `
-        <v-layout row wrap>
-          <v-flex xs10 class="ml-3">
-              <v-select class="mt-0 pt-0 pb-3"
+        <v-layout row wrap dark class = "transparent">
+          <v-flex xs10 class = "ml-3">
+              <v-select class = "mt-0 pt-0 pb-3 warning--text"
                   :items = "states"
                   v-model = "selectedItem"
                   single-line
                   auto
                   hide-details
-                  append-icon = "chrome_reader_mode"
+                  append-icon = "chrome_reader_mode">
                   autocomplete = true>
               </v-select>
           </v-flex>
