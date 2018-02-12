@@ -46,8 +46,7 @@
                           :user = "currentUser"
                           :dialog = "chatDialog">
                 </full-screen-chat>
-                <login-component
-                          :dialog = "userLoginDialog">
+                <login-component v-if = "userLoginDialog">
                 </login-component>
 
                 <toggle-buttons :__buttons = "sectionMenu"
