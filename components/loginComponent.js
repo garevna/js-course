@@ -1,6 +1,5 @@
 
 const LoginComponent = ( 'login-component', {
-	props: [ "dialog" ],
 	data: function () {
 		return {
 			authUI: null,
@@ -35,8 +34,11 @@ const LoginComponent = ( 'login-component', {
 		currentUser: val => { console.log ( 'LoginComponent watch currentUser: ', val ) },
 	},
 	template: `
-        	<v-layout row justify-center v-if = "dialog">  
-            
+        	<v-layout row justify-center>  
+            		<v-btn  icon dark class = "transparent"
+                      		@click.native = "sendCloseEvent">
+                		<v-icon> close </v-icon>
+              		</v-btn>
         	</v-layout>`,
 	created: function () {
 		console.info ( 'Login component has been created' )
@@ -59,6 +61,11 @@ const LoginComponent = ( 'login-component', {
 			}
 			else __this.$root.$store.commit ( 'userLogOut' )
 		})
+	},
+	methods: {
+		sendCloseEvent: function () {
+          		this.$root.$emit ( 'closeCurrentDialog' )
+      		},
 	},
 	mounted: function () {
 		console.info ( 'Login component has been mounted' )
