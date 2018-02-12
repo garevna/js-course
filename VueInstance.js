@@ -3,6 +3,10 @@ const app = new Vue ( {
 	data: {
 		mainDataSource: "./data/mainData.json",
 		postDataSource: "./data/posts.json",
+		alertColor: "#fa7",
+		alertIcon: "account_circle",
+		alertMessage: "",
+		alert: false
 	},
 	computed: Vuex.mapGetters ([
 			'mainMenuReady',
