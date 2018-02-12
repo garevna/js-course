@@ -18,7 +18,7 @@
 			"usefull":[
 				{
 					"ref":"https://vuejs.org/v2/guide/instance.html",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"The Vue Instance"
 				}
 			]
@@ -37,12 +37,12 @@
 			"usefull":[
 				{
 					"ref":"https://www.neontsunami.com/posts/mounting-a-vue-instance-to-a-dom-element",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Mounting a Vue instance to a DOM element"
 				},
 				{
 					"ref":"https://codingexplained.com/coding/front-end/vue-js/mounting-templates-dynamically",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Mounting Vue.js Templates Dynamically"
 				}
 			]
@@ -69,7 +69,7 @@
 			"usefull":[
 				{
 					"ref":"https://alligator.io/vuejs/property-validation/",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Vue.js Property Validation"
 				}
 			]
@@ -96,7 +96,7 @@
 			"usefull":[
 				{
 					"ref":"https://alligator.io/vuejs/computed-properties",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Introduction to Computed Properties in Vue.js"
 				}
 			]
@@ -123,7 +123,7 @@
 			"usefull":[
 				{
 					"ref":"https://vuetifyjs.com/",
-					"ico": "./images/vuetify.png",
+					"ico": "vuetify",
 					"comment":"CSS-framework"
 				}
 			]
@@ -158,7 +158,7 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/class-and-style.html",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Работа с классами и стилями"
 				}
 			]
@@ -176,7 +176,7 @@
 			"usefull":[
 				{
 					"ref":"https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd",
-					"ico": "./images/dev-tools.png",
+					"ico": "dev-tools",
 					"comment":"Vue.js devtools"
 				}
 			]
@@ -216,22 +216,22 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/filters.html",
-					"ico": "./images/stdlib.png",
+					"ico": "stdlib",
 					"comment":"Фильтры"
 				},
 				{
 					"ref":"https://css-tricks.com/using-filters-vue-js/",
-					"ico": "./images/css-tricks.png",
+					"ico": "css-tricks",
 					"comment":"Using Filters in Vue.js"
 				},
 				{
 					"ref":"https://alligator.io/vuejs/using-filters/",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Using Filters to Format Data in Vue.js"
 				},
 				{
 					"ref":"https://scotch.io/tutorials/how-to-create-filters-in-vuejs-with-examples",
-					"ico": "./images/scotch_io.png",
+					"ico": "scotch-io",
 					"comment":"How to Create Filters in Vue.js with Examples"
 				}
 			]
@@ -249,27 +249,27 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/instance.html",
-					"ico": "./images/stdlib.png",
+					"ico": "stdlib",
 					"comment":"Экземпляр Vue"
 				},
 				{
 					"ref":"https://alligator.io/vuejs/component-lifecycle/",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Understanding Vue.js Lifecycle Hooks"
 				},
 				{
 					"ref":"https://scotch.io/tutorials/demystifying-vue-lifecycle-methods",
-					"ico": "./images/scotch_io.svg",
+					"ico": "scotch-io",
 					"comment":"Demystifying Vue Lifecycle Methods"
 				},
 				{
 					"ref":"https://codingexplained.com/coding/front-end/vue-js/using-vue-instance-lifecycle-hooks",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Using Vue Instance Lifecycle Hooks"
 				},
 				{
 					"ref":"https://metanit.com/web/vuejs/1.13.php",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Жизненный цикл Vue"
 				}
 			]
@@ -326,7 +326,7 @@
 			"usefull":[
 				{
 					"ref":"https://metanit.com/web/vuejs/2.3.php",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"v-for"
 				}
 			]
@@ -343,7 +343,7 @@
 			"usefull":[
 				{
 					"ref":"https://metanit.com/web/vuejs/2.2.php",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Директива v-show"
 				}
 			]
@@ -364,7 +364,7 @@
 			"usefull":[
 				{
 					"ref":"https://metanit.com/web/vuejs/2.1.php",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Условный рендеринг и работа с массивами"
 				}
 			]
@@ -384,7 +384,7 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/syntax.html",
-					"ico": "./images/stdlib.png",
+					"ico": "stdlib",
 					"comment":"Синтаксис шаблонов"
 				}
 			]
@@ -411,12 +411,12 @@
 			"usefull":[
 				{
 					"ref":"https://v1.vuejs.org/guide/events.html",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"Methods and Event Handling"
 				},
 				{
 					"ref":"https://alligator.io/vuejs/events/",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Handling Events With Vue.js"
 				}
 			]
@@ -458,17 +458,17 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/reactivity.html",
-					"ico": "./images/stdlib.png",
+					"ico": "stdlib",
 					"comment":"Подробно о реактивности"
 				},
 				{
 					"ref":"https://vuejs.org/2016/02/06/common-gotchas/",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"Common Beginner Gotchas"
 				},
 				{
 					"ref":"https://vuejs.org/v2/guide/reactivity.html",
-					"ico": "./images/stdlib.png",
+					"ico": "stdlib",
 					"comment":"Reactivity in Depth"
 				}
 			]
@@ -495,22 +495,22 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/computed.html#%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0-%D0%B8-%D1%81%D0%BB%D0%B5%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"Вычисляемые свойства и слежение"
 				},
 				{
 					"ref":"https://medium.com/@modex13/vue-js-2-computed-%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0-6649a2169b67",
-					"ico": "./images/medium.png",
+					"ico": "medium",
 					"comment":"Vue.js 2: Computed — вычисляемые свойства"
 				},
 				{
 					"ref":"https://vuejs.org/v2/guide/computed.html#Computed-vs-Watched-Property",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"Computed vs Watched Property"
 				},
 				{
 					"ref":"https://vuejs.org/v2/api/#watch",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"watch"
 				}
 			]
@@ -568,12 +568,12 @@
 			"usefull":[
 				{
 					"ref":"https://goo.gl/nyYqje",
-					"ico": "./images/medium.png",
+					"ico": "medium",
 					"comment":"Vue: как использовать компоненты"
 				},
 				{
 					"ref":"https://goo.gl/fQbUuG",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"Динамическое переключение компонентов"
 				}
 			]
@@ -591,7 +591,7 @@
 			"usefull":[
 				{
 					"ref":"https://medium.com/js-dojo/build-a-collapsible-tree-menu-with-vue-js-recursive-components-e598306dc3d1",
-					"ico": "./images/vue-js-developers.png",
+					"ico": "vue-developers",
 					"comment":"Build A Collapsible Tree Menu With Vue.js Recursive Components"
 				}
 			]
@@ -609,7 +609,7 @@
 			"usefull":[
 				{
 					"ref":"https://css-tricks.com/intro-to-vue-2-components-props-slots/",
-					"ico": "./images/css-tricks.png",
+					"ico": "css-tricks",
 					"comment":"Intro to Vue.js: Components, Props, and Slots"
 				}
 			]
@@ -626,7 +626,7 @@
 			"usefull":[
 				{
 					"ref":"https://scotch.io/tutorials/demystifying-vue-lifecycle-methods",
-					"ico": "./images/scotch_io.png",
+					"ico": "scotch-io",
 					"comment":"Demystifying Vue Lifecycle Methods"
 				}
 			]
@@ -657,12 +657,12 @@
 			"usefull":[
 				{
 					"ref":"https://alligator.io/vuejs/global-event-bus/",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Creating a Global Event Bus with Vue.js"
 				},
 				{
 					"ref":"http://vuetips.com/global-event-bus",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Use a global event bus instead of a state manager"
 				}
 			]
@@ -680,12 +680,12 @@
 			"usefull":[
 				{
 					"ref":"http://vuetips.com/global-event-bus",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Use a global event bus instead of a state manager"
 				},
 				{
 					"ref":"https://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"Non Parent-Child Communication"
 				}
 			]
@@ -810,7 +810,7 @@
 			"usefull":[
 				{
 					"ref":"http://unetway.com/tutorial/render-funkcii-i-jsx/",
-					"ico": "./images/unetway.png",
+					"ico": "unetway",
 					"comment":"Render-функции и JSX"
 				}
 			]
@@ -825,7 +825,7 @@
 			"usefull":[
 				{
 					"ref":"http://unetway.com/tutorial/render-funkcii-i-jsx/",
-					"ico": "./images/unetway.png",
+					"ico": "unetway",
 					"comment":"Render-функции и JSX"
 				}
 			]
@@ -849,7 +849,7 @@
 			"usefull":[
 				{
 					"ref":"https://codesandbox.io/s/o29j95wx9",
-					"ico": "/images/codesandbox.png",
+					"ico": "codesandbox",
 					"comment":"todo app: пример в песочнице"
 				}
 			]
@@ -864,7 +864,7 @@
 			"usefull":[
 				{
 					"ref":"https://scotch.io/tutorials/template-driven-form-validation-in-vuejs?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-					"ico": "/images/scotch_io.png",
+					"ico": "scotch-io",
 					"comment":"Template Driven Form Validation In Vue.js"
 				}
 			]
@@ -926,7 +926,7 @@
 			"usefull":[
 				{
 					"ref":"https://medium.com/js-dojo/getting-your-head-around-vue-js-scoped-slots-281bf82a1e4e",
-					"ico": "./images/medium.png",
+					"ico": "medium",
 					"comment":"Getting Your Head Around Vue.js Scoped Slots"
 				}
 			]
@@ -956,12 +956,12 @@
 			"usefull":[
 				{
 					"ref":"https://alligator.io/vuejs/understanding-transitions/",
-					"ico": "./images/alligator.svg",
+					"ico": "alligator",
 					"comment":"Understanding Vue.js Transitions"
 				},
 				{
 					"ref":"https://x-team.com/blog/vue-animation-data-visualization/?utm_content=buffer0798c&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
-					"ico": "./images/xteam.png",
+					"ico": "xteam",
 					"comment":"Animation and Data Visualization with Vue"
 				}
 			]
@@ -984,17 +984,17 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/transitions.html",
-					"ico": "./images/stdlib.png",
+					"ico": "stdlib",
 					"comment":"Анимирование списков и появления/исчезновения"
 				},
 				{
 					"ref":"http://unetway.com/tutorial/animirovanie-perehodov-mezdu-sostoaniami/",
-					"ico": "./images/unetway.png",
+					"ico": "unetway",
 					"comment":"Анимирование переходов между состояниями"
 				},
 				{
 					"ref":"http://unetway.com/tutorial/animirovanie-spiskov-poavlenia-i-isceznovenia/",
-					"ico": "./images/unetway.png",
+					"ico": "unetway",
 					"comment":"Анимирование списков и появления/исчезновения"
 				}
 			]
@@ -1023,7 +1023,7 @@
 			"usefull":[
 				{
 					"ref":"https://ru.vuejs.org/v2/guide/transitions.html#JavaScript-%D1%85%D1%83%D0%BA%D0%B8",
-					"ico": "./images/vue.svg",
+					"ico": "vue",
 					"comment":"JavaScript-хуки"
 				}
 			]
@@ -1074,17 +1074,17 @@
 			"usefull":[
 				{
 					"ref":"https://router.vuejs.org/ru/api/options.html",
-					"ico": "/images/link.ico",
+					"ico": "link",
 					"comment":"Опции конструктора Router'а"
 				},
 				{
 					"ref":"https://router.vuejs.org/ru/essentials/redirect-and-alias.html",
-					"ico": "/images/link.ico",
+					"ico": "link",
 					"comment":"Редиректы и псевдонимы"
 				},
 				{
 					"ref":"https://medium.com/js-dojo/build-a-lazy-load-router-with-vue-js-and-the-latest-browser-features-a1b52fe52dda",
-					"ico": "/images/vue-js-developers.png",
+					"ico": "vue-developers",
 					"comment":"Build A Lazy-Load Router With Vue.js And The Latest Browser Features"
 				}
 			]
@@ -1138,7 +1138,7 @@
 			"usefull":[
 				{
 					"ref":"https://router.vuejs.org/ru/api/router-link.html",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"<router-link>"
 				}
 			]
@@ -1162,23 +1162,23 @@
 			"picture":false,
 			"code":false,
 			"text":"",
-			"textURL":"./data/vue/promise.html",
-			"readme":"",
+			"textURL":"",
+			"readme":"./data/AJAX/promise.html",
 			"samples":[ "https://repl.it/@garevna/Vueandpromise" ],
 			"usefull": [
 				{
 					"ref":"https://scotch.io/tutorials/javascript-promises-for-dummies",
-					"ico": "/images/scotch_io.png",
+					"ico": "scotch-io",
 					"comment":"JavaScript Promises for Dummies"
 				},
 				{
 					"ref":"https://habrahabr.ru/company/zerotech/blog/317256/",
-					"ico": "./images/habr.png",
+					"ico": "habr",
 					"comment":"Путеводитель по JavaScript Promise для новичков"
 				},
 				{
 					"ref":"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
-					"ico": "./images/mdn-web-docs.jpg",
+					"ico": "mdn",
 					"comment":"MDN web docs - Promise"
 				}
 			]
@@ -1204,17 +1204,17 @@
 			"usefull": [
 				{
 					"ref":"https://appdividend.com/2017/08/02/use-vue-resource-in-vuejs/",
-					"ico": "/images/link.ico",
+					"ico": "link",
 					"comment":"How To Use Vue-Resource In VueJS"
 				},
 				{
 					"ref":"https://github.com/pagekit/vue-resource",
-					"ico": "/images/github.png",
+					"ico": "github",
 					"comment":"vue-resource: repo on github"
 				},
 				{
 					"ref":"https://medium.com/js-dojo/4-ajax-patterns-for-vue-js-apps-add915fc9168",
-					"ico": "/images/vue-js-developers.png",
+					"ico": "vue-developers",
 					"comment":"4 AJAX Patterns For Vue.js Apps"
 				}
 			]
@@ -1239,12 +1239,12 @@
 			"usefull": [
 				{
 					"ref":"https://serversideup.net/uploading-files-vuejs-axios/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-					"ico": "/images/ssu.svg",
+					"ico": "ssu",
 					"comment":"Uploading Files With VueJS and Axios"
 				},
 				{
 					"ref":"https://medium.com/@lachlanmiller_52885/a-pattern-to-handle-ajax-requests-in-vuex-2d69bc2f8984",
-					"ico": "/images/medium.png",
+					"ico": "medium",
 					"comment":"A pattern to handle ajax requests in Vuex"
 				}
 			]
@@ -1271,7 +1271,7 @@
 			"usefull": [
 				{
 					"ref":"https://medium.com/3yourmind/large-scale-vuex-application-structures-651e44863e2f",
-					"ico": "./images/medium.png",
+					"ico": "medium",
 					"comment":"Large-scale Vuex application structures"
 				}
 			]
@@ -1292,12 +1292,12 @@
 			"usefull": [
 				{
 					"ref":"https://vuex.vuejs.org/en/forms.html",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Form Handling"
 				},
 				{
 					"ref":"https://ypereirareis.github.io/blog/2017/04/25/vuejs-two-way-data-binding-state-management-vuex-strict-mode/",
-					"ico": "./images/link.ico",
+					"ico": "link",
 					"comment":"Two way data binding with VueJS and Vuex"
 				}
 			]
@@ -1331,3 +1331,4 @@
 		}
 	]
 }
+
