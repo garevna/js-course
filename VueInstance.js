@@ -43,11 +43,13 @@ const app = new Vue ( {
 
 			this.$http.get ( this.mainDataSource )
 				.then ( response => {
-						this.$store.commit ( 'getMainData', response.body )
+					console.log ( response.body )
+					this.$store.commit ( 'getMainData', response.body )
 			})
 			this.$http.get ( this.postDataSource )
 				.then ( response => {
-						this.$store.commit ( 'getPostData', response.body )
+					console.log ( response.body )
+					this.$store.commit ( 'getPostData', response.body )
 			})
 	},
 	mounted: function () {
