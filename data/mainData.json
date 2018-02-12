@@ -23,12 +23,12 @@
 		"usefull":[
 			{
 				"ref":"https://medium.com/vue-mastery/why-43-of-front-end-developers-want-to-learn-vue-js-7f23348bc5be",
-				"ico":"./images/medium-1.png",
+				"ico":"medium-1",
 				"comment":"Why 43% of Front-End Developers want to learn Vue.js"
 			},
 			{
 				"ref":"https://medium.com/js-dojo/whats-the-deal-with-vue-s-virtual-dom-3ed4fc0dbb20",
-				"ico":"./images/vue-js-developers.png",
+				"ico":"vue-developers",
 				"comment":"What’s The Deal With Vue’s Virtual DOM?"
 			},
 			{
@@ -38,12 +38,12 @@
 			},
 			{
 				"ref":"https://vuetifyjs.com/?ref=vuejsdevelopers&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-				"ico":"./images/vuetify.png",
+				"ico":"vuetify",
 				"comment":"Material Component Framework"
 			},
 			{
 				"ref":"http://devdocs.io/vue~2/",
-				"ico":"./images/vue.svg",
+				"ico":"vue",
 				"comment":"What is Vue.js?"
 			}
 		]
@@ -75,12 +75,12 @@
 		"usefull": [
 			{
 				"ref":"http://vegibit.com/vue-js-directives/",
-				"ico":"http://vegibit.com/themes/vegibit.png",
+				"ico":"vegibit",
 				"comment":"Vue JS Directives"
 			},
 			{
 				"ref":"https://ru.vuejs.org/v2/guide/custom-directive.html",
-				"ico":"./images/stdlib.png",
+				"ico":"stdlib",
 				"comment":"Пользовательские директивы"
 			}
 		]
@@ -112,12 +112,12 @@
 		"usefull": [
 			{
 				"ref":"https://medium.com/tldr-tech/vuejs-series-part-2-1-components-custom-events-630c1595cfcb",
-				"ico":"./images/medium.png",
+				"ico":"medium",
 				"comment":"VueJS Series, Part 2.1 — Components Custom events"
 			},
 			{
 				"ref":"https://medium.com/@sky790312/about-vue-2-parent-to-child-props-af3b5bb59829",
-				"ico":"./images/medium.png",
+				"ico":"medium",
 				"comment":"Vue 2 props and emit - parent to child"
 			},
 			{
@@ -141,17 +141,17 @@
 		"usefull":[
 			{
 				"ref":"https://medium.com/@sky790312/about-vue-2-parent-to-child-props-af3b5bb59829",
-				"ico":"./images/medium.png",
+				"ico":"medium",
 				"comment":"Vue 2 props and emit - parent to child"
 			},
 			{
 				"ref":"https://alligator.io/vuejs/global-event-bus/",
-				"ico":"./images/alligator.svg",
+				"ico":"alligator",
 				"comment":"Creating a Global Event Bus with Vue.js"
 			},
 			{
 				"ref":"https://medium.com/tldr-tech/vuejs-series-part-2-1-components-custom-events-630c1595cfcb",
-				"ico":"./images/medium.png",
+				"ico":"medium",
 				"comment":"VueJS Series, Part 2.1 — Components Custom events"
 			}
 		]
@@ -180,7 +180,7 @@
 		"usefull":[
 			{
 				"ref":"https://tuhub.ru/frontend/rabota-s-shablonami-v-vue-js-2",
-				"ico":"https://tuhub.ru/app/images/logo.svg",
+				"ico":"tuhub",
 				"comment":"Работа с шаблонами в Vue.js 2"
 			}
 		]
@@ -194,12 +194,12 @@
 		"usefull":[
 			{
 				"ref":"https://alligator.io/vuejs/component-slots/",
-				"ico":"./images/alligator.svg",
+				"ico":"alligator",
 				"comment":"Understanding Component Slots with Vue.js"
 			},
 			{
 				"ref":"https://css-tricks.com/intro-to-vue-2-components-props-slots/",
-				"ico":"./images/css-tricks.png",
+				"ico":"css-tricks",
 				"comment":"Intro to Vue.js: Components, Props, and Slots"
 			}
 		]
@@ -214,27 +214,27 @@
 		"usefull":[
 			{
 				"ref":"https://vuejsdevelopers.com/2017/12/18/single-page-application-ux/?jsdojo_id=revue_spx&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-				"ico":"/images/vue-js-developers.png",
+				"ico":"vue-developers",
 				"comment":"Single-page application architecture"
 			},
 			{
 				"ref":"https://laravel.ru/posts/391",
-				"ico":"/images/laravel.png",
+				"ico":"laravel",
 				"comment":"Учимся использовать Vue-router в одностраничных приложениях"
 			},
 			{
 				"ref":"https://router.vuejs.org/en/advanced/navigation-guards.html",
-				"ico":"/images/vue.svg",
+				"ico":"vue",
 				"comment":"Navigation Guards"
 			},
 			{
 				"ref":"https://vuejsdevelopers.com/2017/12/11/vue-ssr-router/?jsdojo_id=revue_sgd&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-				"ico":"/images/vue-js-developers.png",
+				"ico":"vue-developers",
 				"comment":"Vue.js Server-Side Rendering With Vue Router: Step-By-Step Guide"
 			},
 			{
 				"ref":"https://serversideup.net/configuring-vue-router-single-page-app/",
-				"ico":"/images/ssu.svg",
+				"ico":"ssu",
 				"comment":"Configuring Vue Router for a Single Page App"
 			}
 		]
@@ -248,22 +248,22 @@
 		"usefull":[
 			{
 				"ref":"https://alligator.io/vuejs/understanding-transitions/",
-				"ico":"/images/alligator.svg",
+				"ico":"alligator",
 				"comment":"Understanding Vue.js Transitions"
 			},
 			{
 				"ref":"https://web-juice.ru/intro-to-vue-js-5-animations/",
-				"ico":"/images/web-juice.png",
+				"ico":"web-juice",
 				"comment":"Введение в Vue.js: Анимации"
 			},
 			{
 				"ref":"https://ru.vuejs.org/v2/guide/transitions.html",
-				"ico":"/images/stdlib.png",
+				"ico":"stdlib",
 				"comment":"Анимирование списков и появления/исчезновения"
 			},
 			{
 				"ref":"https://snipcart.com/blog/vuejs-transitions-animations",
-				"ico":"/images/snipcart.png",
+				"ico":"snipcart",
 				"comment":"Creating Vue.js Transitions & Animation: Live Examples"
 			}
 		]
@@ -271,7 +271,7 @@
 	{
 		"name":"AJAX",
 		"title":"HTTP",
-		"comment":"Vue.js не поставляется со встроенной библиотекой HTTP, и не без оснований. В наши дни API-интерфейс <a href='https://www.sitepoint.com/introduction-to-the-fetch-api/' target=''>Fetch</a> поддерживается во многих браузерах, но если вам не нравится API-интерфейс Fetch, то для HTTP есть много сторонних подключаемых библиотек, что обеспечивает гибкость в выборе оптимального решения для проекта",
+		"comment":"Vue.js не поставляется со встроенной библиотекой HTTP, и не без оснований. В наши дни API-интерфейс <spec_words>Fetch</spec_words> поддерживается во многих браузерах, но если вам не нравится <spec_words>Fetch</spec_words>, то для HTTP есть много сторонних подключаемых библиотек, что обеспечивает гибкость в выборе оптимального решения для проекта",
 		"code":[
 			"var sourceUrl = 'https://garevna.github.io/vue.github.io/data/posts.json'",
 			"var promise = this.$http.get( sourceUrl )",
@@ -288,17 +288,17 @@
 		"usefull":[
 			{
 				"ref":"https://github.com/pagekit/vue-resource",
-				"ico":"./images/github.png",
+				"ico":"github",
 				"comment":"vue-resource"
 			},
 			{
 				"ref":"https://jsoneditoronline.org/",
-				"ico":"./images/json-editor-online.png",
+				"ico":"json-editor",
 				"comment":"online-editor JSON files"
 			},
 			{
 				"ref":"https://jsonplaceholder.typicode.com/",
-				"ico":"http://i.imgur.com/QRlAg0b.png",
+				"ico":"json-placeholder",
 				"comment":"JSON Placeholder"
 			}
 		]
@@ -327,37 +327,37 @@
 		"usefull":[
 			{
 				"ref":"https://medium.com/3yourmind/large-scale-vuex-application-structures-651e44863e2f",
-				"ico":"./images/medium.png",
+				"ico":"medium",
 				"comment":"Large-scale Vuex application structures"
 			},
 			{
 				"ref":"https://alligator.io/vuejs/intro-to-vuex/",
-				"ico":"./images/alligator.png",
+				"ico":"alligator",
 				"comment":"Managing Vue.js State with Vuex"
 			},
 			{
 				"ref":"https://web-juice.ru/intro-to-vue-js-4-vuex/",
-				"ico":"./images/web-juice.png",
+				"ico":"web-juice",
 				"comment":"Введение в Vue.js: Vuex"
 			},
 			{
 				"ref":"https://scotch.io/tutorials/state-management-in-vue-getting-started-with-vue",
-				"ico":"./images/scotch_io.png",
+				"ico":"scotch-io",
 				"comment":"State Management in Vue: Getting Started with Vuex"
 			},
 			{
 				"ref":"https://medium.com/frontend-fun/vuejs-introduction-to-vuex-82bf35be5130",
-				"ico":"/images/medium.png",
+				"ico":"medium",
 				"comment":"VueJs: Introduction to Vuex"
 			},
 			{
 				"ref":"https://vuex.vuejs.org/en/",
-				"ico":"/images/vue.svg",
+				"ico":"vue",
 				"comment":"Vuex"
 			},
 			{
 				"ref":"https://vuejsdevelopers.com/2017/11/13/vue-js-vuex-undo-redo/?jsdojo_id=revue_vur&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-				"ico":"/images/vue-js-developers.png",
+				"ico":"vue-developers",
 				"comment":"Create A Vuex Undo/Redo Plugin For VueJS"
 			}
 		]
@@ -372,28 +372,33 @@
 		"usefull":[
 			{
 				"ref":"https://firebase.google.com",
-				"ico":"/images/firebase.png",
+				"ico":"firebase",
 				"comment":"firebase.google.com"
 			},
 			{
 				"ref":"https://medium.com/@oleg.agapov/basic-single-page-application-using-vue-js-and-firebase-part-1-9e4c0c11a228",
-				"ico":"/images/medium.png",
+				"ico":"medium",
 				"comment":"Basic Single Page application using Vue.js and Firebase — Part 1"
 			},
 			{
 				"ref":"https://medium.com/@oleg.agapov/basic-single-page-application-using-vue-js-and-firebase-part-2-143a3084266f",
-				"ico":"/images/medium.png",
+				"ico":"medium",
 				"comment":"Basic Single Page application using Vue.js and Firebase — Part 2"
 			},
 			{
 				"ref":"https://habrahabr.ru/post/277941/",
-				"ico":"/images/habr.png",
+				"ico":"habr",
 				"comment":"Введение в Firebase: пишем простое социальное приложение на Swift"
 			},
 			{
 				"ref":"https://github.com/firebase/firebaseui-web",
-				"ico":"/images/github.png",
+				"ico":"github",
 				"comment":"FirebaseUI for Web — Auth"
+			},
+			{
+				"ref":"https://code.i-harness.com/ru/docs/firebase",
+				"ico":"github",
+				"comment":"firebase Tutorials & Examples (рус)"
 			}
 		]
 	},
@@ -407,22 +412,22 @@
 		"usefull":[
 			{
 				"ref":"https://ru.vuejs.org/v2/style-guide/",
-				"ico":"/images/stdlib.png",
+				"ico":"stdlib",
 				"comment":"Рекомендации"
 			},
 			{
 				"ref":"https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-RU.md",
-				"ico":"/images/github.png",
+				"ico":"github",
 				"comment":"Несколько правил по разработке компонентов Vue"
 			},
 			{
 				"ref":"https://habrahabr.ru/post/332628/",
-				"ico":"/images/habr.png",
+				"ico":"habr",
 				"comment":"5 приемов в помощь разработке на vue.js + vuex"
 			},
 			{
 				"ref":"https://medium.com/@modex13/vue-js-2-%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%BA-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D1%85-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D0%BE%D0%B2-6e9897cf3d37",
-				"ico":"/images/medium.png",
+				"ico":"medium",
 				"comment":"Vue: сборник мелких советов"
 			}
 		]
