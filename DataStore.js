@@ -18,7 +18,11 @@ const store = new Vuex.Store ({
           pict: "./images/smile-03.gif",
           text: `К сожалению, материал еще не готов`
       }],
-      user: null
+
+      user: null,
+      messagesDate: null,
+      messagesRef: null,
+      messages: []
   },
   getters: {
     dataIsReady:  state => state.mainDataIsReady && state.postDataIsReady,
@@ -36,6 +40,29 @@ const store = new Vuex.Store ({
             ] : null
   },
   mutations: {
+    changeMessagesData: ( state, newMessagesDate ) => {
+      if ( typeof newMessagesDate === "string" )
+                          state.messagesDate = newMessagesDate
+      else {
+            var m = newMessagesDate.getMonth() + 1
+            var d = newMessagesDate.getDate()
+            var y = newMessagesDate.getFullYear()
+            var __m = m < 10 ? "0" + m : m
+            var __d = d < 10 ? "0" + d : d
+            state.messagesDate = "" + y + '-' + __m + '-' + __d
+      }
+      if ( state.messagesRef ) state.messagesRef.off()
+      state.messagesRef = firebase.database().ref ( 'message/' + state.messagesDate )
+      state.messagesRef.on  ( 'value', snapshot => {
+          var __messages = []
+          var snap = snapshot.val()
+          for ( var mess in snap ) {
+              __messages.push ( snap [ mess ] )
+          }
+          state.messages = __messages
+      })
+    },
+    
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
@@ -63,18 +90,9 @@ const store = new Vuex.Store ({
     getPostData: ( state, postData ) => {
         state.postData = postData
         state.postDataIsReady = true
-    },
-    userLoginSuccess: ( state, user ) => {
-        state.user = user
-    },
-    userLoginError: state => {
-        state.user = null
-    },
-    userLogOut: state => {
-        state.user = 'unknown'
-    },
+    }
   },
   actions: {
-    
+
   }
 })
