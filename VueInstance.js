@@ -1,3 +1,14 @@
+const firebaseConfig = {
+	apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
+	authDomain: "vue-course-b1571.firebaseapp.com",
+	databaseURL: "https://vue-course-b1571.firebaseio.com",
+	projectId: "vue-course-b1571",
+	storageBucket: "vue-course-b1571.appspot.com",
+	messagingSenderId: "329391650263"
+		}
+const firebaseApp = firebase.initializeApp ( firebaseConfig )
+const firebaseDB = firebaseApp.database()
+
 const app = new Vue ( {
 	store,
 	data: {
@@ -32,16 +43,7 @@ const app = new Vue ( {
 					console.log ( response.body )
 					this.$store.commit ( 'getPostData', response.body )
 		})
-		const config = {
-					apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
-					authDomain: "vue-course-b1571.firebaseapp.com",
-					databaseURL: "https://vue-course-b1571.firebaseio.com",
-					projectId: "vue-course-b1571",
-					storageBucket: "vue-course-b1571.appspot.com",
-					messagingSenderId: "329391650263"
-		}
-		if ( !firebaseApp ) const firebaseApp = firebase.initializeApp ( config )
-		if ( !firebaseDB ) const firebaseDB = firebaseApp.database()
+		
 		console.log ( 'const firebaseApp', firebaseApp )
 		console.log ( 'const firebaseDB', firebaseDB )
 		
