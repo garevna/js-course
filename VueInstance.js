@@ -86,7 +86,7 @@ const app = new Vue ( {
 		},
 	},
 	components: {
-		SignInComponent,
+		LoginComponent,
 		'dropdown-menu': CustomSelect,
 		MainSection,
 		'full-screen-chat': FullScreenChat,
