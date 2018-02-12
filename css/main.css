@@ -228,7 +228,7 @@ footer {
 }
 .my-photo {
   width:80px;
-	background-image:url(./images/my-photo.png);
+	background-image:url(../images/my-photo.png);
   background-size:contain;
   background-repeat:no-no-repeat;
 }
