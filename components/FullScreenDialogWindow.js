@@ -8,41 +8,32 @@ const FullScreenDialogWindow = ({
     template: `
     <v-layout row justify-left>
       <v-btn  icon ripple
+              class = "transparent"
               @click.native.stop = "dialog = true">
             <v-icon> description </v-icon>
       </v-btn>
 
-      <v-dialog   v-model = "dialog"
-                  fullscreen
-                  transition = "dialog-bottom-transition"
-                  :overlay = false
-                  scrollable>
-          <v-card>
-            <v-toolbar style = "flex: 0 0 auto;" dark class = "accent">
-              <v-btn  icon
+      <v-dialog   v-model = "dialog"  fullscreen
+                  dark class = "secondary"
+                  transition = "dialog-bottom-transition">
+          <v-card  class = "secondary">
+            <v-toolbar style = "flex: 0 0 auto;"
+                       class = "accent"
+                       dark>
+              <v-btn  icon dark class = "transparent"
                       @click.native = "dialog = false">
                 <v-icon> close </v-icon>
               </v-btn>
-              <v-toolbar-title>{{ __title }}</v-toolbar-title>
+              <v-toolbar-title class="transparent">{{ __title }}</v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-toolbar-items>
-                  <v-btn dark flat @click.native = "dialog = false">
-                        <v-icon> save </v-icon>
-                 </v-btn>
-                 <v-menu bottom right offset-y>
-                    <v-btn slot="activator" dark icon>
-                        <v-icon> more_vert </v-icon>
-                    </v-btn>
-                 </v-menu>
-              </v-toolbar-items>
+
           </v-toolbar>
-          <v-card-text v-html = "__text"></v-card-text>
+          <v-card-text class= "transparent" v-html = "__text"></v-card-text>
         </v-card>
       </v-dialog>
     </v-layout>
     `,
   mounted: function () {
-    console.info ( this.__title )
-    console.info ( this.__text )
+    
   }
 })
