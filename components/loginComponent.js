@@ -2,26 +2,25 @@
 const LoginComponent = ( 'login-component', {
     data: function () {
         return {
-            authUI: null,
-            firebaseAuthObject: null,
-            dialog: false,
-            loginForm: false,
-		    alert: false,
-		    alertMessage: "",
-		    alertColor: "info",
-		    alertIcon: "textsms",
-            uiConfig: {
-			    signInSuccessUrl: '/vue-course.github.io/#/',
-			    signInOptions: [
-				    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-				    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-				    firebase.auth.GithubAuthProvider.PROVIDER_ID,
-				    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+		authUI: null,
+		firebaseAuthObject: null,
+		dialog: false,
+		loginForm: false,
+		alert: false,
+		alertMessage: "",
+		alertColor: "info",
+		alertIcon: "textsms",
+		uiConfig: {
+			signInSuccessUrl: '/vue-course.github.io/#/',
+			signInOptions: [
+				firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+				firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+				firebase.auth.GithubAuthProvider.PROVIDER_ID,
+				firebase.auth.EmailAuthProvider.PROVIDER_ID,
         		],
-        		// Terms of service url
-        		tosUrl: '/vue-course.github.io/'
-		    }
-        }
+			tosUrl: '/vue-course.github.io/'
+		}
+	}
     },
     computed: {
         currentUser: function () {
@@ -84,7 +83,7 @@ const LoginComponent = ( 'login-component', {
                            @click.native.stop = "loginForm = true">
                <v-icon v-else>perm_identity</v-icon>
         </v-btn>
-        <div id = "firebaseui-auth-container" v-show = "loginForm"></div>
+        <div id = "firebaseui-auth-container"></div>
     `,
     methods: {
         userLogIn: function () {
