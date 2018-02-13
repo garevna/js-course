@@ -20,13 +20,14 @@ const app = new Vue ( {
 		messagesDBref: null,
 		newMessage: {},
 		lastMessages: null,
-		currentUser: null,
+		user: null,
 		
 		chatDialog: false,
 		userLoginDialog: false,
 		userLogoutDialog: false
 	},
 	computed: {
+		user: function () { this.$store.state.user }
 		userInfoDialog: function () { return !!this.user },
 		currentDate: function () { return this.$store.state.messagesDate },
 		currentSectionId: function () { return this.$store.state.currentSectionId },
@@ -47,14 +48,8 @@ const app = new Vue ( {
 					this.$store.commit ( 'getPostData', response.body )
 		})
 		
-		console.log ( 'const firebaseApp', firebaseApp )
-		console.log ( 'const firebaseDB', firebaseDB )
-		
 		this.usersDBref = firebaseDB.ref ( 'users' )
 		this.messagesDBref = firebaseDB.ref ( 'message' )
-
-		console.log ( 'firebaseApp usersRef: ', this.usersDBref )
-		console.log ( 'firebaseApp messagesRef: ', this.messagesDBref )
 		
 		const __vue = this
 		firebase.auth().onAuthStateChanged ( function ( user ) {
