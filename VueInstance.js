@@ -62,6 +62,7 @@ const app = new Vue ( {
 					accessToken => {
 						console.log ( 'USER: ', user)
 						__this.$store.commit ( 'setCurrentUser', user )
+						__this.$store.dispatch ( 'getDataFromUsersDB' )
 					},
 					error => {
 						console.error ( 'accessToken ERROR ' + error )
