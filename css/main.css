@@ -215,36 +215,32 @@ footer {
 }
 .home-page {
 	position:fixed;
-	top:50px!important;
-	left:0!important;
-	right:0!important;
-	bottom:0!important;
+	top:30%!important;
+	left:35%!important;
+	right:35%!important;
+	bottom:30%!important;
 	margin:0!important;
-	padding: 10px 40px!important;
 	background-image:url(../images/vue.svg);
 	filter: drop-shadow(5px 5px 10px rgba(0,0,50,0.7));
-	background-size:30%;
+	background-size:contain;
 	background-repeat:no-repeat;
 	background-position: center center;
-	color:white;
-	text-align:right;
-	font-family:monospace;
 }
 .my-photo {
-  width:80px;
+  	width:80px;
 	background-image:url(../images/my-photo.png);
-  background-size:contain;
-  background-repeat:no-no-repeat;
+  	background-size:contain;
+  	background-repeat:no-no-repeat;
 }
 .main-content-header {
-  position:fixed;
-  top:0;
-  left:80px;
-  font-size:25px;
-  font-weight:200;
-  text-align:center;
-  padding:10px;
-  color:#dde;
+  	position:fixed;
+  	top:0;
+  	left:80px;
+  	font-size:25px;
+  	font-weight:300;
+  	text-align:center;
+  	padding:10px;
+  	color:#dde;
 }
 .container {
       background-color: #02420590;
