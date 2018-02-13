@@ -20,14 +20,12 @@ const app = new Vue ( {
 		messagesDBref: null,
 		newMessage: {},
 		lastMessages: null,
-		user: null,
-		
 		chatDialog: false,
 		userLoginDialog: false,
 		userLogoutDialog: false
 	},
 	computed: {
-		user: function () { this.$store.state.user }
+		user: function () { this.$store.state.user },
 		userInfoDialog: function () { return !!this.user },
 		currentDate: function () { return this.$store.state.messagesDate },
 		currentSectionId: function () { return this.$store.state.currentSectionId },
