@@ -5,9 +5,11 @@ const firebaseConfig = {
 	projectId: "vue-course-b1571",
 	storageBucket: "vue-course-b1571.appspot.com",
 	messagingSenderId: "329391650263"
-		}
+}
 const firebaseApp = firebase.initializeApp ( firebaseConfig )
 const firebaseDB = firebaseApp.database()
+const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
+
 
 const app = new Vue ( {
 	store,
@@ -52,6 +54,23 @@ const app = new Vue ( {
 
 		console.log ( 'firebaseApp usersRef: ', this.usersDBref )
 		console.log ( 'firebaseApp messagesRef: ', this.messagesDBref )
+		
+		firebase.auth().onAuthStateChanged ( function ( user ) {
+			console.log ( '******* firebase.auth().onAuthStateChanged' )
+			if ( user ) {
+				user.getIdToken().then ( 
+					accessToken => {
+						console.log ( 'USER: ', user)
+						__this.$store.commit ( 'setCurrentUser', user )
+					},
+					error => {
+						console.error ( 'accessToken ERROR ' + error )
+						__this.$store.commit ( 'userLoginError', user )
+					}
+				)
+			}
+			else __this.$store.commit ( 'userLogOut' )
+		})
 
 			
 	},
