@@ -1,28 +1,28 @@
 const store = new Vuex.Store ({
   state: {
-      mainData: null,
-      postData: null,
-      mainDataIsReady: false,
-      postDataIsReady: false,
-
-      currentSectionId: null,
-      sectionInfo: null,
-      sectionPosts: null,
-
-      currentPostId: null,
-      currentPostContent: null,
-      currentPostReadme: [],
-
-      emptyPost: [{
+    mainData: null,
+    postData: null,
+    mainDataIsReady: false,
+    postDataIsReady: false,
+    
+    currentSectionId: null,
+    sectionInfo: null,
+    sectionPosts: null,
+    
+    currentPostId: null,
+    currentPostContent: null,
+    currentPostReadme: [],
+    
+    emptyPost: [{
           head: "В работе...",
           pict: "./images/smile-03.gif",
           text: `К сожалению, материал еще не готов`
-      }],
-
-      user: null,
-      messagesDate: null,
-      messagesRef: null,
-      messages: []
+    }],
+    
+    user: null,
+    messagesDate: null,
+    messagesRef: null,
+    messages: []
   },
   getters: {
     dataIsReady:  state => state.mainDataIsReady && state.postDataIsReady,
@@ -62,7 +62,10 @@ const store = new Vuex.Store ({
           state.messages = __messages
       })
     },
-    
+    setCurrentUser: ( state, newUser ) {
+        state.user = newUser
+        console.log ( "STATE: CURRENT USER: ', state.user )
+    },
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
