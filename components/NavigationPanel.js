@@ -9,7 +9,7 @@ const NavigationPanel = ( 'nav-panel', {
       <v-layout wrap justify-left>
         <v-btn  icon  large
                 @click.stop = "drawer = !drawer"
-                dark class = "transparent">
+                dark class = "primary">
             <v-icon>menu</v-icon>
         </v-btn>
         <v-navigation-drawer  temporary
