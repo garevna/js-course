@@ -25,7 +25,7 @@ const app = new Vue ( {
 		userLogoutDialog: false
 	},
 	computed: {
-		user: function () { this.$store.state.user },
+		user: function () { return this.$store.state.user },
 		userInfoDialog: function () { return !!this.user },
 		currentDate: function () { return this.$store.state.messagesDate },
 		currentSectionId: function () { return this.$store.state.currentSectionId },
