@@ -5,6 +5,24 @@ const LoginComponent = ( 'login-component', {
 			authUI: null,
 			firebaseAuthObject: null,
 			uiConfig: {
+				callbacks: {
+					signInSuccess: function ( currentUser, credential, redirectUrl ) {
+						console.log ( "======== Sign In Success =======" )
+						console.log ( "THIS: ", this )
+						console.log ( 'Current User: ', currentUser )
+						console.log ( 'credential: ', credential )
+						console.log ( 'redirect Url: ', redirectUrl )
+						// User successfully signed in
+						// Return type determines whether we continue the redirect automatically
+						// or whether we leave that to developer to handle
+						return true
+					},
+					uiShown: function() {
+						console.info ( 'The widget is rendered' )
+					}
+				},
+				// Will use popup for IDP Providers sign-in flow instead of the default, redirect
+				signInFlow: 'popup',
 				signInSuccessUrl: '/vue-course.github.io/#/',
 				signInOptions: [
 					firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -18,16 +36,8 @@ const LoginComponent = ( 'login-component', {
 	},
 	computed: {
 		currentUser: function () {
-			if ( this.firebaseAuthObject )
-				return this.firebaseAuthObject.currentUser
-			else return null
-		},
-		currentProvider: function () {
-			if ( this.firebaseAuthObject && this.firebaseAuthObject.currentUser )
-				var user = this.firebaseAuthObject.currentUser
-				if ( user.providerData ) return user.providerData[0].providerId
-			else return null
-		},
+			return this.$root.$store.user
+		}
 	},
 	watch: {
 		firebaseAuthObject: val => { console.log ( 'LoginComponent watch firebaseAuthObject: ', val ) },
@@ -68,13 +78,16 @@ const LoginComponent = ( 'login-component', {
       		},
 	},
 	mounted: function () {
-		console.info ( 'Login component has been mounted' )
-		this.loginForm = true
-		var loginWidget = document.createElement ( 'figure' )
-		document.body.appendChild ( loginWidget )
-		loginWidget.id = "firebaseui-auth-container"
-		console.log ( loginWidget )
-		this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
-		console.log ( 'LoginComponent this.authUI: ', this.authUI )
+		if ( this.currentUser ) {
+			console.info ( 'User allready signed in' )
+			console.log ( this.currentUser )
+		}
+		else {
+			var loginWidget = document.createElement ( 'figure' )
+			document.body.appendChild ( loginWidget )
+			loginWidget.id = "firebaseui-auth-container"
+			this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
+			console.log ( 'LoginComponent this.authUI: ', this.authUI )
+		}
 	}
 })
