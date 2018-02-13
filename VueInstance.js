@@ -87,7 +87,7 @@ const app = new Vue ( {
 			info: '#09a',
 			success: '#266150',
 			warning: '#fa0',
-			transparent: 'rgba(255,255,255,0.0)',
+			//transparent: 'rgba(255,255,255,0.0)',
 			glass: 'rgba(255,255,255,0.4)'
 		}
 	},
