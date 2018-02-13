@@ -71,6 +71,9 @@ const store = new Vuex.Store ({
         state.user.lastSignInTime = newUser.phoneNumber
         console.log ( 'STATE: CURRENT USER: ', state.user )
     },
+    userLogOut: state => {
+        state.user = null
+    },
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
