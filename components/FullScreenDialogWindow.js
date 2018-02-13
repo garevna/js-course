@@ -24,11 +24,11 @@ const FullScreenDialogWindow = ({
                       @click.native = "dialog = false">
                 <v-icon> close </v-icon>
               </v-btn>
-              <v-toolbar-title class="transparent">{{ __title }}</v-toolbar-title>
+              <v-toolbar-title>{{ __title }}</v-toolbar-title>
               <v-spacer></v-spacer>
 
           </v-toolbar>
-          <v-card-text class= "transparent" v-html = "__text"></v-card-text>
+          <v-card-text v-html = "__text"></v-card-text>
         </v-card>
       </v-dialog>
     </v-layout>
