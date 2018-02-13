@@ -21,7 +21,7 @@ const NavigationPanel = ( 'nav-panel', {
           <v-list class = "pa-1 accent">
             <v-list-tile class = "accent">
                 <v-list-tile-avatar>
-                    <img src = "../images/vue.svg" />
+                    <img src = "./images/vue.svg" />
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>
@@ -52,7 +52,6 @@ const NavigationPanel = ( 'nav-panel', {
     `,
     methods: {
         clickHandler: function ( event, val ) {
-          console.info ( 'NavigationPanel: ', val )
           this.$root.$store.commit( 'changeCurrentSectionId', val )
           this.$root.$store.commit( 'getCurrentSectionInfo' )
           this.$root.$store.commit( 'getCurrentSectionPosts' )
@@ -60,6 +59,6 @@ const NavigationPanel = ( 'nav-panel', {
         }
     },
     mounted: function () {
-      console.log ( 'NavigationPanel menuItems: ', this.states )
+      
     }
 })
