@@ -1,4 +1,4 @@
-const UserInfo = ( 'user-info-component', {
+const UserInfo = ( 'user-info', {
     data: function () {
         return {
             dialog: false
