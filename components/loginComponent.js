@@ -11,7 +11,7 @@ const LoginComponent = ( 'login-component', {
 						console.log ( "THIS: ", this )
 						console.log ( 'Current User: ', currentUser )
 						console.log ( 'credential: ', credential )
-						console.log ( 'redirect Url: ', redirectUrl )
+						this.$root.$store.commit ( 'setCurrentUser', currentUser )
 						var loginWidget = document.getElementById ( "firebaseui-auth-container" )
 						if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
 						// User successfully signed in
@@ -54,6 +54,7 @@ const LoginComponent = ( 'login-component', {
         	</v-layout>`,
 	created: function () {
 		console.info ( 'Login component has been created' )
+		console.log ( 'this.$route.path: ', this.$route.path )
 		this.authUI = new firebaseui.auth.AuthUI( firebase.auth() )
 		this.firebaseAuthObject = firebase.auth()
 		const __this = this
@@ -76,6 +77,8 @@ const LoginComponent = ( 'login-component', {
 	},
 	methods: {
 		sendCloseEvent: function () {
+			var loginWidget = document.getElementById ( "firebaseui-auth-container" )
+			if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
           		this.$root.$emit ( 'closeCurrentDialog' )
       		},
 	},
