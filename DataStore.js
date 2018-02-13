@@ -73,7 +73,6 @@ const store = new Vuex.Store ({
             lastSignInTime: newUser.phoneNumber
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
-        this.
     },
     userLoginError: state => {
         state.user = null
