@@ -80,15 +80,12 @@ const app = new Vue ( {
 		} )
 		this.$vuetify.theme = {
 			primary: '#36465d',
-			//secondary: '#266150',
 			secondary: '#4a8272',
 			accent: '#9b03a5',
 			error: '#d00',
 			info: '#09a',
 			success: '#266150',
-			warning: '#fa0',
-			//transparent: 'rgba(255,255,255,0.0)',
-			glass: 'rgba(255,255,255,0.4)'
+			warning: '#fa0'
 		}
 	},
 	methods: {
