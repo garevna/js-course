@@ -55,22 +55,23 @@ const app = new Vue ( {
 		console.log ( 'firebaseApp usersRef: ', this.usersDBref )
 		console.log ( 'firebaseApp messagesRef: ', this.messagesDBref )
 		
+		const __vue = this
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			console.log ( '******* firebase.auth().onAuthStateChanged' )
 			if ( user ) {
 				user.getIdToken().then ( 
 					accessToken => {
 						console.log ( 'USER: ', user)
-						__this.$store.commit ( 'setCurrentUser', user )
-						__this.$store.dispatch ( 'getDataFromUsersDB' )
+						__vue.$store.commit ( 'setCurrentUser', user )
+						__vue.$store.dispatch ( 'getDataFromUsersDB' )
 					},
 					error => {
 						console.error ( 'accessToken ERROR ' + error )
-						__this.$store.commit ( 'userLoginError', user )
+						__vue.$store.commit ( 'userLoginError', user )
 					}
 				)
 			}
-			else __this.$store.commit ( 'userLogOut' )
+			else __vue.$store.commit ( 'userLogOut' )
 		})
 
 			
