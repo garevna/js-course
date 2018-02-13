@@ -9,7 +9,7 @@ const NavigationPanel = ( 'nav-panel', {
       <v-layout wrap justify-left>
         <v-btn  icon  large
                 @click.stop = "drawer = !drawer"
-                dark color = "transparent">
+                dark class = "transparent">
             <v-icon>menu</v-icon>
         </v-btn>
         <v-navigation-drawer  temporary
@@ -21,7 +21,7 @@ const NavigationPanel = ( 'nav-panel', {
           <v-list class = "pa-1 accent">
             <v-list-tile class = "accent">
                 <v-list-tile-avatar>
-                    <img src = "/images/vue.svg" />
+                    <img src = "../images/vue.svg" />
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>
