@@ -30,13 +30,13 @@ const LoginComponent = ( 'login-component', {
 		}
 	},
 	computed: {
-		currentUser: function () {
+		user: function () {
 			return this.$root.$store.user
 		}
 	},
 	watch: {
 		firebaseAuthObject: val => { console.log ( 'LoginComponent watch firebaseAuthObject: ', val ) },
-		currentUser: val => { console.log ( 'LoginComponent watch currentUser: ', val ) },
+		user: val => { console.log ( 'LoginComponent watch user: ', val ) },
 	},
 	template: `
         	<v-layout row justify-center>  
@@ -57,7 +57,7 @@ const LoginComponent = ( 'login-component', {
 				user.getIdToken().then ( 
 					accessToken => {
 						console.log ( 'USER: ', user)
-						__this.$root.$store.commit ( 'userLoginSuccess', user )
+						__this.$root.$store.commit ( 'setCurrentUser', user )
 					},
 					error => {
 						console.error ( 'accessToken ERROR ' + error )
