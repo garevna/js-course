@@ -2,7 +2,6 @@ const UserInfo = ( 'user-info', {
     data: function () {
         return {
             dialog: false
-		}
 	}
     },
     computed: {
