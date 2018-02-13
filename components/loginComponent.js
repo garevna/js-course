@@ -2,9 +2,7 @@
 const LoginComponent = ( 'login-component', {
 	data: function () {
 		return {
-			__route: null,
-			authUI: null,
-			firebaseAuthObject: null,
+			__route: '/vue-course.github.io/#/',
 			uiConfig: {
 				callbacks: {
 					signInSuccess: ( currentUser, credential, redirectUrl ) => {
@@ -20,14 +18,14 @@ const LoginComponent = ( 'login-component', {
 				},
 				// Will use popup for IDP Providers sign-in flow instead of the default, redirect
 				signInFlow: 'popup',
-				signInSuccessUrl: '/vue-course.github.io/#/' + this.__route,
+				signInSuccessUrl: this.__route,
 				signInOptions: [
 					firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 					firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 					firebase.auth.GithubAuthProvider.PROVIDER_ID,
 					firebase.auth.EmailAuthProvider.PROVIDER_ID,
 				],
-				tosUrl: '/vue-course.github.io/#' + this.__route
+				tosUrl: this.__route
 			}
 		}
 	},
@@ -36,10 +34,6 @@ const LoginComponent = ( 'login-component', {
 			return this.$root.$store.user
 		}
 	},
-	watch: {
-		firebaseAuthObject: val => { console.log ( 'LoginComponent watch firebaseAuthObject: ', val ) },
-		user: val => { console.log ( 'LoginComponent watch user: ', val ) },
-	},
 	template: `
         	<v-layout row justify-center>  
             		<v-btn  icon dark class = "transparent"
@@ -47,10 +41,6 @@ const LoginComponent = ( 'login-component', {
                 		<v-icon> close </v-icon>
               		</v-btn>
         	</v-layout>`,
-	created: function () {
-		console.info ( 'Login component has been created' )
-		console.log ( 'this.$route.path: ', this.$route.path )
-	},
 	methods: {
 		sendCloseEvent: function () {
 			var loginWidget = document.getElementById ( "firebaseui-auth-container" )
@@ -59,11 +49,12 @@ const LoginComponent = ( 'login-component', {
       		},
 	},
 	mounted: function () {
-		this.__route = this.$route.path
+		this.__route = '/vue-course.github.io/#' + this.$route.path
 		console.log ( 'this.__route: ', this.__route )
 		if ( this.user ) {
 			console.info ( 'User allready signed in' )
 			console.log ( this.user )
+			this.sendCloseEvent ()
 		}
 		else {
 			var loginWidget = document.createElement ( 'figure' )
