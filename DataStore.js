@@ -64,7 +64,7 @@ const store = new Vuex.Store ({
     },
     setCurrentUser: ( state, newUser ) {
         state.user = newUser
-        console.log ( "STATE: CURRENT USER: ', state.user )
+        console.log ( 'STATE: CURRENT USER: ', state.user )
     },
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
