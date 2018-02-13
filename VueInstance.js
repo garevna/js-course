@@ -21,18 +21,19 @@ const app = new Vue ( {
 		newMessage: {},
 		lastMessages: null,
 		currentUser: null,
+		
 		chatDialog: false,
-		userInfoDialog: false,
 		userLoginDialog: false,
 		userLogoutDialog: false
 	},
 	computed: {
-			currentDate: function () { return this.$store.state.messagesDate },
-			currentSectionId: function () { return this.$store.state.currentSectionId },
-			mainMenuReady: function () { return this.$store.getters.mainMenuReady },
-			mainMenuItems: function () { return this.$store.getters.mainMenuItems },
-			sectionIsReady: function () { return this.$store.getters.sectionIsReady },
-			sectionMenu: function () { return this.$store.getters.sectionMenu }
+		userInfoDialog: function () { return !!this.user },
+		currentDate: function () { return this.$store.state.messagesDate },
+		currentSectionId: function () { return this.$store.state.currentSectionId },
+		mainMenuReady: function () { return this.$store.getters.mainMenuReady },
+		mainMenuItems: function () { return this.$store.getters.mainMenuItems },
+		sectionIsReady: function () { return this.$store.getters.sectionIsReady },
+		sectionMenu: function () { return this.$store.getters.sectionMenu }
 	},
 	created: function () {
 		this.$http.get ( this.mainDataSource )
