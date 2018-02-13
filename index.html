@@ -43,7 +43,7 @@
                 </nav-panel>
                 <v-spacer></v-spacer>
                 <full-screen-chat
-                          :user = "currentUser"
+                          :user = "user"
                           :dialog = "chatDialog">
                 </full-screen-chat>
                 <login-component v-if = "userLoginDialog">
@@ -58,16 +58,16 @@
                         <v-icon>more_vert</v-icon>
                     </v-btn>
                     <v-list>
-                        <v-list-tile :disabled = "currentUser" @click = "startUserLogin">
+                        <v-list-tile :disabled = "user" @click = "startUserLogin">
                             <v-list-tile-title>Sign In</v-list-tile-title>
                         </v-list-tile>
-                        <v-list-tile :disabled = "!currentUser" @click = "startUserLogOut">
+                        <v-list-tile :disabled = "!user" @click = "startUserLogOut">
                             <v-list-tile-title>Sign Out</v-list-tile-title>
                         </v-list-tile>
-                        <v-list-tile :disabled = "!currentUser" @click = "startUserInfo">
+                        <v-list-tile :disabled = "!user" @click = "startUserInfo">
                             <v-list-tile-title>User Info</v-list-tile-title>
                         </v-list-tile>
-                        <v-list-tile :disabled = "!currentUser" @click = "startChat">
+                        <v-list-tile :disabled = "!user" @click = "startChat">
                             <v-list-tile-title>Chat</v-list-tile-title>
                         </v-list-tile>
                     </v-list>
