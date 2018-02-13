@@ -6,7 +6,7 @@ const UserInfo = ( 'user-info', {
     },
     computed: {
         user: function () {
-                return this.$root.$store.user
+                return this.$root.$store.state.user
         }
     },
     template: `
