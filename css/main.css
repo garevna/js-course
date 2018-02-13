@@ -67,6 +67,9 @@
   font-size: 28px;
   font-weight: 100;
 }
+aside.navigation-drawer {
+	height:85%;
+}
 .transparent {
 	background-color: transparent;
 }
