@@ -71,6 +71,9 @@ const store = new Vuex.Store ({
         state.user.lastSignInTime = newUser.phoneNumber
         console.log ( 'STATE: CURRENT USER: ', state.user )
     },
+    userLoginError: state => {
+        state.user = null
+    },
     userLogOut: state => {
         state.user = null
     },
