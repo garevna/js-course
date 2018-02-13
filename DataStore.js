@@ -73,6 +73,7 @@ const store = new Vuex.Store ({
             lastSignInTime: newUser.phoneNumber
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
+        this.
     },
     userLoginError: state => {
         state.user = null
@@ -80,6 +81,7 @@ const store = new Vuex.Store ({
     userLogOut: state => {
         state.user = null
     },
+    
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
@@ -110,6 +112,13 @@ const store = new Vuex.Store ({
     }
   },
   actions: {
-
+      getDataFromUsersDB: context => {
+        var usersRef = firebase.database().ref ( 'users' )
+        usersRef.once( "value" )
+            .then ( function ( snapshot ) {
+                  console.log ( 'USERS SNAPSHOT: ', snapshot )
+            })
+        
+    },
   }
 })
