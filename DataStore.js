@@ -63,12 +63,14 @@ const store = new Vuex.Store ({
       })
     },
     setCurrentUser: ( state, newUser ) => {
-        state.user.name = newUser.displayName
-        state.user.email = newUser.email
-        state.user.provider = newUser.providerData.providerId
-        state.user.photoURL = newUser.photoURL
-        state.user.phone = newUser.phoneNumber
-        state.user.lastSignInTime = newUser.phoneNumber
+        state.user = {
+            name: newUser.displayName,
+            email: newUser.email,
+            provider: newUser.providerData.providerId,
+            photoURL: newUser.photoURL,
+            phoneNumber: newUser.phoneNumber,
+            lastSignInTime: newUser.phoneNumber
+        }
         console.log ( 'STATE: CURRENT USER: ', state.user )
     },
     userLoginError: state => {
