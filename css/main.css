@@ -70,9 +70,9 @@
 aside.navigation-drawer {
 	height:85%;
 }
-.transparent {
+/*.transparent {
 	background-color: transparent;
-}
+}*/
 spec_words, var_names {
     font-family: 'Papyrus', 'Abel', 'Didact Gothic', 'Roboto', cursive;
     font-size: 24px;
