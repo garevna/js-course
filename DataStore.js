@@ -67,7 +67,7 @@ const store = new Vuex.Store ({
         state.user = {
             name: newUser.displayName,
             email: newUser.email,
-            provider: newUser.providerData.providerId,
+            provider: newUser.providerData[0].providerId,
             photoURL: newUser.photoURL,
             phoneNumber: newUser.phoneNumber,
             lastSignInTime: newUser.phoneNumber
