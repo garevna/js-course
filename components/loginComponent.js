@@ -2,6 +2,7 @@
 const LoginComponent = ( 'login-component', {
 	data: function () {
 		return {
+			__route: null,
 			authUI: null,
 			firebaseAuthObject: null,
 			uiConfig: {
@@ -10,6 +11,7 @@ const LoginComponent = ( 'login-component', {
 						this.$root.$store.commit ( 'setCurrentUser', currentUser )
 						var loginWidget = document.getElementById ( "firebaseui-auth-container" )
 						if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
+						this.$root.$emit ( 'closeCurrentDialog' )
 						return true
 					},
 					uiShown: function() {
@@ -18,14 +20,14 @@ const LoginComponent = ( 'login-component', {
 				},
 				// Will use popup for IDP Providers sign-in flow instead of the default, redirect
 				signInFlow: 'popup',
-				signInSuccessUrl: '/vue-course.github.io/#/',
+				signInSuccessUrl: '/vue-course.github.io/#/' + this.__route,
 				signInOptions: [
 					firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 					firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 					firebase.auth.GithubAuthProvider.PROVIDER_ID,
 					firebase.auth.EmailAuthProvider.PROVIDER_ID,
 				],
-				tosUrl: '/vue-course.github.io/'
+				tosUrl: '/vue-course.github.io/#' + this.__route
 			}
 		}
 	},
@@ -48,25 +50,6 @@ const LoginComponent = ( 'login-component', {
 	created: function () {
 		console.info ( 'Login component has been created' )
 		console.log ( 'this.$route.path: ', this.$route.path )
-		this.authUI = new firebaseui.auth.AuthUI( firebase.auth() )
-		this.firebaseAuthObject = firebase.auth()
-		const __this = this
-		this.firebaseAuthObject.onAuthStateChanged ( function ( user ) {
-			console.log ( 'firebase.auth().onAuthStateChanged' )
-			if ( user ) {
-				user.getIdToken().then ( 
-					accessToken => {
-						console.log ( 'USER: ', user)
-						__this.$root.$store.commit ( 'setCurrentUser', user )
-					},
-					error => {
-						console.error ( 'accessToken ERROR ' + error )
-						__this.$root.$store.commit ( 'userLoginError', user )
-					}
-				)
-			}
-			else __this.$root.$store.commit ( 'userLogOut' )
-		})
 	},
 	methods: {
 		sendCloseEvent: function () {
@@ -76,16 +59,18 @@ const LoginComponent = ( 'login-component', {
       		},
 	},
 	mounted: function () {
-		if ( this.currentUser ) {
+		this.__route = this.$route.path
+		console.log ( 'this.__route: ', this.__route )
+		if ( this.user ) {
 			console.info ( 'User allready signed in' )
-			console.log ( this.currentUser )
+			console.log ( this.user )
 		}
 		else {
 			var loginWidget = document.createElement ( 'figure' )
 			document.body.appendChild ( loginWidget )
 			loginWidget.id = "firebaseui-auth-container"
-			this.authUI.start( '#firebaseui-auth-container', this.uiConfig )
-			console.log ( 'LoginComponent this.authUI: ', this.authUI )
+			this.$root.authUI.start( '#firebaseui-auth-container', this.uiConfig )
+			console.log ( 'LoginComponent this.authUI: ', this.$root.authUI )
 		}
 	}
 })
