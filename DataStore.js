@@ -62,7 +62,7 @@ const store = new Vuex.Store ({
           state.messages = __messages
       })
     },
-    setCurrentUser: ( state, newUser ) {
+    setCurrentUser: ( state, newUser ) => {
         state.user = newUser
         console.log ( 'STATE: CURRENT USER: ', state.user )
     },
