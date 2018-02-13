@@ -6,12 +6,14 @@ const LoginComponent = ( 'login-component', {
 			firebaseAuthObject: null,
 			uiConfig: {
 				callbacks: {
-					signInSuccess: function ( currentUser, credential, redirectUrl ) {
+					signInSuccess: ( currentUser, credential, redirectUrl ) => {
 						console.log ( "======== Sign In Success =======" )
 						console.log ( "THIS: ", this )
 						console.log ( 'Current User: ', currentUser )
 						console.log ( 'credential: ', credential )
 						console.log ( 'redirect Url: ', redirectUrl )
+						var loginWidget = document.getElementById ( "firebaseui-auth-container" )
+						if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
 						// User successfully signed in
 						// Return type determines whether we continue the redirect automatically
 						// or whether we leave that to developer to handle
