@@ -63,7 +63,12 @@ const store = new Vuex.Store ({
       })
     },
     setCurrentUser: ( state, newUser ) => {
-        state.user = newUser
+        state.user.name = newUser.displayName
+        state.user.email = newUser.email
+        state.user.provider = newUser.providerData.providerId
+        state.user.photoURL = newUser.photoURL
+        state.user.phone = newUser.phoneNumber
+        state.user.lastSignInTime = newUser.phoneNumber
         console.log ( 'STATE: CURRENT USER: ', state.user )
     },
     changeCurrentSectionId: ( state, sectionId ) => {
