@@ -142,8 +142,11 @@ ul {
     position: fixed!important;
 }
 .middle-of-the-window {
-    padding-top: 70px;
-    padding-bottom: 110px;
+	padding-top: 70px;
+	padding-bottom: 110px;
+	background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);
+	background-size: cover;
+	height: 100%;
 }
 .theme--dark .picker {
     background-color: #9b03a5;
