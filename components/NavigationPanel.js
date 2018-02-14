@@ -7,7 +7,7 @@ const NavigationPanel = ( 'nav-panel', {
     },
     template: `
         <v-layout justify-left>
-          <v-btn @click.stop = "drawer = !drawer; console.info ( 'CLICK' )" dark color = "primary" icon>
+          <v-btn @click.stop = "drawer = !drawer; console.info ( 'CLICK' + drawer )" dark color = "primary" icon>
             <v-icon>menu</v-icon>
           </v-btn>
         </v-layout>
