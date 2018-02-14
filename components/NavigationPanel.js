@@ -12,7 +12,7 @@ const NavigationPanel = ( 'nav-panel', {
             <v-icon>menu</v-icon>
           </v-btn>
         </v-layout>
-      <v-navigation-drawer temporary v-model = "drawer" absolute height="100%">
+      <v-navigation-drawer temporary v-model = "drawer" fixed height="100%">
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
