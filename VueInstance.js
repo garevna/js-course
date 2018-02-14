@@ -22,7 +22,8 @@ const app = new Vue ( {
 		lastMessages: null,
 		chatDialog: false,
 		userLoginDialog: false,
-		userLogoutDialog: false
+		userLogoutDialog: false,
+		drawer: null
 	},
 	computed: {
 		user: function () { return this.$store.state.user },
