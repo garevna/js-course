@@ -10,8 +10,7 @@ const UserInfo = ( 'user-info', {
         }
     },
     template: `
-        <v-layout row justify-center v-if = "user">  
-             <v-dialog v-model = "dialog" max-width = "290">
+       <v-dialog v-model = "dialog" max-width = "290" v-if = "user">
                 <v-btn color = "primary" 
                        dark icon
                        slot = "activator"
@@ -44,15 +43,7 @@ const UserInfo = ( 'user-info', {
                                     </v-btn>
                           </v-card-actions>
                 </v-card>
-             </v-dialog>
-        </v-layout>
-                
-        <v-btn color = "primary" dark icon
-                           v-if = "!currentUser"
-                           @click.native.stop = "loginForm = true">
-               <v-icon v-else>perm_identity</v-icon>
-        </v-btn>
-        <div id = "firebaseui-auth-container"></div>
+        </v-dialog>
     `,
     methods: {
         userLogOut: function () {
