@@ -1,8 +1,8 @@
 const NavigationPanel = ( 'nav-panel', {
-    props: [ "states" ],
+    props: [ "drawer", "states" ],
     data: function () {
       return {
-          drawer: null
+          
       }
     },
     template: `
