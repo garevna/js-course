@@ -7,12 +7,7 @@ const NavigationPanel = ( 'nav-panel', {
     },
     template: `
       <v-container>
-        <v-layout justify-left>
-          <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
-            <v-icon>menu</v-icon>
-          </v-btn>
-        </v-layout>
-      <v-navigation-drawer temporary v-model = "drawer" absolute height="300px">
+      <v-navigation-drawer temporary v-model = "drawer" absolute>
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
