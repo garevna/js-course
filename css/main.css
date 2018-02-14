@@ -147,7 +147,8 @@ ul {
 	background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);
 	background-size: cover;
 	background-attachment: fixed;
-	height: 100%;
+	height: 90%;
+	overflow-y: auto;
 }
 .theme--dark .picker {
     background-color: #9b03a5;
