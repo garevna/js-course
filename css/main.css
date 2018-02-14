@@ -114,7 +114,7 @@ ul {
     color: #ff8!important;
 }
 .navigation-drawer {
-	position:fixed;
+	/*position:fixed;*/
 	height: 100%;
 	background-color: #9b03a5;
 	color: #fa0;
@@ -146,6 +146,7 @@ ul {
 	padding-bottom: 110px;
 	background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);
 	background-size: cover;
+	background-attachment: fixed;
 	height: 100%;
 }
 .theme--dark .picker {
