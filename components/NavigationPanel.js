@@ -6,6 +6,7 @@ const NavigationPanel = ( 'nav-panel', {
       }
     },
     template: `
+      <div>
         <v-layout justify-left>
           <v-btn @click.stop = "drawer = !drawer; console.info ( 'CLICK' + drawer )" dark color = "primary" icon>
             <v-icon>menu</v-icon>
@@ -24,7 +25,7 @@ const NavigationPanel = ( 'nav-panel', {
         </v-list>
         <v-list class="pt-0" dense>
           <v-divider></v-divider>
-          <v-list-tile v-for = "item in states" :key="item" @click="clickHandler ( event, item )">
+          <v-list-tile v-for = "item in states" :key = "item" @click = "clickHandler ( event, item )">
             <v-list-tile-action>
               <v-icon>assignment</v-icon>
             </v-list-tile-action>
@@ -34,6 +35,7 @@ const NavigationPanel = ( 'nav-panel', {
           </v-list-tile>
         </v-list>
       </v-navigation-drawer>
+    </div>
     `,
     methods: {
         clickHandler: function ( event, val ) {
