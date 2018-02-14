@@ -6,16 +6,15 @@ const NavigationPanel = ( 'nav-panel', {
       }
     },
     template: `
-      <v-layout wrap justify-left>
         <v-btn  icon  large
                 @click.stop = "drawer = !drawer"
                 dark class = "primary">
             <v-icon>menu</v-icon>
         </v-btn>
-        <v-navigation-drawer  temporary
+        <v-navigation-drawer
                               v-model = "drawer"
                               clipped = true
-                              height = "80%"
+                              height = "300px"
                               class = "warning"
                               fixed>
           <v-list class = "pa-1 accent">
@@ -31,7 +30,7 @@ const NavigationPanel = ( 'nav-panel', {
             </v-list-tile>
           </v-list>
 
-          <v-list class="pt-0 accent" dense>
+          <v-list class="pt-0 secondary" dense style = "height:85%;">
             <v-divider></v-divider>
             <v-list-tile v-for = "item in states"
                          :key = "item"
@@ -48,7 +47,6 @@ const NavigationPanel = ( 'nav-panel', {
             </v-list-tile>
           </v-list>
         </v-navigation-drawer>
-      </v-layout>
     `,
     methods: {
         clickHandler: function ( event, val ) {
