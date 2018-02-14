@@ -6,7 +6,7 @@ const NavigationPanel = ( 'nav-panel', {
       }
     },
     template: `
-      <div>
+      <v-container>
         <v-layout justify-left>
           <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
             <v-icon>menu</v-icon>
@@ -35,7 +35,7 @@ const NavigationPanel = ( 'nav-panel', {
           </v-list-tile>
         </v-list>
       </v-navigation-drawer>
-    </div>
+    </v-container>
     `,
     methods: {
         clickHandler: function ( event, val ) {
