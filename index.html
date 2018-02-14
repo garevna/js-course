@@ -38,7 +38,7 @@
   <body>
     <v-app dark  class = "main-content" id = "VueCourseware">
             <v-toolbar flat class = "primary">
-                <nav-panel :states = "mainMenuItems">
+                <nav-panel :states = "mainMenuItems" v-if = "mainMenuItems.length > 0">
                 </nav-panel>
                 <v-spacer></v-spacer>
                 <user-info  v-if = "user"></user-info>
