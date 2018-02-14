@@ -6,13 +6,11 @@ const NavigationPanel = ( 'nav-panel', {
       }
     },
     template: `
-        <v-container>
         <v-layout justify-left>
           <v-btn @click.stop="drawer = !drawer" dark color="primary" icon>
             <v-icon>menu</v-icon>
           </v-btn>
         </v-layout>
-      </v-container>
       <v-navigation-drawer
         temporary
         v-model="drawer"
