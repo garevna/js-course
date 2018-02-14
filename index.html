@@ -36,9 +36,13 @@
   </head>
 
   <body>
-    <v-app dark  class = "main-content" id = "VueCourseware">
+    <v-app dark class = "main-content" id = "VueCourseware">
+      <v-layout
             <v-toolbar flat class = "primary">
-                <nav-panel :states = "mainMenuItems" v-if = "mainMenuItems.length > 0">
+                <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
+                    <v-icon>menu</v-icon>
+                </v-btn>
+                <nav-panel :drawer = "drawer" :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
                 <user-info  v-if = "user"></user-info>
