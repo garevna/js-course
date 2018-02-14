@@ -6,47 +6,40 @@ const NavigationPanel = ( 'nav-panel', {
       }
     },
     template: `
-        <v-btn  icon  large
-                @click.stop = "drawer = !drawer"
-                dark class = "primary">
+        <v-container>
+        <v-layout justify-left>
+          <v-btn @click.stop="drawer = !drawer" dark color="primary" icon>
             <v-icon>menu</v-icon>
-        </v-btn>
-        <v-navigation-drawer
-                              v-model = "drawer"
-                              clipped = true
-                              height = "300px"
-                              class = "warning"
-                              fixed>
-          <v-list class = "pa-1 accent">
-            <v-list-tile class = "accent">
-                <v-list-tile-avatar>
-                    <img src = "./images/vue.svg" />
-                </v-list-tile-avatar>
-                <v-list-tile-content>
-                    <v-list-tile-title>
-                          content
-                    </v-list-tile-title>
-                </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-
-          <v-list class="pt-0 secondary" dense style = "height:85%;">
-            <v-divider></v-divider>
-            <v-list-tile v-for = "item in states"
-                         :key = "item"
-                         class = "warning"
-                         @click = "clickHandler ( event, item )">
-                  <v-list-tile-action>
-                        <v-icon class = "white--text">assignment</v-icon>
-                  </v-list-tile-action>
-                  <v-list-tile-content>
-                        <v-list-tile-title class = "white--text">
-                            {{ item }}
-                        </v-list-tile-title>
-                  </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-navigation-drawer>
+          </v-btn>
+        </v-layout>
+      </v-container>
+      <v-navigation-drawer
+        temporary
+        v-model="drawer"
+        absolute
+      >
+        <v-list class="pa-1">
+          <v-list-tile avatar>
+            <v-list-tile-avatar>
+              <img src="./images/vue.svg" >
+            </v-list-tile-avatar>
+            <v-list-tile-content>
+              <v-list-tile-title>Content</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+        <v-list class="pt-0" dense>
+          <v-divider></v-divider>
+          <v-list-tile v-for="item in states" :key="item" @click="clickHandler ( event, item )">
+            <v-list-tile-action>
+              <v-icon>assignment</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-navigation-drawer>
     `,
     methods: {
         clickHandler: function ( event, val ) {
