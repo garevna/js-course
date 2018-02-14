@@ -30,7 +30,7 @@ const FullScreenChat = ( 'full-screen-chat', {
                   slot = "activator">
                 <v-icon>message</v-icon>
           </v-btn>-->
-          <v-card  class = "secondary">
+          <v-card  class = "transparent">
             <v-toolbar style = "flex: 0 0 auto;"
                        class = "accent top-of-the-window"
                        dark>
@@ -44,8 +44,8 @@ const FullScreenChat = ( 'full-screen-chat', {
               <v-spacer></v-spacer>
               <vue-data-picker></vue-data-picker>
             </v-toolbar>
-            <div class = "secondary middle-of-the-window">
-                <v-card-text  class= "secondary"
+            <div class = "middle-of-the-window">
+                <v-card-text  class= "transparent"
                         v-for = "item in messages">
                     <v-avatar v-if = "item.user.photo">
                         <img :src = "item.user.photo">
