@@ -42,14 +42,6 @@
                 <nav-panel :states = "mainMenuItems">
                 </nav-panel>
                 <v-spacer></v-spacer>
-                <full-screen-chat
-                          :user = "user"
-                          :dialog = "chatDialog">
-                </full-screen-chat>
-                <login-component v-if = "userLoginDialog">
-                </login-component>
-                <user-info  v-if = "user"></user-info>
-
                 <toggle-buttons :__buttons = "sectionMenu"
                                 class = "transparent">
                 </toggle-buttons>
@@ -74,6 +66,9 @@
                 </v-menu>
             </v-toolbar>
           </v-card>
+          <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
+          <login-component v-if = "userLoginDialog"></login-component>
+          <user-info  v-if = "user"></user-info>
           <app-footer></app-footer>
           <router-view class = "inner-content"></router-view>
     </v-app>
