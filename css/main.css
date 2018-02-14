@@ -121,9 +121,7 @@ ul {
 }
 .card__text {
 	min-height: fit-content;
-}
-.card__text .transparent p {
-	text-shadow: 0px 0px 2px #00000099;
+	text-shadow: 0px 0px 3px #000037ff;
 }
 .card__actions {
 	background-color: #9b03a5;
