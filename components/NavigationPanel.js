@@ -8,11 +8,11 @@ const NavigationPanel = ( 'nav-panel', {
     template: `
       <div>
         <v-layout justify-left>
-          <v-btn @click.stop = "drawer = !drawer; console.info ( 'CLICK' + drawer )" dark color = "primary" icon>
+          <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
             <v-icon>menu</v-icon>
           </v-btn>
         </v-layout>
-      <v-navigation-drawer temporary v-model = "drawer" absolute>
+      <v-navigation-drawer temporary v-model = "drawer" absolute height="100%">
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
