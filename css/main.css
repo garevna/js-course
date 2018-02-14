@@ -96,7 +96,7 @@ var_names {
   background-size:cover;
   background-position: center center;
 }
-.list {
+/*.list {
   padding: 0;
 }
 ul {
@@ -116,7 +116,7 @@ ul {
 .navigation-drawer {
 	background-color: #9b03a5;
 	color: #fa0;
-}
+}*/
 .card__text {
 	min-height: fit-content;
 }
