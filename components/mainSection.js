@@ -52,12 +52,9 @@ const MainSection = {
     'toggle-buttons': ToggleButtons
   },
   template: `
-    <div class = "inner-content" @scroll = "handleScroll" style = "overflow-y: scroll;">
-      <div class = "main-content-header" v-if = "id">
-        <span>&nbsp;{{ id }}</span>
-      </div>
+    <!--<div @scroll = "handleScroll" style = "overflow-y: scroll;">-->
 
-      <router-view class="section-info"></router-view>
-    </div>
+      <router-view></router-view>
+    <!--</div>-->
   `
 }
