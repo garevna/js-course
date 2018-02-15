@@ -27,7 +27,7 @@ const store = new Vuex.Store ({
   },
   getters: {
     currentUserInfo: ( state, __user ) => {
-        var userData = null
+        var userId = 'unknown'
         for ( var prop in state.usersList ) {
             if ( state.usersList [ prop ].provider === __user.provider &&
                  state.usersList [ prop ].email === __user.email &&
