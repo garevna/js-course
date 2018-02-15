@@ -1,10 +1,10 @@
 const NavigationPanel = ( 'nav-panel', {
     props: [ "drawer", "states" ],
     data: function () {
-      return {
-          console.log ( this.drawer )
-          localDrawer: this.drawer
-      }
+        console.log ( this.drawer )
+        return {
+            localDrawer: this.drawer
+        }
     },
     watch: {
         localDrawer: function ( newVal, oldVal ) {
