@@ -32,8 +32,8 @@ const currentPost = ( 'current-post', {
   watch: {
     postObject: function ( newVal, oldVal ) {
       const __this = this
-      console.log ( 'postObject oldVal ', oldVal )
-      console.log ( 'postObject newVal ', newVal )
+      //console.log ( 'postObject oldVal ', oldVal )
+      //console.log ( 'postObject newVal ', newVal )
       
       var currentPostData = async ( postObject ) => {
           if ( postObject.readme ) {
@@ -58,8 +58,8 @@ const currentPost = ( 'current-post', {
           })
     },
     'postObject.text': function ( newVal, oldVal ) {
-        console.log ( 'postObject.text old: ', oldVal )
-        console.log ( 'postObject.text new: ', newVal )
+        //console.log ( 'postObject.text old: ', oldVal )
+        //console.log ( 'postObject.text new: ', newVal )
     }
   },
   template: `
