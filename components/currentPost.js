@@ -32,36 +32,27 @@ const currentPost = ( 'current-post', {
   watch: {
     postObject: function ( newVal, oldVal ) {
       const __this = this
-      //console.log ( 'postObject oldVal ', oldVal )
-      //console.log ( 'postObject newVal ', newVal )
-      
       var currentPostData = async ( postObject ) => {
           if ( postObject.readme ) {
               let answer = await __this.$root.$http.get ( postObject.readme )
               __this.readmeContent = answer.body
-              console.log ( 'readmeContent: ', __this.readmeContent )
-          }
+          } else __this.readmeContent = ""
           if ( postObject.textURL ) {
               let answer = await __this.$root.$http.get ( postObject.textURL )
               __this.text = answer.body
-              console.log ( 'post text: ', __this.text )
-          }
+          } else __this.text = postObject.text
       }
       currentPostData ( newVal )
       
-      if ( !this.postObject.readme ) this.readmeContent = null
-      else
-          this.$root.$http.get ( this.postObject.readme ).then ( response => {
-              this.readmeContent = response.body
-          })
-      if ( this.postObject.textURL )
-          this.$root.$http.get ( this.postObject.textURL ).then ( response => {
-              this.postObject.text = response.body
-          })
-    },
-    'postObject.text': function ( newVal, oldVal ) {
-        //console.log ( 'postObject.text old: ', oldVal )
-        //console.log ( 'postObject.text new: ', newVal )
+      //if ( !this.postObject.readme ) this.readmeContent = null
+      //else
+      //    this.$root.$http.get ( this.postObject.readme ).then ( response => {
+      //        this.readmeContent = response.body
+      //    })
+      //if ( this.postObject.textURL )
+      //    this.$root.$http.get ( this.postObject.textURL ).then ( response => {
+      //        this.postObject.text = response.body
+      //    })
     }
   },
   template: `
@@ -84,7 +75,7 @@ const currentPost = ( 'current-post', {
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
             <v-flex xs12 sm8>
-                <p v-html = "postObject.text"></p>
+                <p v-html = "text"></p>
             </v-flex>
             <v-flex xs12 sm4>
               <transition name = "slide-down">
