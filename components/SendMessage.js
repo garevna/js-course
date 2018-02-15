@@ -71,7 +71,7 @@ const FullScreenChat = ( 'full-screen-chat', {
       },
       sendMessage: function () {
           this.messagesRef.push ({
-              user: this.user,
+              user: this.$root.store.getters.currentUserInfo ( user ),
               text: this.text
           })
           this.text = ""
