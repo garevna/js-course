@@ -29,6 +29,7 @@ const currentPost = ( 'current-post', {
       },
       'state.sectionPosts': function ( newVal, oldVal ) {
         console.log ( 'state.sectionPosts were loaded', newVal, oldVal )
+        this.getPostObject ()
       }
   },
   template: `
