@@ -101,7 +101,7 @@ const currentPost = ( 'current-post', {
         }
         getReady ().then ( res => {
             console.log ( '!!!!!!!!!!!!!!', res )
-            __this.postObject = res.body
+            __this.postObject = res
             console.log ( __this.postObject )
             __this.readTheData ()
         } )  
