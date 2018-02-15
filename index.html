@@ -41,7 +41,7 @@
                 <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
                     <v-icon>menu</v-icon>
                 </v-btn>
-                
+                <v-toolbar-title>{{ currentSectionId }}</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <user-info  v-if = "user"></user-info>
                 <toggle-buttons :__buttons = "sectionMenu"
