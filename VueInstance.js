@@ -70,6 +70,7 @@ const app = new Vue ( {
 	},
 	mounted: function () {
 		this.$store.commit ( 'changeMessagesData', new Date() )
+		this.$store.dispatch ( 'getAllUsers' )
 		this.$on ( 'closeCurrentDialog', function () {
 				this.chatDialog = false
 				this.userInfoDialog = false
