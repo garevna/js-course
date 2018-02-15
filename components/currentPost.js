@@ -89,15 +89,14 @@ const currentPost = ( 'current-post', {
       openRef: ref => window.open ( ref, "_blank" ),
       getPostObject: function () {
         const __this = this
-        var getReady = function () {
+        let getReady = function () {
             return new Promise ( function ( resolve, reject ) {
-                console.log ( 'PROMISE __this ', __this )
                 if ( __this.state.sectionPosts && __this.postName ) {
                     var tmp = __this.state.sectionPosts.filter ( post =>
                                                   post.head === __this.postName )
                     console.log ( 'TMP: ', tmp )
                     resolve ( ( tmp.length === 0 ) ? __this.state.emptyPost : tmp [0] )
-                }
+                } else { console.info ('Promise is not resolved') }
             })
         }
         getReady ().then ( res => {
@@ -119,16 +118,10 @@ const currentPost = ( 'current-post', {
   },
   beforeMount: function () {
       console.info ( '*** ', this.postName )
-      
   },
   mounted: function () {
       this.getPostObject ()
       const __this = this
-      if ( !this.postObject ) {
-          setTimeout ( function () {
-              console.log ( 'TIMEOUT: ', __this.postObject )
-          }, 300 )
-      }
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
       } )
