@@ -23,6 +23,7 @@ const SectionDetails = {
     'select-post': CustomSelect
   },
   template: `
+    <v-card>
     <section>
         <select-post  :states = "sectionPostNames"
                       v-if = "sectionPostNames"
@@ -31,6 +32,7 @@ const SectionDetails = {
         </select-post>
         <router-view :postId = "currentPostId"></router-view>
     </section>
+    </v-card>
     `,
   mounted: function () {
     console.log ( 'SectionDetails $route.path: ', this.$route.path )
