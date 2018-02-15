@@ -33,6 +33,7 @@ const currentPost = ( 'current-post', {
     postName: function ( newVal, oldVal ) {
       console.log ( oldVal )
       console.log ( newVal )
+      this.getPostObject ()
       this.readTheData ()
       //const __this = this
       //var currentPostData = async ( postObject ) => {
@@ -107,6 +108,16 @@ const currentPost = ( 'current-post', {
   `,
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
+      getPostObject: function () {
+        console.log ( this.state.sectionPosts )
+        console.log (this.postName )
+          if ( !this.state.sectionPosts || !this.postName ) return null
+          var postsId = this.postName
+          var posts = this.state.sectionPosts.filter ( post =>
+                                        post.head === postsId )
+          if ( posts.length === 0 ) return this.state.emptyPost
+          else return posts [0]
+      }
       readTheData: () => {
           if ( !this.postObject ) {
             setTimeout ( function () {
