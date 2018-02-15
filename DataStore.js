@@ -85,7 +85,6 @@ const store = new Vuex.Store ({
       })
     },
     setCurrentUser: ( state, newUser ) => {
-        console.log ( 'STATE: CURRENT USER PROVIDER: ', newUser.providerData )
         state.user = {
             name: newUser.displayName,
             email: newUser.email,
@@ -97,6 +96,10 @@ const store = new Vuex.Store ({
         console.log ( 'STATE: CURRENT USER: ', state.user )
         var userExist = false
         for ( var prop in state.usersList ) {
+            console.info ( state.usersList [ prop ].provider + " : " + state.user.provider )
+            console.info ( state.usersList [ prop ].email + " : " + state.user.email )
+            console.info ( state.usersList [ prop ].name + " : " + state.user.name )
+          
             if ( state.usersList [ prop ].provider === state.user.provider &&
                  state.usersList [ prop ].email === state.user.email &&
                  state.usersList [ prop ].name === state.user.name ) {
