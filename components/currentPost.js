@@ -124,25 +124,6 @@ const currentPost = ( 'current-post', {
   },
   mounted: function () {
       const __this = this
-      var ready = false
-      testCurrentPostInfo ()
-        .then ( function ( postObject ) {
-              postObject = response.body
-              var readmeURL = postObject.readme
-              return __this.$root.$http.get ( readmeURL ).then ( response => {
-                  __this.readmeContent = response.body
-              })
-        })
-        .then ( function ( postObject ) {
-              postObject = response.body
-              var textURL = postObject.textURL
-              return __this.$root.$http.get ( textURL ).then ( response => {
-                  __this.readmeContent = response.body
-              })
-        })
-        .catch(function(err) {
-              console.error ( err )
-        })
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
       } )
