@@ -8,6 +8,7 @@
 .section-container,
 .section-article {
 	position:absolute;
+	height: 100%;
 	left:20%;
 	right:20%;
 	box-sizing:border-box;
@@ -22,26 +23,26 @@
 	width:auto;
 	border-radius:4px;
 	color:#333;
-  margin-left:10px;
-  display:block;
-  animation: show-menu 1s forwards;
-  font-family:'Papyrus';
+	margin-left:10px;
+	display:block;
+	animation: show-menu 1s forwards;
+	font-family:'Papyrus';
 }
 .samples-section-item {
-		font-size: 16px;
-		color: #590044;
-		font-family: 'Didact Gothic';
-		font-weight: 300;
+	font-size: 16px;
+	color: #590044;
+	font-family: 'Didact Gothic';
+	font-weight: 300;
 }
 .samples-section-item:hover {
-		color:#fff;
+	color:#fff;
 }
 .samples-section-item:before {
-		content:"\2615";
-		color:#ffc;
-		font-size: 25px;
-		font-family:'Papyrus';
-		text-shadow: 0.5px 0.5px 2px #300020f0;
+	content:"\2615";
+	color:#ffc;
+	font-size: 25px;
+	font-family:'Papyrus';
+	text-shadow: 0.5px 0.5px 2px #300020f0;
 }
 .samples-section-item:hover:before {
 	content:"{}";
