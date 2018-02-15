@@ -122,8 +122,11 @@ const currentPost = ( 'current-post', {
           if ( res.readme ) {
               __this.readmeContent = await __this.$root.$http.get ( res.readme )
               console.log ( 'readmeContent: ', __this.readmeContent )
+          }
+          if ( res.textURL ) {
               __this.text = await __this.$root.$http.get ( res.textURL )
               console.log ( 'post text: ', __this.text )
+          }
       }
       
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
