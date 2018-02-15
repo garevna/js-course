@@ -78,7 +78,7 @@ const currentPost = ( 'current-post', {
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
             <v-flex xs12 sm8>
-                <div v-html = "text"></div>
+                <div>{{text}}</div>
             </v-flex>
             <v-flex xs12 sm4>
               <transition name = "slide-down">
