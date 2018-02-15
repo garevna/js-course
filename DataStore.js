@@ -129,7 +129,6 @@ const store = new Vuex.Store ({
                 console.log ( 'USERS SNAPSHOT: ', snapshot.val() )
                 context.commit ( 'saveUsersList', snapshot.val() )
             })
-        }
     },
   }
 })
