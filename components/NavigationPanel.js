@@ -2,6 +2,7 @@ const NavigationPanel = ( 'nav-panel', {
     props: [ "drawer", "states" ],
     data: function () {
       return {
+          console.log ( this.drawer )
           localDrawer: this.drawer
       }
     },
