@@ -108,6 +108,11 @@ const currentPost = ( 'current-post', {
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
       readTheData: () => {
+          if ( !this.postObject ) {
+            setTimeout ( function () {
+              console.log ( 'postObject after timeout ', this.postObject )
+            }, 200 )
+          }
           if ( !this.postObject.readme ) this.readmeContent = null
           else
               this.$root.$http.get ( this.postObject.readme ).then ( response => {
