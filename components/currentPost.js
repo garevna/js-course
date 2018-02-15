@@ -27,7 +27,6 @@ const currentPost = ( 'current-post', {
       console.log ( oldVal )
       console.log ( newVal )
       this.getPostObject ()
-      this.readTheData ()
       //const __this = this
       //var currentPostData = async ( postObject ) => {
       //    if ( postObject.readme ) {
