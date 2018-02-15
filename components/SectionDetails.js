@@ -29,8 +29,11 @@ const SectionDetails = {
                       v-model = "currentPostId"
                       @change = "console.log ('currentPostId')">
         </select-post>
-        <router-view class = "router-view" :postId = "currentPostId">
-        </router-view>
+        <router-view :postId = "currentPostId"></router-view>
     </section>
-    `
+    `,
+  mounted: function () {
+    console.log ( 'SectionDetails $route.path: ', this.$route.path )
+    
+  }
 }
