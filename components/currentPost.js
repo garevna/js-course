@@ -2,6 +2,7 @@ const currentPost = ( 'current-post', {
   data: function () {
     return {
         readmeContent: null,
+        text: null,
         state: this.$root.$store.state,
         scrollPosition: 0
     }
@@ -30,8 +31,22 @@ const currentPost = ( 'current-post', {
   },
   watch: {
     postObject: function ( newVal, oldVal ) {
-      //console.log ( 'postObject old: ', oldVal )
-      //console.log ( 'postObject new: ', newVal )
+      const __this = this
+      console.log ( 'postObject oldVal ', oldVal )
+      console.log ( 'postObject newVal ', newVal )
+      
+      var currentPostData = async ( postObject ) => {
+          if ( postObject.readme ) {
+              __this.readmeContent = await __this.$root.$http.get ( postObject.readme )
+              console.log ( 'readmeContent: ', __this.readmeContent )
+          }
+          if ( postObject.textURL ) {
+              __this.text = await __this.$root.$http.get ( postObject.textURL )
+              console.log ( 'post text: ', __this.text )
+          }
+      }
+      currentPostData ( newVal )
+      
       if ( !this.postObject.readme ) this.readmeContent = null
       else
           this.$root.$http.get ( this.postObject.readme ).then ( response => {
@@ -43,8 +58,8 @@ const currentPost = ( 'current-post', {
           })
     },
     'postObject.text': function ( newVal, oldVal ) {
-      //console.log ( 'postObject.text old: ', oldVal )
-      //console.log ( 'postObject.text new: ', newVal )
+        console.log ( 'postObject.text old: ', oldVal )
+        console.log ( 'postObject.text new: ', newVal )
     }
   },
   template: `
@@ -110,34 +125,6 @@ const currentPost = ( 'current-post', {
   },
   mounted: function () {
       const __this = this
-      var currentSectionPosts = function ( state ) {
-          console.info ( 'currentSectionPosts promise will be returned' )
-          console.log ( state.sectionPosts )
-          return new Promise ( function ( resolve, reject ) {
-              console.log ( 'Promise working: ', state.sectionPosts )
-              if ( state.sectionPosts ) { console.log ( 'Promise has finished working: ', state.sectionPosts ); resolve ( state.sectionPosts ) }
-          })
-      }
-      var currentPostObject = async ( state, postId ) => {
-          var postId = await postId
-          console.info ( postId )
-          console.log ( state.sectionPosts )
-          var posts = await currentSectionPosts ( state ) 
-          console.log ( posts )
-          var selected = posts.filter ( post => post.head === postsId )
-          var res = ( selected.length === 0 ) ? state.emptyPost : selected [0]
-          console.log ( res )
-          if ( res.readme ) {
-              __this.readmeContent = await __this.$root.$http.get ( res.readme )
-              console.log ( 'readmeContent: ', __this.readmeContent )
-          }
-          if ( res.textURL ) {
-              __this.text = await __this.$root.$http.get ( res.textURL )
-              console.log ( 'post text: ', __this.text )
-          }
-      }
-      currentPostObject ( this.state, this.postName )
-      
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
       } )
