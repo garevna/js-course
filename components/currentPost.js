@@ -23,9 +23,10 @@ const currentPost = ( 'current-post', {
       },
   },
   watch: {
-    postName: function ( newVal, oldVal ) {
-      this.getPostObject ()
-    }
+      postName: function ( newVal, oldVal ) {
+        console.log ( newVal, oldVal )
+        this.getPostObject ()
+      }
   },
   template: `
 
@@ -90,17 +91,18 @@ const currentPost = ( 'current-post', {
         var __this = this
         var getReady = function () {
             return new Promise ( function ( resolve, reject ) {
+                console.log ( 'PROMISE this ', this )
                 if ( __this.state.sectionPosts && __this.postName ) {
                     var tmp = __this.state.sectionPosts.filter ( post =>
                                                   post.head === __this.postName )
-                    resolve ( ( tmp.length === 0 ) ? this.state.emptyPost : tmp [0] )
+                    resolve ( ( tmp.length === 0 ) ? __this.state.emptyPost : tmp [0] )
                 }
             })
         }
         getReady ().then ( res => {
-            console.log ( '!!!!!!!!!!!!!!', res )
+            console.log ( '******** ', __this )
             __this.postObject = res
-            console.log ( __this.postObject )
+            console.log ( '!!!!!!!!!!!!!!', __this.postObject )
             if ( !__this.postObject.readme ) __this.readmeContent = null
             else
               __this.$root.$http.get ( __this.postObject.readme ).then ( response => {
