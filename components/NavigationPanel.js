@@ -34,13 +34,14 @@ const NavigationPanel = ( 'nav-panel', {
     `,
     methods: {
         clickHandler: function ( event, val ) {
-          this.$root.$store.commit( 'changeCurrentSectionId', val )
-          this.$root.$store.commit( 'getCurrentSectionInfo' )
-          this.$root.$store.commit( 'getCurrentSectionPosts' )
-          this.$root.$router.push ( { name: "mainSection", params: { id: val } } )
+            this.$root.$emit ( 'closeNavigationPanel' )
+            this.$root.$store.commit( 'changeCurrentSectionId', val )
+            this.$root.$store.commit( 'getCurrentSectionInfo' )
+            this.$root.$store.commit( 'getCurrentSectionPosts' )
+            this.$root.$router.push ( { name: "mainSection", params: { id: val } } )
         }
     },
     mounted: function () {
-      console.log ( this.states )
+      
     }
 })
