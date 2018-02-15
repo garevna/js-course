@@ -26,6 +26,19 @@ const store = new Vuex.Store ({
     messages: []
   },
   getters: {
+    currentUserInfo: ( state, __user ) => {
+        var userData = null
+        for ( each prop in state.usersList ) {
+            if ( state.usersList [ prop ].provider === __user.provider &&
+                 state.usersList [ prop ].email === __user.email &&
+                 state.usersList [ prop ].name === __user.name ) {
+              userId = prop
+              console.info ( 'User: ' + userId )
+              break
+            }
+        }
+        return userId
+    },
     dataIsReady:  state => state.mainDataIsReady && state.postDataIsReady,
     mainMenuReady: state => state.mainDataIsReady,
     sectionIdDefined:  state => ( state.currentSectionId !== null ),
@@ -58,7 +71,14 @@ const store = new Vuex.Store ({
           var __messages = []
           var snap = snapshot.val()
           for ( var mess in snap ) {
-              __messages.push ( snap [ mess ] )
+              var __user = this.$root.$store.usersList [ snap [ mess ].user ]
+              __messages.push ({
+                    user: {
+                        name: __user.name,
+                        photoUrl: __user.photoUrl
+                    },
+                    text: snap [ mess ].text
+              })
           }
           state.messages = __messages
       })
@@ -74,8 +94,21 @@ const store = new Vuex.Store ({
             lastSignInTime: newUser.phoneNumber
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
-        var ref = firebase.database().ref ( "users" )
-        ref.push ( state.user )
+        var userExist = false
+        for ( each prop in state.usersList ) {
+            if ( state.usersList [ prop ].provider === state.user.provider &&
+                 state.usersList [ prop ].email === state.user.email &&
+                 state.usersList [ prop ].name === state.user.name ) {
+              userExist = true
+              console.info ( 'User exists' )
+              break
+            }
+        }
+        if ( !userExist ) {
+            console.info ( 'New user' )
+            var ref = firebase.database().ref ( "users" )
+            ref.push ( state.user )
+        }
     },
     pushUserToDB: state => {
         var ref = firebase.database().ref ( "users" )
@@ -83,6 +116,9 @@ const store = new Vuex.Store ({
     },
     saveUsersList: ( state, ul ) => {
         state.usersList = ul
+        firebase.database().ref ( "users" ).on ( 'value', snapshot => {
+            state.usersList = snapshot.val()
+        })
     },
     
     userLoginError: state => {
