@@ -24,14 +24,12 @@ const currentPost = ( 'current-post', {
   },
   watch: {
     postName: function ( newVal, oldVal ) {
-      console.log ( oldVal )
-      console.log ( newVal )
       this.getPostObject ()
     }
   },
   template: `
 
-    <v-section>
+    <v-section id = "CURRENT POST" v-if = "postObject">
       <v-toolbar class = "dark accent" prominent height = "48px">
 
         <full-screen-dialog-window
@@ -116,9 +114,16 @@ const currentPost = ( 'current-post', {
         } )  
       },
   },
-  mounted: function () {
+  beforeMount: function () {
       this.getPostObject ()
+  },
+  mounted: function () {
       const __this = this
+      if ( !this.postObject ) {
+          setTimeout ( function () {
+              console.log ( 'TIMEOUT: ', __this.postObject )
+          }, 300 )
+      }
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
       } )
