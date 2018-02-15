@@ -73,13 +73,14 @@ const store = new Vuex.Store ({
           for ( var mess in snap ) {
               var __user = state.usersList [ snap [ mess ].user ]
               console.log ( __user )
-              __messages.push ({
-                    user: {
-                        name: __user.name,
-                        photoUrl: __user.photoUrl
-                    },
-                    text: snap [ mess ].text
-              })
+              if ( __user )
+                  __messages.push ({
+                      user: {
+                          name: __user.name,
+                          photoUrl: __user.photoUrl
+                      },
+                      text: snap [ mess ].text
+                  })
           }
           state.messages = __messages
       })
