@@ -77,7 +77,7 @@ const store = new Vuex.Store ({
                   __messages.push ({
                       user: {
                           name: __user.name,
-                          photoUrl: __user.photoUrl
+                          photoURL: __user.photoURL
                       },
                       text: snap [ mess ].text
                   })
