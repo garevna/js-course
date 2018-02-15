@@ -37,7 +37,7 @@
 
   <body>
     <v-app dark class = "main-content" id = "VueCourseware">
-      <v-layout>
+      <v-layout row>
             <v-toolbar flat class = "primary">
                 <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
                     <v-icon>menu</v-icon>
@@ -69,12 +69,31 @@
                 </v-menu>
             </v-toolbar>
         </v-layout>
-            <nav-panel :drawer = "drawer" :states = "mainMenuItems"></nav-panel>
-            <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
-            <login-component v-if = "userLoginDialog"></login-component>
-          
-          <app-footer></app-footer>
-          <router-view class = "inner-content"></router-view>
+        <v-content>
+          <v-container fill-height>
+            <v-layout justify-center align-center>
+              <v-flex shrink>
+                <nav-panel :drawer = "drawer" :states = "mainMenuItems"></nav-panel>
+                <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
+                <login-component v-if = "userLoginDialog"></login-component>
+                <router-view></router-view>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        <v-content>
+       <v-footer class="primary" app>
+          <img src = "./images/a-level.png">
+          <v-spacer></v-spacer>
+          <v-tooltip bottom nudge-top="-80">
+              <span slot="activator">
+                &copy;&nbsp;Irina Fylyppova 2017
+              </span>
+              <span>
+                <img src="./images/my-photo.png" width="80">
+              </span>
+            </v-tooltip>
+       </v-footer>
+       <!--<app-footer></app-footer>-->
     </v-app>
           
     
