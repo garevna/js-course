@@ -31,28 +31,28 @@ const currentPost = ( 'current-post', {
   },
   watch: {
     postObject: function ( newVal, oldVal ) {
-      const __this = this
-      var currentPostData = async ( postObject ) => {
-          if ( postObject.readme ) {
-              let answer = await __this.$root.$http.get ( postObject.readme )
-              __this.readmeContent = answer.body
-          } else __this.readmeContent = ""
-          if ( postObject.textURL ) {
-              let answer = await __this.$root.$http.get ( postObject.textURL )
-              __this.text = answer.body
-          } else __this.text = postObject.text
-      }
-      currentPostData ( newVal )
+      //const __this = this
+      //var currentPostData = async ( postObject ) => {
+      //    if ( postObject.readme ) {
+      //        let answer = await __this.$root.$http.get ( postObject.readme )
+      //        __this.readmeContent = answer.body
+      //    } else __this.readmeContent = ""
+      //    if ( postObject.textURL ) {
+      //        let answer = await __this.$root.$http.get ( postObject.textURL )
+      //        __this.text = answer.body
+      //    } else __this.text = postObject.text
+      //}
+      //currentPostData ( newVal )
       
-      //if ( !this.postObject.readme ) this.readmeContent = null
-      //else
-      //    this.$root.$http.get ( this.postObject.readme ).then ( response => {
-      //        this.readmeContent = response.body
-      //    })
-      //if ( this.postObject.textURL )
-      //    this.$root.$http.get ( this.postObject.textURL ).then ( response => {
-      //        this.postObject.text = response.body
-      //    })
+      if ( !this.postObject.readme ) this.readmeContent = null
+      else
+          this.$root.$http.get ( this.postObject.readme ).then ( response => {
+              this.readmeContent = response.body
+          })
+      if ( this.postObject.textURL )
+          this.$root.$http.get ( this.postObject.textURL ).then ( response => {
+              this.text = response.body
+          })
     }
   },
   template: `
@@ -74,7 +74,7 @@ const currentPost = ( 'current-post', {
       <v-card color = "transparent" class = "white--text">
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
-            <v-flex xs12 sm8 :text = "text">
+            <v-flex xs12 sm8>
                 <div v-html = "text"></div>
             </v-flex>
             <v-flex xs12 sm4>
@@ -114,10 +114,35 @@ const currentPost = ( 'current-post', {
   `,
   methods: {
     openRef: ref => window.open ( ref, "_blank" ),
-
+    testCurrentPostInfo: function () {
+        var __this = this
+        return new Promise ( function ( resolve, reject ) {
+            if ( __this.postObject ) resolve ( __this.postObject )
+        })
+    },
+    get
   },
   mounted: function () {
       const __this = this
+      var ready = false
+      testCurrentPostInfo ()
+        .then ( function ( postObject ) {
+              postObject = response.body
+              var readmeURL = postObject.readme
+              return __this.$root.$http.get ( readmeURL ).then ( response => {
+                  __this.readmeContent = response.body
+              })
+        })
+        .then ( function ( postObject ) {
+              postObject = response.body
+              var textURL = postObject.textURL
+              return __this.$root.$http.get ( textURL ).then ( response => {
+                  __this.readmeContent = response.body
+              })
+        })
+        .catch(function(err) {
+              console.error ( err )
+        })
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
       } )
