@@ -76,8 +76,8 @@ const app = new Vue ( {
 				this.userLoginDialog = false
 				this.userLogoutDialog = false
 		} )
-		this.$on ( 'closeNavigationPanel', function ( localDrawerVal ) {
-			this.drawer = localDrawerVal
+		this.$on ( 'closeNavigationPanel', function () {
+			this.drawer = false
 		} )
 		this.$vuetify.theme = {
 			primary: '#36465d',
