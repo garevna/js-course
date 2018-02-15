@@ -26,6 +26,9 @@ const currentPost = ( 'current-post', {
       postName: function ( newVal, oldVal ) {
         console.log ( newVal, oldVal )
         this.getPostObject ()
+      },
+      'state.sectionPosts': function ( newVal, oldVal ) {
+        console.log ( 'state.sectionPosts were loaded', newVal, oldVal )
       }
   },
   template: `
@@ -94,15 +97,12 @@ const currentPost = ( 'current-post', {
                 if ( __this.state.sectionPosts && __this.postName ) {
                     var tmp = __this.state.sectionPosts.filter ( post =>
                                                   post.head === __this.postName )
-                    console.log ( 'TMP: ', tmp )
                     resolve ( ( tmp.length === 0 ) ? __this.state.emptyPost : tmp [0] )
-                } else { console.info ('Promise is not resolved') }
+                }
             })
         }
         getReady ().then ( res => {
-            console.log ( '******** ', __this )
             __this.postObject = res
-            console.log ( '!!!!!!!!!!!!!!', __this.postObject )
             if ( !__this.postObject.readme ) __this.readmeContent = null
             else
               __this.$root.$http.get ( __this.postObject.readme ).then ( response => {
@@ -115,9 +115,6 @@ const currentPost = ( 'current-post', {
           else __this.text = __this.postObject.text
         } )  
       },
-  },
-  beforeMount: function () {
-      console.info ( '*** ', this.postName )
   },
   mounted: function () {
       this.getPostObject ()
