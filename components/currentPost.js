@@ -102,14 +102,22 @@ const currentPost = ( 'current-post', {
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
       getPostObject: function () {
-        console.log ( this.state.sectionPosts )
-        console.log (this.postName )
-          if ( !this.state.sectionPosts || !this.postName ) return null
-          var postsId = this.postName
-          var posts = this.state.sectionPosts.filter ( post =>
-                                        post.head === postsId )
-          if ( posts.length === 0 ) return this.state.emptyPost
-          else return posts [0]
+        var __this = this
+        var getReady = function () {
+            return new Promise ( function ( resolve, reject ) {
+                if ( __this.state.sectionPosts && __this.postName ) {
+                    var tmp = __this.state.sectionPosts.filter ( post =>
+                                                  post.head === __this.postName )
+                    return ( tmp.length === 0 ) ? this.state.emptyPost : tmp [0]
+                }
+            })
+        }
+        getReady ().then ( res => {
+            console.log ( '!!!!!!!!!!!!!!', res )
+            __this.postObject = res.body
+            console.log ( __this.postObject )
+            __this.readTheData ()
+        } )  
       },
       readTheData: () => {
           if ( !this.postObject ) {
@@ -131,7 +139,6 @@ const currentPost = ( 'current-post', {
   },
   mounted: function () {
       this.getPostObject ()
-      this.readTheData ()
       const __this = this
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
