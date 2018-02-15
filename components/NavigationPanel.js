@@ -6,7 +6,7 @@ const NavigationPanel = ( 'nav-panel', {
         }
     },
     computed: {
-        localDrawer: () => this.$root.drawer
+        localDrawer: function () { return this.$root.drawer }
     },
     template: `
       <v-container class = "transparent">
