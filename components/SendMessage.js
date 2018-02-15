@@ -25,11 +25,6 @@ const FullScreenChat = ( 'full-screen-chat', {
                   class = "transparent"
                   transition = "dialog-bottom-transition"
                   :overlay = false  scrollable>
-          <!--<v-btn  icon dark ripple
-                  color = "transparent"
-                  slot = "activator">
-                <v-icon>message</v-icon>
-          </v-btn>-->
           <v-card  class = "transparent">
             <v-toolbar style = "flex: 0 0 auto;"
                        class = "accent top-of-the-window"
@@ -47,8 +42,8 @@ const FullScreenChat = ( 'full-screen-chat', {
             <div class = "middle-of-the-window">
                 <v-card-text  class= "transparent"
                         v-for = "item in messages">
-                    <v-avatar v-if = "item.user.photo">
-                        <img :src = "item.user.photo">
+                    <v-avatar v-if = "item.user.photoURL">
+                        <img :src = "item.user.photoURL">
                     </v-avatar>
                     <div class = "warning--text">{{ item.user.name }}</div>
                     <p style = "height:fit-content">{{ item.text }}</p>
