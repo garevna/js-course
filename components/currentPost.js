@@ -116,7 +116,7 @@ const currentPost = ( 'current-post', {
           var posts = await state.sectionPosts
           console.log ( postId )
           console.log ( posts )
-          var selected = state.sectionPosts.filter ( post => post.head === postsId )
+          var selected = posts.filter ( post => post.head === postsId )
           var res = ( selected.length === 0 ) ? state.emptyPost : selected [0]
           console.log ( res )
           if ( res.readme ) {
