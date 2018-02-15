@@ -119,6 +119,9 @@ ul {
 	background-color: #9b03a5;
 	color: #fa0;
 }
+.card {
+	padding: 10px 20px;
+}
 .card__text {
 	min-height: fit-content;
 	text-shadow: 0px 0px 3px #000037ff;
