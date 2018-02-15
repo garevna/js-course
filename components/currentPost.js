@@ -1,6 +1,7 @@
 const currentPost = ( 'current-post', {
   data: function () {
     return {
+        postObject: null,
         readmeContent: null,
         text: null,
         state: this.$root.$store.state,
