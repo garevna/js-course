@@ -1,7 +1,6 @@
 const currentPost = ( 'current-post', {
   data: function () {
     return {
-        postObject: null,
         readmeContent: null,
         text: null,
         state: this.$root.$store.state,
@@ -27,18 +26,6 @@ const currentPost = ( 'current-post', {
       console.log ( oldVal )
       console.log ( newVal )
       this.getPostObject ()
-      //const __this = this
-      //var currentPostData = async ( postObject ) => {
-      //    if ( postObject.readme ) {
-      //        let answer = await __this.$root.$http.get ( postObject.readme )
-      //        __this.readmeContent = answer.body
-      //    } else __this.readmeContent = ""
-      //    if ( postObject.textURL ) {
-      //        let answer = await __this.$root.$http.get ( postObject.textURL )
-      //        __this.text = answer.body
-      //    } else __this.text = postObject.text
-      //}
-      //currentPostData ( newVal )
     }
   },
   template: `
@@ -107,7 +94,7 @@ const currentPost = ( 'current-post', {
                 if ( __this.state.sectionPosts && __this.postName ) {
                     var tmp = __this.state.sectionPosts.filter ( post =>
                                                   post.head === __this.postName )
-                    return ( tmp.length === 0 ) ? this.state.emptyPost : tmp [0]
+                    resolve ( ( tmp.length === 0 ) ? this.state.emptyPost : tmp [0] )
                 }
             })
         }
