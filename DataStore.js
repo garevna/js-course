@@ -74,6 +74,8 @@ const store = new Vuex.Store ({
             lastSignInTime: newUser.phoneNumber
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
+        var ref = firebase.database().ref ( "users" )
+        ref.push ( state.user )
     },
     pushUserToDB: state => {
         var ref = firebase.database().ref ( "users" )
