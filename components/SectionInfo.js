@@ -17,7 +17,7 @@ const SectionInfo = {
     'bottom-sheet': BottomSheet
   },
   template: `
-      <v-card v-if = "sectionIsReady">
+      <v-card class = "section-container" v-if = "sectionIsReady">
         <bottom-sheet v-if = "sectionInfo.usefull"
               :usefull_links = "sectionInfo.usefull">
         </bottom-sheet>
