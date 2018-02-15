@@ -128,6 +128,7 @@ const currentPost = ( 'current-post', {
               console.log ( 'post text: ', __this.text )
           }
       }
+      currentPostObject ( this.state, this.postName )
       
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
