@@ -114,13 +114,6 @@ const currentPost = ( 'current-post', {
   `,
   methods: {
     openRef: ref => window.open ( ref, "_blank" ),
-    testCurrentPostInfo: function () {
-        var __this = this
-        return new Promise ( function ( resolve, reject ) {
-            if ( __this.postObject ) resolve ( __this.postObject )
-        })
-    },
-    get
   },
   mounted: function () {
       const __this = this
