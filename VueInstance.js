@@ -38,12 +38,10 @@ const app = new Vue ( {
 	created: function () {
 		this.$http.get ( this.mainDataSource )
 				.then ( response => {
-					console.log ( response.body )
 					this.$store.commit ( 'getMainData', response.body )
 		})
 		this.$http.get ( this.postDataSource )
 				.then ( response => {
-					console.log ( response.body )
 					this.$store.commit ( 'getPostData', response.body )
 		})
 		
@@ -52,7 +50,6 @@ const app = new Vue ( {
 		
 		const __vue = this
 		firebase.auth().onAuthStateChanged ( function ( user ) {
-			console.log ( '******* firebase.auth().onAuthStateChanged' )
 			if ( user ) {
 				user.getIdToken().then ( 
 					accessToken => {
