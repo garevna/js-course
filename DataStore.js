@@ -20,6 +20,7 @@ const store = new Vuex.Store ({
     }],
     
     user: null,
+    usersList: [],
     messagesDate: null,
     messagesRef: null,
     messages: []
@@ -74,6 +75,14 @@ const store = new Vuex.Store ({
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
     },
+    pushUserToDB: state => {
+        var ref = firebase.database().ref ( "users" )
+        ref.push ( state.user )
+    },
+    saveUsersList: ( state, ul ) => {
+        state.usersList = ul
+    },
+    
     userLoginError: state => {
         state.user = null
     },
@@ -111,13 +120,14 @@ const store = new Vuex.Store ({
     }
   },
   actions: {
-      getDataFromUsersDB: context => {
-        var usersRef = firebase.database().ref ( 'users' )
-        usersRef.once( "value" )
+    getAllUsers: context => {
+        var usersRef = firebase.database().ref ( "users" )
+        usersRef.once ( "value" )
             .then ( function ( snapshot ) {
-                  console.log ( 'USERS SNAPSHOT: ', snapshot )
+                console.log ( 'USERS SNAPSHOT: ', snapshot.val() )
+                context.commit ( 'saveUsersList', snapshot.val() )
             })
-        
+        }
     },
   }
 })
