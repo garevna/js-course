@@ -44,13 +44,13 @@ const currentPost = ( 'current-post', {
       //}
       //currentPostData ( newVal )
       
-      if ( !this.postObject.readme ) this.readmeContent = null
+      if ( !newVal.readme ) this.readmeContent = null
       else
-          this.$root.$http.get ( this.postObject.readme ).then ( response => {
+          this.$root.$http.get ( newVal.readme ).then ( response => {
               this.readmeContent = response.body
           })
-      if ( this.postObject.textURL )
-          this.$root.$http.get ( this.postObject.textURL ).then ( response => {
+      if ( newVal.textURL )
+          this.$root.$http.get ( newVal.textURL ).then ( response => {
               this.text = response.body
           })
     }
