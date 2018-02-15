@@ -115,7 +115,7 @@ const currentPost = ( 'current-post', {
           console.log ( state.sectionPosts )
           return new Promise ( function ( resolve, reject ) {
               console.log ( 'Promise working: ', state.sectionPosts )
-              if ( state.sectionPosts ) { resolve ( console.log ( 'Promise has finished working: ', state.sectionPosts ); state.sectionPosts ) }
+              if ( state.sectionPosts ) { console.log ( 'Promise has finished working: ', state.sectionPosts ); resolve ( state.sectionPosts ) }
           })
       }
       var currentPostObject = async ( state, postId ) => {
