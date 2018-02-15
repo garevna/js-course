@@ -258,16 +258,15 @@ footer {
     background-color: #02420590;
     color: #fff;
 }
-.inner-content {
-  position:fixed;
-  box-sizing:border-box;
-  top:50px;
-  width:100%;
-  bottom:30px;
-  padding:0 0 20px 0;
-  overflow:auto;
-  border: solid 10px transparent;
-}
+/*.inner-content {
+	box-sizing:border-box;
+	top:50px;
+	width:100%;
+	bottom:30px;
+	padding:0 0 20px 0;
+	overflow:auto;
+	border: solid 10px transparent;
+}*/
 .scrollingPicture {
    height: 125px!important;
 }
