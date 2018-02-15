@@ -52,9 +52,8 @@ const MainSection = {
     'toggle-buttons': ToggleButtons
   },
   template: `
-    <!--<div @scroll = "handleScroll" style = "overflow-y: scroll;">-->
-
+    <div @scroll = "handleScroll" style = "overflow-y: scroll;">
       <router-view></router-view>
-    <!--</div>-->
+    </div>
   `
 }
