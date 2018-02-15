@@ -111,15 +111,17 @@ const currentPost = ( 'current-post', {
   mounted: function () {
       const __this = this
       var currentSectionPosts = function ( state ) {
+          console.info ( 'currentSectionPosts promise will be returned' )
           return new Promise ( function ( resolve, reject ) {
               if ( state.sectionPosts ) resolve ( state.sectionPosts )
           })
       }
       var currentPostObject = async ( state, postId ) => {
           var postId = await postId
+          console.info ( postId )
           console.log ( state )
           var posts = await currentSectionPosts ( state ) 
-          console.log ( postId )
+          
           console.log ( posts )
           var selected = posts.filter ( post => post.head === postsId )
           var res = ( selected.length === 0 ) ? state.emptyPost : selected [0]
