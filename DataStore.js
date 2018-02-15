@@ -96,17 +96,22 @@ const store = new Vuex.Store ({
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
         var userExist = false
+        console.log ( 'USERS LIST: ', state.usersList )
         for ( var prop in state.usersList ) {
             console.info ( state.usersList [ prop ].provider + " : " + state.user.provider )
             console.info ( state.usersList [ prop ].email + " : " + state.user.email )
             console.info ( state.usersList [ prop ].name + " : " + state.user.name )
+            
+            console.info ( state.usersList [ prop ].provider === state.user.provider &&
+                           state.usersList [ prop ].email === state.user.email &&
+                           state.usersList [ prop ].name === state.user.name )
           
             if ( state.usersList [ prop ].provider === state.user.provider &&
                  state.usersList [ prop ].email === state.user.email &&
                  state.usersList [ prop ].name === state.user.name ) {
-              userExist = true
-              console.info ( 'User exists' )
-              break
+                            userExist = true
+                            console.info ( 'User exists' )
+                            break
             }
         }
         if ( !userExist ) {
@@ -114,10 +119,6 @@ const store = new Vuex.Store ({
             var ref = firebase.database().ref ( "users" )
             ref.push ( state.user )
         }
-    },
-    pushUserToDB: state => {
-        var ref = firebase.database().ref ( "users" )
-        ref.push ( state.user )
     },
     saveUsersList: ( state, ul ) => {
         state.usersList = ul
