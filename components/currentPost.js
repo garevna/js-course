@@ -30,8 +30,8 @@ const currentPost = ( 'current-post', {
   },
   watch: {
     postObject: function ( newVal, oldVal ) {
-      console.log ( 'postObject old: ', oldVal )
-      console.log ( 'postObject new: ', newVal )
+      //console.log ( 'postObject old: ', oldVal )
+      //console.log ( 'postObject new: ', newVal )
       if ( !this.postObject.readme ) this.readmeContent = null
       else
           this.$root.$http.get ( this.postObject.readme ).then ( response => {
@@ -43,8 +43,8 @@ const currentPost = ( 'current-post', {
           })
     },
     'postObject.text': function ( newVal, oldVal ) {
-      console.log ( 'postObject.text old: ', oldVal )
-      console.log ( 'postObject.text new: ', newVal )
+      //console.log ( 'postObject.text old: ', oldVal )
+      //console.log ( 'postObject.text new: ', newVal )
     }
   },
   template: `
