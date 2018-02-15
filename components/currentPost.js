@@ -51,10 +51,12 @@ const currentPost = ( 'current-post', {
           this.$root.$http.get ( this.postObject.readme ).then ( response => {
               this.readmeContent = response.body
           })
+      else this.readmeContent = null
       if ( this.postObject.textURL )
           this.$root.$http.get ( this.postObject.textURL ).then ( response => {
               this.text = response.body
           })
+      else this.text = this.postObject.text
     }
   },
   template: `
