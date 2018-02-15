@@ -1,6 +1,7 @@
 const currentPost = ( 'current-post', {
   data: function () {
     return {
+        postObject: null,
         readmeContent: null,
         text: null,
         state: this.$root.$store.state,
@@ -17,14 +18,6 @@ const currentPost = ( 'current-post', {
         }
       },
       postName: function () { return this.$root.$route.params.post },
-      postObject: function () {
-          if ( !this.state.sectionPosts || !this.postName ) return null
-          var postsId = this.postName
-          var posts = this.state.sectionPosts.filter ( post =>
-                                        post.head === postsId )
-          if ( posts.length === 0 ) return this.state.emptyPost
-          else return posts [0]
-      },
       codeExist: function () {
         return this.postObject.code.length > 0
       },
@@ -117,7 +110,7 @@ const currentPost = ( 'current-post', {
                                         post.head === postsId )
           if ( posts.length === 0 ) return this.state.emptyPost
           else return posts [0]
-      }
+      },
       readTheData: () => {
           if ( !this.postObject ) {
             setTimeout ( function () {
@@ -137,6 +130,7 @@ const currentPost = ( 'current-post', {
       }
   },
   mounted: function () {
+      this.getPostObject ()
       this.readTheData ()
       const __this = this
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
