@@ -30,7 +30,9 @@ const currentPost = ( 'current-post', {
       },
   },
   watch: {
-    postObject: function ( newVal, oldVal ) {
+    postName: function ( newVal, oldVal ) {
+      console.log ( oldVal )
+      console.log ( newVal )
       //const __this = this
       //var currentPostData = async ( postObject ) => {
       //    if ( postObject.readme ) {
@@ -44,13 +46,13 @@ const currentPost = ( 'current-post', {
       //}
       //currentPostData ( newVal )
       
-      if ( !newVal.readme ) this.readmeContent = null
+      if ( !this.postObject.readme ) this.readmeContent = ""
       else
-          this.$root.$http.get ( newVal.readme ).then ( response => {
+          this.$root.$http.get ( this.postObject.readme ).then ( response => {
               this.readmeContent = response.body
           })
-      if ( newVal.textURL )
-          this.$root.$http.get ( newVal.textURL ).then ( response => {
+      if ( this.postObject.textURL )
+          this.$root.$http.get ( this.postObject.textURL ).then ( response => {
               this.text = response.body
           })
     }
@@ -113,7 +115,7 @@ const currentPost = ( 'current-post', {
     </v-section>
   `,
   methods: {
-    openRef: ref => window.open ( ref, "_blank" ),
+      openRef: ref => window.open ( ref, "_blank" ),
   },
   mounted: function () {
       const __this = this
