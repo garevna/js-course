@@ -7,7 +7,7 @@ const NavigationPanel = ( 'nav-panel', {
     },
     template: `
       <v-container>
-      <v-navigation-drawer temporary v-model = "drawer" absolute>
+      <v-navigation-drawer secondary temporary v-model = "drawer" absolute>
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
