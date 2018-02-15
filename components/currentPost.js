@@ -43,7 +43,7 @@ const currentPost = ( 'current-post', {
           }
           if ( postObject.textURL ) {
               let answer = await __this.$root.$http.get ( postObject.textURL )
-              __this.text =  = answer.body
+              __this.text = answer.body
               console.log ( 'post text: ', __this.text )
           }
       }
