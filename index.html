@@ -37,13 +37,12 @@
 
   <body>
     <v-app dark class = "main-content" id = "VueCourseware">
-      <v-layout
+      <v-layout>
             <v-toolbar flat class = "primary">
                 <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
                     <v-icon>menu</v-icon>
                 </v-btn>
-                <nav-panel :drawer = "drawer" :states = "mainMenuItems">
-                </nav-panel>
+                
                 <v-spacer></v-spacer>
                 <user-info  v-if = "user"></user-info>
                 <toggle-buttons :__buttons = "sectionMenu"
@@ -69,8 +68,10 @@
                     </v-list>
                 </v-menu>
             </v-toolbar>
-          <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
-          <login-component v-if = "userLoginDialog"></login-component>
+        </v-layout>
+            <nav-panel :drawer = "drawer" :states = "mainMenuItems"></nav-panel>
+            <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
+            <login-component v-if = "userLoginDialog"></login-component>
           
           <app-footer></app-footer>
           <router-view class = "inner-content"></router-view>
