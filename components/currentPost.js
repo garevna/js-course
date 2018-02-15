@@ -33,6 +33,7 @@ const currentPost = ( 'current-post', {
     postName: function ( newVal, oldVal ) {
       console.log ( oldVal )
       console.log ( newVal )
+      this.readTheData ()
       //const __this = this
       //var currentPostData = async ( postObject ) => {
       //    if ( postObject.readme ) {
@@ -45,17 +46,6 @@ const currentPost = ( 'current-post', {
       //    } else __this.text = postObject.text
       //}
       //currentPostData ( newVal )
-      
-      if ( !this.postObject.readme ) this.readmeContent = null
-      else
-          this.$root.$http.get ( this.postObject.readme ).then ( response => {
-              this.readmeContent = response.body
-          })
-      if ( this.postObject.textURL )
-          this.$root.$http.get ( this.postObject.textURL ).then ( response => {
-              this.text = response.body
-          })
-      else this.text = this.postObject.text
     }
   },
   template: `
@@ -117,8 +107,21 @@ const currentPost = ( 'current-post', {
   `,
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
+      readTheData: () => {
+          if ( !this.postObject.readme ) this.readmeContent = null
+          else
+              this.$root.$http.get ( this.postObject.readme ).then ( response => {
+                  this.readmeContent = response.body
+              })
+          if ( this.postObject.textURL )
+              this.$root.$http.get ( this.postObject.textURL ).then ( response => {
+                  this.text = response.body
+              })
+          else this.text = this.postObject.text
+      }
   },
   mounted: function () {
+      this.readTheData ()
       const __this = this
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
