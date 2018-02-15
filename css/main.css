@@ -143,7 +143,7 @@ ul {
     position: fixed!important;
 }
 .middle-of-the-window {
-	padding-top: 70px;
+	margin-top: 56px;
 	padding-bottom: 110px;
 	background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);
 	background-size: cover;
