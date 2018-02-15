@@ -8,7 +8,8 @@
 .section-container,
 .section-article {
 	position:absolute;
-	height: 100%;
+	height: 90%;
+	top:58px;
 	left:20%;
 	right:20%;
 	box-sizing:border-box;
