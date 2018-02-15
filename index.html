@@ -69,11 +69,8 @@
             </v-toolbar>
         <v-content>
           <v-container fill-height class = "transparent">
-            <v-layout justify-center align-center>
-              <v-flex row wrap>
-                
-                <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
-                <login-component v-if = "userLoginDialog"></login-component>
+            <v-layout justify-top align-center>
+              <v-flex>
                 <router-view></router-view>
               </v-flex>
             </v-layout>
@@ -91,6 +88,8 @@
               </span>
             </v-tooltip>
        </v-footer>
+       <login-component v-if = "userLoginDialog"></login-component>
+       <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
        <nav-panel :drawer = "drawer" :states = "mainMenuItems"></nav-panel>
        <!--<app-footer></app-footer>-->
     </v-app>
