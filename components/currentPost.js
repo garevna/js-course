@@ -88,13 +88,14 @@ const currentPost = ( 'current-post', {
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
       getPostObject: function () {
-        var __this = this
+        const __this = this
         var getReady = function () {
             return new Promise ( function ( resolve, reject ) {
-                console.log ( 'PROMISE this ', this )
+                console.log ( 'PROMISE __this ', __this )
                 if ( __this.state.sectionPosts && __this.postName ) {
                     var tmp = __this.state.sectionPosts.filter ( post =>
                                                   post.head === __this.postName )
+                    console.log ( 'TMP: ', tmp )
                     resolve ( ( tmp.length === 0 ) ? __this.state.emptyPost : tmp [0] )
                 }
             })
@@ -117,10 +118,11 @@ const currentPost = ( 'current-post', {
       },
   },
   beforeMount: function () {
-    console.info ( '*** ', this.postName )
-      this.getPostObject ()
+      console.info ( '*** ', this.postName )
+      
   },
   mounted: function () {
+      this.getPostObject ()
       const __this = this
       if ( !this.postObject ) {
           setTimeout ( function () {
