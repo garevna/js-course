@@ -115,6 +115,7 @@ const currentPost = ( 'current-post', {
       },
   },
   beforeMount: function () {
+    console.info ( '*** ', this.postName )
       this.getPostObject ()
   },
   mounted: function () {
