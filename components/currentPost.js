@@ -74,8 +74,8 @@ const currentPost = ( 'current-post', {
       <v-card color = "transparent" class = "white--text">
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
-            <v-flex xs12 sm8>
-                <p v-html = "text" v-if = "text"></p>
+            <v-flex xs12 sm8 :text = "text">
+                <div v-html = "text"></div>
             </v-flex>
             <v-flex xs12 sm4>
               <transition name = "slide-down">
