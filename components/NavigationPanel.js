@@ -2,12 +2,17 @@ const NavigationPanel = ( 'nav-panel', {
     props: [ "drawer", "states" ],
     data: function () {
       return {
-          
+          localDrawer: drawer
       }
+    },
+    watch: {
+        localDrawer: function ( newVal, oldVal ) {
+            this.$root.$emit ( 'closeNavigationPanel', newVal )
+        }
     },
     template: `
       <v-container class = "transparent">
-      <v-navigation-drawer class="secondary" temporary v-model = "drawer" absolute>
+      <v-navigation-drawer class="secondary" temporary v-model = "localDrawer" absolute>
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
@@ -34,7 +39,7 @@ const NavigationPanel = ( 'nav-panel', {
     `,
     methods: {
         clickHandler: function ( event, val ) {
-            this.$root.$emit ( 'closeNavigationPanel' )
+            this.$root.$emit ( 'closeNavigationPanel', false )
             this.$root.$store.commit( 'changeCurrentSectionId', val )
             this.$root.$store.commit( 'getCurrentSectionInfo' )
             this.$root.$store.commit( 'getCurrentSectionPosts' )
