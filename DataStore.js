@@ -72,6 +72,7 @@ const store = new Vuex.Store ({
           var snap = snapshot.val()
           for ( var mess in snap ) {
               var __user = state.usersList [ snap [ mess ].user ]
+              console.log ( __user )
               __messages.push ({
                     user: {
                         name: __user.name,
