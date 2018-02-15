@@ -37,11 +37,11 @@ const currentPost = ( 'current-post', {
       
       var currentPostData = async ( postObject ) => {
           if ( postObject.readme ) {
-              __this.readmeContent = await __this.$root.$http.get ( postObject.readme )
+              __this.readmeContent = await __this.$root.$http.get ( postObject.readme ).body
               console.log ( 'readmeContent: ', __this.readmeContent )
           }
           if ( postObject.textURL ) {
-              __this.text = await __this.$root.$http.get ( postObject.textURL )
+              __this.text = await __this.$root.$http.get ( postObject.textURL ).body
               console.log ( 'post text: ', __this.text )
           }
       }
