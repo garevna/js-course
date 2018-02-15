@@ -1,29 +1,29 @@
 const store = new Vuex.Store ({
   state: {
-    mainData: null,
-    postData: null,
-    mainDataIsReady: false,
-    postDataIsReady: false,
-    
-    currentSectionId: null,
-    sectionInfo: null,
-    sectionPosts: null,
-    
-    currentPostId: null,
-    currentPostContent: null,
-    currentPostReadme: [],
-    
-    emptyPost: [{
+      mainData: null,
+      postData: null,
+      mainDataIsReady: false,
+      postDataIsReady: false,
+      
+      currentSectionId: null,
+      sectionInfo: null,
+      sectionPosts: null,
+      
+      currentPostId: null,
+      currentPostContent: null,
+      currentPostReadme: [],
+      
+      emptyPost: [{
           head: "В работе...",
           pict: "./images/smile-03.gif",
           text: `К сожалению, материал еще не готов`
-    }],
-    
-    user: null,
-    usersList: [],
-    messagesDate: null,
-    messagesRef: null,
-    messages: []
+      }],
+      
+      user: null,
+      usersList: null,
+      messagesDate: null,
+      messagesRef: null,
+      messages: []
   },
   getters: {
     currentUserInfo: ( state, __user ) => {
@@ -122,7 +122,7 @@ const store = new Vuex.Store ({
     },
     saveUsersList: ( state, ul ) => {
         state.usersList = ul
-        firebase.database().ref ( "users" ).on ( 'value', snapshot => {
+        firebase.database().ref( "users" ).on( 'value', snapshot => {
             state.usersList = snapshot.val()
         })
     },
@@ -172,5 +172,14 @@ const store = new Vuex.Store ({
                 context.commit ( 'saveUsersList', snapshot.val() )
             })
     },
+    registerUser: ( context, newUser ) => {
+        console.log ( 'CONTEXT: ', context )
+        var testDB = new Promise ( function ( resolve, reject ) {
+            if ( context.state.usersList ) resolve ( context.state.usersList )
+        })
+        testDB.then ( function ( res ) {
+            context.commit ( 'setCurrentUser', newUser )
+        })
+    }
   }
 })
