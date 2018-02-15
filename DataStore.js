@@ -95,7 +95,7 @@ const store = new Vuex.Store ({
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
         var userExist = false
-        for ( each prop in state.usersList ) {
+        for ( var prop in state.usersList ) {
             if ( state.usersList [ prop ].provider === state.user.provider &&
                  state.usersList [ prop ].email === state.user.email &&
                  state.usersList [ prop ].name === state.user.name ) {
