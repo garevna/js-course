@@ -111,19 +111,20 @@ const currentPost = ( 'current-post', {
   mounted: function () {
       const __this = this
       
-      var currentPostData = new Promise ( function ( resolve, reject ) {
-        if ( __this.state.sectionPosts && __this.postName ) {
-          var postsId = __this.postName
-          var posts = __this.state.sectionPosts.filter ( post =>
-                                        post.head === postsId )
-          var res = ( posts.length === 0 ) ? __this.state.emptyPost : posts [0]
-          resolve ( res )
-        }
-      })
-      console.log ( 'First Promise: ', currentPostData )
-      currentPostData.then ( function ( postObject ) {
-          console.log ( 'Promise then: postObject ', postObject )
-      })
+      var currentPostObject = async ( state, postId ) => {
+          var postId = await postId
+          var posts = await state.sectionPosts
+          console.log ( postId )
+          console.log ( posts )
+          var selected = state.sectionPosts.filter ( post => post.head === postsId )
+          var res = ( selected.length === 0 ) ? state.emptyPost : selected [0]
+          console.log ( res )
+          if ( res.readme ) {
+              __this.readmeContent = await __this.$root.$http.get ( res.readme )
+              console.log ( 'readmeContent: ', __this.readmeContent )
+              __this.text = await __this.$root.$http.get ( res.textURL )
+              console.log ( 'post text: ', __this.text )
+      }
       
       this.$root.$on ( 'scroll-event', function ( currentScrollPosition ) {
           __this.scrollPosition = window.innerWidth > 600 ? currentScrollPosition*0.95 : 0
