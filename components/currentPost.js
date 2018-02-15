@@ -112,7 +112,9 @@ const currentPost = ( 'current-post', {
       const __this = this
       var currentSectionPosts = function ( state ) {
           console.info ( 'currentSectionPosts promise will be returned' )
+          console.log ( state.sectionPosts )
           return new Promise ( function ( resolve, reject ) {
+              console.log ( 'Promise working: ', state.sectionPosts )
               if ( state.sectionPosts ) resolve ( state.sectionPosts )
           })
       }
@@ -121,7 +123,6 @@ const currentPost = ( 'current-post', {
           console.info ( postId )
           console.log ( state )
           var posts = await currentSectionPosts ( state ) 
-          
           console.log ( posts )
           var selected = posts.filter ( post => post.head === postsId )
           var res = ( selected.length === 0 ) ? state.emptyPost : selected [0]
