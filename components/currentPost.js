@@ -103,26 +103,18 @@ const currentPost = ( 'current-post', {
             console.log ( '!!!!!!!!!!!!!!', res )
             __this.postObject = res
             console.log ( __this.postObject )
-            __this.readTheData ()
+            if ( !__this.postObject.readme ) __this.readmeContent = null
+            else
+              __this.$root.$http.get ( __this.postObject.readme ).then ( response => {
+                  __this.readmeContent = response.body
+              })
+          if ( __this.postObject.textURL )
+              __this.$root.$http.get ( __this.postObject.textURL ).then ( response => {
+                  __this.text = response.body
+              })
+          else __this.text = __this.postObject.text
         } )  
       },
-      readTheData: () => {
-          if ( !this.postObject ) {
-            setTimeout ( function () {
-              console.log ( 'postObject after timeout ', this.postObject )
-            }, 200 )
-          }
-          if ( !this.postObject.readme ) this.readmeContent = null
-          else
-              this.$root.$http.get ( this.postObject.readme ).then ( response => {
-                  this.readmeContent = response.body
-              })
-          if ( this.postObject.textURL )
-              this.$root.$http.get ( this.postObject.textURL ).then ( response => {
-                  this.text = response.body
-              })
-          else this.text = this.postObject.text
-      }
   },
   mounted: function () {
       this.getPostObject ()
