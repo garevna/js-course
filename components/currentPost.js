@@ -31,7 +31,7 @@ const currentPost = ( 'current-post', {
   },
   template: `
 
-    <v-section v-if = "postObject">
+    <v-section>
       <v-toolbar class = "dark accent" prominent height = "48px">
 
         <full-screen-dialog-window
@@ -49,7 +49,7 @@ const currentPost = ( 'current-post', {
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
             <v-flex xs12 sm8>
-                <div>{{text}}</div>
+                <div v-html = "text"></div>
             </v-flex>
             <v-flex xs12 sm4>
               <transition name = "slide-down">
