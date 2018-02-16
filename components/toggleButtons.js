@@ -23,8 +23,8 @@ const ToggleButtons = ( 'toggle-buttons', {
     },
     toggle_exclusive: function () {
       console.info ( this.route.name )
-      return this.route.name === 'about' ? 0 :
-                  ( this.route.name === 'details' || this.route.name === 'section' ? 1 : null )
+      return this.routeName === 'about' ? 0 :
+                  ( this.routeName === 'details' || this.routeName === 'section' ? 1 : null )
     }
   },
   template: `
