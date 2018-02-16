@@ -103,11 +103,11 @@ const store = new Vuex.Store ({
             console.info ( state.usersList [ prop ].name + " : " + state.user.name )
             
             console.info ( state.usersList [ prop ].provider === state.user.provider &&
-                           state.usersList [ prop ].email === state.user.email &&
+                           state.usersList [ prop ].email == state.user.email &&
                            state.usersList [ prop ].name === state.user.name )
           
             if ( state.usersList [ prop ].provider === state.user.provider &&
-                 state.usersList [ prop ].email === state.user.email &&
+                 state.usersList [ prop ].email == state.user.email &&
                  state.usersList [ prop ].name === state.user.name ) {
                             userExist = true
                             console.info ( 'User exists' )
