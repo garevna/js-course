@@ -24,11 +24,9 @@ const currentPost = ( 'current-post', {
   },
   watch: {
       postName: function ( newVal, oldVal ) {
-        console.log ( newVal, oldVal )
         this.getPostObject ()
       },
       'state.sectionPosts': function ( newVal, oldVal ) {
-        console.log ( 'state.sectionPosts were loaded', newVal, oldVal )
         this.getPostObject ()
       }
   },
