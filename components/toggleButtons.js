@@ -23,8 +23,7 @@ const ToggleButtons = ( 'toggle-buttons', {
     },
     toggle_exclusive: function () {
       console.info ( this.routeName )
-      return this.routeName === 'about' ? 0 :
-                  ( this.routeName === 'details' || this.routeName === 'section' ? 1 : null )
+      return this.calcToggleNum ( this.routeName )
     }
   },
   template: `
@@ -45,6 +44,9 @@ const ToggleButtons = ( 'toggle-buttons', {
       this.val = this.toggle_exclusive
   },
   methods: {
-
+      calcToggleNum: function ( routeName ) {
+          return routeName === 'about' ? 0 :
+                  ( routeName === 'details' || routeName === 'section' ? 1 : null )
+      }
   }
 })
