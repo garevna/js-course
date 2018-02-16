@@ -368,7 +368,7 @@
 		"comment": "",
 		"code": false,
 		"ref":"",
-		"picture":"/images/firebase.png",
+		"picture":"./images/firebase.png",
 		"usefull":[
 			{
 				"ref":"https://firebase.google.com",
