@@ -67,6 +67,9 @@
   font-size: 28px;
   font-weight: 100;
 }
+.input-group, .input-group--text-field label  {
+	padding: 10px 20px;
+}
 aside.navigation-drawer {
 	height:85%;
 }
