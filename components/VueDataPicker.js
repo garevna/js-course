@@ -5,11 +5,6 @@ const VueDataPicker = ( 'vue-data-picker', {
             menu: false
         }
     },
-    watch: {
-      pickerDate: function ( val ) {
-          console.log ( 'Data Picker: ', val )
-      }
-    },
     template:`
           <v-flex xs6 sm4>
             <v-menu lazy
