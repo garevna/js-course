@@ -26,17 +26,17 @@ const store = new Vuex.Store ({
       messages: []
   },
   getters: {
-    currentUserInfo: ( state, __user ) => {
+    currentUserId: ( state, __user ) => {
         var userId = 'unknown'
         for ( var prop in state.usersList ) {
             if ( state.usersList [ prop ].provider === __user.provider &&
                  state.usersList [ prop ].email === __user.email &&
                  state.usersList [ prop ].name === __user.name ) {
               userId = prop
-              console.info ( 'User: ' + userId )
               break
             }
         }
+        console.info ( 'User id: ' + userId )
         return userId
     },
     dataIsReady:  state => state.mainDataIsReady && state.postDataIsReady,
