@@ -53,9 +53,9 @@ const app = new Vue ( {
 			if ( user ) {
 				user.getIdToken().then ( 
 					accessToken => {
-						console.log ( 'USER: ', user)
-						__vue.$store.commit ( 'setCurrentUser', user )
-						__vue.$store.dispatch ( 'getDataFromUsersDB' )
+						console.log ( 'USER: ', user )
+						__vue.$store.dispatch ( 'registerUser', user )
+						//__vue.$store.dispatch ( 'getDataFromUsersDB' )
 					},
 					error => {
 						console.error ( 'accessToken ERROR ' + error )
@@ -69,8 +69,8 @@ const app = new Vue ( {
 			
 	},
 	mounted: function () {
-		this.$store.commit ( 'changeMessagesData', new Date() )
 		this.$store.dispatch ( 'getAllUsers' )
+		this.$store.commit ( 'changeMessagesData', new Date() )
 		this.$on ( 'closeCurrentDialog', function () {
 				this.chatDialog = false
 				this.userInfoDialog = false
