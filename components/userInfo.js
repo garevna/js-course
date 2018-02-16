@@ -23,7 +23,7 @@ const UserInfo = ( 'user-info', {
                     <v-icon v-else>person</v-icon>
                 </v-btn>
                 <v-card v-if = "user">
-                          <v-card-title class = "headline"
+                          <v-card-title class = "headline warning--text"
                                         v-text = "user.provider">
                           </v-card-title>
                           <v-card-text v-text = "user.name"></v-card-text>
