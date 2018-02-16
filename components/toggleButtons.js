@@ -35,7 +35,7 @@ const ToggleButtons = ( 'toggle-buttons', {
   },
   template: `
         <v-btn-toggle dark v-if = "toggleButtonsVisibility"
-                      v-model = "val"
+                      v-model="toggle_exclusive"
                       class="py-2">
               <v-btn  outline  replace = true
                       @click = "router.push ( { name: 'about' } )">
