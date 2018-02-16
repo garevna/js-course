@@ -53,7 +53,6 @@ const app = new Vue ( {
 			if ( user ) {
 				user.getIdToken().then ( 
 					accessToken => {
-						console.log ( 'USER: ', user )
 						__vue.$store.dispatch ( 'registerUser', user )
 						//__vue.$store.dispatch ( 'getDataFromUsersDB' )
 					},
