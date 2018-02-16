@@ -67,6 +67,10 @@
   font-size: 28px;
   font-weight: 100;
 }
+.tooltip__content {
+	background-color: transparent;
+	border: 0;
+}
 .input-group  {
 	padding: 10px 20px;
 }
