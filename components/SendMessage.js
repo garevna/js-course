@@ -67,12 +67,12 @@ const FullScreenChat = ( 'full-screen-chat', {
           this.$root.$emit ( 'closeCurrentDialog' )
       },
       sendMessage: function () {
-          console.log ( this.user.id )
-          console.log ( this.user )
-          this.messagesRef.push ({
-              user: this.userId,
-              text: this.text
-          })
+          if ( this.userid ) { 
+                this.messagesRef.push ({
+                        user: this.userId,
+                        text: this.text
+                })
+          }
           this.text = ""
       },
     },
@@ -80,6 +80,6 @@ const FullScreenChat = ( 'full-screen-chat', {
         VueDataPicker
     },
     mounted: function () {
-        console.log ( '****** ', this.$root.$store.getters.currentUserId )
+        
     }
 })
