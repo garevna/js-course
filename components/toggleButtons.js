@@ -12,6 +12,9 @@ const ToggleButtons = ( 'toggle-buttons', {
         //var __name = this.val === 0 ? 'about' : 'details'
         //this.$root.$router.push ( { name: __name } )
     },
+    'this.route.name': function ( newVal, oldVal ) {
+      console.info ( oldVal + " -> " + newVal )
+    }
   },
   computed: {
     toggleButtonsVisibility: function () {
