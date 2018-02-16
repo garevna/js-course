@@ -80,6 +80,6 @@ const FullScreenChat = ( 'full-screen-chat', {
         VueDataPicker
     },
     mounted: function () {
-        
+        console.log ( this.$root.$store.getters.currentUserId )
     }
 })
