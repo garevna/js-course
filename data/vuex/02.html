@@ -1,15 +1,4 @@
 <style>
-  .spec, .word {
-    display:inline-block;
-    margin: 0 7px;
-    font-size: 20px;
-  }
-  .spec {
-    color:orange;
-  }
-  .word {
-    color:#7cdef3;
-  }
   .rule {
       color: #75f17e;
   }
@@ -23,12 +12,12 @@
   }
 </style>
 
-<p>Свойства объекта <span class="spec">Vuex.Store</span></p>
+<p>Свойства объекта <spec_words>Vuex.Store</spec_words></p>
 <hr/>
-<p><span class="spec">getters</span> - аналог вычисляемых свойств компонентов</p>
-<p>В геттеры можно вынести вычисление индекса следующего слайда (<span class="word">nextCounterValue</span>), 
-вытягивание текущей (<span class="word">currentPicture</span>) и 
-следующей (<span class="word">nextPicture</span>) картинки из массива <span class="word">pictures</span>:</p>
+<p><spec_words>getters</spec_words> - аналог вычисляемых свойств компонентов</p>
+<p>В геттеры можно вынести вычисление индекса следующего слайда (<var_names>nextCounterValue</var_names>), 
+вытягивание текущей (<var_names>currentPicture</var_names>) и 
+следующей (<var_names>nextPicture</var_names>) картинки из массива <var_names>pictures</var_names>:</p>
 
 <pre class="code-snippet">
 getters: {
@@ -75,7 +64,7 @@ actions: {
   }
 }
 </pre>
-<p>Вызывать действие из компонента или корневого экземпляра нужно с помощью метода <span class="spec">dispatch</span></p>
+<p>Вызывать действие из компонента или корневого экземпляра нужно с помощью метода <spec_words>dispatch</spec_words></p>
 <pre class="code-snippet">
 methods: {
     gotoNext: () => store.dispatch ( 'getNextPicture' ),
@@ -106,17 +95,17 @@ actions: {
     }
   }
 </pre>
-<p>Операторы отображения свойств объекта <span class="spec">store</span> 
+<p>Операторы отображения свойств объекта <spec_words>store</spec_words> 
 в область видимости компонента</p>
 <p>
-<span class="spec">Vuex.mapState</span>,<br/>
-<span class="spec">Vuex.mapMutations</span>,<br/>
-<span class="spec">Vuex.mapActions</span>,<br/>
-<span class="spec">Vuex.mapGetters</span><br/>
+<spec_words>Vuex.mapState</spec_words>,<br/>
+<spec_words>Vuex.mapMutations</spec_words>,<br/>
+<spec_words>Vuex.mapActions</spec_words>,<br/>
+<spec_words>Vuex.mapGetters</spec_words><br/>
 </p>
 <p>В компонентах можно упростить доступ к состоянию, геттерам, мутациям и 
-действиям с помощью <span class="spec">Vuex.mapState</span>, <span class="spec">Vuex.mapGetters</span>, 
-<span class="spec">Vuex.mapMutations</span> и <span class="spec">Vuex.mapActions</span> соответственно</p>
+действиям с помощью <spec_words>Vuex.mapState</spec_words>, <spec_words>Vuex.mapGetters</spec_words>, 
+<spec_words>Vuex.mapMutations</spec_words> и <spec_words>Vuex.mapActions</spec_words> соответственно</p>
 <pre class="code-snippet">
 computed: Vuex.mapState ( {
     img ( state ) {
@@ -134,5 +123,5 @@ computed: {
     ])
 }
 </pre>
-<p>Теперь геттеры <span class="word">nextCounterValue</span> и <span class="word">currentPicture</span> доступны в 
-компоненте как вычисляемые свойства <span class="word">nextInd</span> и <span class="word">pict</span></p>
+<p>Теперь геттеры <var_names>nextCounterValue</var_names> и <var_names>currentPicture</var_names> доступны в 
+компоненте как вычисляемые свойства <var_names>nextInd</var_names> и <var_names>pict</var_names></p>
