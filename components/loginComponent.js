@@ -6,6 +6,8 @@ const LoginComponent = ( 'login-component', {
 			uiConfig: {
 				callbacks: {
 					signInSuccess: ( currentUser, credential, redirectUrl ) => {
+						console.info ( 'signInSuccess!!!' )
+						console.log ( 'currentUser' )
 						this.$root.$store.dispatch ( 'registerUser', currentUser )
 						var loginWidget = document.getElementById ( "firebaseui-auth-container" )
 						if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
