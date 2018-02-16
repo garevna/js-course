@@ -33,7 +33,6 @@ const SectionDetails = {
     </section>
     `,
   mounted: function () {
-    console.log ( 'SectionDetails $route.path: ', this.$route.path )
     
   }
 }
