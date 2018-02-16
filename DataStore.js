@@ -37,7 +37,6 @@ const store = new Vuex.Store ({
                           break
                 }
             }
-            console.info ( 'User id: ' + userId )
             return userId
         }
     },
@@ -74,7 +73,6 @@ const store = new Vuex.Store ({
           var snap = snapshot.val()
           for ( var mess in snap ) {
               var __user = state.usersList [ snap [ mess ].user ]
-              console.log ( __user )
               if ( __user )
                   __messages.push ({
                       user: {
@@ -100,26 +98,15 @@ const store = new Vuex.Store ({
     },
     getCurrentUserId: state => {
         var userExist = false
-        console.log ( 'USERS LIST: ', state.usersList )
         for ( var prop in state.usersList ) {
-            console.info ( state.usersList [ prop ].provider + " : " + state.user.provider )
-            console.info ( state.usersList [ prop ].email + " : " + state.user.email )
-            console.info ( state.usersList [ prop ].name + " : " + state.user.name )
-            
-            console.info ( state.usersList [ prop ].provider === state.user.provider &&
-                           state.usersList [ prop ].email == state.user.email &&
-                           state.usersList [ prop ].name === state.user.name )
-          
             if ( state.usersList [ prop ].provider === state.user.provider &&
                  state.usersList [ prop ].email == state.user.email &&
                  state.usersList [ prop ].name === state.user.name ) {
                             userExist = true
-                            console.info ( 'User exists' )
                             break
             }
         }
         if ( !userExist ) {
-            console.info ( 'New user' )
             var ref = firebase.database().ref ( "users" )
             ref.push ( state.user )
         }
@@ -172,18 +159,15 @@ const store = new Vuex.Store ({
         var usersRef = firebase.database().ref ( "users" )
         usersRef.once ( "value" )
             .then ( function ( snapshot ) {
-                console.log ( 'USERS SNAPSHOT: ', snapshot.val() )
                 context.commit ( 'saveUsersList', snapshot.val() )
             })
     },
     registerUser: ( context, newUser ) => {
         context.commit ( 'setCurrentUser', newUser )
-        console.log ( 'registerUser CONTEXT: ', context )
         var testDB = new Promise ( function ( resolve, reject ) {
             if ( context.state.usersList ) resolve ( context.state.usersList )
         })
         testDB.then ( function ( res ) {
-            console.log ( 'Users database is ready: ', res )
             context.commit ( 'getCurrentUserId' )
         })
     }
