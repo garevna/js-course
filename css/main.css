@@ -109,6 +109,9 @@ var_names {
   background-size:cover;
   background-position: center center;
 }
+.menu__content {
+	position: fixed;
+}
 .list {
   padding: 0;
 }
