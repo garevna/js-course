@@ -6,20 +6,20 @@
     .spec { color: #f95900; }
     .words { color: #05738a; }
 </style>
-<ul>
+<ol>
     <li>Мутация состояний Vuex-store</li>
     <li>Двустороннаяя привязка к элементам форм</li>
     <li>Вычисляемые свойства экземпляра,<br/> привязка к состоянию хранилища с помощью геттеров и сеттеров</li>
     <li>Глубокая привязка объекта</li>
-</ul>
-<p>Мы не можем использовать директиву <span class="spec">v-model</span> для привязки 
-свойства <span class="spec">value</span> элементов форм к данным в хранилище <span class="spec">Vuex</span></p>
+</ol>
+<p>Мы не можем использовать директиву <spec_words>v-model</spec_words> для привязки 
+свойства <spec_words>value</spec_words> элементов форм к данным в хранилище <spec_words>Vuex</spec_words></p>
 
 <p>Но мы можем создать в экземпляре <span class="spec">Vue</span> локальную копию объекта, 
 находящегося в хранилище, и сделать двустороннюю привязку свойства <span class="spec">value</span> элементов форм 
 к этой локальной копии (точнее, к ее свойствам)</p>
 
-<p>Предположим, в хранилище ( в объекте <span class="spec">state</span> ) есть объект <span class="words">human</span></p>
+<p>Предположим, в хранилище ( в объекте <spec_words>state</spec_words> ) есть объект <var_names>human</var_names></p>
 <pre class="code-snippet">
 const store = new Vuex.Store ({
   state: {
@@ -37,8 +37,8 @@ const store = new Vuex.Store ({
 })
 </pre>
 
-<p>Создадим локальную копию этого объекта в экземпляре <span class="spec">Vue</span> 
-с помощью метода <span class="spec">Object.assign ()</span></p>
+<p>Создадим локальную копию этого объекта в экземпляре <spec_words>Vue</spec_words> 
+с помощью метода <spec_words>Object.assign ()</spec_words></p>
 <pre class="code-snippet">
 data: function () {
     return {
@@ -48,15 +48,15 @@ data: function () {
 }
 </pre>
 
-<p>Теперь можно сделать двустроннюю привязку свойств объекта <span class="words">localData</span> 
-к элементам <span class="spec">input</span>:</p>
+<p>Теперь можно сделать двустроннюю привязку свойств объекта <var_names>localData</var_names> 
+к элементам <spec_words>input</spec_words>:</p>
 <pre class="code-snippet">
 &lt;input v-model = "localData.name"/>
 &lt;input v-model = "localData.hobby"/>
 &lt;input v-model = "localData.age" type = "number"/>
 </pre>
 
-<p>Отслеживаем изменения значений свойств объекта <span class="words">localData</span> 
+<p>Отслеживаем изменения значений свойств объекта <var_names>localData</var_names> 
 с помощью наблюдателей</p>
 <pre class="code-snippet">
 watch: {
@@ -71,9 +71,9 @@ watch: {
     }
 }
 </pre>
-<p>При изменении значений <span class="words">localData.name</span>, <span class="words">localData.hobby</span> или 
-<span class="words">localData.age</span> срабатывают соответствующие наблюдатели, которые вызывают метод 
-<span class="words">changeData</span></p>
+<p>При изменении значений <var_names>localData.name</var_names>, <var_names>localData.hobby</var_names> или 
+<var_names>localData.age</var_names> срабатывают соответствующие наблюдатели, которые вызывают метод 
+<var_names>changeData</var_names></p>
 
 <pre class="code-snippet">
 methods: {
@@ -85,6 +85,6 @@ methods: {
   }
 }
 </pre>
-<p>Метод <span class="words">changeData</span> активирует мутацию состояния <span class="spec">Vuex-store</span></p>
+<p>Метод <var_names>changeData</var_names> активирует мутацию состояния <spec_words>Vuex-store</spec_words></p>
 
 
