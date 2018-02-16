@@ -10,7 +10,7 @@ const FullScreenChat = ( 'full-screen-chat', {
     },
     computed: {
         user: function () { return this.$root.$store.state.user },
-        userId: function () { return this.$root.$store.getters.currentUserId },
+        userId: function () { return this.$root.$store.getters.currentUserId ( this.user ) },
         messagesDate: function () {
             return this.$root.$store.state.messagesDate
         },
