@@ -95,6 +95,8 @@ const store = new Vuex.Store ({
             lastSignInTime: newUser.phoneNumber
         }
         console.log ( 'STATE: CURRENT USER: ', state.user )
+    },
+    getCurrentUserId: state => {
         var userExist = false
         console.log ( 'USERS LIST: ', state.usersList )
         for ( var prop in state.usersList ) {
@@ -173,12 +175,14 @@ const store = new Vuex.Store ({
             })
     },
     registerUser: ( context, newUser ) => {
-        console.log ( 'CONTEXT: ', context )
+        context.commit ( 'setCurrentUser', newUser )
+        console.log ( 'registerUser CONTEXT: ', context )
         var testDB = new Promise ( function ( resolve, reject ) {
             if ( context.state.usersList ) resolve ( context.state.usersList )
         })
         testDB.then ( function ( res ) {
-            context.commit ( 'setCurrentUser', newUser )
+            console.log ( 'Users database is ready: ', res )
+            context.commit ( 'getCurrentUserId' )
         })
     }
   }
