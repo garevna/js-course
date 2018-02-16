@@ -2,7 +2,6 @@ const SectionInfo = {
   props:[ 'id' ],
   computed: {
     sectionIsReady: function () {
-      console.info ( 'sectionIsReady: ' + this.$root.$store.getters.sectionIsReady )
       return this.$root.$store.getters.sectionIsReady
     },
     sectionInfo: function () {
