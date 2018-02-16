@@ -12,11 +12,12 @@ const ToggleButtons = ( 'toggle-buttons', {
         //var __name = this.val === 0 ? 'about' : 'details'
         //this.$root.$router.push ( { name: __name } )
     },
-    'this.route.name': function ( newVal, oldVal ) {
+    routeName: function ( newVal, oldVal ) {
       console.info ( oldVal + " -> " + newVal )
     }
   },
   computed: {
+    routeName: function () { console.log ( this.$route.name ); return this.$root.$route.name },
     toggleButtonsVisibility: function () {
       return this.$root.$store.getters.sectionIsReady
     },
