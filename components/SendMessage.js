@@ -1,5 +1,5 @@
 const FullScreenChat = ( 'full-screen-chat', {
-    props: [ "user", "dialog" ],
+    props: [ "dialog" ],
     data: function () {
         return {
             menu: false,
@@ -9,6 +9,8 @@ const FullScreenChat = ( 'full-screen-chat', {
         }
     },
     computed: {
+        user: function () { return this.$root.$store.state.user },
+        userId: function () { return this.$root.$store.getters.currentUserId },
         messagesDate: function () {
             return this.$root.$store.state.messagesDate
         },
@@ -65,8 +67,10 @@ const FullScreenChat = ( 'full-screen-chat', {
           this.$root.$emit ( 'closeCurrentDialog' )
       },
       sendMessage: function () {
+          console.log ( this.user.id )
+          console.log ( this.user )
           this.messagesRef.push ({
-              user: this.$root.$store.getters.currentUserInfo ( user ),
+              user: this.userId,
               text: this.text
           })
           this.text = ""
