@@ -94,7 +94,6 @@ const store = new Vuex.Store ({
             phoneNumber: newUser.phoneNumber,
             lastSignInTime: newUser.phoneNumber
         }
-        console.log ( 'STATE: CURRENT USER: ', state.user )
     },
     getCurrentUserId: state => {
         var userExist = false
