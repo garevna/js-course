@@ -102,6 +102,16 @@
 			]
 		},
 		{
+			"head":"Reactivity",
+			"picture":false,
+			"code":false,
+			"text":"Реактивность массивов и объектов",
+			"textURL":"/vue-course.github.io/data/vue/reactivity-array.html",
+			"readme": "/vue-course.github.io/data/vue/reactivity-object.html",
+			"samples":[],
+			"usefull":[]
+		},
+		{
 			"head":"$emit",
 			"picture":false,
 			"code":false,
