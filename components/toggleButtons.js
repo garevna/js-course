@@ -4,7 +4,8 @@ const ToggleButtons = ( 'toggle-buttons', {
       return {
         store: this.$root.$store,
         route: this.$root.$route,
-        val: undefined
+        val: undefined,
+        toggle_exclusive: null
       }
   },
   watch: {
@@ -13,18 +14,24 @@ const ToggleButtons = ( 'toggle-buttons', {
         //this.$root.$router.push ( { name: __name } )
     },
     routeName: function ( newVal, oldVal ) {
-      console.info ( oldVal + " -> " + newVal )
+        console.info ( oldVal + " -> " + newVal )
+        this.toggle_exclusive = this.calcToggleNum ( newVal )
+        console.info ( "toggle_exclusive: " + this.toggle_exclusive )
     }
   },
   computed: {
-    routeName: function () { console.log ( this.$route.name ); return this.$root.$route.name },
+    routeName: function () { 
+        this.toggle_exclusive = this.calcToggleNum ( this.$route.name )
+        console.info ( "toggle_exclusive: " + this.toggle_exclusive )
+        return this.$route.name
+    },
     toggleButtonsVisibility: function () {
       return this.$root.$store.getters.sectionIsReady
     },
-    toggle_exclusive: function () {
-      console.info ( this.routeName )
-      return this.calcToggleNum ( this.routeName )
-    }
+    //toggle_exclusive: function () {
+    //  console.info ( this.routeName )
+    //  return this.calcToggleNum ( this.routeName )
+    //}
   },
   template: `
         <v-btn-toggle dark v-if = "toggleButtonsVisibility"
