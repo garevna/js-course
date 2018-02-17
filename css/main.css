@@ -101,6 +101,11 @@ var_names {
 .secondary {
   color: #f8f4c3;
 }
+.columns {
+	background-image: url(../images/columns.gif)!important;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
 .application.theme--dark {
 	background-color:transparent!important;
 	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
