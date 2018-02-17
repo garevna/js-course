@@ -102,12 +102,13 @@ var_names {
   color: #f8f4c3;
 }
 .application.theme--dark {
-  background-color:transparent!important;
-  font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
-  background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE)!important;
-  background-repeat:no-repeat;
-  background-size:cover;
-  background-position: center center;
+	background-color:transparent!important;
+	font-family: 'Montserrat', 'Roboto', 'Didact Gothic', 'Abel', cursive;
+	/*background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE)!important;*/
+	background-image: url(../images/columns.gif)!important;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position: center center;
 }
 .menu__content {
 	position: fixed;
@@ -164,7 +165,8 @@ ul {
 .middle-of-the-window {
 	margin-top: 56px;
 	padding-bottom: 110px;
-	background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);
+	/*background-image: url(https://drive.google.com/uc?export=download&confirm=no_antivirus&id=0BxaMB69y7fvSOW9TWEhyR19scFE);*/
+	background-image: url(../images/columns.gif)!important;
 	background-size: cover;
 	background-attachment: fixed;
 	height: 90%;
@@ -277,15 +279,6 @@ footer {
     background-color: #02420590;
     color: #fff;
 }
-/*.inner-content {
-	box-sizing:border-box;
-	top:50px;
-	width:100%;
-	bottom:30px;
-	padding:0 0 20px 0;
-	overflow:auto;
-	border: solid 10px transparent;
-}*/
 .scrollingPicture {
    height: 125px!important;
 }
