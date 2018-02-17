@@ -24,10 +24,10 @@ const FullScreenChat = ( 'full-screen-chat', {
     template: `
     <v-layout row justify-left>
       <v-dialog   v-model = "dialog"  fullscreen
-                  class = "columns"
+                  class = "transparent"
                   transition = "dialog-bottom-transition"
                   :overlay = false  scrollable>
-          <v-card  class = "transparent">
+          <v-card  class = "columns">
             <v-toolbar style = "flex: 0 0 auto;"
                        class = "accent top-of-the-window"
                        dark>
