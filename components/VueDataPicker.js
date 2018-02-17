@@ -27,8 +27,8 @@ const VueDataPicker = ( 'vue-data-picker', {
               <template slot-scope = "{ save, cancel }">
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn flat color = "warning" @click = "cancel">Cancel</v-btn>
-                  <v-btn flat color = "warning" @click = "sendEvent">OK</v-btn>
+                  <v-btn flat color = "white" @click = "cancel">Cancel</v-btn>
+                  <v-btn flat color = "white" @click = "sendEvent">OK</v-btn>
               </v-card-actions>
             </template>
           </v-date-picker>
