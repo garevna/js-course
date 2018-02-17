@@ -51,8 +51,8 @@ const FullScreenChat = ( 'full-screen-chat', {
                     <p style = "height:fit-content">{{ item.text }}</p>
                 </v-card-text>
             </div>
-            <v-card-actions class = "warning bottom-of-the-window">
-                  <v-text-field class = "info"
+            <v-card-actions class = "transparent bottom-of-the-window">
+                  <v-text-field class = "primary warning--text"
                       label = "Текст сообщения"
                       v-model = "text"
                       @change.native.stop = "sendMessage">
