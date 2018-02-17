@@ -13,6 +13,7 @@
 	left:20%;
 	right:20%;
 	box-sizing:border-box;
+	padding: 10px 20px 20px;
 }
 .samples-section {
 	counter-reset: section;
