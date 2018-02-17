@@ -87,6 +87,9 @@ aside.navigation-drawer {
 	background-color: transparent;
 	border:0;
 }
+.menu__activator {
+	margin-top: 10px;
+}
 spec_words, var_names {
     font-family: 'Papyrus', 'Abel', 'Didact Gothic', 'Roboto', cursive;
     font-size: 24px;
