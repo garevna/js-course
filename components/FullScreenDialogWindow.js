@@ -19,6 +19,7 @@ const FullScreenDialogWindow = ({
           <v-card  class = "secondary">
             <v-toolbar style = "flex: 0 0 auto;"
                        class = "accent"
+                       style = "position: fixed; top: 0; z-index: 100;"
                        dark>
               <v-btn  icon dark class = "transparent"
                       @click.native = "dialog = false">
