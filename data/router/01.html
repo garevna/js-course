@@ -3,7 +3,7 @@
 
 <v-expansion-panel>
     <v-expansion-panel-content>
-      <div slot="header">1. Подключить библиотеку</div>
+      <div slot="header1">1. Подключить библиотеку</div>
       <v-card>
         <v-card-text>
             <var_names>https://unpkg.com/vue-router/dist/vue-router.js</var_names><br/>
@@ -11,46 +11,46 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">2. Создать массив маршрутов перехода</div>
+      <div slot="header2">2. Создать массив маршрутов перехода</div>
       <v-card>
         <v-card-text>
             Маршрут - это объект<br/>
             <pre class="code-snippet">
-                {
-                    path: "/articles",
-                    component: ArticleStore
-                }
+{
+     path: "/articles",
+     component: ArticleStore
+}
             </pre>
             <br/>
             <small>('/' означает маршрут приложения по умолчанию)</small><br/>
             Из таких объектов составляется массив<br/>
             <br/>
             <pre class="code-snippet">
-                routes: [
-                    {
-                        path: '/library',
-                        component: Library
-                    },
-                    {
-                        path: '/articles',
-                        component: ArticleStore
-                    },
-                    ...
-                ]
+routes: [
+      {
+           path: '/library',
+           component: Library
+      },
+      {
+           path: '/articles',
+           component: ArticleStore
+      },
+      ...
+]
             </pre>
             <br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">3. Создать экземпляр роутера</div>
+      <div slot="header3">3. Создать экземпляр роутера</div>
       <v-card>
         <v-card-text>
             Используем конструктор <spec_words>VueRouter</spec_words><br/>
             <pre class="code-snippet">
-                const router = new VueRouter ( {
-                    routes: routes
-                })
+const router = new VueRouter ( {
+      routes: routes
+})
             </pre>
             <br/>
             Роутеру передается массив маршрутов <spec_words>routes</spec_words><br/>
@@ -58,7 +58,7 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">4. Привязка роутера к экземпляру Vue</div>
+      <div slot="header4">4. Привязка роутера к экземпляру Vue</div>
       <v-card>
         <v-card-text>
             Объект <spec_words>router</spec_words> нужно привязать к экземпляру <spec_words>Vue</spec_words>:<br/>
@@ -76,7 +76,7 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">5. Создать компоненты</div>
+      <div slot="header5">5. Создать компоненты</div>
       <v-card>
         <v-card-text>
             Не забудьте создать компоненты, обслуживающие маршруты переходов<br/>
@@ -96,7 +96,7 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">6. Разметка</div>
+      <div slot="header6">6. Разметка</div>
       <v-card>
         <v-card-text>
             Теперь осталось только связать всю эту машинку с <spec_words>UI</spec_words><br/>
@@ -120,7 +120,7 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header">7. Дочерние маршруты</div>
+      <div slot="header7">7. Дочерние маршруты</div>
       <v-card>
         <v-card-text>
             Маршруты могут быть вложенными:<br/>
