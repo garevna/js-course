@@ -4,7 +4,7 @@
 <v-app>
 <v-expansion-panel>
     <v-expansion-panel-content>
-      <div slot="header1">1. Подключить библиотеку</div>
+      <div slot="header">1. Подключить библиотеку</div>
       <v-card>
         <v-card-text>
             https://unpkg.com/vue-router/dist/vue-router.js
@@ -12,7 +12,7 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header2">2. Создать массив маршрутов перехода</div>
+      <div slot="header">2. Создать массив маршрутов перехода</div>
       <v-card>
         <v-card-text>
             Маршрут - это объект<br/>
@@ -44,7 +44,7 @@ routes: [
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header3">3. Создать экземпляр роутера</div>
+      <div slot="header">3. Создать экземпляр роутера</div>
       <v-card>
         <v-card-text>
             Используем конструктор <spec_words>VueRouter</spec_words><br/>
@@ -59,45 +59,44 @@ const router = new VueRouter ( {
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header4">4. Привязка роутера к экземпляру Vue</div>
+      <div slot="header">4. Привязка роутера к экземпляру Vue</div>
       <v-card>
         <v-card-text>
             Объект <spec_words>router</spec_words> нужно привязать к экземпляру <spec_words>Vue</spec_words>:<br/>
             <br/>
             <pre class="code-snippet">
-                new Vue ({
-                    el: '#app',
-                    router,
-                    ...,
-                    components: { ... }
-                })
+new Vue ({
+     el: '#app',
+     router,
+     ...,
+     components: { ... }
+})
             </pre>
             <br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header5">5. Создать компоненты</div>
+      <div slot="header">5. Создать компоненты</div>
       <v-card>
         <v-card-text>
             Не забудьте создать компоненты, обслуживающие маршруты переходов<br/>
             <pre class="code-snippet">
-                const Library = {
-                    template: `
-                        &lt;div>
-                            &lt;h2>Library&lt;/h2>
-                        &lt;/div>
-                    `,
-                    ...
-                }
-            </pre>
-            <br/>
+const Library = {
+       template: `
+            &lt;div>
+                &lt;h2>Library&lt;/h2>
+            &lt;/div>
+       `,
+       ...
+}
+            </pre><br/>
             Модель готова<br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-      <div slot="header6">6. Разметка</div>
+      <div slot="header">6. Разметка</div>
       <v-card>
         <v-card-text>
             Теперь осталось только связать всю эту машинку с <spec_words>UI</spec_words><br/>
@@ -110,9 +109,7 @@ const router = new VueRouter ( {
             <small>после рендеринга этот тег будет заменен на обычную гиперссылку</small><br/>
             и
             <h4>плейсхолдер для компонента</h4>
-            <pre class="code-snippet">
-                &lt;router-view>&lt;/router-view><br/>
-            </pre>
+            <spec_words>&lt;router-view>&lt;/router-view></spec_words><br/>
             <br/>
             Итак, при клике на гиперссылке <spec_words>router-link</spec_words> роутер монтирует нужный компонент 
             в месте размещения плейсхолдера <spec_words>router-view</spec_words><br/>
@@ -126,24 +123,24 @@ const router = new VueRouter ( {
         <v-card-text>
             Маршруты могут быть вложенными:<br/>
             <pre class="code-snippet">
-                routes: [
-                    {
-                        path: '/',
-                        name: 'home',
-                        component: Home
-                    },
-                    {
-                        path: '/parent_route',
-                        name: 'parentRoute',
-                        component: ParentComponent,
-                        children: [
-                            {
-                                path: 'child',
-                                component: ChildComponent
-                            }
-                        ]
-                    }
-                ]
+routes: [
+     {
+          path: '/',
+          name: 'home',
+          component: Home
+     },
+     {
+          path: '/parent_route',
+          name: 'parentRoute',
+          component: ParentComponent,
+          children: [
+              {
+                  path: 'child',
+                  component: ChildComponent
+              }
+          ]
+     }
+]
             </pre>
             <br/>
             В таком случае в разметке ( темплейте ) компонента <var_names>ParentComponent</var_names> должны быть 
