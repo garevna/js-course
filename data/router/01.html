@@ -1,26 +1,11 @@
-<style>
-    .spec, .words {
-        display: inline-block;
-        margin: 0 7px;
-        font-size: 20px;
-    }
-    .spec {
-        color: orange;
-    }
-    .words {
-        color: #0ef;
-    }
-</style>
-
-<span class="spec">Vue Router</span> ходит по маршрутам...<br/>
+<img src = "../../images/vue-router.svg width = "100%">
+<spec_words>Vue Router</spec_words> ходит по маршрутам...<br/>
 На самом деле не совсем так<br/>
-
 Роутер монтирует нужный компонент в нужный момент времени в нужном месте<br/>
-
 Нужное место указывается с помощью плейсхолдера <br/>
 <br/>
 &lt;router-view>&lt;/router-view>
-<br/>
+<br/><br/>
 Компоненты, которые будут смонтированы в "нужном месте", нужно привязать к маршрутам<br/>
 <br/>
 <pre class="code-snippet">
@@ -52,7 +37,7 @@ const router = new VueRouter ( {
 </pre>
 <br/>
 
-Роутер нужно привязать к экземпляру <span class="spec">Vue</span>:<br/>
+Роутер нужно привязать к экземпляру <spec_words>Vue</spec_words>:<br/>
 <br/>
 <pre class="code-snippet">
 new Vue ({
