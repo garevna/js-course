@@ -179,7 +179,7 @@
 			"code":false,
 			"text":"Расширение Chrome для vue-разработчика",
 			"textURL":"",
-			"readme":"https://garevna.github.io/vue.github.io/data/vue/devtools.html",
+			"readme":"/vue-course.github.io/data/data/vue/devtools.html",
 			"samples":[
 				"https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
 			],
@@ -496,8 +496,8 @@
 				"}"
 			],
 			"text":"Отслеживание изменения значений реактивных данных модели<br/>Глубокое отслеживание объектов<br/>",
-			"textURL":"./data/vue/reactivity-object.html",
-			"readme":"./data/vue/reactivity-object.html",
+			"textURL":"/vue-course.github.io/data/vue/reactivity-object.html",
+			"readme":"/vue-course.github.io/data/vue/reactivity-object.html",
 			"samples":[
 				"https://plnkr.co/edit/XkqjUURxbw5WtFq0rK0J?p=preview",
 				"https://plnkr.co/edit/HJKbjwFpifE4RxD2JjTG?p=preview"
@@ -569,7 +569,7 @@
 				"// currentComponent, содержащую имя компонента ",
 				"<component :is='currentComponent'></component>"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/components/dynamic.html",
+			"readme":"/vue-course.github.io/data/components/dynamic.html",
 			"text":"Чтобы подключить несколько различных компонентов к одной и той же точке монтирования и динамически переключаться между ними, используем плейсхолдер - псевдоэлемент &lt;component><br/>Связь с реальным компонентом, который будет помещен на место плейсхолдера, осуществляется с помощью атрибута is",
 			"textURL":"",
 			"samples":[
@@ -658,9 +658,9 @@
 			"head":"Шина событий",
 			"picture":"http://kino-filmi.net/uploads/posts/2014-07/1406219565_karlson4.jpg",
 			"code":[],
-			"readme":"https://garevna.github.io/vue.github.io/data/events/event_bus.html",
+			"readme":"/vue-course.github.io/data/events/event_bus.html",
 			"text":"Передача событий через общую шину",
-			"textURL":"https://garevna.github.io/vue.github.io/data/events/globalEventBus.html",
+			"textURL":"/vue-course.github.io/data/events/globalEventBus.html",
 			"samples":[
 				"https://plnkr.co/edit/XRznjj6FTBbyuwiVHSeC?p=preview"
 			],
@@ -681,7 +681,7 @@
 			"head":"Шина данных",
 			"picture":"http://nizhnevartovsk.altronshina.ru/image/cache/hamburger-altron-465x500.png",
 			"code":[],
-			"readme":"https://garevna.github.io/vue.github.io/data/events/data_bus.html",
+			"readme":"/vue-course.github.io/data/events/data_bus.html",
 			"text":"Использование общего хранилища данных, загружаемых асинхронно с помощью метода $http.get плагина vue-resource",
 			"textURL":"",
 			"samples":[
@@ -900,7 +900,7 @@
 			"code":[],
 			"text":"Именованные слоты",
 			"textURL":"",
-			"readme":"https://garevna.github.io/vue.github.io/data/slots/02.html",
+			"readme":"/vue-course.github.io/data/slots/02.html",
 			"samples":[
 				"https://plnkr.co/edit/hSVkDkhgfB6kgCMQjKNd?p=preview",
 				"https://plnkr.co/edit/9nFUtNDqeZ1JX003oDHO?p=preview"
@@ -924,7 +924,7 @@
 				"    </p>",
 				"</child-component>"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/slots/03.html",
+			"readme":"/vue-course.github.io/data/slots/03.html",
 			"text":"Слоты с контекстом (областью видимости).<br/>Читайте README в примерах",
 			"textURL":"",
 			"samples":[
@@ -1075,7 +1075,7 @@
 				"// компонента:",
 				"<router-view></router-view>"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/router/01.html",
+			"readme":"/vue-course.github.io/data/router/01.html",
 			"text":"Роутеру нужно указать массив путей (routes).<br/>Каждый путь должен указывать на компонент.<br/>Для вставки ссылок на маршруты в html-код служит компонент router-link с атрибутом 'to', значение которого является машрутом<br/><code>&lt;router-link to='/Библиотека'>&lt;/router-link></code><br/>Содержимое компонента (после рендеринга) будет помощено в контейнер &lt;router-view>&lt;/router-view>.",
 			"textURL":"",
 			"samples":[
@@ -1118,7 +1118,7 @@
 				"     ]",
 				"})"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/router/02.html",
+			"readme":"/vue-course.github.io/data/router/02.html",
 			"text":"Свойства объекта Route.<br/>Дочерние маршруты (children)<br/>Навигация по вложенным маршрутам с помощью именованных путей (пример).<br/>Именованные маршуты также удобно использовать при императивном задании пути<br/><p class='code-snippet'>this.$router.push( { name: val } )</p><br/>",
 			"textURL":"",
 			"samples":[
@@ -1139,7 +1139,7 @@
 				"   }",
 				"}"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/router/03.html",
+			"readme":"/vue-course.github.io/data/router/03.html",
 			"text":"Часто удобно отслеживать изменение маршрута, устанавливая наблюдателя на свойство $route",
 			"textURL":"",
 			"samples":[
@@ -1173,7 +1173,7 @@
 			"code":false,
 			"text":"",
 			"textURL":"",
-			"readme":"./data/AJAX/promise.html",
+			"readme":"/vue-course.github.io/data/AJAX/promise.html",
 			"samples":[ "https://repl.it/@garevna/Vueandpromise" ],
 			"usefull": [
 				{
@@ -1207,7 +1207,7 @@
 				"// successCallback -  успешного завершения операции",
 				"// failureCallback -  завершения операции с ошибкой"
 			],
-			"readme":"./data/AJAX/vue-resource.html",
+			"readme":"/vue-course.github.io/data/AJAX/vue-resource.html",
 			"text":"Ссылка на библиотеку: https://cdn.jsdelivr.net/npm/vue-resource@1.3.4",
 			"textURL":"",
 			"samples": [ "https://plnkr.co/edit/lZLVjgPDmkpgmIwzebMd?p=preview" ],
@@ -1241,7 +1241,7 @@
 					"          store.commit ( 'DATA_FAILURE', error )",
 					"     })"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/AJAX/axios.html",
+			"readme":"/vue-course.github.io/data/AJAX/axios.html",
 			"text":"",
 			"textURL":"",
 			"ref":[ "https://plnkr.co/edit/lZLVjgPDmkpgmIwzebMd?p=preview" ],
@@ -1274,7 +1274,7 @@
 				"    }",
 				"})"
 			],
-			"readme":"https://garevna.github.io/vue.github.io/data/vuex/start.html",
+			"readme":"/vue-course.github.io/data/vuex/start.html",
 			"text":"Vuex.Store имеет состояние state<br/>По сути, это объект с реактивными данными всего приложения<br/>Эти данные подвергаются изменениям с помощью методов, описанных в объекте 'mutations'<br/>",
 			"textURL":"",
 			"samples": [ "https://plnkr.co/edit/aqZ1cfiHEc1jJYovg0VE?p=preview" ],
@@ -1290,9 +1290,9 @@
 			"head":"mutations & v-model",
 			"picture":false,
 			"code":false,
-			"readme":"https://garevna.github.io/vue.github.io/data/vuex/01.html",
+			"readme":"/vue-course.github.io/data/vuex/01.html",
 			"text":"",
-			"textURL":"./data/vuex/v-model-1.html",
+			"textURL":"/vue-course.github.io/data/vuex/v-model-1.html",
 			"samples": [
 				"https://plnkr.co/edit/M3sAwq01Rc1PLj0oJmsg?p=preview",
 				"https://plnkr.co/edit/a5xPAy7ifDkVuN7FoDHz?p=preview",
@@ -1316,7 +1316,7 @@
 			"head":"mutations & event handlers",
 			"picture":false,
 			"code":false,
-			"readme":"../data/vuex/01-1.html",
+			"readme":"/vue-course.github.io/data/vuex/01-1.html",
 			"text":"Мутация состояний Vuex-store<br/>Привязка к элементам форм<br/>Объекты с глубокой структурой<br/>Работа с массивами<br/>Использование компонентов",
 			"textURL":"",
 			"samples": [
@@ -1330,7 +1330,7 @@
 			"head":"getters & actions",
 			"picture":false,
 			"code":false,
-			"readme":"https://garevna.github.io/vue.github.io/data/vuex/02.html",
+			"readme":"/vue-course.github.io/data/vuex/02.html",
 			"text":"Объект getters содержит вычисляемые свойства объекта store<br/>Для асинхронных операций предусмотрены actions<br/>",
 			"textURL":"",
 			"samples": [
