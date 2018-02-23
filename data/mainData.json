@@ -401,6 +401,11 @@
 				"comment":"firebase Tutorials & Examples (рус)"
 			},
 			{
+				"ref":"https://codelabs.developers.google.com/codelabs/firebase-web-ru/index.html#0",
+				"ico":"link",
+				"comment":"Firebase: делаем веб-приложение чата, работающее в реальном времени"
+			},
+			{
 				"ref":"https://www.youtube.com/watch?v=nMrkQVSlabk",
 				"ico":"link",
 				"comment":"Пример работы с базой данных Firebase Database в Android"
