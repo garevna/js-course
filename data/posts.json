@@ -1316,7 +1316,7 @@
 			"head":"mutations & event handlers",
 			"picture":false,
 			"code":false,
-			"readme":"https://garevna.github.io/vue.github.io/data/vuex/01-1.html",
+			"readme":"../data/vuex/01-1.html",
 			"text":"Мутация состояний Vuex-store<br/>Привязка к элементам форм<br/>Объекты с глубокой структурой<br/>Работа с массивами<br/>Использование компонентов",
 			"textURL":"",
 			"samples": [
