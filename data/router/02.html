@@ -1,0 +1,73 @@
+<style>
+    .spec, .words {
+        display: inline-block;
+        margin: 0 7px;
+        font-size: 20px;
+    }
+    .spec {
+        color: orange;
+    }
+    .words {
+        color: #0ef;
+    }
+</style>
+
+<h3>Объект <span class="spec">Route</span></h3>
+<hr/>
+Текущий маршрут ( активный путь )<br/>
+Обновляется при каждом навигационном переходе<br/>
+<hr/>
+Доступ к объекту <span class="spec">$route</span><br/>
+Внутри компонента он доступен как <span class="spec">this.$route</span><br/>
+
+Изменения маршрута можно отслеживать:<br/>
+<pre class="code-snippet">
+    watch: {
+        '$route': function () {
+          ...
+        }
+    }
+</pre><br/>
+
+Свойства объекта <span class="spec">Route</span><br/>
+
+<span class="spec">$route.path</span>       тип: <span class="spec">string</span><br>
+<hr/>
+<span class="spec">$route.params</span>     тип: <span class="spec">Object</span><br/>
+
+Содержит параметры динамических сегментов<br/>
+<pre class="code-snippet">         { id: 'Boom' }</pre><br/>
+При отсутствии параметров пути будет пустым<br/>
+<hr/>
+<span class="spec">$route.query</span>      тип: <span class="spec">Object</span><br/>
+Содержит данные строки запроса (query string)<br/>
+Например:<br/>
+<pre class="code-snippet">
+     { user: "Tornado" }
+     для пути /?user="Tornado"
+     $route.query.user == "Tornado"
+</pre><br/>
+При отсутствии строки запроса будет пустым
+<hr/>
+<span class="spec">$route.hash</span>       тип: <span class="spec">string</span><br/>
+<hr/>
+Хэш-часть текущего пути ( после символа # )<br/>
+Пустая строка, если отсутствует<br/>
+<span class="spec">$route.fullPath </span>  тип: <span class="spec">string</span><br/>
+Полный URL, включая строку запроса и хэш<br/>
+<span class="spec">$route.matched </span>   тип: <span class="spec">Array</span><br/>
+Массив, содержащий объекты маршрутов всех вложенных сегментов текущего пути<br/>
+<pre class="code-snippet">
+    const router = new VueRouter({
+      routes: [
+        { path: '/user', component: User,
+            children: [
+              { path: 'profile', component: Profile }
+            ]
+        }
+      ]
+    })
+</pre><br/> 
+Для URL, равного <span class="words">/user/profile</span>, <span class="spec">$route.matched</span> 
+будет массивом, содержащим копии обоих объектов, в порядке сортировки от родителя к потомку.<br/>
+<span class="spec">$route.name</span>   Имя текущего пути (не обязательно, но удобно)

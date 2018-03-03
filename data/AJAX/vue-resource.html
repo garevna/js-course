@@ -1,0 +1,30 @@
+<style>
+  .spec, .words {
+    display:inline-block;
+    margin: 0 7px;
+    font-size: 20px;
+  }
+  .spec {
+    color:orange;
+  }
+  .words {
+    color:#7cdef3;
+  }
+  .rule {
+      color: #75f17e;
+  }
+  .rule:before {
+      content:"\2776 ";
+      font-size:25px;
+  }
+</style>
+
+<p>Метод <span class="spec">$http.get()</span> возвращает объект <span class="spec">promise</span>, т.е. объект, имеющий состояние</p> 
+<p>Пока операция не завершена, состояние объекта будет <span class="spec">pending</span>, т.е. объект находится в ожидании завершения 
+операции</p>
+<p>Если операция завершена успешно, состояние объекта становится <span class="spec">fulfilled</span>, в противном случае - 
+<span class="spec">rejected</span></p> 
+<p>Для обработки изменения состояния объекта на него  нужно навесить обработчики</p>
+<p>* Для создания и редактирования JSON-файлов можно использовать сервис <span class="words">http://www.jsoneditoronline.org/</span></p>
+<p>* Сервис <span class="words">https://jsonplaceholder.typicode.com/</span> можно использовать как эмулятор удаленного сервера</p>
+<small>Создайте репозиторий на гитхабе, куда поместите свой JSON-файл</small>

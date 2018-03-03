@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Vue.js</title>
+    <!--<base href="https://garevna.github.io/vue-course.github.io/">-->
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+    <!-- Auth -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <!-- Auth   Подключаем виджет на русском языке -->
+    <script src="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth__ru.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/2.5.1/firebase-ui-auth.css" />
+
+    <!--<script src="firebaseUserAuth.js"></script>-->
+    <!--<script src="/components/loginComponent.js"></script>-->
+
+    <link rel="shortcut icon" href="images/a-level-ico.png" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vuetify/dist/vuetify.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel|Amatic+SC|Caveat|Comfortaa|Didact+Gothic|Kurale|Montserrat|Pacifico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sectionInfo.css">
+    <link rel="stylesheet" href="css/sectionDetails.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/perspective.css">
+    <link rel="stylesheet" href="css/quiz.css">
+
+    <script src = "https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
+    <script src = "https://unpkg.com/vue-router/dist/vue-router.min.js"></script>
+    <script src = "https://unpkg.com/vuex@3.0.1/dist/vuex.min.js"></script>
+    <script src = "https://unpkg.com/vuetify/dist/vuetify.min.js"></script>
+
+    <!-- TweenMax-->
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/CSSPlugin.min.js"></script>
+    <script src="js/EasePack.min.js"></script>
+
+
+
+  </head>
+
+  <body>
+    <v-app dark class = "main-content" id = "VueCourseware">
+            <v-toolbar flat class = "primary" app v-if = "!startQuiz">
+                <v-btn @click.stop = "drawer = !drawer" dark color = "primary" icon>
+                    <v-icon>menu</v-icon>
+                </v-btn>
+                <v-toolbar-title>{{ currentSectionId }}</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <user-info  v-if = "user"></user-info>
+                <toggle-buttons :__buttons = "sectionMenu"
+                                class = "transparent">
+                </toggle-buttons>
+                <v-menu offset-y>
+                    <v-btn icon slot = "activator">
+                        <v-icon>more_vert</v-icon>
+                    </v-btn>
+                    <v-list>
+                        <v-list-tile :disabled = "user" @click = "startUserLogin">
+                            <v-list-tile-title>Sign In</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :disabled = "!user" @click = "startUserLogOut">
+                            <v-list-tile-title>Sign Out</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :disabled = "!user" @click = "startNewQuiz">
+                            <v-list-tile-title>Test</v-list-tile-title>
+                        </v-list-tile>
+                        <v-list-tile :disabled = "!user" @click = "startChat">
+                            <v-list-tile-title>Chat</v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
+            </v-toolbar>
+      <router-view></router-view>
+       <v-footer class="glass" app>
+          <img src = "./images/a-level.png" width="100">
+          <v-spacer></v-spacer>
+          <v-tooltip bottom nudge-top="-30">
+              <span slot="activator">
+                &copy;&nbsp;Irina Fylyppova 2017
+              </span>
+              <span>
+                <img src="./images/my-photo.png" width="80">
+              </span>
+            </v-tooltip>
+       </v-footer>
+       <login-component v-if = "userLoginDialog"></login-component>
+       <full-screen-chat :user = "user" :dialog = "chatDialog"></full-screen-chat>
+       <nav-panel :states = "mainMenuItems"></nav-panel>
+       <quiz-component v-if = "perspectiveReady && quizReady && startQuiz">
+       </quiz-component>
+       <!--<app-footer></app-footer>-->
+       <!--<perspective-dynamic-fone v-if = "perspectiveReady" :level = "level">
+       </perspective-dynamic-fone>-->
+    </v-app>
+
+
+    <script src="components/PerspectiveDynamicFone.js"></script>
+    <script src="components/QuizComponent.js"></script>
+
+    <script src="components/VueDataPicker.js"></script>
+    <script src="components/SendMessage.js"></script>
+    <script src="components/HomePage.js"></script>
+    <script src="components/CustomSelect.js"></script>
+    <script src="components/loginComponent.js"></script>
+    <script src="components/userInfo.js"></script>
+
+    <script src="components/testWithRadioButtons.js"></script>
+
+    <script src="components/appFooter.js"></script>
+    <script src="components/bottomSheet.js"></script>
+    <script src="components/FullScreenDialogWindow.js"></script>
+    <script src="components/currentPost.js"></script>
+
+    <script src="components/toggleButtons.js"></script>
+    <script src="components/mainSection.js"></script>
+    <script src="components/NavigationPanel.js"></script>
+
+    <script src="components/SectionInfo.js"></script>
+    <script src="components/SectionDetails.js"></script>
+    <script src="components/routerInstance.js"></script>
+
+    <script src="DataStore.js"></script>
+    <script src="VueInstance.js"></script>
+    <script src="js/filters.js"></script>
+  </body>
+
+</html>

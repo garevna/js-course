@@ -1,0 +1,14 @@
+{
+  "message" : {
+    "id" : 0,
+    "text" : "hello",
+    "user" : "admin"
+  },
+  "users" : {
+    "userId" : {
+      "date" : {
+        "message" : "hello"
+      }
+    }
+  }
+}

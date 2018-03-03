@@ -1,0 +1,1358 @@
+{
+	"Vue.js": [
+		{
+			"head":"el",
+			"picture":false,
+			"code":[
+				"new Vue  ( {",
+				"  el: '…',",
+				"  data : { … },",
+				"  methods : { … },",
+				"  computed : { … },",
+				"  watch: {},",
+				"})"
+			],
+			"text":"Экземпляр Vue является моделью.<br/>Модель необходимо связать с представлением, т.е. с элементом DOM.<br/>Для связывания модели с представлением (элементом DOM) служит свойство el экземпляра Vue",
+			"textURL":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"https://vuejs.org/v2/guide/instance.html",
+					"ico": "vue",
+					"comment":"The Vue Instance"
+				}
+			]
+		},
+		{
+			"head":"$mount",
+			"picture":false,
+			"code":[
+				"const app = new Vue( {",
+				"   ...",
+				"}).$mount('#app')"
+			],
+			"text":"При отсутствии свойства el экземпляра Vue связать модель с представлением можно с помощью метода $mount",
+			"textURL":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"https://www.neontsunami.com/posts/mounting-a-vue-instance-to-a-dom-element",
+					"ico": "link",
+					"comment":"Mounting a Vue instance to a DOM element"
+				},
+				{
+					"ref":"https://codingexplained.com/coding/front-end/vue-js/mounting-templates-dynamically",
+					"ico": "link",
+					"comment":"Mounting Vue.js Templates Dynamically"
+				}
+			]
+		},
+		{
+			"head":"data | computed",
+			"code":[
+				"data : {",
+				"  priceUSD: 10,",
+				"  course: 25.4",
+				"},",
+				"computed: {",
+				"  priceUA: function () {",
+				"    return this.priceUSD * this.course",
+				"  }",
+				"}"
+			],
+			"text":"Объекты data и computed являются встроенными свойствами экземпляра Vue.<br/>Эти объекты содержат реактивные свойства модели, т.е. свойства, при изменении которых происходит автоматическое изменение представления",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/QqEMoa",
+				"https://codepen.io/garevna/pen/dZVqqZ"
+			],
+			"usefull":[
+				{
+					"ref":"https://alligator.io/vuejs/property-validation/",
+					"ico": "alligator",
+					"comment":"Vue.js Property Validation"
+				}
+			]
+		},
+		{
+			"head":"computed",
+			"picture":"",
+			"code":[
+				"data : {",
+				"  userId: 'Иван',",
+				"  message: 'зайди в бухгалтерию'",
+				"},",
+				"computed: {",
+				"  announcement: function () {",
+				"    return this.userId + ', ' + this.message",
+				"  }",
+				"}"
+			],
+			"text":"Вычисляемое свойство announcement будет пересчитано  только тогда, когда изменится одна из его зависимостей - userId или message.",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/veqNzL"
+			],
+			"usefull":[
+				{
+					"ref":"https://alligator.io/vuejs/computed-properties",
+					"ico": "alligator",
+					"comment":"Introduction to Computed Properties in Vue.js"
+				}
+			]
+		},
+		{
+			"head":"Reactivity",
+			"picture":false,
+			"code":false,
+			"text":"Реактивность массивов и объектов",
+			"textURL":"/vue-course.github.io/data/vue/reactivity-array.html",
+			"readme": "/vue-course.github.io/data/vue/reactivity-object.html",
+			"samples":[],
+			"usefull":[]
+		},
+		{
+			"head":"$emit",
+			"picture":false,
+			"code":false,
+			"text":"Метод, позволяющий эмитировать событие<br/>( подробнее см. раздел Events )",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"Vuetify",
+			"picture":"https://vuetifyjs.com/static/doc-images/logo.svg",
+			"code":false,
+			"text":"Material Component Framework",
+			"textURL":"",
+			"readme":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"https://vuetifyjs.com/",
+					"ico": "vuetify",
+					"comment":"CSS-framework"
+				}
+			]
+		},
+		{
+			"head":"CSS",
+			"picture":"./images/css3.png",
+			"code":[
+				"// Условное подключение класса active ",
+				"// в зависимости от значения переменной isActive",
+				"<div :class='{ active: isActive }'></div>",
+				"// Можно передавать объект классов по ссылке",
+				"<div :class='classObject'></div>",
+				"// В объекте data компонента или экземпляра",
+				"// объект classObject должен быть объявлен",
+				"data: {",
+				"    classObject: {",
+				"        active: true,",
+				"        'text-danger': false",
+				"    }",
+				"}",
+				"// Можно подключить сразу несколько классов ",
+				"<div :class='[ firstClass, secondClass ]'></div>",
+				"// Можно использовать тернарный оператор",
+				"<div :class='[ isFirst ? firstClass : secondClass ]'>",
+				"</div>"
+			],
+			"text":"Различные способы привязки стилей и классов",
+			"textURL":"",
+			"readme":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/class-and-style.html",
+					"ico": "link",
+					"comment":"Работа с классами и стилями"
+				}
+			]
+		},
+		{
+			"head":"vue-devtools",
+			"picture":false,
+			"code":false,
+			"text":"Расширение Chrome для vue-разработчика",
+			"textURL":"",
+			"readme":"./data/vue/devtools.html",
+			"samples":[
+				"https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd",
+					"ico": "dev-tools",
+					"comment":"Vue.js devtools"
+				}
+			]
+		},
+		{
+			"head":"filters",
+			"picture":false,
+			"code":[
+				"// Глобальный фильтр",
+				"Vue.filter ( 'toUA', function ( value ) {",
+				"     return `${value} грн`",
+				"})",
+				"new Vue({",
+				"     el: '#sample',",
+				"     data: {",
+				"         name: 'windows'",
+				"     }",
+				"     // Локальный фильтр",
+				"     filters: {",
+				"         bigLetters ( value ) {",
+				"             ...",
+				"         }",
+				"     }",
+				"})",
+				"// index.html:",
+				"<div id='sample'>",
+				"     <p>{{ price | toUA }}</p>",
+				"     <p>{{ 'windows' | bigLetters }}</p>",
+				"</div>"
+			],
+			"text":"Собственные фильты можно зарегистрировать глобально и локально<br/>Объявление фильтра нужно делать до создания экземпляра Vue<br/>Фильтры - это обычные функции, поэтому им можно передавать параметры",
+			"textURL":"",
+			"readme":false,
+			"samples":[
+				"https://plnkr.co/edit/Adqs21lTs6snJXnRpHZu?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/filters.html",
+					"ico": "stdlib",
+					"comment":"Фильтры"
+				},
+				{
+					"ref":"https://css-tricks.com/using-filters-vue-js/",
+					"ico": "css-tricks",
+					"comment":"Using Filters in Vue.js"
+				},
+				{
+					"ref":"https://alligator.io/vuejs/using-filters/",
+					"ico": "alligator",
+					"comment":"Using Filters to Format Data in Vue.js"
+				},
+				{
+					"ref":"https://scotch.io/tutorials/how-to-create-filters-in-vuejs-with-examples",
+					"ico": "scotch-io",
+					"comment":"How to Create Filters in Vue.js with Examples"
+				}
+			]
+		},
+		{
+			"head":"life cycle",
+			"picture":false,
+			"code":[],
+			"text":"Хуки жизненного цикла",
+			"textURL":"",
+			"readme":false,
+			"samples":[
+				"https://repl.it/@garevna/Vue-Lificycle-Hooks"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/instance.html",
+					"ico": "stdlib",
+					"comment":"Экземпляр Vue"
+				},
+				{
+					"ref":"https://alligator.io/vuejs/component-lifecycle/",
+					"ico": "alligator",
+					"comment":"Understanding Vue.js Lifecycle Hooks"
+				},
+				{
+					"ref":"https://scotch.io/tutorials/demystifying-vue-lifecycle-methods",
+					"ico": "scotch-io",
+					"comment":"Demystifying Vue Lifecycle Methods"
+				},
+				{
+					"ref":"https://codingexplained.com/coding/front-end/vue-js/using-vue-instance-lifecycle-hooks",
+					"ico": "link",
+					"comment":"Using Vue Instance Lifecycle Hooks"
+				},
+				{
+					"ref":"https://metanit.com/web/vuejs/1.13.php",
+					"ico": "link",
+					"comment":"Жизненный цикл Vue"
+				}
+			]
+		}
+	],
+	"Directives": [
+		{
+			"head":"v-bind",
+			"picture":"",
+			"code":[
+				"// imageSrc - свойство родителя",
+				"<img v-bind:src = 'imageSrc'/>",
+				"// сокращенная запись:",
+				"<img :src = 'imageSrc'/>"
+			],
+			"text":"Динамически связывает атрибуты тега или входной параметр компонента с выражением",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/eGRawR",
+				"https://codepen.io/garevna/pen/VMzYdP"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"v-model",
+			"picture":"",
+			"code":[],
+			"text":"Служит для двустороннего связывания потомка и родителя.<br/>Соответствующее свойство, указанное в директиве, может быть изменено в потомке, что будет реактивно отражено в родителе.<br/>Обычно используется для элементов форм",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/aLypvq",
+				"https://codepen.io/garevna/pen/oGKzOB",
+				"https://codepen.io/garevna/pen/xXvRyP",
+				"https://codepen.io/garevna/pen/PJMbrr",
+				"https://codepen.io/garevna/pen/WZVRKj",
+				"https://codepen.io/garevna/pen/RLQNjm"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"v-for",
+			"picture":"",
+			"code":[
+				"<div v-for='item in items'>",
+				"  {{ item.name }}",
+				"  {{ item.price }}",
+				"</div>"
+			],
+			"text":"Служит для создания группы элементов на основе массива входных данных.<br/>Данные массива могут быть как примитивами, так и объектами или массивами",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/EwXGPB"
+			],
+			"usefull":[
+				{
+					"ref":"https://metanit.com/web/vuejs/2.3.php",
+					"ico": "link",
+					"comment":"v-for"
+				}
+			]
+		},
+		{
+			"head":"v-show",
+			"picture":"",
+			"code":[],
+			"text":"Директива, позволяющая управлять отображением элементов в представлении на основании значений переменных модели",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/OxjRJW"
+			],
+			"usefull":[
+				{
+					"ref":"https://metanit.com/web/vuejs/2.2.php",
+					"ico": "link",
+					"comment":"Директива v-show"
+				}
+			]
+		},
+		{
+			"head":"v-if",
+			"picture":"",
+			"code":[
+				"<p v-if='expr'>{{ message }}</p>",
+				"<p v-else> {{ error }}</p>"
+			],
+			"text":"Условный рендеринг.<br/>В отличие от директивы v-show, добавляет или удаляет элемент DOM в зависимости от значения условного выражения expr.<br/>Директива v-else обеспечивает рендеринг альтернативного варианта, если условное выражение expr принимает значение false",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/EwvgKJ",
+				"https://codepen.io/garevna/pen/NavRdX"
+			],
+			"usefull":[
+				{
+					"ref":"https://metanit.com/web/vuejs/2.1.php",
+					"ico": "link",
+					"comment":"Условный рендеринг и работа с массивами"
+				}
+			]
+		},
+		{
+			"head":"v-text | v-html",
+			"picture":"",
+			"code":[
+				"<p v-html = 'showMessage'></p>",
+				"<p v-text = 'showMessage'></p>"
+			],
+			"text":"Вывод текстовых значений<br/>Директива v-text позволяет вывести текстовое содержимое переменной, а v-html - вывести это содержимое как html-код",
+			"textURL":"",
+			"samples":[
+				"https://repl.it/@garevna/Vue-v-html-vs-v-text"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/syntax.html",
+					"ico": "stdlib",
+					"comment":"Синтаксис шаблонов"
+				}
+			]
+		},
+		{
+			"head":"v-on",
+			"picture":false,
+			"code":[
+				"<button v-on:click = 'clickHandler'>",
+				"  Кликни!",
+				"</button>",
+				"// краткая форма:",
+				"<button @click = 'clickHandler'>",
+				"    Кликни!",
+				"</button>"
+			],
+			"text":"Прикрепляет к элементу прослушиватель событий.<br/>Тип события является аргументом директивы.",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/PJjgPm",
+				"https://codepen.io/garevna/pen/veJZOb",
+				"https://codepen.io/garevna/pen/YrVpmm"
+			],
+			"usefull":[
+				{
+					"ref":"https://v1.vuejs.org/guide/events.html",
+					"ico": "vue",
+					"comment":"Methods and Event Handling"
+				},
+				{
+					"ref":"https://alligator.io/vuejs/events/",
+					"ico": "alligator",
+					"comment":"Handling Events With Vue.js"
+				}
+			]
+		},
+		{
+			"head":"v-cloak",
+			"picture":false,
+			"code":[
+				"<div v-cloak>",
+				"  {{ message }}",
+				"</div>"
+			],
+			"text":"Элемент не будет показан до окончания компиляции.<br/>Эта директива позволяет избежать отображения 'усатого' ( {{...}} ) синтаксиса клиенту",
+			"textURL":"",
+			"samples":[
+			],
+			"usefull":[]
+		}
+	],
+	"Components": [
+		{
+			"head":"reactivity & array",
+			"picture":"",
+			"code":[
+				"watch: {",
+				"  'sampleArray': {",
+				"      handler: function ( newVal, oldVal ) {",
+				"           console.info ( 'Массив sampleArray изменен' )",
+				"      }",
+				"   }",
+				"}"
+			],
+			"text":"Отслеживание изменения значений реактивных данных модели",
+			"textURL":"./data/vue/reactivity-array.html",
+			"readme":"./data/vue/reactivity-array.html",
+			"samples":[
+				"https://plnkr.co/edit/PBmd2rVMsmWBKNjiQzsf?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/reactivity.html",
+					"ico": "stdlib",
+					"comment":"Подробно о реактивности"
+				},
+				{
+					"ref":"https://vuejs.org/2016/02/06/common-gotchas/",
+					"ico": "vue",
+					"comment":"Common Beginner Gotchas"
+				},
+				{
+					"ref":"https://vuejs.org/v2/guide/reactivity.html",
+					"ico": "stdlib",
+					"comment":"Reactivity in Depth"
+				}
+			]
+		},
+		{
+			"head":"reactivity & object",
+			"picture":"",
+			"code":[
+				"watch: {",
+				"  'sample': {",
+				"      handler: function ( newVal, oldVal ) {",
+				"           console.info ( 'Объект sample изменен' )",
+				"      }, deep: true",
+				"   }",
+				"}"
+			],
+			"text":"Отслеживание изменения значений реактивных данных модели<br/>Глубокое отслеживание объектов<br/>",
+			"textURL":"./data/vue/reactivity-object.html",
+			"readme":"./data/vue/reactivity-object.html",
+			"samples":[
+				"https://plnkr.co/edit/XkqjUURxbw5WtFq0rK0J?p=preview",
+				"https://plnkr.co/edit/HJKbjwFpifE4RxD2JjTG?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/computed.html#%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0-%D0%B8-%D1%81%D0%BB%D0%B5%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5",
+					"ico": "vue",
+					"comment":"Вычисляемые свойства и слежение"
+				},
+				{
+					"ref":"https://medium.com/@modex13/vue-js-2-computed-%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D1%8F%D0%B5%D0%BC%D1%8B%D0%B5-%D1%81%D0%B2%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0-6649a2169b67",
+					"ico": "medium",
+					"comment":"Vue.js 2: Computed — вычисляемые свойства"
+				},
+				{
+					"ref":"https://vuejs.org/v2/guide/computed.html#Computed-vs-Watched-Property",
+					"ico": "vue",
+					"comment":"Computed vs Watched Property"
+				},
+				{
+					"ref":"https://vuejs.org/v2/api/#watch",
+					"ico": "vue",
+					"comment":"watch"
+				}
+			]
+		},
+		{
+			"head":"Radio button",
+			"picture":false,
+			"code":[],
+			"text":"Простой компонент с литеральным шаблоном.<br/>Использование директив v-for, v-bind, v-model при вызове компонента.<br/>Передача данных из компонента родителю с помощью встроенного метода $emit",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview",
+				"https://codepen.io/garevna/pen/pWdLoz"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"Checkboxes",
+			"picture":false,
+			"code":[],
+			"text":"Многократно используемый компонент, определенный в глобальной области видимости, с динамически обновляемым контентом",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/77n86nKgvcllq2nRKLGb?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"dropdown menu",
+			"picture":false,
+			"code":[],
+			"text":"Пример компонента dropdown-menu, в котором при выборе одного из элементов меню происходит отправка события родителю (экземпляру Vue) с передачей внутреннего содержимого выбранного пункта меню.<br/>В экземпляре Vue происходит обработка события и вывод соотвествующего текста на страницу",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/qKB8ACBVu7jZvqnBscn6?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"Dynamic component",
+			"picture":false,
+			"code":[
+				"// Статическая привязка компонента по имени",
+				"<component is='first'></component>",
+				"// Динамическая привязка через переменную ",
+				"// currentComponent, содержащую имя компонента ",
+				"<component :is='currentComponent'></component>"
+			],
+			"readme":"./data/components/dynamic.html",
+			"text":"Чтобы подключить несколько различных компонентов к одной и той же точке монтирования и динамически переключаться между ними, используем плейсхолдер - псевдоэлемент &lt;component><br/>Связь с реальным компонентом, который будет помещен на место плейсхолдера, осуществляется с помощью атрибута is",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/RXcN5V5T7iW51b30XMm0?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://goo.gl/nyYqje",
+					"ico": "medium",
+					"comment":"Vue: как использовать компоненты"
+				},
+				{
+					"ref":"https://goo.gl/fQbUuG",
+					"ico": "vue",
+					"comment":"Динамическое переключение компонентов"
+				}
+			]
+		},
+		{
+			"head":"Recursive component",
+			"picture":false,
+			"code":[],
+			"readme":false,
+			"text":"Пример рекурсивного компонента",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/mFmaocEKAzJVOwIK6Wwu?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://medium.com/js-dojo/build-a-collapsible-tree-menu-with-vue-js-recursive-components-e598306dc3d1",
+					"ico": "vue-developers",
+					"comment":"Build A Collapsible Tree Menu With Vue.js Recursive Components"
+				}
+			]
+		},
+		{
+			"head":"props & data",
+			"picture":false,
+			"code":[],
+			"readme":"./data/components/array.html",
+			"text":"Особенности работы с массивами",
+			"textURL":"",
+			"samples":[
+				"http://plnkr.co/edit/t4UbB25dtNCpNAAxIZJR?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://css-tricks.com/intro-to-vue-2-components-props-slots/",
+					"ico": "css-tricks",
+					"comment":"Intro to Vue.js: Components, Props, and Slots"
+				}
+			]
+		},
+		{
+			"head":"lifecycle",
+			"picture":false,
+			"code":[],
+			"readme":"",
+			"text":"Хуки жизненного цикла компонента",
+			"textURL":"",
+			"samples":[
+			],
+			"usefull":[
+				{
+					"ref":"https://scotch.io/tutorials/demystifying-vue-lifecycle-methods",
+					"ico": "scotch-io",
+					"comment":"Demystifying Vue Lifecycle Methods"
+				}
+			]
+		}
+	],
+	"Events":[
+		{
+			"head":"Отцы и дети",
+			"picture":"http://www.playcast.ru/uploads/2016/09/12/19876831.gif",
+			"code":[],
+			"text":"Передача события из вложенных компонентов",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/h5dcxsniStLikyXAloSc?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"Шина событий",
+			"picture":"http://kino-filmi.net/uploads/posts/2014-07/1406219565_karlson4.jpg",
+			"code":[],
+			"readme":"./data/events/event_bus.html",
+			"text":"Передача событий через общую шину",
+			"textURL":"./data/events/globalEventBus.html",
+			"samples":[
+				"https://plnkr.co/edit/XRznjj6FTBbyuwiVHSeC?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://alligator.io/vuejs/global-event-bus/",
+					"ico": "alligator",
+					"comment":"Creating a Global Event Bus with Vue.js"
+				},
+				{
+					"ref":"http://vuetips.com/global-event-bus",
+					"ico": "link",
+					"comment":"Use a global event bus instead of a state manager"
+				}
+			]
+		},
+		{
+			"head":"Шина данных",
+			"picture":"http://nizhnevartovsk.altronshina.ru/image/cache/hamburger-altron-465x500.png",
+			"code":[],
+			"readme":"./data/events/data_bus.html",
+			"text":"Использование общего хранилища данных, загружаемых асинхронно с помощью метода $http.get плагина vue-resource",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/asuwUwM2UGKpWshgS4lG?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"http://vuetips.com/global-event-bus",
+					"ico": "link",
+					"comment":"Use a global event bus instead of a state manager"
+				},
+				{
+					"ref":"https://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication",
+					"ico": "vue",
+					"comment":"Non Parent-Child Communication"
+				}
+			]
+		}
+	],
+	"Templates":[
+		{
+			"head":"String",
+			"picture":false,
+			"code":[
+				"Vue.component('comp', {",
+				"   template:",
+				"     `<div class='comp'></div>`",
+				"})"
+			],
+			"text":"Шаблон компонента в виде текстовой строки имеет единственное достоинство - широкую поддержку браузеров",
+			"textURL":"",
+			"ref":false,
+			"samples":[],
+			"usefull":[]
+		},
+		{
+			"head":"literal",
+			"picture":false,
+			"code":[
+				"Vue.component('comp', {",
+				"  template:",
+				"    `<div class='comp'",
+				"        @click='check'>",
+				"     </div>`,",
+				"  methods: {",
+				"    check () {",
+				"      this.show = !this.show;",
+				"    }",
+				"  }",
+				"})"
+			],
+			"text":"Литералы шаблонов ES6 («backticks») позволяют определять шаблон на нескольких строках, чего нельзя сделать в обычной строке Javascript. Такие шаблоны намного легче читать, и сейчас они поддерживаются во многих новых браузерах.",
+			"textURL":"",
+			"ref":false,
+			"samples":[],
+			"usefull":[]
+		},
+		{
+			"head":"Тег <template>",
+			"picture":false,
+			"code":[
+				"<template id='my-template'>",
+				"  <button class='btn' @click='callback'>",
+				"  <div class='title'></div>",
+				"</template>"
+			],
+			"text":"Шаблон можно описать в теге <template> с атрибутом id, значение которого потом использовать для подключения шаблона к компоненту",
+			"textURL":"",
+			"samples":[ "https://codepen.io/garevna/pen/yzvxQb" ],
+			"usefull":[]
+		},
+		{
+			"head":"X-template",
+			"picture":false,
+			"code":[
+				"<script type='text/x-template'",
+				"        id='my-template'>",
+				"   <div class='wrapper'",
+				"        @click='callback'>",
+				"     <div class='title'></div>",
+				"   </div>",
+				"</script>"
+			],
+			"text":"С помощью этого метода шаблон определяется внутри тега скрипта в файле index.html.<br/>Тэг скрипта маркируется как text/x-template и имеет идентификатор, на который будет ссылка в определении компонента:<br/><code>Vue.component('sample', { template: '#my-template' })</code><br/>Этот метод позволяет писать валидный код HTML, но при этом шаблон отделен от определения компонента.",
+			"textURL":"",
+			"samples":[ "https://codepen.io/garevna/pen/MEQyZL" ],
+			"usefull":[]
+		},
+		{
+			"head":"inline",
+			"picture":false,
+			"code":[
+				"<sample-component inline-template>",
+				"  <div class='wrapper'",
+				"       @click='check'>",
+				"     <div class='title'></div>",
+				"  </div>",
+				"</sample-component>"
+			],
+			"text":"Атрибут inline-template в теге компонента указывает Vue, что внутренний контент является шаблоном, а не распределенным контентом (слоты).<br/>Преимущество этого метода заключается в том, что контент находится в правильном месте в HTML-шаблоне и поэтому может отображаться при загрузке страницы, а не в ожидании запуска Javascript.",
+			"textURL":"",
+			"samples":[ "https://codepen.io/garevna/pen/dVdORP" ],
+			"usefull":[]
+		},
+		{
+			"head":"render function",
+			"picture": false,
+			"code":[
+				"// В index.html:",
+				"// <main id='sample'></main>",
+				"// Создаем экземпляр Vue:",
+				"new Vue ({",
+				"    el: '#sample',",
+				"    data: {",
+				"        message: 'Добрый день'",
+				"    }",
+				"//    Создаем виртуальный узел DOM",
+				"    render ( createElement ) {",
+				"      'h1',",
+				"      { attrs: { id: 'hello' } }",
+				"      this.message",
+				"    )",
+				"  }",
+				"})",
+				"// В представлении будет такой результат:",
+				"//    <main id='sample'>",
+				"//        <h1 id='hello'>Добрый день</h1>",
+				"//    </main>"
+			],
+			"text":"С помощью функции-фибрики мы создаем виртуальный узел DOM.<br/>Работа с виртуальным DOM увеличивает скорость работы приложения и обеспечивает большую гибкость.<br/>При создании динамических компонентов с переменными входными параметрами функции рендеринга зачастую оказываются более удобны, чем другие способы задания шаблона компонента.<br/>Часто это связано с использованием слотов.<br/>Фактически во время сборки все шаблоны Vue.js компилируются в функции рендеринга.<br/>Шаблоны просто обеспечивают удобный и более привычный синтаксический сахар поверх функций рендеринга.<br/><hr/>Компоненты с функциями рендеринга не имеют тега или свойства template.<br/>Вместо этого внутри компонента объявляется функция render, которой передается в качестве аргумента метод <em>createElement</em> (принятый псевдоним <b>h</b>), и которая возвращает элемент, созданный с помощью этой функции.<br/><hr/>В шаблонах Vue можно использовать директивы для добавления базовой логики и привязки данных.<br/>Функции Render не имеют к ним доступа, поскольку они должны быть реализованы на Javascript, однако для большинства директив подобная реализация будет несложной",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/ORRVJLhVVUyE2OJIoX9R?p=preview",
+				"https://plnkr.co/edit/H0GhWgLKuiw1zaFGQLZ1?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"http://unetway.com/tutorial/render-funkcii-i-jsx/",
+					"ico": "unetway",
+					"comment":"Render-функции и JSX"
+				}
+			]
+		},
+		{
+			"head":"JSX",
+			"picture":false,
+			"code":[],
+			"text":"JSX является самым спорным вариантом шаблона во Vue.<br/>Некоторые разработчики рассматривают JSX как нечто уродливое, противоречащее главной концепции Vue.<br/>JSX требует предварительной компиляции, так как он не читается браузерами.",
+			"textURL":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"http://unetway.com/tutorial/render-funkcii-i-jsx/",
+					"ico": "unetway",
+					"comment":"Render-функции и JSX"
+				}
+			]
+		},
+		{
+			"head":"SFC",
+			"picture":false,
+			"code":[
+				"<style scoped>",
+				"  .example {",
+				"    color: red;",
+				"  }",
+				"</style>",
+				"<template>",
+				"  <div class='example'>hi</div>",
+				"</template>"
+			],
+			"text":"При условии использованя инструментов сборки Single File Components является наилучшим вариантом создания шаблона компонента.<br/>Этот способ вобрал в себя лучшее из всех остальных способов: он позволяет писать валидную разметку, сохраняя при этом все части компонента в одном файле с раширением vue.<br/>Если тег &lt;style> имеет атрибут scoped, его CSS будет применяться только к элементам текущего компонента.<br/>Это похоже на инкапсуляцию стиля в Shadow DOM.<br/><hr/>Этот способ требует транспиляции, и некоторые IDE не поддерживают подсветку синтаксиса vue-файлов.",
+			"textURL":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"https://codesandbox.io/s/o29j95wx9",
+					"ico": "codesandbox",
+					"comment":"todo app: пример в песочнице"
+				}
+			]
+		},
+		{
+			"head":"Form Validation",
+			"picture":false,
+			"code":[],
+			"text":"Шаблонная проверка формы позволяет устанавливать правила проверки непосредственно в элементах формы с использованием директив",
+			"textURL":"",
+			"samples":[],
+			"usefull":[
+				{
+					"ref":"https://scotch.io/tutorials/template-driven-form-validation-in-vuejs?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+					"ico": "scotch-io",
+					"comment":"Template Driven Form Validation In Vue.js"
+				}
+			]
+		}
+	],
+	"Slots": [
+		{
+			"head":"Слоты",
+			"picture":false,
+			"code":[],
+			"text":"Простые (не именованные) слоты",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/QqmbrO",
+				"https://plnkr.co/edit/fjZol88VeRAOgn9OSe45?p=preview",
+				"https://plnkr.co/edit/x7XCNVDkGfm6JPvhVikz?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"named slots",
+			"picture":false,
+			"code":[],
+			"text":"Именованные слоты",
+			"textURL":"",
+			"readme":"./data/slots/02.html",
+			"samples":[
+				"https://plnkr.co/edit/hSVkDkhgfB6kgCMQjKNd?p=preview",
+				"https://plnkr.co/edit/9nFUtNDqeZ1JX003oDHO?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"scoped slots",
+			"picture":false,
+			"code":[
+				"// === в template потомка: ===",
+				"<slot :text='Предку от потомка'></slot>",
+				"<slot name='sample' :text='Мой дневник'></slot>",
+				"// === в родителе: ===",
+				"<child-component>",
+				"    <p slot-scope='defaultSlotScope'>",
+				"        {{ defaultSlotScope.text }}",
+				"    </p>",
+				"    <p slot='sample' slot-scope='sampleSlotScope'>",
+				"        {{ sampleSlotScope.text }}",
+				"    </p>",
+				"</child-component>"
+			],
+			"readme":"./data/slots/03.html",
+			"text":"Слоты с контекстом (областью видимости).<br/>Читайте README в примерах",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/JTcf6yBVOlgsT9agmpN2?p=preview",
+				"https://plnkr.co/edit/ie2WRPSUnwD9oavte4of?p=preview",
+				"https://plnkr.co/edit/H0GhWgLKuiw1zaFGQLZ1?p=preview",
+				"https://plnkr.co/edit/7gKCXrakfSf5EDFBokN5?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://medium.com/js-dojo/getting-your-head-around-vue-js-scoped-slots-281bf82a1e4e",
+					"ico": "medium",
+					"comment":"Getting Your Head Around Vue.js Scoped Slots"
+				}
+			]
+		}
+	],
+	"Transitions":[
+		{
+			"head":"transition",
+			"picture":false,
+			"code":[
+				"<transition name = 'slide'>",
+				"    <div class = 'animated'",
+				"         v-if = 'visibleElem'>",
+				"    </div>",
+				"</transition>",
+				"",
+				"<style>",
+				"   .slide-enter, .slide-leave-to {",
+				"        transform: scaleY(0)",
+				"   }",
+				"   .slide-enter-active,",
+				"   .slide-leave-active {",
+				"        transition: transform 0.5s ease-in-out;",
+				"   }",
+				"</style>"
+			],
+			"text":"Использование встроенных компонентов transition и transition-group с классами -enter | -leave для анимации появления / исчезновения элементов DOM",
+			"textURL":"",
+			"samples":[
+					"https://plnkr.co/edit/GgZwzN3319U2QM9q8FvC?p=preview",
+					"https://codepen.io/garevna/pen/XewZZz",
+					"https://plnkr.co/edit/c5pN5tiIEU75ZbnDMxdW?p=preview",
+					"https://plnkr.co/edit/brgMsFIcY71mTr8Yf44m?p=preview",
+					"https://codepen.io/garevna/pen/yzWrdN",
+					"https://codepen.io/garevna/pen/mBYNEM"
+			],
+			"usefull":[
+				{
+					"ref":"https://alligator.io/vuejs/understanding-transitions/",
+					"ico": "alligator",
+					"comment":"Understanding Vue.js Transitions"
+				},
+				{
+					"ref":"https://x-team.com/blog/vue-animation-data-visualization/",
+					"ico": "xteam",
+					"comment":"Animation and Data Visualization with Vue"
+				},
+				{
+					"ref":"https://vuejsdevelopers.com/2018/02/26/vue-js-reusable-transitions/",
+					"ico": "vue-developers",
+					"comment":"Creating Reusable Transitions in Vue"
+				}
+			]
+		},
+		{
+			"head":"Slider",
+			"picture":false,
+			"code":[
+				"<transition :name = 'transitionName'>",
+				"    <img :src='picture'",
+				"         :key='currentImageCounterValue'>",
+				"         class='slider-elem'/>",
+				"</transition>"
+			],
+			"text":"Анимирование состояний компонента<br/>Использование атрибута key для отслеживания изменений состояния",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/24DHnSdDsFIfPlF1uXHx?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/transitions.html",
+					"ico": "stdlib",
+					"comment":"Анимирование списков и появления/исчезновения"
+				},
+				{
+					"ref":"http://unetway.com/tutorial/animirovanie-perehodov-mezdu-sostoaniami/",
+					"ico": "unetway",
+					"comment":"Анимирование переходов между состояниями"
+				},
+				{
+					"ref":"http://unetway.com/tutorial/animirovanie-spiskov-poavlenia-i-isceznovenia/",
+					"ico": "unetway",
+					"comment":"Анимирование списков и появления/исчезновения"
+				}
+			]
+		},
+		{
+			"head":"Lifecycle hooks",
+			"picture":false,
+			"code":[
+				"<transition",
+				"    v-on:before-enter='beforeEnter'",
+				"    v-on:enter='enter'",
+				"    v-on:after-enter='afterEnter'",
+				"    v-on:enter-cancelled='enterCancelled'",
+				"    v-on:before-leave='beforeLeave'",
+				"    v-on:leave='leave'",
+				"    v-on:after-leave='afterLeave'",
+				"    v-on:leave-cancelled='leaveCancelled'",
+				">",
+				"</transition>"
+			],
+			"text":"Хуки жизненного цикла анимационных переходов<br/>Не забудьте в методах объявить соответствующие обработчики",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/9EhnpOLxBeH4IdH9iaM3?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://ru.vuejs.org/v2/guide/transitions.html#JavaScript-%D1%85%D1%83%D0%BA%D0%B8",
+					"ico": "vue",
+					"comment":"JavaScript-хуки"
+				}
+			]
+		}
+	],
+	"Router":[
+		{
+			"head":"vue-router",
+			"picture":false,
+			"code":[
+				"// создаем массив маршрутов",
+				"const routes = [",
+				"  {",
+				"    path: '/Библиотека',",
+				"    component: Library",
+				"  },",
+				"  {",
+				"    path: '/Кафе',",
+				"    component: Cafe",
+				"  }",
+				"]",
+				"// создаем роутер и ",
+				"// передаем ему маршруты",
+				"const router = new VueRouter ( {",
+				"   routes: routes",
+				"})",
+				"// создаем экземпляр Vue",
+				"// и привязываем к нему роутер",
+				"const app = new Vue ({",
+				"  el: '#app',",
+				"  router",
+				"})",
+				"// Теперь в приложении можно",
+				"// вставлять ссылки на маршруты:",
+				"<router-link to='/Библиотека'>",
+				"     Библиотека",
+				"</router-link>",
+				"// и не забыть плейсхолдер для ",
+				"// компонента:",
+				"<router-view></router-view>"
+			],
+			"readme":"./data/router/01.html",
+			"text":"Роутеру нужно указать массив путей (routes).<br/>Каждый путь должен указывать на компонент.<br/>Для вставки ссылок на маршруты в html-код служит компонент router-link с атрибутом 'to', значение которого является машрутом<br/><code>&lt;router-link to='/Библиотека'>&lt;/router-link></code><br/>Содержимое компонента (после рендеринга) будет помощено в контейнер &lt;router-view>&lt;/router-view>.",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/fqer871u9AOOORbbVu5E?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://router.vuejs.org/ru/api/options.html",
+					"ico": "link",
+					"comment":"Опции конструктора Router'а"
+				},
+				{
+					"ref":"https://router.vuejs.org/ru/essentials/redirect-and-alias.html",
+					"ico": "link",
+					"comment":"Редиректы и псевдонимы"
+				},
+				{
+					"ref":"https://medium.com/js-dojo/build-a-lazy-load-router-with-vue-js-and-the-latest-browser-features-a1b52fe52dda",
+					"ico": "vue-developers",
+					"comment":"Build A Lazy-Load Router With Vue.js And The Latest Browser Features"
+				}
+			]
+		},
+		{
+			"head":"$route",
+			"picture":false,
+			"code":[
+				"const router = new VueRouter({",
+				"    routes: [",
+				"       {",
+				"         path: '/user',",
+				"         component: User,",
+				"         children: [",
+				"           {",
+				"             path: 'profile',",
+				"             component: Profile",
+				"           }",
+				"         ]",
+				"       }",
+				"     ]",
+				"})"
+			],
+			"readme":"./data/router/02.html",
+			"text":"Свойства объекта Route.<br/>Дочерние маршруты (children)<br/>Навигация по вложенным маршрутам с помощью именованных путей (пример).<br/>Именованные маршуты также удобно использовать при императивном задании пути<br/><p class='code-snippet'>this.$router.push( { name: val } )</p><br/>",
+			"textURL":"",
+			"samples":[
+				"https://codepen.io/garevna/pen/YEwxOj",
+				"https://plnkr.co/edit/M2DdjqrXnIbOqQIbWGEh?p=preview"
+			],
+			"usefull":[]
+		},
+		{
+			"head":"router-link",
+			"picture":false,
+			"code":[
+				"watch: {",
+				"  '$route': function () {",
+				"      this.sendUserEvent ( this.$route.name )",
+				"      this.profile = this.$route.name === 'profile'",
+				"      this.posts = this.$route.name === 'posts'",
+				"   }",
+				"}"
+			],
+			"readme":"./data/router/03.html",
+			"text":"Часто удобно отслеживать изменение маршрута, устанавливая наблюдателя на свойство $route",
+			"textURL":"",
+			"samples":[
+				"https://plnkr.co/edit/9tX5uw1cEMTHEaSODs3Z?p=preview"
+			],
+			"usefull":[
+				{
+					"ref":"https://router.vuejs.org/ru/api/router-link.html",
+					"ico": "link",
+					"comment":"<router-link>"
+				}
+			]
+		},
+		{
+			"head":"params",
+			"picture":false,
+			"code":false,
+			"readme":false,
+			"text":"Передача параметров маршрута компоненту",
+			"samples":[
+				"https://plnkr.co/edit/MEtMANbrgVXuoR8A8esb?p=preview",
+				"https://plnkr.co/edit/tukVkzYCXr2FqII2FtQA?p=preview"
+			],
+			"usefull":[]
+		}
+	],
+	"AJAX": [
+		{
+			"head":"promise",
+			"picture":false,
+			"code":false,
+			"text":"",
+			"textURL":"",
+			"readme":"./data/AJAX/promise.html",
+			"samples":[ "https://repl.it/@garevna/Vueandpromise" ],
+			"usefull": [
+				{
+					"ref":"https://scotch.io/tutorials/javascript-promises-for-dummies",
+					"ico": "scotch-io",
+					"comment":"JavaScript Promises for Dummies"
+				},
+				{
+					"ref":"https://habrahabr.ru/company/zerotech/blog/317256/",
+					"ico": "habr",
+					"comment":"Путеводитель по JavaScript Promise для новичков"
+				},
+				{
+					"ref":"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+					"ico": "mdn",
+					"comment":"MDN web docs - Promise"
+				}
+			]
+		},
+		{
+			"head":"vue-resource",
+			"picture":false,
+			"code":[
+				"var sourceUrl = 'https://garevna.github.io/vue.github.io/data/posts.json'",
+				"var promise = this.$http.get( sourceUrl )",
+				"promise.then ( successCallback, failureCallback )",
+				"// или еще проще:",
+				"this.$http.get( sourceUrl ).then(",
+				"      successCallback, failureCallback)",
+				"// функции-обработчики:",
+				"// successCallback -  успешного завершения операции",
+				"// failureCallback -  завершения операции с ошибкой"
+			],
+			"readme":"./data/AJAX/vue-resource.html",
+			"text":"Ссылка на библиотеку: https://cdn.jsdelivr.net/npm/vue-resource@1.3.4",
+			"textURL":"",
+			"samples": [ "https://plnkr.co/edit/lZLVjgPDmkpgmIwzebMd?p=preview" ],
+			"usefull": [
+				{
+					"ref":"https://appdividend.com/2017/08/02/use-vue-resource-in-vuejs/",
+					"ico": "link",
+					"comment":"How To Use Vue-Resource In VueJS"
+				},
+				{
+					"ref":"https://github.com/pagekit/vue-resource",
+					"ico": "github",
+					"comment":"vue-resource: repo on github"
+				},
+				{
+					"ref":"https://medium.com/js-dojo/4-ajax-patterns-for-vue-js-apps-add915fc9168",
+					"ico": "vue-developers",
+					"comment":"4 AJAX Patterns For Vue.js Apps"
+				}
+			]
+		},
+		{
+			"head":"Axios",
+			"picture":false,
+			"code":[
+					"axios.get ( 'someExternalService' )",
+					"     .then ( response => {",
+					"          store.commit ( 'DATA_SUCCESS', response.data )",
+					"     })",
+					"     .catch(error => {",
+					"          store.commit ( 'DATA_FAILURE', error )",
+					"     })"
+			],
+			"readme":"./data/AJAX/axios.html",
+			"text":"",
+			"textURL":"",
+			"ref":[ "https://plnkr.co/edit/lZLVjgPDmkpgmIwzebMd?p=preview" ],
+			"samples": [ "https://plnkr.co/edit/lZLVjgPDmkpgmIwzebMd?p=preview" ],
+			"usefull": [
+				{
+					"ref":"https://serversideup.net/uploading-files-vuejs-axios/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+					"ico": "ssu",
+					"comment":"Uploading Files With VueJS and Axios"
+				},
+				{
+					"ref":"https://medium.com/@lachlanmiller_52885/a-pattern-to-handle-ajax-requests-in-vuex-2d69bc2f8984",
+					"ico": "medium",
+					"comment":"A pattern to handle ajax requests in Vuex"
+				}
+			]
+		}
+	],
+	"Vuex":[
+		{
+			"head":"state & mutations",
+			"picture":false,
+			"code":[
+				"const store = new Vuex.Store ({",
+				"    state: {",
+				"       ...",
+				"    },",
+				"    mutations:  {",
+				"       ...",
+				"    }",
+				"})"
+			],
+			"readme":"./data/vuex/start.html",
+			"text":"Vuex.Store имеет состояние state<br/>По сути, это объект с реактивными данными всего приложения<br/>Эти данные подвергаются изменениям с помощью методов, описанных в объекте 'mutations'<br/>",
+			"textURL":"",
+			"samples": [ "https://plnkr.co/edit/aqZ1cfiHEc1jJYovg0VE?p=preview" ],
+			"usefull": [
+				{
+					"ref":"https://medium.com/3yourmind/large-scale-vuex-application-structures-651e44863e2f",
+					"ico": "medium",
+					"comment":"Large-scale Vuex application structures"
+				}
+			]
+		},
+		{
+			"head":"mutations & v-model",
+			"picture":false,
+			"code":false,
+			"readme":"./data/vuex/01.html",
+			"text":"",
+			"textURL":"./data/vuex/v-model-1.html",
+			"samples": [
+				"https://plnkr.co/edit/M3sAwq01Rc1PLj0oJmsg?p=preview",
+				"https://plnkr.co/edit/a5xPAy7ifDkVuN7FoDHz?p=preview",
+				"https://plnkr.co/edit/W3wajZV3dLCaX48EtqmH?p=preview",
+				"https://plnkr.co/edit/YZqbMDYh4vuv80WbjqOc?p=preview"
+			],
+			"usefull": [
+				{
+					"ref":"https://vuex.vuejs.org/en/forms.html",
+					"ico": "link",
+					"comment":"Form Handling"
+				},
+				{
+					"ref":"https://ypereirareis.github.io/blog/2017/04/25/vuejs-two-way-data-binding-state-management-vuex-strict-mode/",
+					"ico": "link",
+					"comment":"Two way data binding with VueJS and Vuex"
+				}
+			]
+		},
+		{
+			"head":"mutations & event handlers",
+			"picture":false,
+			"code":false,
+			"readme":"./data/vuex/01-1.html",
+			"text":"Мутация состояний Vuex-store<br/>Привязка к элементам форм<br/>Объекты с глубокой структурой<br/>Работа с массивами<br/>Использование компонентов",
+			"textURL":"",
+			"samples": [
+				"https://plnkr.co/edit/qfxaRe4NRGHy8MrSgP1b?p=preview",
+				"https://plnkr.co/edit/q5zdUERK2biVxfeTvUbe?p=preview"
+			],
+			"usefull": [
+			]
+		},
+		{
+			"head":"getters & actions",
+			"picture":false,
+			"code":false,
+			"readme":"./data/vuex/02.html",
+			"text":"Объект getters содержит вычисляемые свойства объекта store<br/>Для асинхронных операций предусмотрены actions<br/>",
+			"textURL":"",
+			"samples": [
+				"https://plnkr.co/edit/LHXDJv8S0ECIDHLkm3M0?p=preview"
+			],
+			"usefull": [
+			]
+		}
+	]
+}

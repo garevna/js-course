@@ -1,0 +1,126 @@
+@charset "utf-8";
+:root:before {
+  content: url(https://drive.google.com/uc?export=download&id=1S2n0lmx7q7MnUd9yY8_nNeBtVNTcR4hz)
+           url(https://drive.google.com/uc?export=download&id=1PPPdwNTO6inrEHADbnUw9pPjcYF0plQS)
+           url(https://drive.google.com/uc?export=download&id=1kkCcuo4vb-dZcQx8pst9iNoBs0tfh8sb)
+           url(https://drive.google.com/uc?export=download&id=1pEmjbIKkXh-wUMGqNjY5f1_W0DSS6l53)
+           url(https://drive.google.com/uc?export=download&id=152czMGrqe2IVXXDuhzIGBE4BffpXP2Ak)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSRDBsaXNWc1d4R3M)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSQmJOTU52QWhHZXM)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSSHF0SmhLZ2RIczQ)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSSWR1eTd2M2d0dG8)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSSGZ5SmZpVGdxWEk)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSRGI3aW54SGEzT0E)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZWRtbThhZUpaY2M)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSdHZ3bGZ0Zmk5T1U)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSMGI1UnRHQ3VWZ0U)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSUnU5UkRHV2kxVkk)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSQ0ItQ0dRRVBFRkE)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSX1dHb2NxN0h1a2s)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZVk0RWpoMmRNUGM)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSQXFvVlQ1Q0dWYVE)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZGpqb1hCdHlOcTg)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSYlNGSjdyNS1KWUk)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSUXc0a2JoWjVGUkE)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSckttV191bFp1MkE)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZnFzeTBDSVRXYTg)
+           url(https://drive.google.com/uc?export=download&id=1eFNeW_F3LeSDV21aPbrhlZ17KokAsWQE)
+           url(https://drive.google.com/uc?export=download&id=1EAxSvKTJWW4NTNai9Ix9I07If7c6nFMr)
+           url(https://drive.google.com/uc?export=download&id=1iS6M0R9k51IW8yMvkYbqwRT-8EW4sA5z)
+           url(https://drive.google.com/uc?export=download&id=1G4YGTxeOdQHUALmUj16rNHFEw3Ddh_QR)
+           url(https://drive.google.com/uc?export=download&id=1MFiA-gr9539GnJahTTgPrDitxYkM1C8V)
+           url(https://drive.google.com/uc?export=download&id=11k0DXjLwAgeGKtC3ecX_ufiechUeKbsz)
+           url(https://drive.google.com/uc?export=download&id=15dTPcOAjASnx6RXIM2mM7omY5VWE57Ws)
+           url(https://drive.google.com/uc?export=download&id=1WlhD4IGc8E4uF-NInzeqieRa9fWfFgOR)
+           url(https://drive.google.com/uc?export=download&id=1Po8iGtuA2fNdbXpnOvHT1NUVlFGL-KsR)
+           url(https://drive.google.com/uc?export=download&id=1CbI646IxKLmIl11rf1kap3Tt9upudXyO)
+           url(https://drive.google.com/uc?export=download&id=11BlAFCWcFk0qaDk1PXzO7qmU2sS36903)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZVhfeXVPblhxNzA)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSd3U0S09YUkkwanc)
+           url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSMzNOUGc3QndEOGM);
+  /* partial fallback */
+  background-image: url(https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSQXFvVlQ1Q0dWYVE);
+  visibility: hidden;
+  position: absolute;
+  left: -999em;
+}
+#main_perspective, #perspective_container {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+#perspective_container {
+    box-sizing:border-box;
+    box-shadow:inset 0px 0px 30px rgba(0,150,255,0.7);
+    -webkit-perspective:80px;
+    -webkit-perspective-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+    perspective:80px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+}
+#perspectivePersonage {
+    position: fixed;
+    width:80px;
+    height: 80px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: left top;
+    border-radius:10%;
+    z-index:2000
+}
+#perspectiveCenterSide {
+    box-shadow:inset 0px 0px 20px rgba(0,0,0,0.7);
+    background-color:#ffffff50;
+    cursor:pointer;
+    background-image: url(../images/cabine.gif);
+}
+#perspectiveBottomSide,
+#perspectiveRightSide,
+#perspectiveLeftSide,
+#perspectiveTopSide,
+#perspectiveCenterSide {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    box-sizing:border-box;
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    backface-visibility: visible;
+    cursor:none;
+}
+#perspectiveBottomSide {
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
+    background-image: url(images/defaultPerspectiveSide.gif);
+}
+#perspectiveTopSide {
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) matrix(1, 0, 0, -1, 0, 0);
+    transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) matrix(1, 0, 0, -1, 0, 0);
+    background-image: url(images/defaultPerspectiveSide.gif);
+    backface-visibility: visible;
+}
+#perspectiveRightSide {
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg);
+    transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg);
+    background-image: url(images/defaultPerspectiveSide.gif);
+}
+#perspectiveLeftSide {
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg) matrix(-1, 0, 0, 1, 0, 0);
+    transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg) matrix(-1, 0, 0, 1, 0, 0);
+    background-image: url(images/defaultPerspectiveSide.gif);
+    backface-visibility: visible;
+}

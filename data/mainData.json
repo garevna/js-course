@@ -1,0 +1,435 @@
+[
+	{
+		"name":"Vue.js",
+		"title":"Model | View",
+		"comment":"Подключение библиотеки Vue.js:<br/> &lt;script src ='https://unpkg.com/vue'>&lt;/script>",
+		"ref":"https://docs.google.com/presentation/d/e/2PACX-1vSZ7CaHA3n6o6tcyg_bImUvDQM2bukJacPcBbMVCUasx4MuvVMmVI-_77bg9Xd-3nTxGvks3n59TUCR/pub?start=true&loop=true&delayms=60000",
+		"picture":false,
+		"code": [
+			"Vue был успешно принят ",
+			"рядом компаний по всему миру, ",
+			"включая Adobe, GitLab, Codeship",
+			"",
+			"Evan You, the creator of Vue.js",
+			"",
+			"It (Vue.js) has also grown from ",
+			"“yet another side project” ",
+			"into an ecosystem with ",
+			"over 300 contributors ",
+			"across the Vue.js organization, and",
+			"maintained by a core team of over ",
+			"20 active members across the globe."
+		],
+		"usefull":[
+			{
+				"ref":"https://medium.com/vue-mastery/why-43-of-front-end-developers-want-to-learn-vue-js-7f23348bc5be",
+				"ico":"medium-1",
+				"comment":"Why 43% of Front-End Developers want to learn Vue.js"
+			},
+			{
+				"ref":"https://medium.com/js-dojo/whats-the-deal-with-vue-s-virtual-dom-3ed4fc0dbb20",
+				"ico":"vue-developers",
+				"comment":"What’s The Deal With Vue’s Virtual DOM?"
+			},
+			{
+				"ref":"https://johnpapa.net/vue-typescript/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"link",
+				"comment":"Vue.js with TypeScript"
+			},
+			{
+				"ref":"https://vuetifyjs.com/?ref=vuejsdevelopers&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"vuetify",
+				"comment":"Material Component Framework"
+			},
+			{
+				"ref":"http://devdocs.io/vue~2/",
+				"ico":"vue",
+				"comment":"What is Vue.js?"
+			}
+		]
+	},
+	{
+		"name":"Directives",
+		"title":"Директивы Vue.js",
+		"comment":"Директивы расширяют множество стандартных атрибутов тегов, позволяя использовать встроенные возможности Vue.js по управлению отображением данных модели в представлении.<br/>По сути, директива - это особый токен в разметке, который сообщает библиотеке Vue.js, что делать с элементом DOM.<br/>Все директивы Vue.js имеют префикс (v-)",
+		"code": [
+			"<tag v-[directiveId] = '...'></tag>",
+			"// Следующая директива инструктирует",
+			"// Vue.js обновлять текст в элементе ",
+			"// div при изменении значения message ",
+			"// в модели",
+			"<div v-text='message'></div>",
+			"// Далее используется вычисляемое ",
+			"// выражение вместо одного ключевого ",
+			"// свойства. ",
+			"// Vue.js автоматически отслеживает ",
+			"// свойства, от которых зависит ",
+			"// выражение, и обновляет директиву, ",
+			"// когда изменяется зависимость",
+			"<div ",
+			"    v-text='message + user.name'>",
+			"</div>"
+		],
+		"ref":"https://docs.google.com/presentation/d/e/2PACX-1vSn1eN9Gd55gzgGVT7Xa1Qle6btYpjZaZjN7gGdQpOPjkwn69YsEnscM5QrYdMY-QbuQpngagtTAJRc/pub?start=true&loop=true&delayms=60000",
+		"picture":false,
+		"usefull": [
+			{
+				"ref":"http://vegibit.com/vue-js-directives/",
+				"ico":"vegibit",
+				"comment":"Vue JS Directives"
+			},
+			{
+				"ref":"https://ru.vuejs.org/v2/guide/custom-directive.html",
+				"ico":"stdlib",
+				"comment":"Пользовательские директивы"
+			}
+		]
+	},
+	{
+		"name":"Components",
+		"title":"Компоненты",
+		"comment":"Основа модульной системы Vue.js<br/>Структура компонента может быть достаточно сложной, но, как правило (за исключением случая функционального компонента), в описание компонента входит свойство template",
+		"code": [
+			"const TheChild = ( 'child-component', {",
+			"    props:['rec'],",
+			"    data: function () {",
+			"        return {",
+			"            articleText: this.rec.text,",
+			"            pictURL: this.rec.picture",
+			"        }",
+			"    template: `",
+			"        <article>",
+			"            <img :src='pictURL'",
+			"                 class='picture'/>",
+			"            <div class='articleClass'",
+			"                 v-html='articleText'>",
+			"            </div>",
+			"        </article>`",
+			"</div>"
+		],
+		"ref":"https://docs.google.com/presentation/d/e/2PACX-1vTv_TIAOs3rHy-QQKl_NYkL98MMOztYRIKX90aP_Lrw-rTCK8-MPKOu5FXGOrl9rptxY8qgk5WxfBer/pub?start=true&loop=true&delayms=60000",
+		"picture":"./images/broke.gif",
+		"usefull": [
+			{
+				"ref":"https://medium.com/tldr-tech/vuejs-series-part-2-1-components-custom-events-630c1595cfcb",
+				"ico":"medium",
+				"comment":"VueJS Series, Part 2.1 — Components Custom events"
+			},
+			{
+				"ref":"https://medium.com/@sky790312/about-vue-2-parent-to-child-props-af3b5bb59829",
+				"ico":"medium",
+				"comment":"Vue 2 props and emit - parent to child"
+			},
+			{
+				"ref":"https://nick-basile.com/blog/post/how-to-build-a-vuejs-component-with-tailwind-in-a-laravel-project?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"",
+				"comment":"How to Build a Vue.js Component With Tailwind in a Laravel Project"
+			},
+			{
+				"ref":"http://marcelpociot.de/blog/2017-12-08-using-custom-vuejs-elements?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"link",
+				"comment":"Create custom, distributable web components with VueJS"
+			}
+		]
+	},
+	{
+		"name":"Events",
+		"title":"События",
+		"comment":"Событийная модель Vue.js",
+		"ref":false,
+		"picture":false,
+		"usefull":[
+			{
+				"ref":"https://medium.com/@sky790312/about-vue-2-parent-to-child-props-af3b5bb59829",
+				"ico":"medium",
+				"comment":"Vue 2 props and emit - parent to child"
+			},
+			{
+				"ref":"https://alligator.io/vuejs/global-event-bus/",
+				"ico":"alligator",
+				"comment":"Creating a Global Event Bus with Vue.js"
+			},
+			{
+				"ref":"https://medium.com/tldr-tech/vuejs-series-part-2-1-components-custom-events-630c1595cfcb",
+				"ico":"medium",
+				"comment":"VueJS Series, Part 2.1 — Components Custom events"
+			}
+		]
+	},
+	{
+		"name":"Templates",
+		"title":"Шаблоны",
+		"comment":"Существует досточное разнообразие способов определения шаблона компонента: символьной строкой (String), литералом (Template literal), X-Templates, Inline, рендер-функцией (Render functions), JSX и Single page components. Шаблоны Vue.js обеспечивают почти все, что нужно в приложении.",
+		"code":[
+			"// Можно задать именованный шаблон ",
+			"// как обычный тег в html",
+			"<template id='child'>",
+			"  <div>",
+			"    <slot name='original-slot'>",
+			"    </slot>",
+			"    <slot name='scoped-slot'",
+			"          :message='childMessage'>",
+			"    </slot>",
+			"  </div>",
+			"</template>",
+			"// а затем в коде компонента указать ссылку на id шаблона",
+			"template:'#child'"
+		],
+		"ref":"",
+		"picture":false,
+		"usefull":[
+			{
+				"ref":"https://tuhub.ru/frontend/rabota-s-shablonami-v-vue-js-2",
+				"ico":"tuhub",
+				"comment":"Работа с шаблонами в Vue.js 2"
+			}
+		]
+	},
+	{
+		"name":"Slots",
+		"title":"Дистрибуция контента",
+		"comment":"Слоты позволяют вставить контент родителя в определенное место потомка.<br/>Для доступа к слотам существует свойство $slots",
+		"ref":"https://docs.google.com/presentation/d/1-Cu9dLOg5CVRFOHUbKy7PqSL0upFlnEakT-HLofbTdY/edit?usp=sharing",
+		"picture":false,
+		"usefull":[
+			{
+				"ref":"https://alligator.io/vuejs/component-slots/",
+				"ico":"alligator",
+				"comment":"Understanding Component Slots with Vue.js"
+			},
+			{
+				"ref":"https://css-tricks.com/intro-to-vue-2-components-props-slots/",
+				"ico":"css-tricks",
+				"comment":"Intro to Vue.js: Components, Props, and Slots"
+			}
+		]
+	},
+	{
+		"name":"Router",
+		"title":"Маршрутизатор",
+		"comment":"vue-router официально поддерживается командой разработчиков Vue.js",
+		"code":["<script src='https://unpkg.com/vue-router/dist/vue-router.js'></script>"],
+		"ref":false,
+		"picture":"./images/cabine.gif",
+		"usefull":[
+			{
+				"ref":"https://vuejsdevelopers.com/2017/12/18/single-page-application-ux/?jsdojo_id=revue_spx&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"vue-developers",
+				"comment":"Single-page application architecture"
+			},
+			{
+				"ref":"https://laravel.ru/posts/391",
+				"ico":"laravel",
+				"comment":"Учимся использовать Vue-router в одностраничных приложениях"
+			},
+			{
+				"ref":"https://router.vuejs.org/en/advanced/navigation-guards.html",
+				"ico":"vue",
+				"comment":"Navigation Guards"
+			},
+			{
+				"ref":"https://vuejsdevelopers.com/2017/12/11/vue-ssr-router/?jsdojo_id=revue_sgd&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"vue-developers",
+				"comment":"Vue.js Server-Side Rendering With Vue Router: Step-By-Step Guide"
+			},
+			{
+				"ref":"https://serversideup.net/configuring-vue-router-single-page-app/",
+				"ico":"ssu",
+				"comment":"Configuring Vue Router for a Single Page App"
+			}
+		]
+	},
+	{
+		"name":"Transitions",
+		"title":"Анимация состояний компонентов или элементов",
+		"comment":"Vue отрабатывает анимационные переходы, добавляя и удаляя классы компонентам / элементам в процессе перехода из одного состояния в другое.<br/>Всего предусмотрено шесть классов переходов",
+		"ref":false,
+		"picture":false,
+		"usefull":[
+			{
+				"ref":"https://alligator.io/vuejs/understanding-transitions/",
+				"ico":"alligator",
+				"comment":"Understanding Vue.js Transitions"
+			},
+			{
+				"ref":"https://web-juice.ru/intro-to-vue-js-5-animations/",
+				"ico":"web-juice",
+				"comment":"Введение в Vue.js: Анимации"
+			},
+			{
+				"ref":"https://ru.vuejs.org/v2/guide/transitions.html",
+				"ico":"stdlib",
+				"comment":"Анимирование списков и появления/исчезновения"
+			},
+			{
+				"ref":"https://snipcart.com/blog/vuejs-transitions-animations",
+				"ico":"snipcart",
+				"comment":"Creating Vue.js Transitions & Animation: Live Examples"
+			}
+		]
+	},
+	{
+		"name":"AJAX",
+		"title":"HTTP",
+		"comment":"Vue.js не поставляется со встроенной библиотекой HTTP, и не без оснований. В наши дни API-интерфейс <spec_words>Fetch</spec_words> поддерживается во многих браузерах, но если вам не нравится <spec_words>Fetch</spec_words>, то для HTTP есть много сторонних подключаемых библиотек, что обеспечивает гибкость в выборе оптимального решения для проекта",
+		"code":[
+			"var sourceUrl = 'https://garevna.github.io/vue.github.io/data/posts.json'",
+			"var promise = this.$http.get( sourceUrl )",
+			"promise.then ( successCallback, failureCallback )",
+			"// или еще проще:",
+			"this.$http.get( sourceUrl ).then(",
+			"      successCallback, failureCallback)",
+			"// функции-обработчики:",
+			"// successCallback -  успешного завершения операции",
+			"// failureCallback -  завершения операции с ошибкой"
+		],
+		"ref":false,
+		"picture":"./images/AJAX.png",
+		"usefull":[
+			{
+				"ref":"https://github.com/pagekit/vue-resource",
+				"ico":"github",
+				"comment":"vue-resource"
+			},
+			{
+				"ref":"https://jsoneditoronline.org/",
+				"ico":"json-editor",
+				"comment":"online-editor JSON files"
+			},
+			{
+				"ref":"https://jsonplaceholder.typicode.com/",
+				"ico":"json-placeholder",
+				"comment":"JSON Placeholder"
+			}
+		]
+	},
+	{
+		"name":"Vuex",
+		"title":"State management",
+		"comment":"<p>В крупном проекте упрощает процесс отслеживания реактивных зависимостей при обмене данными между компонентами</p>Подключить библиотеку Vuex можно тегом:<pre class='code-snippet'>&lt;script src='https://unpkg.com/vuex@3.0.1/dist/vuex.js'>&lt;/script></pre><p>Ядром любого Vuex-приложения явлется реактивный объект, создать который можно с помощью конструктора <b>Vuex.Store</b></p>",
+		"code":[
+			"const store = new Vuex.Store ({",
+			"     state: {",
+			"          currentCounterValue:  0,",
+			"          previousCounterValue: 0",
+			"     },",
+			"     getters: { ... },",
+			"     mutations: {",
+			"          nextPicture: state => { ... },",
+			"          previousPicture: state => { ... }",
+			"     }",
+			"     actions: { ... }",
+			"})",
+			""
+		],
+		"ref":false,
+		"picture":"https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/111/full/EGH_VueJSNuxt_Final_1000.png",
+		"usefull":[
+			{
+				"ref":"https://medium.com/3yourmind/large-scale-vuex-application-structures-651e44863e2f",
+				"ico":"medium",
+				"comment":"Large-scale Vuex application structures"
+			},
+			{
+				"ref":"https://alligator.io/vuejs/intro-to-vuex/",
+				"ico":"alligator",
+				"comment":"Managing Vue.js State with Vuex"
+			},
+			{
+				"ref":"https://web-juice.ru/intro-to-vue-js-4-vuex/",
+				"ico":"web-juice",
+				"comment":"Введение в Vue.js: Vuex"
+			},
+			{
+				"ref":"https://scotch.io/tutorials/state-management-in-vue-getting-started-with-vue",
+				"ico":"scotch-io",
+				"comment":"State Management in Vue: Getting Started with Vuex"
+			},
+			{
+				"ref":"https://medium.com/frontend-fun/vuejs-introduction-to-vuex-82bf35be5130",
+				"ico":"medium",
+				"comment":"VueJs: Introduction to Vuex"
+			},
+			{
+				"ref":"https://vuex.vuejs.org/en/",
+				"ico":"vue",
+				"comment":"Vuex"
+			},
+			{
+				"ref":"https://vuejsdevelopers.com/2017/11/13/vue-js-vuex-undo-redo/?jsdojo_id=revue_vur&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+				"ico":"vue-developers",
+				"comment":"Create A Vuex Undo/Redo Plugin For VueJS"
+			}
+		]
+	},
+	{
+		"name":"back-end",
+		"title":"Firebase",
+		"comment": "",
+		"code": false,
+		"ref":"",
+		"picture":"./images/firebase.png",
+		"usefull":[
+			{
+				"ref":"https://firebase.google.com",
+				"ico":"firebase",
+				"comment":"firebase.google.com"
+			},
+			{
+				"ref":"https://medium.com/@oleg.agapov/basic-single-page-application-using-vue-js-and-firebase-part-1-9e4c0c11a228",
+				"ico":"medium",
+				"comment":"Basic Single Page application using Vue.js and Firebase — Part 1"
+			},
+			{
+				"ref":"https://medium.com/@oleg.agapov/basic-single-page-application-using-vue-js-and-firebase-part-2-143a3084266f",
+				"ico":"medium",
+				"comment":"Basic Single Page application using Vue.js and Firebase — Part 2"
+			},
+			{
+				"ref":"https://habrahabr.ru/post/277941/",
+				"ico":"habr",
+				"comment":"Введение в Firebase: пишем простое социальное приложение на Swift"
+			},
+			{
+				"ref":"https://github.com/firebase/firebaseui-web",
+				"ico":"github",
+				"comment":"FirebaseUI for Web — Auth"
+			},
+			{
+				"ref":"https://code.i-harness.com/ru/docs/firebase",
+				"ico":"github",
+				"comment":"firebase Tutorials & Examples (рус)"
+			}
+		]
+	},
+	{
+		"name":"Style Guide",
+		"title":"Рекомендации и советы",
+		"comment":"От разработчиков и не только...",
+		"code":false,
+		"ref":"",
+		"picture":"/images/stdlib.png",
+		"usefull":[
+			{
+				"ref":"https://ru.vuejs.org/v2/style-guide/",
+				"ico":"stdlib",
+				"comment":"Рекомендации"
+			},
+			{
+				"ref":"https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-RU.md",
+				"ico":"github",
+				"comment":"Несколько правил по разработке компонентов Vue"
+			},
+			{
+				"ref":"https://habrahabr.ru/post/332628/",
+				"ico":"habr",
+				"comment":"5 приемов в помощь разработке на vue.js + vuex"
+			},
+			{
+				"ref":"https://medium.com/@modex13/vue-js-2-%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%BA-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D1%85-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D0%BE%D0%B2-6e9897cf3d37",
+				"ico":"medium",
+				"comment":"Vue: сборник мелких советов"
+			}
+		]
+	}
+]

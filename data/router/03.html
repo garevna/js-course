@@ -1,0 +1,44 @@
+Путь роутеру можно указать обычной текстовой строкой:<br/>
+<pre  class="code-snippet">
+&lt;router-link to="home">Home&lt;/router-link>
+</pre>
+В результате в представлении будет:<br/>
+<pre  class="code-snippet">
+&lt;a href="#/home">Home&lt;/a>
+</pre>
+<br/>
+
+Путь можно передавать как объект<br/>
+
+Предположим, у нас есть переменная:<br/>
+<pre  class="code-snippet">
+var pathVar = "/Dmitro/profile"<br/>
+</pre>
+и мы передадим путь роутеру следующим образом:<br/>
+<br/>
+<pre class="code-snippet">
+&lt;router-link :to="{ path: pathVar }">
+    Профиль
+&lt;/router-link>
+</pre>
+<br/>
+В результате в представлении будет такой тег:<br/>
+
+&lt;a href="#/Dmitro/profile" class="menu-item">Профиль&lt;/a>
+
+<hr/>
+
+Именованные пути очень удобны тем, что можно вообще 
+не вникать в структуру пути, которая была определена 
+заранее в объекте $router<br/>
+
+Можно абстрагироваться от иерархии путей<br/>
+
+Главное - знать имя пути и динамические параметры<br/>
+<br/>
+<pre class="code-snippet">
+&lt;router-link :to="{ name: 'profile' }">
+  Профиль
+&lt;/router-link>
+</pre>
+<br/>

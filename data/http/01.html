@@ -1,0 +1,84 @@
+Создаем хранилище данных dataStore:<br/>
+<br/>
+var dataStore = new Vue ()<br/>
+<br/>
+Привязываем его к нашему экземпляру Vue:<br/>
+<pre>
+var theApp = new Vue ({
+  data: function () {
+    return {
+        store: dataStore
+    }
+  }
+}
+</pre>
+<hr/>
+Теперь мы сможем ссылаться на хранилище данных<br/>
+
+из экземпляра Vue так:        this.store<br/>
+из вложенных компонентов так: this.$root.store<br/>
+<hr/>
+В хранилище dataStore создаем объект data,
+где будем хранить данные:<br/>
+<pre>
+data: {
+    mainDataIsReady: false,
+    postDataIsReady: false,
+    mainData: null,
+    postData: null
+}
+</pre><hr/>
+Стартуем в экземпляре Vue асинхронную загрузку данных:<br/>
+<pre>
+mounted: function () {
+    this.$http.get( this.mainDataSource ).then (
+    	  this.mainDataSeccess,
+    	  this.mainDataError
+    ),
+    this.$http.get( this.postDataSource ).then (
+    	  this.postDataSeccess,
+    	  this.postDataError
+    )
+}
+</pre>
+<hr/>
+После завершения загрузки отправляем событие на шину
+вместе с полученными данными:<br/>
+<pre>
+mainDataSeccess: function ( response ) {
+    this.store.$emit ( 'main-data-is-ready', response.body )
+}
+postDataSeccess: function ( response ) {
+    this.store.$emit ( 'post-data-is-ready', response.body )
+}
+</pre><hr/>
+На шине принимаем данные:<br/>
+<pre>
+dataStore.$on ( 'main-data-is-ready', function ( theData ) {
+  this.mainDataIsReady = true
+  this.mainData = theData
+  this.$emit ( 'main-data' )
+})
+
+dataStore.$on ( 'post-data-is-ready', function ( theData ) {
+  this.postDataIsReady = true
+  this.postData = theData
+  this.$emit ( 'post-data')
+})
+</pre><hr/>
+В компонентах TheFirst и TheSecond:<br/>
+
+Вешаем обработчиков на событие от шины данных о том,
+что данные успешно загружены:<br/>
+<pre>
+mounted: function () {
+    this.$root.store.$on ( 'post-data',
+            function ( val ) {
+                this.dataIsReady = true
+                this.mess = 'Загружены посты'
+            }.bind ( this ) 
+    )
+}
+</pre>    
+И осталось совсем немного: делаем кнопки, при клике на которых 
+текст полученных файлов будет выведен в компоненте<br/>

@@ -1,0 +1,96 @@
+.alligator, .css-tricks, .codesandbox,
+.dev-tools, .firebase, .json-editor,
+.json-placeholder, .habr, .github,
+.laravel, .link, .mdn, .medium,
+.medium-1, .scotch-io, .snipcart, 
+.ssu, .tuhub, .vue, .vue-developers,
+.vuetify, .vegibit, .unetway, .xteam {
+  width: 30px;
+  height: 30px;
+  background-size:contain;
+}
+
+.alligator {
+  background-image: url(../images/alligator.svg);
+}
+.css-tricks {
+  background-image: url(../images/css-tricks.png);
+}
+.codesandbox {
+  background-image: url(../images/codesandbox.png);
+}
+.dev-tools {
+  background-image: url(../images/dev-tools.png);
+}
+.firebase {
+  background-image: url(../images/firebase.png);
+}
+.json-editor {
+  background-image: url(../images/json-editor-online.png);
+}
+.json-placeholder {
+  background-image: url(../images/json-placeholder.png);
+}
+.habr {
+  background-image: url(../images/habr.png);
+}
+.github {
+  background-image: url(../images/github.png);
+}
+.laravel {
+  background-image: url(../images/laravel.png);
+}
+.link {
+  background-image: url(../images/link.ico);
+}
+.mdn {
+  background-image: url(../images/mdn-web-docs.jpg);
+}
+.medium {
+  background-image: url(../images/medium.png);
+}
+.medium-1 {
+  background-image: url(../images/medium-1.png);
+}
+.scotch-io {
+  background-image: url(../images/scotch_io.png);
+}
+.snipcart {
+  background-image: url(../images/snipcart.svg);
+}
+.ssu {
+  background-image: url(../images/ssu.svg);
+}
+.stdlib {
+  background-image: url(../images/stdlib.png);
+  width:80px;
+  height:30px;
+  background-size:contain;
+}
+.tuhub {
+  background-image: url(../images/tuhub.svg);
+}
+.vue-developers {
+  background-image: url(../images/vue-js-developers.png);
+}
+.vuetify {
+  background-image: url(../images/vuetify.png);
+}
+.vue {
+  background-image: url(../images/vue.svg);
+}
+.vegibit {
+  background-image: url(../images/vegibit.png);
+}
+.web-juice {
+  background-image: url(../images/web-juice.png);
+  width:80px;
+  height:30px;
+  background-size:contain;
+}
+.unetway {
+  background-image: url(../images/unetway.png);
+}
+.xteam {
+  background-image: url(../images/xteam.png);
+}

@@ -1,0 +1,127 @@
+<style>
+  .rule {
+      color: #75f17e;
+  }
+  .rule:before {
+      content:"\2776 ";
+      font-size:25px;
+  }
+  .rule-text {
+    border: dotted 3px #75f17e;
+    padding: 4px 8px;
+  }
+</style>
+
+<p>Свойства объекта <spec_words>Vuex.Store</spec_words></p>
+<hr/>
+<p><spec_words>getters</spec_words> - аналог вычисляемых свойств компонентов</p>
+<p>В геттеры можно вынести вычисление индекса следующего слайда (<var_names>nextCounterValue</var_names>), 
+вытягивание текущей (<var_names>currentPicture</var_names>) и 
+следующей (<var_names>nextPicture</var_names>) картинки из массива <var_names>pictures</var_names>:</p>
+
+<pre class="code-snippet">
+getters: {
+    nextCounterValue ( state ) {
+      return state.currentCounterValue === 
+  	               state.pictures.length - 1 ? 0 : 
+  	               state.currentCounterValue + 1
+    },
+    currentPicture ( state ) {
+      return state.pictures [ state.currentCounterValue ]
+    },
+    nextPicture ( state ) {
+      return state.pictures [ store.getters.nextCounterValue ]
+    }
+}
+</pre>
+<p>доступ к свойству в геттере:</p>
+<pre class="code-snippet">
+store.getters.nextCounterValue
+</pre><hr/>
+<p>Действия (<span class="spec">actions</span>) предназначены для выполнения асинхронных операций, 
+возвращающих промисы</p>
+<pre class="code-snippet">
+actions: {
+  getNextPicture: function ( context ) {
+      var theNext = context.getters.nextCounterValue
+      var imgUrl = context.state.pictures [ theNext ].url
+      function testImage ( imgUrl ) {
+        return new Promise ( ( resolve, reject ) => {
+            var img = new Image ()
+            img.onerror = () => reject ()
+            img.onload = () => resolve ()
+            img.src = imgUrl
+        })
+      }
+      testImage ( imgUrl )
+          .then ( function ( res ) {
+              store.commit ('nextPicture')
+            })
+          .catch ( function ( res ) {
+              store.commit ('setAlternative')
+              store.commit ('nextPicture')
+          })
+  }
+}
+</pre>
+<p>Вызывать действие из компонента или корневого экземпляра нужно с помощью метода <spec_words>dispatch</spec_words></p>
+<pre class="code-snippet">
+methods: {
+    gotoNext: () => store.dispatch ( 'getNextPicture' ),
+}
+</pre>
+<p>В функции-обработчики передаётся объект <span class="spec">context</span>:</p>
+<pre class="code-snippet">
+actions: {
+    getNextPicture: function ( context ) {
+      var theNext = context.getters.nextCounterValue
+      var imgUrl = context.state.pictures [ theNext ].url
+      function testImage ( imgUrl ) {
+        return new Promise ( ( resolve, reject ) => {
+            var img = new Image ()
+            img.onerror = () => reject ()
+            img.onload = () => resolve ()
+            img.src = imgUrl
+        })
+      }
+      testImage ( imgUrl )
+          .then ( res => {
+              store.commit ('nextPicture')
+            })
+          .catch ( res => {
+              store.commit ('setAlternative')
+              store.commit ('nextPicture')
+          })
+    }
+  }
+</pre>
+<p>Операторы отображения свойств объекта <spec_words>store</spec_words> 
+в область видимости компонента</p>
+<p>
+<spec_words>Vuex.mapState</spec_words>,<br/>
+<spec_words>Vuex.mapMutations</spec_words>,<br/>
+<spec_words>Vuex.mapActions</spec_words>,<br/>
+<spec_words>Vuex.mapGetters</spec_words><br/>
+</p>
+<p>В компонентах можно упростить доступ к состоянию, геттерам, мутациям и 
+действиям с помощью <spec_words>Vuex.mapState</spec_words>, <spec_words>Vuex.mapGetters</spec_words>, 
+<spec_words>Vuex.mapMutations</spec_words> и <spec_words>Vuex.mapActions</spec_words> соответственно</p>
+<pre class="code-snippet">
+computed: Vuex.mapState ( {
+    img ( state ) {
+      var ind = state.currentCounterValue
+      return state.pictures [ ind ]
+    },
+})
+</pre>
+
+<pre class="code-snippet">
+computed: {
+    Vuex.mapGetters ([
+       nextInd: 'nextCounterValue',
+       pict: 'currentPicture'
+    ])
+}
+</pre>
+<p>Теперь геттеры <var_names>nextCounterValue</var_names> и <var_names>currentPicture</var_names> доступны в 
+компоненте как вычисляемые свойства <var_names>nextInd</var_names> и <var_names>pict</var_names></p>

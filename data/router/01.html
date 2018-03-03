@@ -1,0 +1,71 @@
+<v-app id = "expandPanel">
+<v-expansion-panel>
+    <v-expansion-panel-content>
+      <div slot="header">1. Подключить библиотеку</div>
+      <v-card>
+        <v-card-text>
+            https://unpkg.com/vue-router/dist/vue-router.js
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+    <v-expansion-panel-content>
+        <div slot="header">2. Создать массив маршрутов перехода</div>
+      <v-card>
+        <v-card-text>
+            Маршрут - это объект
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+    <v-expansion-panel-content>
+        <div slot="header">3. Создать экземпляр роутера</div>
+      <v-card>
+        <v-card-text>
+            Используем конструктор
+            Роутеру передается массив маршрутов
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+    <v-expansion-panel-content>
+        <div slot="header">4. Привязка роутера к экземпляру Vue</div>
+      <v-card>
+        <v-card-text>
+            Объект router нужно привязать к экземпляру Vue
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+    <v-expansion-panel-content>
+        <div slot="header">5. Создать компоненты</div>
+      <v-card>
+        <v-card-text>
+            Не забудьте создать компоненты, обслуживающие маршруты переходов<br/>
+            Модель готова
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+    <v-expansion-panel-content>
+        <div slot="header">6. Разметка</div>
+      <v-card>
+        <v-card-text>
+            Теперь осталось только связать всю эту машинку с UI
+            Для этого в разметке вставляем теги
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+    <v-expansion-panel-content>
+        <div slot="header7">7. Дочерние маршруты</div>
+      <v-card>
+        <v-card-text>
+            Маршруты могут быть вложенными:
+            В таком случае в разметке ( темплейте ) компонента ParentComponent должны быть
+            router-link с атрибутом to = "child" и router-view
+            для отображения компонента ChildComponent
+        </v-card-text>
+      </v-card>
+    </v-expansion-panel-content>
+</v-expansion-panel>
+</v-app>
+<script>
+new Vue ({
+  el:"#expandPanel"
+})
+</script>

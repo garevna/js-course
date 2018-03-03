@@ -1,0 +1,69 @@
+<style>
+  .rule {
+      color: #75f17e;
+  }
+  .rule:before {
+      content:"\2776 ";
+      font-size:25px;
+  }
+  .rule-text {
+    border: dotted 3px #75f17e;
+    padding: 4px 8px;
+  }
+</style>
+
+<p class="rule">Священное правило</p>
+<p class="rule-text">Изменять состояние <spec_wordsv>Vuex</spec_words>-хранилища можно только с помощью мутаций</p>
+
+<p>Но как же быть, если нам нужно связать данные, находящиеся в хранилище, с
+элементами <spec_words>input</spec_words>?</p>
+
+<p>В <spec_words>Vuex</spec_words>-хранилище у нас находится объект <var_names>theRecord</var_names></p>
+
+<p>Нам нужно обеспечить возможность ввода / редактирования свойств 
+  объекта <var_names>theRecord</var_names>, не нарушая <span class="rule"></span></p>
+
+<p>Для этого в экземпляре <spec_words>Vue</spec_words> мы создаем локальную копию <var_names>localdata</var_names> объекта 
+<var_names>theRecord</var_names>, находящегося в хранилище</p>
+
+<pre class="code-snippet">
+data: function () {
+    return {
+       localdata: JSON.parse( 
+                  JSON.stringify( 
+                        this.$store.state.theRecord ) )
+    }
+}
+</pre>
+
+<p>Теперь мы имеем локальную копию объекта <var_names>theRecord</var_names>, находящегося в хранилище 
+<spec_words>Vuex</spec_words>. Свойства этой копии можно совершенно спокойно связать с элементами <spec_words>input</spec_words> 
+с помощью директивы <spec_words>v-model</spec_words></p> 
+<pre class="code-snippet">
+&lt;input v-model="localdata.id"/>
+&lt;input v-model="localdata.data.year"/>
+&lt;input v-model="localdata.data.details"/>
+</pre>
+<p>Таким образом, мы изменяем локальный объект <var_names>localdata</var_names>, а затем вызываем 
+мутацию <var_names>updateData</var_names>, которая изменит состояние хранилища 
+(значения соответствующих свойств объекта <var_names>theRecord</var_names>)</p>
+<pre class="code-snippet">
+watch: {
+    localdata: {
+      handler: function () {
+        this.$store.commit('updateData', this.localdata )
+      }, deep: true
+    }
+}
+</pre>
+<p>
+    <b><i>Примечание:</i></b><br/>
+Для получения локальной копии <var_names>localdata</var_names> вместо <spec_words>Object.assign</spec_words> мы 
+используем <spec_words>JSON.stringify -> JSON.parse</spec_words><br/>
+
+Так мы осуществляем глубокое копирование (т.е. копирование объектов, являющихся свойствами объекта 
+<var_names>localdata</var_names>)<br/>
+
+<spec_words>Object.assign ()</spec_words> копирует значения свойств. <br/>
+Если значение свойства является ссылкой на объект, то будет скопирована ссылка, а не сам объект<br/>
+</p>

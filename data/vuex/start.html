@@ -1,0 +1,57 @@
+<p>Ядром любого Vuex-приложения явлется реактивный объект, 
+создать который можно с помощью конструктора <spec_words>Vuex.Store</spec_words>:</p>
+<pre class="code-snippet">
+const store = new Vuex.Store({
+  state: {
+    currentCounterValue:  0,
+    previousCounterValue: 0,
+  },
+  mutations: {
+    nextPicture: state => { ... },
+    previousPicture: state => { ... }
+  }
+})
+</pre>
+<p>Он хранит состояние приложения</p>
+
+<p>Реактивные данные объекта store находятся в свойстве <spec_words>state</spec_words></p>
+<p>Изменение реактивных данных состояния приведет к изменениям во всех компонентах модели</p>
+
+<p>Именно поэтому изменения состояния этого объекта называют 
+  <i>мутациями</i> (<spec_words>mutations</spec_words>), а не методами</p>
+
+<p>Мутации являются синхронными операциями</p>
+<p>Они подобны обработчикам событий</p>
+
+<p>Вызвать мутацию (измененить состояние объекта <spec_words>store</spec_words>) можно 
+  с помощью метода <spec_words>commit</spec_words></p>
+
+<p>Параметром метода <spec_words>commit</spec_words> будет любая мутация из 
+описанных в свойстве <spec_words>mutations</spec_words>:</p>
+<pre class="code-snippet">
+methods: {
+    gotoNext: () => store.commit('nextPicture'),
+    gotoPrevious: () => store.commit('previousPicture'),
+  }
+</pre>
+
+<p>Доступ к глобальному объекту <spec_words>store</spec_words>, а, следовательно,
+  к его состоянию <spec_words>store.state</spec_words> возможен из любого компонента</p>
+<pre class="code-snippet">
+computed: {
+    img: () => 
+      store.state.pictures [ store.state.currentCounterValue ],
+  }
+</pre>
+<p>При этом в компонентах нужно создавать вычисляемые свойства 
+(<spec_words>computed</spec_words>), чтобы все мутации объекта <spec_words>store</spec_words> (изменения его 
+состояния) реактивно отражались в компонентах.</p>
+
+<p>Любой компонент может вызвать мутацию <spec_words>store</spec_words> с помощью метода 
+<spec_words>commit</spec_words>:</p>
+<pre class="code-snippet">
+methods: {
+    gotoNext: () => store.commit ( 'nextPicture' ),
+    gotoPrevious: () => store.commit ( 'previousPicture' ),
+}
+</pre>

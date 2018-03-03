@@ -1,0 +1,80 @@
+    <h4>Мутация состояний Vuex-store</h4>
+    <h4>Двустороннаяя привязка к элементам форм</h4>
+    <h4>Вычисляемые свойства экземпляра,<br/> привязка к состоянию хранилища с помощью геттеров и сеттеров</h4>
+    <h4>Глубокая привязка объекта</h4>
+<p>Мы не можем использовать директиву <spec_words>v-model</spec_words> для привязки 
+свойства <spec_words>value</spec_words> элементов форм к данным в хранилище <spec_words>Vuex</spec_words></p>
+
+<p>Но мы можем создать в экземпляре <spec_words>Vue</spec_words> локальную копию объекта, 
+находящегося в хранилище, и сделать двустороннюю привязку свойства <spec_words>value</spec_words> элементов форм 
+к этой локальной копии (точнее, к ее свойствам)</p>
+
+<p>Предположим, в хранилище ( в объекте <spec_words>state</spec_words> ) есть объект <var_names>human</var_names></p>
+<pre class="code-snippet">
+const store = new Vuex.Store ({
+  state: {
+    human: {
+      name: 'Максим',
+      hobby: "футбол",
+      age: 25
+    }
+  },
+  mutations: {
+    updateData: function ( state, { field, value } ) {
+      Object.assign ( state.human, { [ field ]: value })
+    }
+  }
+})
+</pre>
+
+<p>Создадим локальную копию этого объекта в экземпляре <spec_words>Vue</spec_words> 
+с помощью метода <spec_words>Object.assign ()</spec_words></p>
+<pre class="code-snippet">
+data: function () {
+    return {
+        localData: Object.assign( {}, 
+            this.$store.state.human )
+    }
+}
+</pre>
+
+<p>Теперь можно сделать двустроннюю привязку свойств объекта <var_names>localData</var_names> 
+к элементам <spec_words>input</spec_words>:</p>
+<pre class="code-snippet">
+&lt;input v-model = "localData.name"/>
+&lt;input v-model = "localData.hobby"/>
+&lt;input v-model = "localData.age" type = "number"/>
+</pre>
+
+<p>Отслеживаем изменения значений свойств объекта <var_names>localData</var_names> 
+с помощью наблюдателей</p>
+<pre class="code-snippet">
+watch: {
+    'localData.name': function () {
+        this.changeData ( 'name', this.localData.name )
+    },
+    'localData.hobby': function () {
+        this.changeData ( 'hobby', this.localData.hobby )
+    },
+    'localData.age': function () {
+        this.changeData ('age', this.localData.age )
+    }
+}
+</pre>
+<p>При изменении значений <var_names>localData.name</var_names>, <var_names>localData.hobby</var_names> или 
+<var_names>localData.age</var_names> срабатывают соответствующие наблюдатели, которые вызывают метод 
+<var_names>changeData</var_names></p>
+
+<pre class="code-snippet">
+methods: {
+  changeData: function ( field ) {
+      this.$store.commit( 'updateData', {
+                  field: field,
+                  value: event.target.value
+      })
+  }
+}
+</pre>
+<p>Метод <var_names>changeData</var_names> активирует мутацию состояния <spec_words>Vuex-store</spec_words></p>
+
+
