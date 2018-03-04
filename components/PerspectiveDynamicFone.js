@@ -2,7 +2,7 @@ const PerspectiveDynamicFone = ( 'perspective-dynamic-fone', {
     props: [ "level" ],
     data: function () {
         return {
-            personage: '../images/astronaut.gif',
+            personage: '/vue-course.github.io/images/astronaut.gif',
             winWidth: window.innerWidth,
             winHeight: window.innerHeight,
             mouseX: 0,
@@ -136,7 +136,7 @@ const PerspectiveDynamicFone = ( 'perspective-dynamic-fone', {
             }
         },
         personage: function () {
-            if ( !this.$root.$store.state.perspectiveData ) return "../images/astronaut.gif"
+            if ( !this.$root.$store.state.perspectiveData ) return "/vue-course.github.io/images/astronaut.gif"
             return this.$root.$store.state.perspectiveData.personage
         },
     },
