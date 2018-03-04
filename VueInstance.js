@@ -23,7 +23,6 @@ const app = new Vue ( {
 		chatDialog: false,
 		userLoginDialog: false,
 		userLogoutDialog: false,
-<<<<<<< HEAD
 		drawer: null,
 		perspectiveReady: false,
 		quizReady: false,
@@ -35,9 +34,6 @@ const app = new Vue ( {
         lives: 0,
         maxScore:0
     }
-=======
-		drawer: null
->>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 	},
 	computed: {
 		user: function () { return this.$store.state.user },
@@ -58,7 +54,6 @@ const app = new Vue ( {
 				.then ( response => {
 					this.$store.commit ( 'getPostData', response.body )
 		})
-<<<<<<< HEAD
 
 		this.usersDBref = firebaseDB.ref ( 'users' )
 		this.messagesDBref = firebaseDB.ref ( 'message' )
@@ -67,16 +62,6 @@ const app = new Vue ( {
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			if ( user ) {
 				user.getIdToken().then (
-=======
-		
-		this.usersDBref = firebaseDB.ref ( 'users' )
-		this.messagesDBref = firebaseDB.ref ( 'message' )
-		
-		const __vue = this
-		firebase.auth().onAuthStateChanged ( function ( user ) {
-			if ( user ) {
-				user.getIdToken().then ( 
->>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 					accessToken => {
 						__vue.$store.dispatch ( 'registerUser', user )
 						//__vue.$store.dispatch ( 'getDataFromUsersDB' )
@@ -89,22 +74,14 @@ const app = new Vue ( {
 			}
 			else __vue.$store.commit ( 'userLogOut' )
 		})
-<<<<<<< HEAD
-=======
-
-			
->>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 	},
 	mounted: function () {
 		this.$store.dispatch ( 'getAllUsers' )
 		this.$store.commit ( 'changeMessagesData', new Date() )
-<<<<<<< HEAD
 		this.$on ( 'exit-quiz', function () {
 				console.info ( 'EXIT QUIZ' )
 				this.startQuiz = false
 		} )
-=======
->>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 		this.$on ( 'closeCurrentDialog', function () {
 				this.chatDialog = false
 				this.userInfoDialog = false
@@ -137,7 +114,6 @@ const app = new Vue ( {
 		startChat: function () {
 			this.chatDialog = true
 		},
-<<<<<<< HEAD
 		startNewQuiz: function () {
 			this.startQuiz = true
 			this.$http.get ( 'data/perspectivePictures.json' )
@@ -158,8 +134,6 @@ const app = new Vue ( {
 						if ( this.quizReady && newVal ) {}
 				}
 		}
-=======
->>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 	},
 	components: {
 		LoginComponent,
@@ -169,12 +143,8 @@ const app = new Vue ( {
 		'full-screen-chat': FullScreenChat,
 		'nav-panel': NavigationPanel,
 		'toggle-buttons': ToggleButtons,
-<<<<<<< HEAD
 		'app-footer': appFooter,
 		'quiz-component': QuizComponent
-=======
-		'app-footer': appFooter
->>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 	},
 	router,
 }).$mount ( '#VueCourseware' )
