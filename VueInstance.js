@@ -49,15 +49,17 @@ const app = new Vue ( {
 		this.$http.get ( this.mainDataSource )
 				.then ( response => {
 					this.$store.commit ( 'getMainData', response.body )
+				})
 				.catch ( err => {
-					console.error ( err )
+					console.log ( 'ОШИБКА ', err )
 				})
 		})
 		this.$http.get ( this.postDataSource )
 				.then ( response => {
 					this.$store.commit ( 'getPostData', response.body )
+				})
 				.catch ( err => {
-						console.error ( err )
+						console.log ( 'ОШИБКА ', err )
 				})
 		})
 
