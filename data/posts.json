@@ -179,7 +179,11 @@
 			"code":false,
 			"text":"Расширение Chrome для vue-разработчика",
 			"textURL":"",
+<<<<<<< HEAD
 			"readme":"./data/vue/devtools.html",
+=======
+			"readme":"/vue-course.github.io/data/data/vue/devtools.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"samples":[
 				"https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
 			],
@@ -496,8 +500,13 @@
 				"}"
 			],
 			"text":"Отслеживание изменения значений реактивных данных модели<br/>Глубокое отслеживание объектов<br/>",
+<<<<<<< HEAD
 			"textURL":"./data/vue/reactivity-object.html",
 			"readme":"./data/vue/reactivity-object.html",
+=======
+			"textURL":"/vue-course.github.io/data/vue/reactivity-object.html",
+			"readme":"/vue-course.github.io/data/vue/reactivity-object.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"samples":[
 				"https://plnkr.co/edit/XkqjUURxbw5WtFq0rK0J?p=preview",
 				"https://plnkr.co/edit/HJKbjwFpifE4RxD2JjTG?p=preview"
@@ -569,7 +578,11 @@
 				"// currentComponent, содержащую имя компонента ",
 				"<component :is='currentComponent'></component>"
 			],
+<<<<<<< HEAD
 			"readme":"./data/components/dynamic.html",
+=======
+			"readme":"/vue-course.github.io/data/components/dynamic.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"text":"Чтобы подключить несколько различных компонентов к одной и той же точке монтирования и динамически переключаться между ними, используем плейсхолдер - псевдоэлемент &lt;component><br/>Связь с реальным компонентом, который будет помещен на место плейсхолдера, осуществляется с помощью атрибута is",
 			"textURL":"",
 			"samples":[
@@ -610,7 +623,11 @@
 			"head":"props & data",
 			"picture":false,
 			"code":[],
+<<<<<<< HEAD
 			"readme":"./data/components/array.html",
+=======
+			"readme":"https://garevna.github.io/vue.github.io/data/components/array.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"text":"Особенности работы с массивами",
 			"textURL":"",
 			"samples":[
@@ -658,9 +675,15 @@
 			"head":"Шина событий",
 			"picture":"http://kino-filmi.net/uploads/posts/2014-07/1406219565_karlson4.jpg",
 			"code":[],
+<<<<<<< HEAD
 			"readme":"./data/events/event_bus.html",
 			"text":"Передача событий через общую шину",
 			"textURL":"./data/events/globalEventBus.html",
+=======
+			"readme":"/vue-course.github.io/data/events/event_bus.html",
+			"text":"Передача событий через общую шину",
+			"textURL":"/vue-course.github.io/data/events/globalEventBus.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"samples":[
 				"https://plnkr.co/edit/XRznjj6FTBbyuwiVHSeC?p=preview"
 			],
@@ -681,7 +704,11 @@
 			"head":"Шина данных",
 			"picture":"http://nizhnevartovsk.altronshina.ru/image/cache/hamburger-altron-465x500.png",
 			"code":[],
+<<<<<<< HEAD
 			"readme":"./data/events/data_bus.html",
+=======
+			"readme":"/vue-course.github.io/data/events/data_bus.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"text":"Использование общего хранилища данных, загружаемых асинхронно с помощью метода $http.get плагина vue-resource",
 			"textURL":"",
 			"samples":[
@@ -900,7 +927,11 @@
 			"code":[],
 			"text":"Именованные слоты",
 			"textURL":"",
+<<<<<<< HEAD
 			"readme":"./data/slots/02.html",
+=======
+			"readme":"/vue-course.github.io/data/slots/02.html",
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			"samples":[
 				"https://plnkr.co/edit/hSVkDkhgfB6kgCMQjKNd?p=preview",
 				"https://plnkr.co/edit/9nFUtNDqeZ1JX003oDHO?p=preview"

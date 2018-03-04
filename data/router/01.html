@@ -1,7 +1,10 @@
-<v-app id = "expandPanel">
+<img src = "/vue-course.github.io/images/vue-router.svg" style = "max-width:95%;"><br>
+<br>
+Последовательность шагов по созданию экземпляра <spec_words>Vue Router</spec_words><br/>
+<br/>
 <v-expansion-panel>
     <v-expansion-panel-content>
-      <div slot="header">1. Подключить библиотеку</div>
+      <div slot="header"><h2>1. Подключить библиотеку</h2></div>
       <v-card>
         <v-card-text>
             https://unpkg.com/vue-router/dist/vue-router.js
@@ -9,63 +12,141 @@
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-        <div slot="header">2. Создать массив маршрутов перехода</div>
+        <div slot="header"><h2>2. Создать массив маршрутов перехода</h2></div>
       <v-card>
         <v-card-text>
-            Маршрут - это объект
+            Маршрут - это объект<br/>
+            <pre class="code-snippet">
+{
+     path: "/articles",
+     component: ArticleStore
+}
+            </pre>
+            <br/>
+            <small>('/' означает маршрут приложения по умолчанию)</small><br/>
+            Из таких объектов составляется массив<br/>
+            <br/>
+            <pre class="code-snippet">
+routes: [
+      {
+           path: '/library',
+           component: Library
+      },
+      {
+           path: '/articles',
+           component: ArticleStore
+      },
+      ...
+]
+            </pre>
+            <br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-        <div slot="header">3. Создать экземпляр роутера</div>
+        <div slot="header"><h2>3. Создать экземпляр роутера</h2></div>
       <v-card>
         <v-card-text>
-            Используем конструктор
-            Роутеру передается массив маршрутов
+            Используем конструктор <spec_words>VueRouter</spec_words><br/>
+            <pre class="code-snippet">
+const router = new VueRouter ( {
+      routes: routes
+})
+            </pre>
+            <br/>
+            Роутеру передается массив маршрутов <spec_words>routes</spec_words><br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-        <div slot="header">4. Привязка роутера к экземпляру Vue</div>
+        <div slot="header"><h2>4. Привязка роутера к экземпляру Vue</h2></div>
       <v-card>
         <v-card-text>
-            Объект router нужно привязать к экземпляру Vue
+            Объект <spec_words>router</spec_words> нужно привязать к экземпляру <spec_words>Vue</spec_words>:<br/>
+            <br/>
+            <pre class="code-snippet">
+new Vue ({
+     el: '#app',
+     router,
+     ...,
+     components: { ... }
+})
+            </pre>
+            <br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-        <div slot="header">5. Создать компоненты</div>
+        <div slot="header"><h2>5. Создать компоненты</h2></div>
       <v-card>
         <v-card-text>
             Не забудьте создать компоненты, обслуживающие маршруты переходов<br/>
-            Модель готова
+            <pre class="code-snippet">
+const Library = {
+       template: `
+            &lt;div>
+                &lt;h2>Library&lt;/h2>
+            &lt;/div>
+       `,
+       ...
+}
+            </pre><br/>
+            Модель готова<br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-        <div slot="header">6. Разметка</div>
+        <div slot="header"><h2>6. Разметка</h2></div>
       <v-card>
         <v-card-text>
-            Теперь осталось только связать всю эту машинку с UI
-            Для этого в разметке вставляем теги
+            Теперь осталось только связать всю эту машинку с <spec_words>UI</spec_words><br/>
+            Для этого в разметке вставляем теги:<br/>
+            <h4>гиперссылка перехода</h4>
+            <pre class="code-snippet">
+                &lt;router-link to = "/library">&lt;/router-link><br/>
+            </pre><br/>
+            где <spec_words>to</spec_words> - обязательный атрибут, указывающий маршрут перехода<br/>
+            <small>после рендеринга этот тег будет заменен на обычную гиперссылку</small><br/>
+            и
+            <h4>плейсхолдер для компонента</h4>
+            <spec_words>&lt;router-view>&lt;/router-view></spec_words><br/>
+            <br/>
+            Итак, при клике на гиперссылке <spec_words>router-link</spec_words> роутер монтирует нужный компонент
+            в месте размещения плейсхолдера <spec_words>router-view</spec_words><br/>
+            <br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
     <v-expansion-panel-content>
-        <div slot="header7">7. Дочерние маршруты</div>
+        <div slot="header7"><h2>7. Дочерние маршруты</h2></div>
       <v-card>
         <v-card-text>
-            Маршруты могут быть вложенными:
-            В таком случае в разметке ( темплейте ) компонента ParentComponent должны быть
-            router-link с атрибутом to = "child" и router-view
-            для отображения компонента ChildComponent
+            Маршруты могут быть вложенными:<br/>
+            <pre class="code-snippet">
+routes: [
+     {
+          path: '/',
+          name: 'home',
+          component: Home
+     },
+     {
+          path: '/parent_route',
+          name: 'parentRoute',
+          component: ParentComponent,
+          children: [
+              {
+                  path: 'child',
+                  component: ChildComponent
+              }
+          ]
+     }
+]
+            </pre>
+            <br/>
+            В таком случае в разметке ( темплейте ) компонента <var_names>ParentComponent</var_names> должны быть
+            <spec_words>router-link</spec_words> с атрибутом to = "child" и <spec_words>router-view</spec_words>
+            для отображения компонента <var_names>ChildComponent</var_names><br/>
         </v-card-text>
       </v-card>
     </v-expansion-panel-content>
 </v-expansion-panel>
-</v-app>
-<script>
-new Vue ({
-  el:"#expandPanel"
-})
-</script>

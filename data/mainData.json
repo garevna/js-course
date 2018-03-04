@@ -399,6 +399,19 @@
 				"ref":"https://code.i-harness.com/ru/docs/firebase",
 				"ico":"github",
 				"comment":"firebase Tutorials & Examples (рус)"
+<<<<<<< HEAD
+=======
+			},
+			{
+				"ref":"https://codelabs.developers.google.com/codelabs/firebase-web-ru/index.html#0",
+				"ico":"link",
+				"comment":"Firebase: делаем веб-приложение чата, работающее в реальном времени"
+			},
+			{
+				"ref":"https://www.youtube.com/watch?v=nMrkQVSlabk",
+				"ico":"link",
+				"comment":"Пример работы с базой данных Firebase Database в Android"
+>>>>>>> 2967bfede25774a84f20fd06e622b114d18182e3
 			}
 		]
 	},

@@ -23,6 +23,7 @@ const store = new Vuex.Store ({
       usersList: null,
       messagesDate: null,
       messagesRef: null,
+
       messages: [],
 
       perspectiveCenterImages: null,
@@ -135,6 +136,7 @@ const store = new Vuex.Store ({
         state.quizData.score += params.score
         state.quizData.lives -= params.lives
     },
+
     setCurrentUser: ( state, newUser ) => {
         state.user = {
             name: newUser.displayName,
@@ -173,7 +175,7 @@ const store = new Vuex.Store ({
     userLogOut: state => {
         state.user = null
     },
-
+    
     changeCurrentSectionId: ( state, sectionId ) => {
         if ( sectionId === 'about' || sectionId === 'details' )
               state.sectionMenuSelected = sectionId
