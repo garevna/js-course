@@ -53,7 +53,6 @@ const app = new Vue ( {
 				.catch ( err => {
 					console.log ( 'ОШИБКА ', err )
 				})
-		})
 		this.$http.get ( this.postDataSource )
 				.then ( response => {
 					this.$store.commit ( 'getPostData', response.body )
@@ -61,7 +60,6 @@ const app = new Vue ( {
 				.catch ( err => {
 						console.log ( 'ОШИБКА ', err )
 				})
-		})
 
 		this.usersDBref = firebaseDB.ref ( 'users' )
 		this.messagesDBref = firebaseDB.ref ( 'message' )
