@@ -111,7 +111,6 @@ const store = new Vuex.Store ({
            },
            getPictures: function () {
               var rec = this.getItem ()
-              console.log ( rec )
               var ind = Math.round ( Math.random () * ( rec.sides.length - 1 ) )
               return {
                   center: "https://drive.google.com/uc?export=download&id=" + rec.center,
