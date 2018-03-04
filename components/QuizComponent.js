@@ -200,7 +200,6 @@ const quizTemplate = ( 'quiz-template', {
     `
 })
 
-// =========================================================== quizContent
 const QuizLevel = ( 'quiz-level', {
   props: [ "level" ],
   data: function () {
@@ -268,8 +267,6 @@ const QuizLevel = ( 'quiz-level', {
                 case 'findError':
                     var result = this.quizData.wrongContent.map ( x => x.split ( ' ' ).join('') ).join('')
                     var etalon = this.quizData.rightContent.map ( y => y.split ( ' ' ).join('') ).join('')
-                    console.info ( result )
-                    console.info ( etalon )
                     var tst = result === etalon
                     this.levelResults = { right: 0 + tst, wrong: 0 + !tst }
                     break
