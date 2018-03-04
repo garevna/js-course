@@ -14,8 +14,8 @@ const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 const app = new Vue ( {
 	store,
 	data: {
-		mainDataSource: "./data/mainData.json",
-		postDataSource: "./data/posts.json",
+		mainDataSource: "data/mainData.json",
+		postDataSource: "data/posts.json",
 		usersDBref: null,
 		messagesDBref: null,
 		newMessage: {},
@@ -85,7 +85,6 @@ const app = new Vue ( {
 		this.$store.dispatch ( 'getAllUsers' )
 		this.$store.commit ( 'changeMessagesData', new Date() )
 		this.$on ( 'exit-quiz', function () {
-				console.info ( 'EXIT QUIZ' )
 				this.startQuiz = false
 		} )
 		this.$on ( 'closeCurrentDialog', function () {
