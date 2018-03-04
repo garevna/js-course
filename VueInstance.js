@@ -14,8 +14,8 @@ const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 const app = new Vue ( {
 	store,
 	data: {
-		mainDataSource: "data/mainData.json",
-		postDataSource: "data/posts.json",
+		mainDataSource: "./data/mainData.json",
+		postDataSource: "./data/posts.json",
 		usersDBref: null,
 		messagesDBref: null,
 		newMessage: {},
