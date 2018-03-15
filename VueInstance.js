@@ -30,10 +30,10 @@ const app = new Vue ( {
 		level: 1,
 		mainQuizData: null,
 		quizResults: {
-        score: 0,
-        lives: 0,
-        maxScore:0
-    }
+        		score: 0,
+        		lives: 0,
+        		maxScore:0
+    		}
 	},
 	computed: {
 		user: function () { return this.$store.state.user },
@@ -133,11 +133,6 @@ const app = new Vue ( {
 						this.quizReady = true
 						this.level = 1
 					})
-		},
-		watch: {
-				perspectiveReady: function ( newVal, oldVal ) {
-						if ( this.quizReady && newVal ) {}
-				}
 		}
 	},
 	components: {
