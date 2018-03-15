@@ -107,6 +107,7 @@ const app = new Vue ( {
 			success: '#266150',
 			warning: '#fa0'
 		}
+		console.log ( 'Vue instance mounted: ', this.user )
 	},
 	methods: {
 		startUserLogin: function () {
