@@ -44,7 +44,7 @@ const MainSection = {
   mounted: function () {
     this.$root.$store.commit ( 'changeCurrentSectionId', this.id )
     this.$on ( 'menuSelect', function ( val ) {
-      this.$router.push ( { name: val, props: true } )
+      this.$root.$router.push ( { name: val, props: true } )
     } )
   },
   components: {
