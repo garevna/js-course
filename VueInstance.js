@@ -67,8 +67,10 @@ const app = new Vue ( {
 		const __vue = this
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			if ( user ) {
+				console.log ( 'USER: ', user )
 				user.getIdToken().then (
 					accessToken => {
+						console.log ( 'accessToken: ', accessToken )
 						__vue.$store.dispatch ( 'registerUser', user )
 						//__vue.$store.dispatch ( 'getDataFromUsersDB' )
 					},
