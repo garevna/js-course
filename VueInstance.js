@@ -11,7 +11,7 @@ const firebaseDB = firebaseApp.database()
 const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 
 
-const app = new Vue ( {
+const vueCourseApp = new Vue ( {
 	store,
 	data: {
 		mainDataSource: "data/mainData.json",
