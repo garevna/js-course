@@ -29,7 +29,7 @@ const FullScreenDialogWindow = ({
 
           </v-toolbar>
           <v-card-text class = "columns" 
-                       style = "padding-top: 58px;" v-html = "__text">
+                       style = "padding-top: 70px;" v-html = "__text">
           </v-card-text>
         </v-card>
       </v-dialog>
