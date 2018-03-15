@@ -328,7 +328,7 @@ input[type="checkbox"] {
 	left:-5px;
 	right:10px;
 	box-shadow: inset 4px 4px 8px rgba(0,0,0,0.5);
-	margin-bottom:10px;
+	margin-bottom:30px;
   background-color: #579a5a6e;
 }
 .code-snippet > p {
