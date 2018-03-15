@@ -152,6 +152,9 @@ ul {
 .card__actions {
 	background-color: #9b03a5;
 }
+.card__actions .btn {
+    margin: 4px 15px;
+}
 .firebaseui-container {
 	margin-top: 70px!important;
 }
