@@ -58,6 +58,7 @@ const quizFinish = ( 'quiz-finish', {
                               <v-icon x-large>battery_charging_full</v-icon> {{ results.lives }}
                           </p>
                         </section>
+                      </v-flex>
                     </v-layout>
                   </v-container>
             </v-card-media>
@@ -130,47 +131,48 @@ const quizTemplate = ( 'quiz-template', {
           <v-flex d-flex xs12 mx-auto>
             <v-card dark color = "accent">
               <v-layout flex wrap row justify-space-between>
-              <v-flex xs6 sm4>
-                <v-badge color = "success">
-                  <span slot = "badge">{{ $parent.lives }}</span>
-                    <v-icon color = "warning">
-                        battery_charging_full
-                    </v-icon>
-                </v-badge>
-                <v-badge color = "success">
-                    <span slot = "badge">{{ $parent.score }}</span>
-                    <span> {{ $parent.maxScore }} </span>
-                </v-badge>
-              </v-flex>
-              <v-spacer></v-spacer>
-              <v-tooltip top v-if = "!$parent.showResults">
-                  <v-btn icon @click = "answerIsReady"
-                              slot = "activator">
-                      <v-icon>send</v-icon>
-                  </v-btn>
-                  <span>Готово</span>
-              </v-tooltip>
-              <v-tooltip top>
+                <v-flex xs6 sm4>
+                    <v-badge color = "success">
+                        <span slot = "badge">{{ $parent.lives }}</span>
+                        <v-icon color = "warning">
+                            battery_charging_full
+                        </v-icon>
+                    </v-badge>
+                    <v-badge color = "success">
+                        <span slot = "badge">{{ $parent.score }}</span>
+                        <span> {{ $parent.maxScore }} </span>
+                    </v-badge>
+                </v-flex>
+                <v-spacer></v-spacer>
+                <v-tooltip top v-if = "!$parent.showResults">
+                    <v-btn  icon @click = "answerIsReady"
+                            slot = "activator">
+                        <v-icon>send</v-icon>
+                    </v-btn>
+                    <span>Готово</span>
+                </v-tooltip>
+                <v-tooltip top>
                   <v-btn icon @click = "nextLevel"
                               slot = "activator">
                       <v-icon>forward</v-icon>
                   </v-btn>
                   <span>Дальше</span>
-              </v-tooltip>
-              <v-tooltip top>
-                  <v-btn icon @click = "$parent.exitQuiz"
-                              slot = "activator">
+                </v-tooltip>
+                <v-tooltip top>
+                    <v-btn icon @click = "$parent.exitQuiz"
+                            slot = "activator">
                       <v-icon>exit_to_app</v-icon>
-                  </v-btn>
-                  <span>Выход</span>
-              </v-tooltip>
+                    </v-btn>
+                    <span>Выход</span>
+                </v-tooltip>
+              </v-layout>
             </v-card>
           </v-flex>
         </v-layout>
         <slot name = "snackbar"></slot>
 
         <v-snackbar slot = "snackbar"
-                    :timeout = "60000"
+                    :timeout = "50000"
                     auto-height
                     left = true
                     top = true
@@ -392,12 +394,17 @@ var QuizComponent = ( 'quiz-component', {
         maxScore: function () {
             return this.$root.$store.state.quizData.maxScore
         },
-        results: function () {
+        results: {
+          get: function () {
             return {
                 maxScore: this.$root.$store.state.quizData.maxScore,
                 score: this.$root.$store.state.quizData.score,
                 lives: this.$root.$store.state.quizData.lives
             }
+          },
+          set: function ( params ) {
+            
+          }
         },
     },
     template: `
