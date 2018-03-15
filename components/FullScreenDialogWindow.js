@@ -17,9 +17,8 @@ const FullScreenDialogWindow = ({
                   dark class = "secondary"
                   transition = "dialog-bottom-transition">
           <v-card  class = "secondary">
-            <v-toolbar style = "flex: 0 0 auto;"
-                       class = "accent"
-                       style = "position: fixed; top: 0; z-index: 100;"
+            <v-toolbar class = "accent"
+                       style = "flex: 0 0 auto; position: fixed; top: 0; z-index: 100;"
                        dark>
               <v-btn  icon dark class = "transparent"
                       @click.native = "dialog = false">
@@ -29,7 +28,9 @@ const FullScreenDialogWindow = ({
               <v-spacer></v-spacer>
 
           </v-toolbar>
-          <v-card-text class = "columns" style = "padding-top: 58px;" v-html = "__text"></v-card-text>
+          <v-card-text class = "columns" 
+                       style = "padding-top: 58px;" v-html = "__text">
+          </v-card-text>
         </v-card>
       </v-dialog>
     </v-layout>
