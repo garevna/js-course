@@ -60,7 +60,7 @@
                         <v-icon>more_vert</v-icon>
                     </v-btn>
                     <v-list>
-                        <v-list-tile :disabled = "user" @click = "startUserLogin">
+                        <v-list-tile :disabled = "!!user" @click = "startUserLogin">
                             <v-list-tile-title>Sign In</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile :disabled = "!user" @click = "startUserLogOut">
