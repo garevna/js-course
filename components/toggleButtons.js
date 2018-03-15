@@ -8,6 +8,7 @@ const ToggleButtons = ( 'toggle-buttons', {
   },
   watch: {
     toggle_none: function ( newVal, oldVal ) {
+      if ( this.$route.path.indexOf ( 'section' ) > 0 ) return
       if ( newVal !== null )
         this.$root.$router.push ( { name: this.vals [ newVal ] } )
     }
