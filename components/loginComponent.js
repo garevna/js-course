@@ -6,8 +6,6 @@ const LoginComponent = ( 'login-component', {
 			uiConfig: {
 				callbacks: {
 					signInSuccess: ( currentUser, credential, redirectUrl ) => {
-						console.info ( 'signInSuccess!!!' )
-						console.log ( 'currentUser' )
 						this.$root.$store.dispatch ( 'registerUser', currentUser )
 						var loginWidget = document.getElementById ( "firebaseui-auth-container" )
 						if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
@@ -15,7 +13,7 @@ const LoginComponent = ( 'login-component', {
 						return true
 					},
 					uiShown: function() {
-						console.info ( 'The widget is rendered' )
+						//console.info ( 'The widget is rendered' )
 					}
 				},
 				// Will use popup for IDP Providers sign-in flow instead of the default, redirect
@@ -52,7 +50,6 @@ const LoginComponent = ( 'login-component', {
 	},
 	mounted: function () {
 		this.__route = '/vue-course.github.io/#' + this.$route.path
-		console.log ( 'this.__route: ', this.__route )
 		if ( this.user ) {
 			console.info ( 'User allready signed in' )
 			console.log ( this.user )
@@ -63,7 +60,6 @@ const LoginComponent = ( 'login-component', {
 			document.body.appendChild ( loginWidget )
 			loginWidget.id = "firebaseui-auth-container"
 			firebaseAuthUI.start( '#firebaseui-auth-container', this.uiConfig )
-			console.log ( 'LoginComponent authUI: ', firebaseAuthUI )
 		}
 	}
 })
