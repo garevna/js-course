@@ -63,7 +63,7 @@
                         <v-list-tile :disabled = "registeredUser" @click = "startUserLogin">
                             <v-list-tile-title>Sign In</v-list-tile-title>
                         </v-list-tile>
-                        <v-list-tile :disabled = "!registeredUser" @click = "startNewQuiz">
+                        <v-list-tile @click = "startNewQuiz">
                             <v-list-tile-title>Quiz</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile :disabled = "!registeredUser" @click = "startChat">
