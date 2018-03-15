@@ -20,6 +20,7 @@ const app = new Vue ( {
 		messagesDBref: null,
 		newMessage: {},
 		lastMessages: null,
+		registeredUser: false,
 		chatDialog: false,
 		userLoginDialog: false,
 		userLogoutDialog: false,
@@ -58,7 +59,7 @@ const app = new Vue ( {
 					this.$store.commit ( 'getPostData', response.body )
 				})
 				.catch ( err => {
-						console.log ( 'ОШИБКА ', err )
+					console.log ( 'ОШИБКА ', err )
 				})
 
 		this.usersDBref = firebaseDB.ref ( 'users' )
@@ -67,16 +68,15 @@ const app = new Vue ( {
 		const __vue = this
 		firebase.auth().onAuthStateChanged ( function ( user ) {
 			if ( user ) {
-				console.log ( 'USER: ', user )
 				user.getIdToken().then (
 					accessToken => {
-						console.log ( 'accessToken: ', accessToken )
 						__vue.$store.dispatch ( 'registerUser', user )
-						//__vue.$store.dispatch ( 'getDataFromUsersDB' )
+						__vue.registeredUser = true
 					},
 					error => {
 						console.error ( 'accessToken ERROR ' + error )
 						__vue.$store.commit ( 'userLoginError', user )
+						__vue.registeredUser = false
 					}
 				)
 			}
