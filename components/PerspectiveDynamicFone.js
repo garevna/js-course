@@ -20,20 +20,20 @@ const PerspectiveDynamicFone = ( 'perspective-dynamic-fone', {
     template: `
         <section>
           <div id = "main_perspective" @mousemove = "mouseMoveHandler">
-            <div id = "perspective_container" @mousemove = "animationPlay ( event )">
-                 <div id = "perspectiveLeftSide" @mouseover = "changeCurrentMouseOverElementId ( event )"
+            <div id = "perspective_container" @mousemove = "animationPlay">
+                 <div id = "perspectiveLeftSide" @mouseover = "changeCurrentMouseOverElementId"
                       :style = "{ backgroundImage: 'url(' + activeLeftBackground + ')' }">
                  </div>
-                 <div id = "perspectiveRightSide" @mouseover = "changeCurrentMouseOverElementId ( event )"
+                 <div id = "perspectiveRightSide" @mouseover = "changeCurrentMouseOverElementId"
                       :style = "{ backgroundImage: 'url(' + activeRightBackground + ')' }">
                  </div>
-                 <div id = "perspectiveTopSide" @mouseover = "changeCurrentMouseOverElementId ( event )"
+                 <div id = "perspectiveTopSide" @mouseover = "changeCurrentMouseOverElementId"
                       :style = "{ backgroundImage: 'url(' + activeTopBackground + ')' }">
                  </div>
-                 <div id = "perspectiveBottomSide" @mouseover = "changeCurrentMouseOverElementId ( event )"
+                 <div id = "perspectiveBottomSide" @mouseover = "changeCurrentMouseOverElementId"
                       :style = "{ backgroundImage: 'url(' + activeBottomBackground + ')' }">
                  </div>
-                 <div id = "perspectiveCenterSide" @mouseover = "changeCurrentMouseOverElementId ( event )"
+                 <div id = "perspectiveCenterSide" @mouseover = "changeCurrentMouseOverElementId"
                       :style = "{ backgroundImage: 'url(' + activeCenterBackground + ')' }"
                       @click = "startQuiz">
                  </div>
