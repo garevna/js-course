@@ -431,7 +431,7 @@ var QuizComponent = ( 'quiz-component', {
     mounted: function () {
         this.lives = this.$root.$store.state.quizData.lives
         this.score = this.$root.$store.state.quizData.score
-        this.maxScore = this.$root.$store.state.quizData.maxScore
+        // this.maxScore = this.$root.$store.state.quizData.maxScore
 
         this.$on ( 'start-quiz', function () {
             this.startQuiz = true
