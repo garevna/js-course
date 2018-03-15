@@ -1,7 +1,6 @@
 {
   "maxScore": 20,
   "lives": 10,
-  "livesPictureURL": "./images/cosmonaft.gif",
   "gameOverPictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZVhfeXVPblhxNzA",
   "successPictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSd3U0S09YUkkwanc",
   "failurePictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSMzNOUGc3QndEOGM",
@@ -180,7 +179,7 @@
       "wrongContent": [
         "<main id = 'scene'>",
         "        <section v-for = '( ???, ??? ) in ?' :key = 'index'>",
-        "                <img v-if = '???' src = '???'>",
+        "                <img v-if = '???' :src = '???'>",
         "                <p> {{ index }} : {{ item.id }} </p>",
         "        </section>",
         "</main>"
