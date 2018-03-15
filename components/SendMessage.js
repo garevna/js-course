@@ -43,7 +43,8 @@ const FullScreenChat = ( 'full-screen-chat', {
             </v-toolbar>
             <div class = "middle-of-the-window">
                 <v-card-text  class= "transparent"
-                        v-for = "item in messages">
+                        v-for = "item in messages"
+                        :key = "item.user.name">
                     <v-avatar v-if = "item.user.photoURL">
                         <img :src = "item.user.photoURL">
                     </v-avatar>
