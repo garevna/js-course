@@ -80,9 +80,10 @@ const currentPost = ( 'current-post', {
                         v-for = "( sample, index ) in postObject.samples"
                         :key = "index"
                         @click = "openRef(sample)">
-                    <span class = "samples-section-item">
-                          {{ " { " + (index+1) + " }" }}
-                    </span>
+                    <v-badge right color = "warning">
+                    <span slot = "badge">{{ (index+1) }}</span>
+                    <v-icon>local_cafe</v-icon>
+                  </v-badge>
                 </v-btn>
             </div>
           </v-card-actions>
