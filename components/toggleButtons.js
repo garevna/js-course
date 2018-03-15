@@ -32,7 +32,7 @@ const ToggleButtons = ( 'toggle-buttons', {
         </v-btn-toggle>
   `,
   mounted: function () {
-    this.toggle_none = this.$route.path.indexOf ( this.vals [0] ) ? 0 :
-                        ( this.$route.path.indexOf ( this.vals [1] ) ? 1 : null )
+    this.toggle_none = this.$route.path.indexOf ( this.vals [0] ) > 0 ? 0 :
+                        ( this.$route.path.indexOf ( this.vals [1] ) > 0 ? 1 : null )
   }
 })
