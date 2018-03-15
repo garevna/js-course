@@ -174,10 +174,10 @@ const quizTemplate = ( 'quiz-template', {
         <v-snackbar slot = "snackbar"
                     :timeout = "50000"
                     auto-height
-                    left = true
-                    top = true
-                    multi-line = true
-                    vertical = true
+                    left
+                    top
+                    multi-line
+                    vertical
                     color = "secondary"
                     v-if = "snackbar"
                     v-model = "snackbar">
