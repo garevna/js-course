@@ -6,7 +6,14 @@ const NavigationPanel = ( 'nav-panel', {
         }
     },
     computed: {
-        localDrawer: function () { return this.$root.drawer }
+        localDrawer: {
+		    get: function () {
+                return this.$root.drawer
+		    },
+		    set: function ( newValue ) {
+                //console.log ( newValue )
+		    }
+        }
     },
     template: `
       <v-container class = "transparent">
@@ -23,7 +30,9 @@ const NavigationPanel = ( 'nav-panel', {
         </v-list>
         <v-list class="pt-0" dense>
           <v-divider></v-divider>
-          <v-list-tile v-for = "item in states" :key = "item" @click = "clickHandler ( event, item )">
+          <v-list-tile  v-for = "item in states"
+                        :key = "item"
+                        @click = "clickHandler ( item )">
             <v-list-tile-action>
               <v-icon>assignment</v-icon>
             </v-list-tile-action>
@@ -36,7 +45,7 @@ const NavigationPanel = ( 'nav-panel', {
     </v-container>
     `,
     methods: {
-        clickHandler: function ( event, val ) {
+        clickHandler: function ( val ) {
             this.$root.$emit ( 'closeNavigationPanel' )
             this.$root.$store.commit( 'changeCurrentSectionId', val )
             this.$root.$store.commit( 'getCurrentSectionInfo' )
