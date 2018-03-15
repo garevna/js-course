@@ -66,7 +66,8 @@ const currentPost = ( 'current-post', {
             </v-flex>
             <v-flex xs12>
               <div class = "code-snippet" v-if = "codeExist">
-                <div v-for = "code_item in postObject.code">
+                <div  v-for = "( code_item, index ) in postObject.code"
+                      :key = "index">
                       {{ code_item.replace(/ /g,"&nbsp;") }}
                 </div>
               </div>
@@ -77,6 +78,7 @@ const currentPost = ( 'current-post', {
             <div class="text-xs-center">
                 <v-btn  flat dark accent
                         v-for = "( sample, index ) in postObject.samples"
+                        :key = "index"
                         @click = "openRef(sample)">
                     <span class = "samples-section-item">
                           {{ " { " + (index+1) + " }" }}
