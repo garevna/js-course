@@ -122,7 +122,8 @@ var_names {
 	position: fixed;
 }
 .list {
-  padding: 0;
+	padding: 0;
+	background: #ffaa00;
 }
 ul {
   background-color: #fa0!important;
