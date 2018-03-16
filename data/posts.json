@@ -459,7 +459,7 @@
         "}"
       ],
       "text": "Отслеживание изменения значений реактивных данных модели",
-      "textURL": "./data/vue/reactivity-array.html",
+      "textURL": "",
       "readme": "./data/vue/reactivity-array.html",
       "samples": [
         "https://plnkr.co/edit/PBmd2rVMsmWBKNjiQzsf?p=preview"
@@ -495,7 +495,7 @@
         "}"
       ],
       "text": "Отслеживание изменения значений реактивных данных модели<br/>Глубокое отслеживание объектов<br/>",
-      "textURL": "./data/vue/reactivity-object.html",
+      "textURL": "",
       "readme": "./data/vue/reactivity-object.html",
       "samples": [
         "https://plnkr.co/edit/XkqjUURxbw5WtFq0rK0J?p=preview",
