@@ -322,14 +322,14 @@ input[type="checkbox"] {
 	font-family: monospace;
 	font-size:15px;
 	overflow:auto;
-	color:#ffd;
+	color:#fff;
 	position:relative;
 	top:10px;
 	left:-5px;
 	right:10px;
 	box-shadow: inset 4px 4px 8px rgba(0,0,0,0.5);
 	margin-bottom:30px;
-  background-color: #579a5a6e;
+  	background-color: #0000006e;
 }
 .code-snippet > p {
 	margin-top: 0;
