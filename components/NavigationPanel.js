@@ -8,10 +8,10 @@ const NavigationPanel = ( 'nav-panel', {
     computed: {
         localDrawer: {
 		    get: function () {
-                return this.$root.drawer
+                	return this.$root.drawer
 		    },
 		    set: function ( newValue ) {
-                //console.log ( newValue )
+                	this.$root.$emit ( 'navigation-drawer-state', newValue )
 		    }
         }
     },
