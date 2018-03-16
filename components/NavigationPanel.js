@@ -17,7 +17,9 @@ const NavigationPanel = ( 'nav-panel', {
     },
     template: `
       <v-container class = "transparent">
-      <v-navigation-drawer class="secondary" temporary v-model = "localDrawer" absolute>
+      <v-navigation-drawer class="secondary"
+			   v-model = "localDrawer"
+			   app temporary clipped>
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
