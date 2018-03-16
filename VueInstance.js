@@ -98,6 +98,9 @@ const app = new Vue ( {
 		this.$on ( 'closeNavigationPanel', function () {
 			this.drawer = false
 		} )
+		this.$on ( 'navigation-drawer-state', function ( val ) {
+			this.drawer = val
+		})
 		this.$vuetify.theme = {
 			primary: '#36465d',
 			secondary: '#4a8272',
