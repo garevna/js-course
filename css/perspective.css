@@ -1,4 +1,3 @@
-@charset "utf-8";
 :root:before {
   content: url(https://drive.google.com/uc?export=download&id=1S2n0lmx7q7MnUd9yY8_nNeBtVNTcR4hz)
            url(https://drive.google.com/uc?export=download&id=1PPPdwNTO6inrEHADbnUw9pPjcYF0plQS)
@@ -99,14 +98,12 @@
     transform-origin: 50% 0%;
     -webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
     transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
-    /*background-image: url(images/defaultPerspectiveSide.gif);*/
 }
 #perspectiveTopSide {
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
     -webkit-transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) matrix(1, 0, 0, -1, 0, 0);
     transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) matrix(1, 0, 0, -1, 0, 0);
-    /*background-image: url(images/defaultPerspectiveSide.gif);*/
     backface-visibility: visible;
 }
 #perspectiveRightSide {
@@ -114,13 +111,11 @@
     transform-origin: 0% 0%;
     -webkit-transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg);
     transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg);
-    /*background-image: url(images/defaultPerspectiveSide.gif);*/
 }
 #perspectiveLeftSide {
     -webkit-transform-origin: 100% 0%;
     transform-origin: 100% 0%;
     -webkit-transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg) matrix(-1, 0, 0, 1, 0, 0);
     transform: rotateX(45deg) rotateY(90deg) rotateZ(45deg) matrix(-1, 0, 0, 1, 0, 0);
-    /*background-image: url(images/defaultPerspectiveSide.gif);*/
     backface-visibility: visible;
 }

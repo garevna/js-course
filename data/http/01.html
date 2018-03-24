@@ -1,9 +1,9 @@
-﻿Создаем хранилище данных dataStore:<br/>
-<br/>
+﻿<p>Создаем хранилище данных <var_names>dataStore</var_names>:</p>
+<pre class = "code-snippet">
 var dataStore = new Vue ()<br/>
-<br/>
-Привязываем его к нашему экземпляру Vue:<br/>
-<pre>
+</pre>
+<p>Привязываем его к нашему экземпляру <spec_words>Vue</spec_words>:</p>
+<pre class = "code-snippet">
 var theApp = new Vue ({
   data: function () {
     return {
@@ -13,23 +13,23 @@ var theApp = new Vue ({
 }
 </pre>
 <hr/>
-Теперь мы сможем ссылаться на хранилище данных<br/>
-
-из экземпляра Vue так:        this.store<br/>
-из вложенных компонентов так: this.$root.store<br/>
-<hr/>
-В хранилище dataStore создаем объект data,
-где будем хранить данные:<br/>
-<pre>
+<p>Теперь мы сможем ссылаться на хранилище данных</p>
+<ul>
+<li>из экземпляра Vue так:        <spec_words>this.store</spec_words></li>
+<li>из вложенных компонентов так: <spec_words>this.$root.store</spec_words></li>
+</ul>
+<p>В хранилище <var_names>dataStore</var_names> создаем объект <spec_words>data</spec_words>,
+где будем хранить данные:</p>
+<pre class = "code-snippet">
 data: {
     mainDataIsReady: false,
     postDataIsReady: false,
     mainData: null,
     postData: null
 }
-</pre><hr/>
-Стартуем в экземпляре Vue асинхронную загрузку данных:<br/>
-<pre>
+</pre>
+<p>Стартуем в экземпляре <spec_words>Vue</spec_words> асинхронную загрузку данных:</p>
+<pre class = "code-snippet">
 mounted: function () {
     this.$http.get( this.mainDataSource ).then (
     	  this.mainDataSeccess,
@@ -41,19 +41,17 @@ mounted: function () {
     )
 }
 </pre>
-<hr/>
-После завершения загрузки отправляем событие на шину
-вместе с полученными данными:<br/>
-<pre>
+<p>После завершения загрузки отправляем событие на шину вместе с полученными данными:</p>
+<pre class = "code-snippet">
 mainDataSeccess: function ( response ) {
     this.store.$emit ( 'main-data-is-ready', response.body )
 }
 postDataSeccess: function ( response ) {
     this.store.$emit ( 'post-data-is-ready', response.body )
 }
-</pre><hr/>
-На шине принимаем данные:<br/>
-<pre>
+</pre>
+<p>На шине принимаем данные:</p>
+<pre class = "code-snippet">
 dataStore.$on ( 'main-data-is-ready', function ( theData ) {
   this.mainDataIsReady = true
   this.mainData = theData
@@ -65,12 +63,11 @@ dataStore.$on ( 'post-data-is-ready', function ( theData ) {
   this.postData = theData
   this.$emit ( 'post-data')
 })
-</pre><hr/>
-В компонентах TheFirst и TheSecond:<br/>
+</pre>
+<p>В компонентах <var_names>TheFirst</var_names> и <var_names>TheSecond</var_names>:</p>
 
-Вешаем обработчиков на событие от шины данных о том,
-что данные успешно загружены:<br/>
-<pre>
+<p>Вешаем обработчиков на событие от шины данных о том, что данные успешно загружены:</p>
+<pre class = "code-snippet">
 mounted: function () {
     this.$root.store.$on ( 'post-data',
             function ( val ) {
@@ -80,5 +77,5 @@ mounted: function () {
     )
 }
 </pre>
-И осталось совсем немного: делаем кнопки, при клике на которых
-текст полученных файлов будет выведен в компоненте<br/>
+<p>И осталось совсем немного: делаем кнопки, при клике на которых
+текст полученных файлов будет выведен в компоненте</p>

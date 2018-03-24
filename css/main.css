@@ -154,7 +154,6 @@ input[type="checkbox"] {
     background-repeat:no-repeat;
 }
 
-/* =============================================================== */
 @media screen and (max-width: 480px) , screen and (max-height: 480px) {
   li, pre { font-size: 13px; }
   p { line-height: 1.5em; margin-bottom: 12px; font-size: 13px; }

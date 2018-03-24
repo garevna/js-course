@@ -1,11 +1,4 @@
-﻿<style>
-  @charset "UTF-8";
-  p {
-    font-family: monospace, Arial;
-  }
-</style>
-
-<p>Создаем шину событий:</p>
+﻿<p>Создаем шину событий:</p>
 <pre class="code-snippet">
 var eventBus = new Vue ()
 </pre>
@@ -50,7 +43,7 @@ mounted: function () {
 }
 </pre>
 <p><b>(!)</b> внутри обработчика <spec_words>this</spec_words> указывает на контекст шины, поэтому
-  мы используем <spec_words>bind</spec_words>, чтобы контекст был экземпляра, а не шины</p>
+мы используем <spec_words>bind</spec_words>, чтобы контекст был экземпляра, а не шины</p>
 
 <p>То же самое - в компонентах:</p>
 <pre class="code-snippet">

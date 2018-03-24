@@ -39,7 +39,6 @@ import store from './DataStore'
 
 import mainCSS from './css/main.css'
 import forVuetify from './css/forVuetify.css'
-//import fonts from './css/fonts.css'
 
 new Vue ( {
 	store,

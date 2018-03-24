@@ -1,20 +1,4 @@
-﻿<style>
-  @charset "UTF-8";
-  @font-face {
-    font-family: 'Comic Sans MS';
-      src: url("../fonts/Comic Sans MS.ttf");
-      src: local('Comic Sans MS'), local('Comic Sans MS'),
-      url("../fonts/Comic Sans MS.eot") format("embedded-opentype"),
-      url("../fonts/Comic Sans MS.otf") format("opentype"),
-      url("../fonts/Comic Sans MS.woff") format("woff"),
-      url("../fonts/Comic Sans MS.svg");
-  }
-  body {
-    font-family: 'Comic Sans MS', monospace;
-  }
-</style>
-
-<p>Глобальная шина событий</p>
+﻿<h3>Глобальная шина событий</h3>
 <p>В <spec_words>Vue.js</spec_words> компоненты не могут взаимодействовать напрямую.
 Каждый компонент связан со своим родителем</p>
 <p>Эта связь работает следующим образом: через props данные передаются от родителя к потомку,
@@ -33,7 +17,7 @@
 <p>В нашем случае по этой шине будут проходить события, а не данные</p>
 
 <p><small>Этот способ кросс-компонентного обмена данными упоминается в официальных документах, но для больших
-  и сложных приложений он не подходит</small></p>
+и сложных приложений он не подходит</small></p>
 
 <p>Шина событий - это просто компонент <spec_words>Vue</spec_words>. Он должен быть выделенным компонентом</p>
 

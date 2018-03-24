@@ -4,7 +4,7 @@ const UserInfo = {
     data: function () {
         return {
             dialog: false
-	}
+	      }
     },
     computed: {
         user: function () {
@@ -32,7 +32,6 @@ const UserInfo = {
                           <v-card-text v-text = "user.email"></v-card-text>
                           <v-card-text v-text = "user.phoneNumber"></v-card-text>
                           <v-card-text v-text = "user.lastSignInTime"></v-card-text>
-
                           <v-card-actions>
                                     <v-spacer></v-spacer>
                                     <v-btn  flat = "flat"
@@ -63,6 +62,9 @@ const UserInfo = {
                       alertIcon = "warning"
 			          })
                 .catch ( function ( error ) {
+                      console.error ( 'SIGN OUT: Ошибка: ', error )
+                      console.log ( 'SIGN OUT: firebaseUser: ', this.firebaseUser )
+                      console.log ( 'SIGN OUT: firebaseAuthObject: ', this.firebaseAuthObject )
                       res = "failure"
                       alertMessage = "Не удалось выйти из аккаунта"
                       alertColor = "error"
