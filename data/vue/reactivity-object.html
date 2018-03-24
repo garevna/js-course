@@ -1,0 +1,59 @@
+﻿<p>Предположим, у нас есть объект <var_names>sampleData</var_names> с глубокой структурой,
+т.е. его свойства также являются объектами</p>
+
+<pre class="code-snippet">
+new Vue({
+  el: '#sample',
+  data: {
+      sampleData: {
+        figure: { id:'Кофе', type:'Лате' },
+        subject: {
+          type: 'чашка',
+          details: { volume: '250 мл', color: 'Синяя' }
+        }
+      }
+  }
+})
+</pre>
+
+<p>Свяжем свойства объекта с элементами <spec_words>input</spec_words> с помощью директивы <spec_words>v-model</spec_words></p>
+
+<pre class="code-snippet">
+&lt;input v-model="sampleData.figure.id" />
+&lt;input v-model="sampleData.figure.type" />
+&lt;input v-model="sampleData.subject.type" />
+...
+</pre>
+
+<p>Установим наблюдателя на наш объект</p>
+
+
+<pre class="code-snippet">
+watch: {
+    'sampleData': function ( newVal, oldVal ) {
+        console.warn ( 'Объект sampleData был изменен' )
+    }
+}
+</pre>
+
+<p>При изменении значений свойств объекта наблюдатель не срабатывает, т.е. объект не реактивен</p>
+
+<p>Теперь используем свойство <spec_words>handler</spec_words> наблюдателя объекта <var_names>sampleData</var_names>
+и его опцию <spec_words>deep</spec_words>:</p>
+<p><spec_words>handler</spec_words> - это обработчик события изменения наблюдаемого значения</p>
+
+<pre class="code-snippet">
+watch: {
+    'sampleData': {
+        handler: function ( newVal, oldVal ) {
+           console.warn ( 'Объект sampleData был изменен' )
+        }, deep: true
+    }
+}
+</pre>
+<p>Теперь изменение значений свойств объекта <var_names>sampleData</var_names> реактивно отбражается наблюдателем за счет того,
+что для свойства <spec_words>handler</spec_words> мы установили опцию
+<spec_words>deep</spec_words>: <var_names>true</var_names></p>
+<p>Попробуйте убрать эту опцию, и глубокие изменения в объекте <var_names>sampleData</var_names> перестанут быть реактивными <br/>
+( глубокие изменения - это изменение значений свойств вложенных объектов,
+например, <var_names>sampleData.subject.details</var_names> )</p>

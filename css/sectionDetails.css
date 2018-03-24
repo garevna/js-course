@@ -1,0 +1,9 @@
+@charset "utf-8";
+.section-container {
+	top:90px;
+	padding: 10px 20px 20px;
+}
+.select-post-topic {
+	top:95px!important;
+	max-height:70%!important;
+}

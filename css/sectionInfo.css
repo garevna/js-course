@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+.section-picture,
+.section-title {
+  	-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+  	user-select: none;
+}
+
+.section-picture {
+	max-width:10%;
+	min-width:80px;
+	float:right;
+	margin-left:20px;
+}
+.section-title {
+	width:100%;
+	padding-right:10px;
+	text-align:right;
+	font-size:24px;
+	font-weight:bold;
+	font-family: 'Jura', 'Didact Gothic', 'Roboto', sans-serif;
+	color:#fa0;
+}
+
+@media screen and (max-width:400px) {
+	.section-title { font-size:16px; }
+	.section-picture { max-height:20%; }
+	.section pre { font-size:12px; }
+}

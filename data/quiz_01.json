@@ -1,0 +1,513 @@
+{
+  "maxScore": 20,
+  "lives": 10,
+  "gameOverPictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSZVhfeXVPblhxNzA",
+  "successPictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSd3U0S09YUkkwanc",
+  "failurePictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSMzNOUGc3QndEOGM",
+  "levels": [
+    {
+      "type": "choice",
+      "picture": "https://d33wubrfki0l68.cloudfront.net/bfafcc3ea3a39fe3baae3a8d005f1c1076139b20/dbcc4/images/posts/reusable_transitions.jpg",
+      "codeHTML": [
+        "<main id = 'scene'>",
+        "    <section id = 'sample'>",
+        "        <div id = 'permission'",
+        "             v-if = 'access'>",
+        "            Привет",
+        "        </div>",
+        "        <div id = 'not-permitted'",
+        "             v-else>",
+        "            Пока",
+        "        </div>",
+        "    </section>",
+        "    <nav class = 'sample'></nav>",
+        "</main>"
+      ],
+      "codeJS": [
+        "var app = new Vue ({",
+        "    el: '#sample',",
+        "    data: {",
+        "       users: [",
+        "           { name: 'Иван', role: 'admin' },",
+        "           { name: 'Ксения', role: 'guest' },",
+        "           { name: 'Дмитрий', role: 'registered' }",
+        "       ]",
+        "       currentUser: 0",
+        "    },",
+        "    computed: {",
+        "       access: function () {",
+        "           return this.users [ this.currentUser ].role === 'admin' ?",
+        "                        'admitted' : 'denied'",
+        "       }",
+        "    }",
+        "})"
+      ],
+      "question": "На каком элементе будет смонтирован экземпляр Vue",
+      "rightChoicesNums": [ 1 ],
+      "balls": 2,
+      "choiceVariants": [
+        "main",
+        "section",
+        "div",
+        "nav",
+        "p",
+        "другое..."
+      ]
+    },
+    {
+      "type": "choice",
+      "codeHTML": [
+        "<main id = 'scene'>",
+        "    <section id = 'sample'>",
+        "        <div id = 'permission'",
+        "             v-if = 'access'>",
+        "            Привет, {{ user.name }}",
+        "        </div>",
+        "        <div id = 'not-permitted'",
+        "             v-else>",
+        "            Пока, {{ user.name }}",
+        "        </div>",
+        "    </section>",
+        "</main>"
+      ],
+      "codeJS": [
+        "var app = new Vue ({",
+        "    el: '#sample',",
+        "    data: {",
+        "       users: [",
+        "           { name: 'Иван', role: 'admin' },",
+        "           { name: 'Ксения', role: 'guest' },",
+        "           { name: 'Дмитрий', role: 'registered' }",
+        "       ]",
+        "       currentUser: 0",
+        "    },",
+        "    computed: {",
+        "       user: function () {",
+        "            return this.users [ this.currentUser ]",
+        "       }",
+        "       access: function () {",
+        "           return this.user.role === 'admin' ?",
+        "                        'admitted' : 'denied'",
+        "       }",
+        "    }",
+        "})"
+      ],
+      "question": "Что будет выведено на страницу",
+      "rightChoicesNums": [ 1 ],
+      "balls": 2,
+      "choiceVariants": [
+        "Привет, admin",
+        "Привет, Иван",
+        "Привет, Ксения",
+        "Привет, Дмитрий",
+        "Привет, guest",
+        "Привет, registered",
+        "Пока, Иван",
+        "Пока, Ксения",
+        "Пока, Дмитрий"
+      ]
+    },
+    {
+      "type": "input",
+      "question": "С помощью какой директивы можно связать элемент формы с переменной userName модели",
+      "inputLegend": {
+        "before": "<input type = 'text' ",
+        "after": " = 'userName'>"
+      },
+      "rightInput": "v-model",
+      "balls": 1
+    },
+    {
+      "type": "findError",
+      "question": "Найти и исправить ошибки в коде",
+      "wrongContent": [
+        "const UserInfo = ( 'user-info', {",
+        "    props: 'user',",
+        "    data: {",
+        "       ",
+        "           this.id = 'unknown'",
+        "           this.date = new Date ()",
+        "       ",
+        "    }",
+        "}"
+      ],
+      "rightContent": [
+        "const UserInfo = ( 'user-info', {",
+        "    props: ['user'],",
+        "    data: function () {",
+        "        return {",
+        "             id: 'unknown',",
+        "             date: new Date ()",
+        "        }",
+        "    }",
+        "}"
+      ],
+      "balls": 7
+    },
+    {
+      "type": "choice",
+      "question": "Как правильно вывести изображение на страницу, если ссылка на изображение находится в переменной sourceURL",
+      "rightChoicesNums": [
+        3
+      ],
+      "balls": 2,
+      "choiceVariants": [
+        "<img src = {{ sourceURL }}>",
+        "<img src = '{{ sourceURL }}'>",
+        "<img src = 'sourceURL'>",
+        "<img :src = 'sourceURL'>"
+      ]
+    },
+    {
+      "type": "choice",
+      "question": "Как динамически переключать класс изображения  по значению переменной модели",
+      "rightChoicesNums": [
+        0,
+        1
+      ],
+      "balls": 2,
+      "choiceVariants": [
+        "<img class = '{ wide: isWide, small: isIcon }' ... >",
+        "<img :class = 'className' ...>",
+        "<img  className = 'wide' ...>",
+        "<img  v-if = 'isIcon'  className = 'small'  ...>"
+      ]
+    },
+    {
+      "type": "findError",
+      "question": "Заменить ??? на нужные выражения",
+      "wrongContent": [
+        "<main id = 'scene'>",
+        "        <section v-for = '( ???, ??? ) in ???' :key = 'index'>",
+        "                <img v-if = '???' :src = '???'>",
+        "                <p> {{ index }} : {{ item.id }} </p>",
+        "        </section>",
+        "</main>"
+      ],
+      "rightContent": [
+        "<main id = 'scene'>",
+        "        <section v-for = '( item, index ) in pictures' :key = 'index' >",
+        "                <img v-if = 'item.show' :src = 'getURL(item.id)'>",
+        "                <p> {{ index }} : {{ item.id }} </p>",
+        "        </section>",
+        "</main>"
+      ],
+      "codeJS": [
+        "var app = new Vue ({",
+        "        el: '#scene',",
+        "        data: {",
+        "               pictures [",
+        "                   { show: false, id: 459000 },",
+        "                   { show: true, id: 459005 },",
+        "                   { show: true, id: 459008 }",
+        "               ]",
+        "        },",
+        "        methods: {",
+        "               getURL: function ( pictureId ) {",
+        "                       return 'https://static.pexels.com/photos/' +",
+        "                                pictureId + '/pexels-photo-' +",
+        "                                pictureId + '.jpeg'",
+        "               }",
+        "        }",
+        "})"
+      ],
+      "balls": 8
+    },
+    {
+      "type": "findError",
+      "question": "Заменить ??? на нужные выражения",
+      "codeJS": [
+        "var sample = new Vue  ( {",
+        "    el: '#sample',",
+        "    data: { text: 'Привет' },",
+        "    methods:  {",
+        "         changeContent: function () {",
+        "              this.text = 'До свидания'",
+        "         }",
+        "    }",
+        "})"
+      ],
+      "wrongContent": [
+        "<div id = '???'>",
+        "    <p> {{ text }} </p>",
+        "    <button v-on:??? = '???'>",
+        "        Изменить контент",
+        "    </button>",
+        "</div>"
+      ],
+      "rightContent": [
+        "<div id = 'sample'>",
+        "    <p> {{ text }} </p>",
+        "    <button v-on:click = 'changeContent'>",
+        "        Изменить контент",
+        "    </button>",
+        "</div>"
+      ],
+      "balls": 5
+    },
+    {
+      "type": "choice",
+      "question": "Что будет выведено при клике на кнопке, если пользователь ввел текст 'Пока' ?",
+      "codeHTML": [
+        "<main id='sample'>",
+        "     <h2>Введите текст</h2>",
+        "     <textarea v-model = 'message'>",
+        "     </textarea><br>",
+        "     <button v-show = 'message'>",
+        "          Показать сообщение",
+        "     </button>",
+        "     <p v-show = 'message'",
+        "        v-text = 'showMessage'>",
+        "     </p>",
+        "</main>"
+      ],
+      "codeJS": [
+        "var sample = new Vue  ({",
+        "     el: '#sample',",
+        "     data: { message: '...' },",
+        "     computed: {",
+        "          showMessage: function () {",
+        "               return '<div>' + ",
+        "                  this.message + '</div>'",
+        "          }",
+        "     }",
+        "})"
+      ],
+      "rightChoicesNums": [
+        3
+      ],
+      "balls": 1,
+      "choiceVariants": [
+        "...",
+        "Пока",
+        "<div>...</div>",
+        "<div>Пока</div>"
+      ]
+    },
+    {
+      "type": "input",
+      "question": "Введите правильное выражение, которым следует заменить ???",
+      "codeHTML": [
+        "<div id = 'example'>",
+        "     <p>Цена: {{ priceUSD }} USD</p>",
+        "     <p>Курс доллара: {{ courseUSD }}</p>",
+        "     <p>К оплате: {{ priceUA }} грн</p>",
+        "</div>"
+      ],
+      "codeJS": [
+        "const vm = new Vue ({",
+        "     el: '#example',",
+        "     data: {",
+        "          priceUSD: 10,",
+        "          courseUSD: 28",
+        "     },",
+        "     ???: {",
+        "          priceUA: function () {",
+        "               return this.priceUSD * this.courseUSD",
+        "          }",
+        "     }",
+        "})"
+      ],
+      "inputLegend": {
+        "before": "",
+        "after": ""
+      },
+      "rightInput": "computed",
+      "balls": 3
+    },
+    {
+      "type": "input",
+      "question": "Применить фильтр для вывода первых 10 символов текста",
+      "codeJS": [
+        "Vue.filter ( 'continueReading', ",
+        "    function ( text, length, suffix ) {",
+        "          return text.substring ( 0, length ) + suffix",
+        "})",
+        "new Vue ({",
+        "     el: '#app',",
+        "     data: {",
+        "          text: `",
+        "             Что б они ни делали - ",
+        "             не идут дела, ",
+        "             видно, в понедельник их ",
+        "             мама родила....`",
+        "     }",
+        "})"
+      ],
+      "inputLegend": {
+        "before": "<p>{{ text | ",
+        "after": "( 10, '...' ) }}</p>"
+      },
+      "rightInput": "continueReading",
+      "balls": 3
+    },
+    {
+      "type": "choice",
+      "question": "Какие директивы нужно использовать, чтобы вывести на страницу все изображения из массива pictures?",
+      "codeJS": [
+        "new Vue ({",
+        "     data: {",
+        "          pictures: [",
+        "             { id: '459101', section: 'Небо' },",
+        "             { id: '459201', section: 'Цветы' },",
+        "             { id: '459001', section: 'Птицы' },",
+        "             { id: '459505', section: 'Пейзажи' },",
+        "             { id: '760285', section: 'Фрукты' }",
+        "          ]",
+        "     },",
+        "     computed: {",
+        "          urls: function () {",
+        "               return  this.pictures.map ( x => ",
+        "                       'https://static.pexels.com/photos/' + ",
+        "                       x.id + '/pexels-photo-' + x.id + '.jpeg' )",
+        "          }",
+        "     }",
+        "}).$mount('#sample')"
+      ],
+      "rightChoicesNums": [
+        4,
+        6
+      ],
+      "balls": 1,
+      "choiceVariants": [
+        "v-if",
+        "v-show",
+        "v-html",
+        "v-text",
+        "v-bind",
+        "v-on",
+        "v-for",
+        "v-cloak"
+      ]
+    },
+    {
+      "type": "findError",
+      "question": "Заменить ??? на нужные выражения",
+      "codeJS": [
+        "new Vue ({",
+        "     data: {",
+        "          pictures: [",
+        "             { id: '459101', section: 'Небо' },",
+        "             { id: '459201', section: 'Цветы' },",
+        "             { id: '459001', section: 'Птицы' },",
+        "             { id: '459505', section: 'Пейзажи' },",
+        "             { id: '760285', section: 'Фрукты' }",
+        "          ],",
+        "          currentPicture: 'Небо'",
+        "     },",
+        "     computed: {",
+        "          refs: function () {",
+        "               return this.pictures.map ( x => ",
+        "                       'https://static.pexels.com/photos/' + ",
+        "                       x.id + '/pexels-photo-' + x.id + '.jpeg' )",
+        "          },",
+        "          elems: function () {",
+        "               return this.refs.map ( x => ",
+        "                   '<img src = ' + x + '>' )",
+        "          }",
+        "     }",
+        "}).$mount('#sample')"
+      ],
+      "wrongContent": [
+        "<main id = '???'>",
+        "     <section  v-for = '(item, index) in ???",
+        "               :key = 'index'>",
+        "         <div v-??? = 'item'></div>",
+        "     </section>",
+        "</main>"
+      ],
+      "rightContent": [
+        "<main id = 'sample'>",
+        "     <section  v-for = '(item, index) in elems",
+        "               :key = 'index'>",
+        "         <div v-html = 'item'></div>",
+        "     </section>",
+        "</main>"
+      ],
+      "balls": 4
+    },
+    {
+      "type": "choice",
+      "question": "Что происходит на этапе жизненного цикла beforeCreate",
+      "rightChoicesNums": [
+        5,
+        6,
+        7
+      ],
+      "choiceVariants": [
+        "Данные доступны",
+        "Методы доступны",
+        "Точка монтирования создана",
+        "Рендеринг темплейтов",
+        "Экземпляр смонтирован",
+        "Данные не доступны",
+        "Методы не доступны",
+        "Точка монтирования не создана"
+      ],
+      "balls": 5
+    },
+    {
+      "type": "choice",
+      "question": "Что происходит на этапе жизненного цикла created",
+      "rightChoicesNums": [
+        0,
+        1,
+        7
+      ],
+      "choiceVariants": [
+        "Данные доступны",
+        "Методы доступны",
+        "Точка монтирования создана",
+        "Рендеринг темплейтов",
+        "Экземпляр смонтирован",
+        "Данные не доступны",
+        "Методы не доступны",
+        "Точка монтирования не создана"
+      ],
+      "balls": 5
+    },
+    {
+      "type": "choice",
+      "question": "Что происходит на этапе жизненного цикла beforeMount",
+      "rightChoicesNums": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choiceVariants": [
+        "Данные доступны",
+        "Методы доступны",
+        "Точка монтирования создана",
+        "Рендеринг темплейтов",
+        "Экземпляр смонтирован",
+        "Данные не доступны",
+        "Методы не доступны",
+        "Точка монтирования не создана"
+      ],
+      "balls": 5
+    },
+    {
+      "type": "choice",
+      "question": "Что происходит на этапе жизненного цикла mounted",
+      "rightChoicesNums": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "choiceVariants": [
+        "Данные доступны",
+        "Методы доступны",
+        "Точка монтирования создана",
+        "Рендеринг темплейтов",
+        "Экземпляр смонтирован",
+        "Данные не доступны",
+        "Методы не доступны",
+        "Точка монтирования не создана"
+      ],
+      "balls": 5
+    }
+  ]
+}

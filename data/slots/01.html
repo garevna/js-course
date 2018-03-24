@@ -1,0 +1,126 @@
+﻿<style>
+    wrd {
+        color: #fa0;
+    }
+	  gr {
+		    color: gray;
+	  }
+    tm {
+      color: #5f5;
+    }
+    vr {
+      color: #0ef;
+    }
+</style>
+<p>Распределение контента - это передача фрагментов контента родителя дочернему компоненту</p>
+<p>Это совершенно не то же самое, что передача данных через props</p>
+<p>Данные, переданные через props, попадают в область видимости компонента</p>
+<p>При передаче контента компонент получает изолированный фрагмент родительского контента,
+к которому он не имеет доступа, и размещает эту 'капсулу' внутри своего шаблона в
+специальном плейсхолдере <spec_words>&lt;slot>&lt;/slot></spec_words></p>
+<p>Несмотря на то, что переданный контент размещен в дочернем компоненте, он остается
+в области видимости родителя, который контролирует ситуацию внутри своих 'капсул'</p>
+
+<p>Передача контента осуществляется путем его размещения внутри вызова компонента в разметке</p>
+<pre class = "code-snippet">
+&lt;child-component>
+        &lt;p>Это контент из родительского экземпляра&lt;/p>
+        &lt;img src = "..." >
+&lt;/child-component>
+</pre>
+<p>При отсутствии плейсхолдера <spec_words>&lt;slot>&lt;/slot></spec_words> в дочернем компоненте весь контент
+родителя, помещенный внутри контейнера дочернего компонента, будет проигнорирован</p>
+<p>При отсутствии родительского контента в контейнере дочернего компонента будет выводиться содержимое плейсхолдера
+<spec_words>&lt;slot>&lt;/slot></spec_words> в дочернем компоненте (т.е. если родитель не передаст контент, то
+дочерний компонент может использовать слот по своему усмотрению)</p>
+<br>
+<h3>Примеры</h3>
+<small>( сложные, с Vuetify )</small>
+
+<p>Эти примеры демонстрируют два важных аспекта</p>
+
+<p>Первое - возможность разнести логику и разметку с помощью слотов</p>
+
+<ui>
+  <li>компонент со слотами берет на себя разметку</li>
+  <li>родителю, передающему контент через слоты, остается только логика ( управление данными модели ).
+    Это значительно упрощает отладку</li>
+</ui>
+<p>Второе - управление данными внутри слота осуществляется из родителя</p>
+
+<p>В примерах использованы именованные слоты</p>
+
+<p>В действительности при достаточно сложной логике компонента и довольно
+трудоемкой разметке отладка превращается в сущий ад.</p>
+<p>В примерах вся разметка с использованием компонентов <spec_words>Vuetify</spec_words> вынесена в
+компонент <var_names>quizTemplate</var_names></p>
+<p>В компоненте <var_names>quizTemplate</var_names> предусмотрены плейсхолдеры (именованные слоты)
+для контента родителя</p>
+<p>В первом примере бизнес-логика модели находится в экземпляре <spec_words>Vue</spec_words></p>
+<p>Во втором примере бизнес-логика модели находится в компоненте QuizLevel</p>
+<p>В темплейте родительского компонента <var_names>QuizLevel</var_names> присутствует компонент
+<var_names>&lt;quiz-template></var_names>, внутри которого размещены фрагменты родительского контента,
+привязанного к конкретным слотам по их именам ("question", "choice", "text"...)</p>
+<p>Объект <var_names>quizData</var_names> находится в области видимости родительского компонента
+<var_names>QuizLevel</var_names>, так же, как и переменные <var_names>selected</var_names> и
+<var_names>answer</var_names></p>
+
+<pre class = "code-snippet">
+  <gr>
+  template: `
+  <tm>&lt;quiz-template</tm> :params = "params">
+      &lt;v-card-text <vr>slot</vr> = "question">
+            {{ <wrd>quizData</wrd>.question }}
+      &lt;/v-card-text>
+      &lt;v-card-text <vr>slot</vr> = "choice">
+          &lt;v-checkbox
+               v-for = "( ch, ind ) in <wrd>quizData</wrd>.choiceVariants"
+                      :key = "ind"
+                      :label = "ch"
+                      :value = "ind"
+                      hide-details
+                      v-model = "<wrd>selected</wrd>">
+          &lt;/v-checkbox>
+      &lt;/v-card-text>
+      &lt;v-card-text <vr>slot</vr> = "text" v-if = "<wrd>quizData</wrd>.type === 'input'">
+          &lt;v-text-field :suffix = "<wrd>quizData</wrd>.inputLegend ?
+                                   <wrd>quizData</wrd>.inputLegend.after : ''"
+                        :prefix = "<wrd>quizData</wrd>.inputLegend ?
+                                   <wrd>quizData</wrd>.inputLegend.before : ''"
+                        box
+                        v-model = "<wrd>answer</wrd>">
+          &lt;/v-text-field>
+      &lt;/v-card-text>
+      &lt;v-card-text <vr>slot</vr> = "html" v-if = "<wrd>quizData</wrd>.codeHTML">
+        &lt;pre v-for = "( line, i ) in <wrd>quizData</wrd>.codeHTML"
+             :key = "i"
+             v-text = "line">
+        &lt;/pre>
+      &lt;/v-card-text>
+      &lt;v-card-text <vr>slot</vr> = "js" v-if = "<wrd>quizData</wrd>.codeJS">
+         &lt;pre v-for="( item, index ) in <wrd>quizData</wrd>.codeJS"
+              :key = "index"
+              v-text = "item">
+         &lt;/pre>
+      &lt;/v-card-text>
+      &lt;v-card-text <vr>slot</vr> = "findError" v-if = "<wrd>quizData</wrd>.type === 'findError'">
+          &lt;div v-for = "( item, index ) in <wrd>quizData</wrd>.wrongContent"
+               :key = "index">
+            &lt;v-text-field :name = "index"
+                          class = "success"
+                          hide-details solo
+                          row-height = "18"
+                          v-model = "<wrd>quizData</wrd>.wrongContent [ index ]">
+            &lt;/v-text-field>
+          &lt;/div>
+      &lt;/v-card-text>
+    <tm>&lt;/quiz-template></tm>
+`</gr>
+</pre>
+
+<a href = "https://codepen.io/garevna/pen/ddgKMR" target = "_blank">
+  <img src = "../buttons/codepen.png" width = "50">
+</a>
+<a href = "https://plnkr.co/edit/9np2R9Az2h0eyKnDoeKX?p=preview" target = "_blank">
+  <img src = "../buttons/plunker.png" width = "50">
+</a>

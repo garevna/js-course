@@ -1,0 +1,109 @@
+html {
+	overflow: hidden!important;
+}
+
+.application.theme--dark {
+	background-color:transparent!important;
+	font-family: 'Montserrat', 'Roboto', sans-serif;
+	background-image: url(../images/columns.gif)!important;
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position: center center;
+}
+.application--wrap {
+    background-color:transparent!important;
+    min-height: 80vh!important;
+		top:50px;
+}
+.application.theme--light {
+      background-color:transparent!important;
+}
+.application .theme--dark.card, .theme--dark .card {
+    background-color: #02420590;
+    color: #fff;
+}
+
+/* .secondary {
+  color: #f8f4c3;
+}*/
+.container {
+      background-color: #36465d94;
+}
+
+.tooltip__content {
+	background-color: transparent;
+	border: 0;
+}
+.input-group  {
+	padding: 10px 20px;
+}
+.input-group__input {
+	padding: 10px;
+}
+.input-group--text-field label  {
+	padding: 0 20px;
+}
+aside.navigation-drawer {
+	height:85%;
+}
+.transparent {
+	background-color: transparent;
+	border:0;
+}
+.menu__activator {
+	margin-top: 10px;
+}
+.menu__content {
+	position: fixed;
+}
+.list {
+  padding: 0;
+  background: #ffaa00!important;
+}
+ul {
+  background-color: #fa0!important;
+}
+.list__tile {
+    background-color: #9b03a5;
+    color: #fff!important;
+}
+.list__tile--link {
+    background-color: #337256;
+    color: #fff;
+}
+.list__tile--active {
+    color: #ff8!important;
+}
+.navigation-drawer {
+	height: 100%;
+	background-color: #9b03a5;
+	color: #fa0;
+}
+.card__text {
+	min-height: fit-content;
+	text-shadow: 0px 0px 3px #000037ff;
+}
+.card__actions {
+	background-color: #9b03a5;
+}
+.card__actions .btn {
+    margin: 4px 15px;
+}
+.theme--dark .picker {
+    background-color: #9b03a5;
+}
+.picker .picker--date .card {
+    background-color: transparent!important;
+}
+.picker__body {
+    background-color: #004040!important;
+}
+.picker--date__header {
+    background-color: #9b03a5!important;
+}
+.picker--date__table {
+    background-color: #004040!important;
+}
+.expansion-panel__header {
+  font-family:Papyrus, monospace;
+}

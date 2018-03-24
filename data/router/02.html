@@ -1,0 +1,59 @@
+﻿<h3>Объект <spec_words>Route</spec_words></h3>
+<hr/>
+Текущий маршрут ( активный путь )<br/>
+Обновляется при каждом навигационном переходе<br/>
+<hr/>
+Доступ к объекту <spec_words>$route</spec_words><br/>
+Внутри компонента он доступен как <spec_words>this.$route</spec_words><br/>
+
+Изменения маршрута можно отслеживать:<br/>
+<pre class="code-snippet">
+    watch: {
+        '$route': function () {
+          ...
+        }
+    }
+</pre><br/>
+
+Свойства объекта <spec_words>Route</spec_words><br/>
+
+<spec_words>$route.path</spec_words>       тип: <spec_words>string</spec_words><br>
+<hr/>
+<spec_words>$route.params</spec_words>     тип: <spec_words>Object</spec_words><br/>
+
+Содержит параметры динамических сегментов<br/>
+<pre class="code-snippet">         { id: 'Boom' }</pre><br/>
+При отсутствии параметров пути будет пустым<br/>
+<hr/>
+<span class="spec">$route.query</span>      тип: <spec_words>Object</spec_words><br/>
+Содержит данные строки запроса (query string)<br/>
+Например:<br/>
+<pre class="code-snippet">
+     { user: "Tornado" }
+     для пути /?user="Tornado"
+     $route.query.user == "Tornado"
+</pre><br/>
+При отсутствии строки запроса будет пустым
+<hr/>
+<spec_words>$route.hash</spec_words>       тип: <spec_words>string</spec_words><br/>
+<hr/>
+Хэш-часть текущего пути ( после символа # )<br/>
+Пустая строка, если отсутствует<br/>
+<spec_words>$route.fullPath </spec_words>  тип: <spec_words>string</spec_words><br/>
+Полный URL, включая строку запроса и хэш<br/>
+<spec_words>$route.matched </spec_words>   тип: <spec_words>Array</spec_words><br/>
+Массив, содержащий объекты маршрутов всех вложенных сегментов текущего пути<br/>
+<pre class="code-snippet">
+    const router = new VueRouter({
+      routes: [
+        { path: '/user', component: User,
+            children: [
+              { path: 'profile', component: Profile }
+            ]
+        }
+      ]
+    })
+</pre><br/>
+Для URL, равного <var_names>/user/profile</var_names>, <spec_words>$route.matched</spec_words>
+будет массивом, содержащим копии обоих объектов, в порядке сортировки от родителя к потомку.<br/>
+<spec_words>$route.name</spec_words>   Имя текущего пути (не обязательно, но удобно)
