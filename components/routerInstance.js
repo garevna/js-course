@@ -13,6 +13,7 @@ Vue.use ( VueRouter )
 
 const router = new VueRouter ({
   props: ["id"],
+  model: 'history',
   routes: [
     {
       path: '/',

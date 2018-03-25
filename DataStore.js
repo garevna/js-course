@@ -17,7 +17,7 @@ const vueCourseStore = new Vuex.Store ({
 
       currentPostId: null,
       currentPostContent: null,
-      currentPostReadme: [],
+      currentPostReadmeItems: [],
 
       emptyPost: [{
           head: "В работе...",
@@ -198,6 +198,9 @@ const vueCourseStore = new Vuex.Store ({
     },
     setCurrentPostId: ( state, postId ) => {
       state.currentPostId = postId
+    },
+    setCurrentPostIdReadmeItems: ( state, items ) => {
+      state.currentPostReadmeItems = items
     },
     getMainData: ( state, mainData ) => {
         state.mainData = mainData

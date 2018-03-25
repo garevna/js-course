@@ -2,7 +2,7 @@
 .dev-tools, .firebase, .json-editor,
 .json-placeholder, .habr, .github,
 .laravel, .link, .mdn, .medium,
-.medium-1, .scotch-io, .snipcart, 
+.medium-1, .scotch-io, .snipcart,
 .ssu, .tuhub, .vue, .vue-developers,
 .vuetify, .vegibit, .unetway, .xteam {
   width: 30px;
@@ -60,6 +60,9 @@
 }
 .ssu {
   background-image: url(../images/ssu.svg);
+  width:80px;
+  height:30px;
+  background-size:contain;
 }
 .stdlib {
   background-image: url(../images/stdlib.png);

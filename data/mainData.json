@@ -22,6 +22,11 @@
     ],
     "usefull": [
       {
+        "ref": "https://ru.vuejs.org/",
+        "ico": "stdlib",
+        "comment": "Прогрессивный JavaScript-фреймворк"
+      },
+      {
         "ref": "https://medium.com/vue-mastery/why-43-of-front-end-developers-want-to-learn-vue-js-7f23348bc5be",
         "ico": "medium-1",
         "comment": "Why 43% of Front-End Developers want to learn Vue.js"

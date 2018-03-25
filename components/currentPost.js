@@ -8,12 +8,16 @@ const currentPost = ( 'current-post', {
     return {
         postObject: null,
         readmeContent: null,
+        readmeType: 'none',
         text: null,
         state: this.$root.$store.state,
         scrollPosition: 0
     }
   },
   computed: {
+      readmeItems: function () {
+          return this.readmeType !== 'js' ? [] : this.$root.$store.state.currenPostReadmeItems
+      },
       styleObject: {
         get: function () {
           return { top: this.scrollPosition + "px" }
@@ -41,8 +45,9 @@ const currentPost = ( 'current-post', {
 
         <full-screen-dialog-window
                   :__title = "postObject.head"
-                  :__text = "readmeContent"
-                  v-if = "readmeContent">
+                  :__content = "readmeContent"
+                  :__type = "readmeType"
+                  v-if = "readmeType !== 'none'">
         </full-screen-dialog-window>
 
         <bottom-sheet class = "dark transparent"
@@ -91,6 +96,22 @@ const currentPost = ( 'current-post', {
   `,
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
+      getScriptItems: function ( fileName ) {
+        var scriptElement = document.getElementById ( "dynamicJS" )
+        if ( scriptElement ) {
+          if ( scriptElement.src === fileName ) return
+          scriptElement.parentNode.removeChild ( scriptElement )
+        }
+        scriptElement = document.createElement ( 'script' )
+        document.getElementsByTagName('head')[0].appendChild ( scriptElement )
+        scriptElement.id = "dynamicJS"
+        var store = this.$store
+        scriptElement.onload = function () {
+            store.commit( 'setCurrentPostIdReadmeItems', items )
+            store.commit( 'setCurrentPostIdReadmeCommonText', items )
+        }
+        scriptElement.src = fileName
+      },
       getPostObject: function () {
         var getReady = new Promise ( ( resolve, reject ) => {
                 if ( this.state.sectionPosts && this.postName ) {
@@ -101,17 +122,24 @@ const currentPost = ( 'current-post', {
         })
         getReady.then ( res => {
             this.postObject = res
-            if ( !this.postObject.readme ) this.readmeContent = null
-            else
-              this.$root.$http.get ( this.postObject.readme ).then ( response => {
-                  this.readmeContent = response.body
-              })
-          if ( this.postObject.textURL )
-              this.$root.$http.get ( this.postObject.textURL ).then ( response => {
-                  this.text = response.body
-              })
-          else this.text = this.postObject.text
-        } )
+            if ( !this.postObject.readme ) {
+                this.readmeContent = null
+                this.readmeType = 'none'
+            } else {
+              this.readmeType = this.postObject.readme.indexOf ('.js') > 0 ? 'js' : 'html'
+              if ( this.readmeType === 'js' )
+                  this.getScriptItems ( this.postObject.readme )
+              else
+                  this.$root.$http.get ( this.postObject.readme ).then ( response => {
+                      this.readmeContent = response.body
+                  })
+            }
+            if ( this.postObject.textURL )
+                  this.$root.$http.get ( this.postObject.textURL ).then ( response => {
+                      this.text = response.body
+                  })
+            else this.text = this.postObject.text
+        })
       },
   },
   mounted: function () {

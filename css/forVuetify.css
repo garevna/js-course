@@ -25,6 +25,26 @@ html {
 
 .container {
       background-color: #36465d94;
+			max-width:900px;
+}
+.expansion-panel {
+		background-color: transparent!important;
+		max-width:900px;
+}
+.expansion-panel__body {
+    background-color: #0000006e;
+}
+ul.expansion-panel {
+		background-color: transparent!important;
+}
+.expansion-panel__container {
+		background-color: transparent!important;
+		border-top: 0.5px solid #ffffff50!important;
+}
+.expansion-panel__header {
+    font-family: 'Didact Gothic', 'Roboto', sans-serif!important;
+		font-size:18px;
+		color: #8fb6bf;
 }
 
 .tooltip__content {
