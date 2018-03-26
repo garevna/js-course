@@ -452,6 +452,39 @@
   ],
   "Components": [
     {
+      "head": "Компоненты Vue.js",
+      "picture": "",
+      "text": "Компоненты - это готовые модули для сборки приложения<br/>Большое приложение всегда состоит из модулей, выполняющих определенные функции<br/>Модули могут быть использованы в любом месте приложения<br/>Инкапсюляция данных внутри объекта компонента повышает надежность и стабильность работы приложения<br/>",
+      "code": [
+        "'use strict'",
+        "const sampleComponent = ( 'sample-component', {",
+        "     template: '#sample-template',",
+        "     data: function () {",
+        "         return {",
+        "            id: 'user',",
+        "            message: 'Hello'",
+        "         }",
+        "     }",
+        "})",
+        "export default sampleComponent"
+      ],
+      "textURL": "",
+      "readme": "./data/components/component-01.js",
+      "samples": [
+        "https://plnkr.co/edit/pljlTq8pP66s9vGwVnf5?p=preview",
+        "https://plnkr.co/edit/xIfn2BrnMQSxFdPhvxDp?p=preview",
+        "https://plnkr.co/edit/HsZfmLFLphYzDD6ljHKg?p=preview",
+        "https://plnkr.co/edit/o7ZYonXKQw0GKRd0Ii2O?p=preview"
+      ],
+      "usefull": [
+        {
+          "ref": "https://ru.vuejs.org/v2/guide/components.html",
+          "ico": "stdlib",
+          "comment": "Компоненты"
+        }
+      ]
+    },
+    {
       "head": "reactivity & array",
       "picture": "",
       "code": [
