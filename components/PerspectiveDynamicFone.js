@@ -6,7 +6,7 @@ const PerspectiveDynamicFone = {
     props: [ "level" ],
     data: function () {
         return {
-            personage: './images/astronaut.gif',
+            personage: 'images/astronaut.gif',
             winWidth: window.innerWidth,
             winHeight: window.innerHeight,
             mouseX: 0,
