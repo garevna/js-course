@@ -1,45 +1,24 @@
 ﻿{
   "Vue.js": [
     {
-      "head": "el",
+      "head": "Введение",
       "picture": false,
-      "code": [
-        "new Vue  ( {",
-        "  el: '…',",
-        "  data : { … },",
-        "  methods : { … },",
-        "  computed : { … },",
-        "  watch: {},",
-        "})"
-      ],
-      "text": "Экземпляр Vue является моделью.<br/>Модель необходимо связать с представлением, т.е. с элементом DOM.<br/>Для связывания модели с представлением (элементом DOM) служит свойство el экземпляра Vue",
-      "textURL": "",
+      "code": [],
+      "text": "",
+      "textURL": "./data/vue/vue-start.html",
+      "readme": "./data/vue/vue-start.js",
       "samples": [],
       "usefull": [
+        {
+          "ref": "https://ru.vuejs.org/",
+          "ico": "stdlib",
+          "comment": "Прогрессивный JavaScript-фреймворк"
+        },
         {
           "ref": "https://vuejs.org/v2/guide/instance.html",
           "ico": "vue",
           "comment": "The Vue Instance"
         },
-        {
-          "ref": "https://ru.vuejs.org/",
-          "ico": "stdlib",
-          "comment": "Прогрессивный JavaScript-фреймворк"
-        }
-      ]
-    },
-    {
-      "head": "$mount",
-      "picture": false,
-      "code": [
-        "const app = new Vue( {",
-        "   ...",
-        "}).$mount('#app')"
-      ],
-      "text": "При отсутствии свойства el экземпляра Vue связать модель с представлением можно с помощью метода $mount",
-      "textURL": "",
-      "samples": [],
-      "usefull": [
         {
           "ref": "https://www.neontsunami.com/posts/mounting-a-vue-instance-to-a-dom-element",
           "ico": "link",
@@ -53,7 +32,7 @@
       ]
     },
     {
-      "head": "data | computed",
+      "head": "Реактивные данные модели",
       "code": [
         "data : {",
         "  priceUSD: 10,",
@@ -65,8 +44,9 @@
         "  }",
         "}"
       ],
-      "text": "Объекты data и computed являются встроенными свойствами экземпляра Vue.<br/>Эти объекты содержат реактивные свойства модели, т.е. свойства, при изменении которых происходит автоматическое изменение представления",
+      "text": "﻿<p>Реактивными являются данные, которые объявлены в свойствах <spec_words>data</spec_words> и <spec_words>computed</spec_words></p>",
       "textURL": "",
+      "readme": "./data/vue/reactive-data.html",
       "samples": [
         "https://codepen.io/garevna/pen/QqEMoa",
         "https://codepen.io/garevna/pen/dZVqqZ"
@@ -93,8 +73,9 @@
         "  }",
         "}"
       ],
-      "text": "Вычисляемое свойство announcement будет пересчитано  только тогда, когда изменится одна из его зависимостей - userId или message.",
+      "text": "<p>Вычисляемое свойство announcement будет пересчитано  только тогда, когда изменится одна из его зависимостей - userId или message</p>",
       "textURL": "",
+      "readme": "./data/vue/computed.js",
       "samples": [
         "https://codepen.io/garevna/pen/veqNzL"
       ],
@@ -107,20 +88,10 @@
       ]
     },
     {
-      "head": "Reactivity",
-      "picture": false,
-      "code": false,
-      "text": "Реактивность массивов и объектов",
-      "textURL": "/vue-course.github.io/data/vue/reactivity-array.html",
-      "readme": "/vue-course.github.io/data/vue/reactivity-object.html",
-      "samples": [],
-      "usefull": []
-    },
-    {
       "head": "$emit",
       "picture": false,
       "code": false,
-      "text": "Метод, позволяющий эмитировать событие<br/>( подробнее см. раздел Events )",
+      "text": "<p>Метод, позволяющий эмитировать событие</p><p><small>( подробнее см. раздел Events )</small></p>",
       "textURL": "",
       "samples": [
         "https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
@@ -131,7 +102,7 @@
       "head": "Vuetify",
       "picture": "https://vuetifyjs.com/static/doc-images/logo.svg",
       "code": false,
-      "text": "Material Component Framework",
+      "text": "<p>Material Component Framework</p>",
       "textURL": "",
       "readme": "",
       "samples": [],
@@ -144,45 +115,10 @@
       ]
     },
     {
-      "head": "CSS",
-      "picture": "./images/css3.png",
-      "code": [
-        "// Условное подключение класса active ",
-        "// в зависимости от значения переменной isActive",
-        "<div :class = '{ active: isActive }'></div>",
-        "// Можно передавать объект классов по ссылке",
-        "<div :class = 'classObject'></div>",
-        "// В объекте data компонента или экземпляра",
-        "// объект classObject должен быть объявлен",
-        "data: {",
-        "    classObject: {",
-        "        active: true,",
-        "        'text-danger': false",
-        "    }",
-        "}",
-        "// Можно подключить сразу несколько классов ",
-        "<div :class = '[ firstClass, secondClass ]'></div>",
-        "// Можно использовать тернарный оператор",
-        "<div :class = '[ isFirst ? firstClass : secondClass ]'>",
-        "</div>"
-      ],
-      "text": "Различные способы привязки стилей и классов",
-      "textURL": "",
-      "readme": "",
-      "samples": [],
-      "usefull": [
-        {
-          "ref": "https://ru.vuejs.org/v2/guide/class-and-style.html",
-          "ico": "link",
-          "comment": "Работа с классами и стилями"
-        }
-      ]
-    },
-    {
       "head": "vue-devtools",
       "picture": false,
       "code": false,
-      "text": "Расширение Chrome для vue-разработчика",
+      "text": "<p>Расширение Chrome для vue-разработчика</p>",
       "textURL": "",
       "readme": "./data/vue/devtools.html",
       "samples": [
@@ -222,7 +158,7 @@
         "     <p>{{ 'windows' | bigLetters }}</p>",
         "</div>"
       ],
-      "text": "Собственные фильты можно зарегистрировать глобально и локально<br/>Объявление фильтра нужно делать до создания экземпляра Vue<br/>Фильтры - это обычные функции, поэтому им можно передавать параметры",
+      "text": "<p>Собственные фильты можно зарегистрировать глобально и локально</p><p>Объявление фильтра нужно делать до создания экземпляра Vue</p><p>Фильтры - это обычные функции, поэтому им можно передавать параметры</p>",
       "textURL": "",
       "readme": false,
       "samples": [
@@ -254,8 +190,28 @@
     {
       "head": "life cycle",
       "picture": false,
-      "code": [],
-      "text": "Хуки жизненного цикла",
+      "code": [
+        "new Vue ({",
+        "     beforeCreate: function () {",
+        "     }",
+        "     created: function () {",
+        "     }",
+        "     beforeMount: function () {",
+        "     }",
+        "     mounted: function () {",
+        "     }",
+        "     beforeDestroy: function () {",
+        "     }",
+        "     destroied: function () {",
+        "     }",
+        "})",
+        "// index.html:",
+        "<div id='sample'>",
+        "     <p>{{ price | toUA }}</p>",
+        "     <p>{{ 'windows' | bigLetters }}</p>",
+        "</div>"
+      ],
+      "text": "<p>Хуки жизненного цикла</p>",
       "textURL": "",
       "readme": false,
       "samples": [
@@ -300,7 +256,7 @@
         "// сокращенная запись:",
         "<img :src = 'imageSrc'/>"
       ],
-      "text": "Динамически связывает атрибуты тега или входной параметр компонента с выражением",
+      "text": "<p>Динамически связывает атрибуты тега или входной параметр компонента с выражением</p>",
       "textURL": "",
       "samples": [
         "https://codepen.io/garevna/pen/eGRawR",
@@ -309,10 +265,45 @@
       "usefull": []
     },
     {
+      "head": "CSS",
+      "picture": "./images/css3.png",
+      "text": "<p>Привязка стилей и классов с помощью директивы v-bind</p><p></p>",
+      "code": [
+        "// Условное подключение класса active ",
+        "// в зависимости от значения переменной isActive",
+        "<div :class = '{ active: isActive }'></div>",
+        "// Можно передавать объект классов по ссылке",
+        "<div :class = 'classObject'></div>",
+        "// В объекте data компонента или экземпляра",
+        "// объект classObject должен быть объявлен",
+        "data: {",
+        "    classObject: {",
+        "        active: true,",
+        "        'text-danger': false",
+        "    }",
+        "}",
+        "// Можно подключить сразу несколько классов ",
+        "<div :class = '[ firstClass, secondClass ]'></div>",
+        "// Можно использовать тернарный оператор",
+        "<div :class = '[ isFirst ? firstClass : secondClass ]'>",
+        "</div>"
+      ],
+      "textURL": "",
+      "readme": "",
+      "samples": [],
+      "usefull": [
+        {
+          "ref": "https://ru.vuejs.org/v2/guide/class-and-style.html",
+          "ico": "link",
+          "comment": "Работа с классами и стилями"
+        }
+      ]
+    },
+    {
       "head": "v-model",
       "picture": "",
       "code": [],
-      "text": "Служит для двустороннего связывания потомка и родителя.<br/>Соответствующее свойство, указанное в директиве, может быть изменено в потомке, что будет реактивно отражено в родителе.<br/>Обычно используется для элементов форм",
+      "text": "<p>Служит для двустороннего связывания потомка и родителя</p><p>Соответствующее свойство, указанное в директиве, может быть изменено в потомке, что будет реактивно отражено в родителе</p><p>Обычно используется для элементов форм</p>",
       "textURL": "",
       "samples": [
         "https://codepen.io/garevna/pen/aLypvq",
@@ -333,7 +324,7 @@
         "  {{ item.price }}",
         "</div>"
       ],
-      "text": "Служит для создания группы элементов на основе массива входных данных.<br/>Данные массива могут быть как примитивами, так и объектами или массивами",
+      "text": "<p>Служит для создания группы элементов на основе массива входных данных</p><p>Данные массива могут быть как примитивами, так и объектами или массивами</>",
       "textURL": "",
       "samples": [
         "https://codepen.io/garevna/pen/EwXGPB"
@@ -350,7 +341,7 @@
       "head": "v-show",
       "picture": "",
       "code": [],
-      "text": "Директива, позволяющая управлять отображением элементов в представлении на основании значений переменных модели",
+      "text": "<p>Директива, позволяющая управлять отображением элементов в представлении на основании значений переменных модели</p>",
       "textURL": "",
       "samples": [
         "https://codepen.io/garevna/pen/OxjRJW"
@@ -370,7 +361,7 @@
         "<p v-if='expr'>{{ message }}</p>",
         "<p v-else> {{ error }}</p>"
       ],
-      "text": "Условный рендеринг.<br/>В отличие от директивы v-show, добавляет или удаляет элемент DOM в зависимости от значения условного выражения expr.<br/>Директива v-else обеспечивает рендеринг альтернативного варианта, если условное выражение expr принимает значение false",
+      "text": "<p>Условный рендеринг</p><p>В отличие от директивы v-show, добавляет или удаляет элемент DOM в зависимости от значения условного выражения expr</p><p>Директива v-else обеспечивает рендеринг альтернативного варианта, если условное выражение expr принимает значение false</p>",
       "textURL": "",
       "samples": [
         "https://codepen.io/garevna/pen/EwvgKJ",
@@ -391,7 +382,7 @@
         "<p v-html = 'showMessage'></p>",
         "<p v-text = 'showMessage'></p>"
       ],
-      "text": "Вывод текстовых значений<br/>Директива v-text позволяет вывести текстовое содержимое переменной, а v-html - вывести это содержимое как html-код",
+      "text": "<p>Вывод текстовых значений</p><p>Директива v-text позволяет вывести текстовое содержимое переменной, а v-html - вывести это содержимое как html-код</p>",
       "textURL": "",
       "samples": [
         "https://repl.it/@garevna/Vue-v-html-vs-v-text"
@@ -416,7 +407,7 @@
         "    Кликни!",
         "</button>"
       ],
-      "text": "Прикрепляет к элементу прослушиватель событий.<br/>Тип события является аргументом директивы.",
+      "text": "<p>Прикрепляет к элементу прослушиватель событий</p><p>Тип события является аргументом директивы</p>",
       "textURL": "",
       "samples": [
         "https://codepen.io/garevna/pen/PJjgPm",
@@ -444,7 +435,7 @@
         "  {{ message }}",
         "</div>"
       ],
-      "text": "Элемент не будет показан до окончания компиляции.<br/>Эта директива позволяет избежать отображения 'усатого' ( {{...}} ) синтаксиса клиенту",
+      "text": "<p>Элемент не будет показан до окончания компиляции</p><p>Эта директива позволяет избежать отображения 'усатого' ( {{...}} ) синтаксиса клиенту</p>",
       "textURL": "",
       "samples": [],
       "usefull": []
@@ -454,7 +445,7 @@
     {
       "head": "Компоненты Vue.js",
       "picture": "",
-      "text": "Компоненты - это готовые модули для сборки приложения<br/>Большое приложение всегда состоит из модулей, выполняющих определенные функции<br/>Модули могут быть использованы в любом месте приложения<br/>Инкапсюляция данных внутри объекта компонента повышает надежность и стабильность работы приложения<br/>",
+      "text": "<p>Компоненты - это готовые модули для сборки приложения</p><p>Большое приложение всегда состоит из модулей, выполняющих определенные функции</p><p>Модули могут быть использованы в любом месте приложения</p><p>Инкапсюляция данных внутри объекта компонента повышает надежность и стабильность работы приложения</p>",
       "code": [
         "'use strict'",
         "const sampleComponent = ( 'sample-component', {",
@@ -496,7 +487,7 @@
         "   }",
         "}"
       ],
-      "text": "Отслеживание изменения значений реактивных данных модели<br/>Поскольку массивы передаются по ссылке, а не по значению, изменение значений отдельных элементов массива не будет регистрироваться реактивной системой Vue (ведь ссылка при этом не меняется)",
+      "text": "<p>Отслеживание изменения значений реактивных данных модели</p><p>Поскольку массивы передаются по ссылке, а не по значению, изменение значений отдельных элементов массива не будет регистрироваться реактивной системой Vue (ведь ссылка при этом не меняется)</p>",
       "textURL": "",
       "readme": "./data/components/reactivity-array.html",
       "samples": [
@@ -534,7 +525,7 @@
       ],
       "text": "Отслеживание изменения значений реактивных данных модели<br/>Глубокое отслеживание объектов<br/>",
       "textURL": "",
-      "readme": "./data/vue/reactivity-object.html",
+      "readme": "./data/components/reactivity-object.html",
       "samples": [
         "https://plnkr.co/edit/XkqjUURxbw5WtFq0rK0J?p=preview",
         "https://plnkr.co/edit/HJKbjwFpifE4RxD2JjTG?p=preview"

@@ -1,0 +1,25 @@
+:root {
+  --textColor: #8fb6bf;
+  --primary: #36465d;
+	--background: #15253090;
+  --expansionBodyBackground: #002030c0;
+	--expansionHeaderColor: #023;
+	--greenText: #409940;
+	--magenta: #9b03a5;
+	--orange: #fa0;
+	--pickerBackground: #004040;
+
+  --specWordsColor: #cd47e2;
+  --userNamesColor: #e09050;
+  --codeSnippetBack: #3b596d90;
+  --codeSnippetColor: #a0b8e8;
+
+  --elementTop: 0;
+  /*--offsetTop: 0;*/
+  --winHeight: 0;
+  --winWidth: 0;
+  --textPaddingLeft: 0;
+  --pictureLeft: 0;
+  --pictureTop: 0;
+  --pictureSize:0;
+}

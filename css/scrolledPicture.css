@@ -1,0 +1,18 @@
+.resized {
+    height: var(--winHeight);
+    overflow-y:auto;
+}
+.textContainer {
+  padding-left: var(--textPaddingLeft);
+}
+.scrolledPicture {
+  position: absolute;
+  width: var(--pictureSize);
+  height: var(--pictureSize);
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: var(--pictureLeft);
+  top: var(--pictureTop);
+  transition: all 0.5s;
+}

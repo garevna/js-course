@@ -6,7 +6,7 @@ const glob = require("glob")
 const webpack = require("webpack")
 
 module.exports = {
-    entry: './vueInstance.js',
+    entry: './components/vueInstance.js',
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'build')

@@ -1,7 +1,6 @@
 html {
 	overflow: hidden!important;
 }
-
 .application.theme--dark {
 	background-color:transparent!important;
 	font-family: 'Montserrat', 'Roboto', sans-serif;
@@ -19,32 +18,37 @@ html {
       background-color:transparent!important;
 }
 .application .theme--dark.card, .theme--dark .card {
-    background-color: #02420590;
-    color: #fff;
+    background-color: var(--expansionBodyBackground);
+    color: var(--textColor);
 }
 
 .container {
-      background-color: #36465d94;
-			max-width:900px;
+      background-color: var(--expansionBodyBackground);
+			max-width:1000px;
 }
 .expansion-panel {
 		background-color: transparent!important;
 		max-width:900px;
 }
 .expansion-panel__body {
-    background-color: #0000006e;
+    background-color: var(--expansionBodyBackground);
 }
 ul.expansion-panel {
 		background-color: transparent!important;
 }
-.expansion-panel__container {
+.theme--dark .expansion-panel .expansion-panel__container, .expansion-panel__container {
 		background-color: transparent!important;
 		border-top: 0.5px solid #ffffff50!important;
+		color: var(--textColor);
+}
+.expansion-panel__body .card {
+		color: var(--textColor);
 }
 .expansion-panel__header {
     font-family: 'Didact Gothic', 'Roboto', sans-serif!important;
 		font-size:18px;
-		color: #8fb6bf;
+		color: var(--expansionHeaderColor);
+		font-weight:bold;
 }
 
 .tooltip__content {
@@ -75,10 +79,10 @@ aside.navigation-drawer {
 }
 .list {
   padding: 0;
-  background: #ffaa00!important;
+  background: var(--orange)!important;
 }
 ul {
-  background-color: #fa0!important;
+  background-color: var(--orange)!important;
 }
 .list__tile {
     background-color: #9b03a5;
@@ -98,30 +102,27 @@ ul {
 }
 .card__text {
 	min-height: fit-content;
-	text-shadow: 0px 0px 3px #000037ff;
+	text-shadow: 0px 0px 3px #161e25;
 	padding: 20px 30px;
 }
 .card__actions {
-	background-color: #9b03a5;
+	background-color: var(--magenta);
 }
 .card__actions .btn {
     margin: 4px 15px;
 }
 .theme--dark .picker {
-    background-color: #9b03a5;
+    background-color: var(--magenta);
 }
 .picker .picker--date .card {
     background-color: transparent!important;
 }
 .picker__body {
-    background-color: #004040!important;
+    background-color: var(--pickerBackground)!important;
 }
 .picker--date__header {
-    background-color: #9b03a5!important;
+    background-color: var(--magenta)!important;
 }
 .picker--date__table {
-    background-color: #004040!important;
-}
-.expansion-panel__header {
-  font-family:Papyrus, monospace;
+    background-color: var(--pickerBackground)!important;
 }

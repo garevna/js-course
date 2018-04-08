@@ -8,5 +8,5 @@
 }
 .snippet {
   margin-left: -50px;
-  color: #acf;
+  color: var(--codeSnippetColor);
 }

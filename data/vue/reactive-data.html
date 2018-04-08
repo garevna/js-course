@@ -1,0 +1,28 @@
+﻿<p>Различие между данными объектов <spec_words>data</spec_words> и <spec_words>computed</spec_words> заключается в способе изменения их значений</p>
+<p>Значения свойств объекта <spec_words>data</spec_words> можно изменять непосредственно, например, с помощью операторов присваивания</p>
+<p>Вычисляемые свойства объекта <spec_words>computed</spec_words> являются функциями, возвращающими значение, т.е. их значения вычисляются при вызове функции</p>
+<p>Эти функции используют реактивные свойства объекта <spec_words>data</spec_words> для вычисления возвращаемых значений</p>
+<p>Используемые в вычислениях свойства объекта <spec_words>data</spec_words> являются <spec_words><em>зависимостями</em></spec_words> вычисляемых свойств</p>
+<p>Значения свойств объекта <spec_words>computed</spec_words> вычисляются реактивной системой Vue при изменении значений зависимостей</p>
+<p>Таким образом, при отсутствии зависимостей свойства объекта <spec_words>computed</spec_words> пересчитываться не будут</p>
+
+<pre class = "snippet">
+        data: {
+            ind: 0,
+            messages: [
+                "Hello",
+                "What is your name?",
+                "We are glad to meet you"
+            ]
+        },
+        computed: {
+            message: () => this.messages [ this.ind ],
+            randomVal: () => Math.round ( Math.random () * 100 )
+        }
+</pre>
+
+<p>В этом примере свойство <var_names>message</var_names> имеет зависимости <var_names>messages</var_names> и <var_names>ind</var_names></p>
+<p>Каждый раз, когда значение одной из этих зависимостей будет меняться, значение переменной <var_names>message</var_names> будет пересчитываться и DOM будет обновляться</p>
+<p>Т.е. свойство <var_names>message</var_names> будет реактивным</p>
+<p>Свойство <var_names>randomVal</var_names> не имеет зависимостей, оно не связано ни с одной их переменных объекта <spec_words>data</spec_words></p>
+<p>Значение свойства <var_names>randomVal</var_names> пересчитываться не будет, т.е. оно не является реактивным, хотя мы и поместили его в <spec_words>computed</spec_words></p>

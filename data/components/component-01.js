@@ -287,5 +287,85 @@
           </pre>
           <p>Для изучения событийной модели смотрите раздел <var_names>Events</var_names></p>
       `
+    },
+    {
+      header: "Полный перечень свойств компонента",
+      content: `
+          <pre class = "snippet" style = "overflow: hidden">
+          o { _uid: 3, _isVue: true, $options: {…}, _renderProxy: o, _self: o, … }
+          <var_names>$attrs</var_names>: (...)
+          <var_names>$children</var_names>: []
+          <var_names>$createElement</var_names>: ƒ (e,t,n,r)
+          <var_names>$el</var_names>: div.container$listeners: (...)
+          <var_names>$options</var_names>: { parent: o, _parentVnode: le, _parentElm: null, _refElm: null, propsData: {…}, … }
+          <var_names>$parent</var_names>: o { _uid: 2, _isVue: true, $options: {…}, _renderProxy: o, _self: o, … }
+          <var_names>$refs</var_names>: {}
+          <var_names>$root</var_names>: hn { _uid: 1, _isVue: true, $options: {…}, _renderProxy: hn, _self: hn, … }
+          <var_names>$scopedSlots</var_names>: {}
+          <var_names>$slots</var_names>: {}
+          <var_names>$vnode</var_names>: le { tag: "vue-component-104-card-template", data: {…}, children: undefined, text: undefined, elm: div.container, … }
+          defaultPicture: (...)
+          elem: (...)
+          elemHeight: (...)
+          elemWidth: (...)
+          offsetTop: (...)
+          onScroll: ƒ ()
+          picture: (...)
+          pictureSize: (...)
+          rootSection: (...)
+          rootStyles: (...)
+          styles: (...)
+          text: (...)
+          winHeight: (...)
+          winWidth: (...)
+          _c: ƒ (e,t,n,r)
+          <spec_words>_data</spec_words>: {…}
+          <spec_words>_directInactive</spec_words>: false_events: {}
+          <spec_words>_hasHookEvent</spec_words>: false
+          <spec_words>_inactive</spec_words>: null
+          <spec_words>_isBeingDestroyed</spec_words>: false
+          <spec_words>_isDestroyed</spec_words>: false
+          <spec_words>_isMounted</spec_words>: true
+          _isVue: true
+          <spec_words>_props</spec_words>: {}
+          _renderProxy: o { _uid: 3, _isVue: true, $options: {…}, _renderProxy: o, _self: o, … }
+          <spec_words>_self</spec_words>: o { _uid: 3, _isVue: true, $options: {…}, _renderProxy: o, _self: o, … }
+          _staticTrees: null
+          _uid: 3
+          _vnode: le { tag: "div", data: {…}, children: Array(3), text: undefined, elm: div.container, … }
+          _watcher: St { vm: o, sync: false, lazy: false, user: false, deep: false, …}
+          <spec_words>_watchers</spec_words>: [St]
+          <var_names>$data</var_names>: (...)
+          <var_names>$isServer</var_names>: (...)
+          <var_names>$props</var_names>: (...)
+          <var_names>$ssrContext</var_names>: (...)
+          get $attrs: ƒ ()
+          set $attrs: ƒ (e)
+          get $listeners: ƒ ()
+          set $listeners: ƒ (e)
+          get defaultPicture: ƒ ()
+          set defaultPicture: ƒ (e)
+          get elem: ƒ ()set elem: ƒ (e)
+          get elemHeight: ƒ ()
+          set elemHeight: ƒ (e)
+          get elemWidth: ƒ ()
+          set elemWidth: ƒ (e)
+          get offsetTop: ƒ ()
+          set offsetTop: ƒ (e)
+          get pictureSize: ƒ ()
+          set pictureSize: ƒ (e)
+          get rootSection: ƒ ()
+          set rootSection: ƒ (e)
+          get rootStyles: ƒ ()
+          set rootStyles: ƒ (e)
+          get styles: ƒ ()
+          set styles: ƒ (e)
+          get winHeight: ƒ ()
+          set winHeight: ƒ (e)
+          get winWidth: ƒ ()
+          set winWidth: ƒ (e)
+          __proto__: hn
+      </pre>
+      `
     }
 ]

@@ -31,8 +31,8 @@ const FullScreenDialogWindow = {
               <v-spacer></v-spacer>
 
           </v-toolbar>
-          <v-layout class = "transparent" v-if = "__type === 'html'">
-            <v-flex xs12 sm10 md8 lg6 mx-auto>
+          <v-layout class = "columns" v-if = "__type === 'html'">
+            <v-flex xs12 sm10 md8 lg6 mx-auto class = "dark-glass">
               <v-card-text class = "transparent"
                        style = "padding-top: 80px;"
                        v-html = "__content">

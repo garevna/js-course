@@ -30,7 +30,7 @@ const quizTemplate = {
                           top:0;left:0;
                           bottom:30px;right:0">
         <v-flex d-flex xs12 mx-auto>
-          <v-card dark color = "warning">
+          <v-card dark color = "warning white--text">
             <slot name = "question"></slot>
           </v-card>
         </v-flex>

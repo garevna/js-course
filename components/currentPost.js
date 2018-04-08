@@ -2,6 +2,7 @@
 
 import BottomSheet from './bottomSheet'
 import FullScreenDialogWindow from './FullScreenDialogWindow'
+import cardTemplate from './cardTemplate'
 
 const currentPost = ( 'current-post', {
   data: function () {
@@ -55,8 +56,10 @@ const currentPost = ( 'current-post', {
                       :usefull_links = "postObject.usefull">
         </bottom-sheet>
       </v-toolbar>
-      <v-card color = "transparent" class = "white--text">
-        <v-container fluid grid-list-lg>
+      <card-template v-resize = "$root.windowResized" :text="text" :picture="postObject.picture">
+      </card-template>
+      <v-card>
+        <!--<v-container fluid grid-list-lg class = "transparent">
           <v-layout row wrap>
             <v-flex xs12 sm8>
                 <div v-html = "text"></div>
@@ -67,7 +70,9 @@ const currentPost = ( 'current-post', {
                   height = "200"
                   contain
                 ></v-card-media>
-            </v-flex>
+            </v-flex>-->
+
+          <v-container fluid grid-list-lg class = "transparent">
             <v-flex xs12>
               <div class = "code-snippet" v-if = "codeExist">
                 <div v-for = "(code_item, index) in postObject.code"
@@ -147,7 +152,8 @@ const currentPost = ( 'current-post', {
   },
   components: {
     'bottom-sheet': BottomSheet,
-    'full-screen-dialog-window': FullScreenDialogWindow
+    'full-screen-dialog-window': FullScreenDialogWindow,
+    'card-template': cardTemplate
   }
 })
 export default currentPost

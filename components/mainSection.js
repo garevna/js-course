@@ -55,7 +55,7 @@ const MainSection = {
     'toggle-buttons': ToggleButtons
   },
   template: `
-    <v-container id = "mainSection" class = "pa-0 mx-auto">
+    <v-container id = "mainSection" class = "transparent pa-0 mx-auto">
       <router-view></router-view>
     </v-container>
   `

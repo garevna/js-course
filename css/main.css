@@ -1,5 +1,6 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Jura|Mina|Comfortaa|Montserrat|Roboto');
+
 body {
   position:absolute;
   top:0;
@@ -8,27 +9,30 @@ body {
   right:0;
   margin:0px;
   overflow:hidden;
-  background-color: #36465d!important;
+  background-color: var(--primary)!important;
   background-size:100%;
   background-repeat:no-repeat;
   background-position: top center;
   font-family: 'Montserrat', sans-serif!important;
   font-size:15px;
 }
-
+.dark-glass {
+  background-color: var(--expansionBodyBackground)!important;
+}
 spec_words, var_names {
     font-weight: bold;
 }
 spec_words {
-    color: #0ef;
+    color: var(--specWordsColor);
 }
 var_names {
-    color: #f90;
+    color: var(--userNamesColor);
 }
 p {
-  text-indent: 25px;
-  text-align:justify;
-  line-height: 2.0em;
+    text-indent: 25px;
+    text-align:justify;
+    line-height: 2.0em;
+    color: var(--textColor);
 }
 .columns {
 	background-image: url(../images/columns.gif)!important;
@@ -80,7 +84,7 @@ footer {
 	background-size:80px;
 	background-position:10px 3px;
 	background-repeat:no-repeat;
-  font-family: Papyrus;
+  font-family: Papyrus,fantasy,cursive;
 }
 .main-content {
 	position:fixed;
@@ -124,14 +128,14 @@ input[type="checkbox"] {
 	font-family: monospace;
 	font-size:15px;
 	overflow:auto;
-	color:#fff;
 	position:relative;
 	top:10px;
 	left:-5px;
 	right:10px;
 	box-shadow: inset 4px 4px 8px rgba(0,0,0,0.5);
 	margin-bottom:30px;
-  background-color: #0000006e;
+  background-color: var(--codeSnippetBack);
+  color: var(--codeSnippetColor);
 }
 .code-snippet > p {
 	margin-top: 0;

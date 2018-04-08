@@ -19,7 +19,7 @@
 	font-size:24px;
 	font-weight:bold;
 	font-family: 'Jura', 'Didact Gothic', 'Roboto', sans-serif;
-	color:#fa0;
+	color:var(--orange);
 }
 
 @media screen and (max-width:400px) {
