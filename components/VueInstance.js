@@ -47,8 +47,8 @@ new Vue ( {
 	router,
 	data: function () {
 		return {
-			mainDataSource: "../data/mainData.json",
-			postDataSource: "../data/posts.json",
+			mainDataSource: "data/mainData.json",
+			postDataSource: "data/posts.json",
 			usersDBref: null,
 			messagesDBref: null,
 			newMessage: {},
@@ -162,13 +162,13 @@ new Vue ( {
 		},
 		startNewQuiz: function () {
 			this.startQuiz = true
-			this.$http.get ( '../data/perspectivePictures.json' )
+			this.$http.get ( 'data/perspectivePictures.json' )
 					.then ( response => {
 						this.$store.commit ( 'buildPerspective', response.body )
 						this.perspectiveReady = true
 						this.level = 1
 					})
-			this.$http.get ( '../data/quiz_01.json' )
+			this.$http.get ( 'data/quiz_01.json' )
 					.then ( response => {
 						this.$store.commit ( 'buildQuiz', response.body )
 						this.quizReady = true
