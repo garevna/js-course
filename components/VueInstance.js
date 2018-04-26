@@ -19,7 +19,7 @@ const firebaseConfig = {
 }
 const firebaseApp = firebase.initializeApp ( firebaseConfig )
 const firebaseDB = firebaseApp.database()
-const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
+//const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 
 import googleFonts from '../css/googleFonts.css'
 
