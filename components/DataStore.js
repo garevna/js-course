@@ -39,13 +39,14 @@ const vueCourseStore = new Vuex.Store ({
       quizData: null
   },
   getters: {
-    currentUserId: state => {
+    currentUserId: ( state, __user ) => {
         var userId = 'unknown'
         console.log ( 'state.user: ', state.user )
+        console.log ( 'state.user: ', __user )
         for ( var prop in state.usersList ) {
-            if ( state.usersList [ prop ].provider === state.user.provider &&
-                state.usersList [ prop ].email == state.user.email &&
-                state.usersList [ prop ].name === state.user.name ) {
+            if ( state.usersList [ prop ].provider === __user.provider &&
+                state.usersList [ prop ].email == __user.email &&
+                state.usersList [ prop ].name === __user.name ) {
                       userId = prop
                       break
             }
