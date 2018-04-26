@@ -7,6 +7,7 @@ const webpack = require("webpack")
 
 module.exports = {
     entry: './components/vueInstance.js',
+    mode: 'production',
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'build')

@@ -21,7 +21,7 @@ const vueCourseStore = new Vuex.Store ({
 
       emptyPost: [{
           head: "В работе...",
-          pict: "./images/smile-03.gif",
+          pict: "../images/smile-03.gif",
           text: `К сожалению, материал еще не готов`
       }],
 
@@ -78,7 +78,7 @@ const vueCourseStore = new Vuex.Store ({
             state.messagesDate = "" + y + '-' + __m + '-' + __d
       }
       if ( state.messagesRef ) state.messagesRef.off()
-      state.messagesRef = firebase.database().ref ( 'message/' + state.messagesDate )
+      state.messagesRef = firebaseApp.database().ref ( 'message/' + state.messagesDate )
       state.messagesRef.on  ( 'value', snapshot => {
           var __messages = []
           var snap = snapshot.val()
@@ -168,7 +168,7 @@ const vueCourseStore = new Vuex.Store ({
     },
     saveUsersList: ( state, ul ) => {
         state.usersList = ul
-        firebase.database().ref( "users" ).on( 'value', snapshot => {
+        firebaseApp.database().ref( "users" ).on( 'value', snapshot => {
             state.usersList = snapshot.val()
         })
     },
@@ -214,7 +214,7 @@ const vueCourseStore = new Vuex.Store ({
   },
   actions: {
     getAllUsers: context => {
-        var usersRef = firebase.database().ref ( "users" )
+        var usersRef = firebaseApp.database().ref ( "users" )
         usersRef.once ( "value" )
             .then ( function ( snapshot ) {
                 context.commit ( 'saveUsersList', snapshot.val() )

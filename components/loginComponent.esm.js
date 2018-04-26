@@ -7,13 +7,12 @@ const LoginComponent = {
 			uiConfig: {
 				callbacks: {
 					signInSuccess: ( currentUser, credential, redirectUrl ) => {
-						//console.info ( 'signInSuccess!!!' )
-						//console.log ( 'currentUser' )
-						this.$root.$store.dispatch ( 'registerUser', currentUser )
-						var loginWidget = document.getElementById ( "firebaseui-auth-container" )
-						if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
-						this.$root.$emit ( 'closeCurrentDialog' )
-						return true
+							console.info ( 'user: ' + currentUser + ' signIn Success' )
+							this.$root.$store.dispatch ( 'registerUser', currentUser )
+							var loginWidget = document.getElementById ( "firebaseui-auth-container" )
+							if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
+							this.$root.$emit ( 'closeCurrentDialog' )
+							return true
 					},
 					uiShown: function() {
 						//console.info ( 'The widget is rendered' )
@@ -23,10 +22,10 @@ const LoginComponent = {
 				signInFlow: 'popup',
 				signInSuccessUrl: this.__route,
 				signInOptions: [
-					firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-					firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-					firebase.auth.GithubAuthProvider.PROVIDER_ID,
-					firebase.auth.EmailAuthProvider.PROVIDER_ID,
+						firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+						firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+						firebase.auth.GithubAuthProvider.PROVIDER_ID,
+						firebase.auth.FacebookAuthProvider.PROVIDER_ID
 				],
 				tosUrl: this.__route
 			}
@@ -61,9 +60,7 @@ const LoginComponent = {
 			var loginWidget = document.createElement ( 'figure' )
 			document.body.appendChild ( loginWidget )
 			loginWidget.id = "firebaseui-auth-container"
-			const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 			firebaseAuthUI.start( '#firebaseui-auth-container', this.uiConfig )
-			console.log ( 'LoginComponent authUI: ', firebaseAuthUI )
 		}
 	}
 }

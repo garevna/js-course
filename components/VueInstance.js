@@ -1,5 +1,21 @@
 'use strict'
 
+import * as firebase from "firebase"
+window.firebase = firebase
+window.firebaseApp = firebase.initializeApp ( {
+		apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
+		authDomain: "vue-course-b1571.firebaseapp.com",
+		databaseURL: "https://vue-course-b1571.firebaseio.com",
+		projectId: "vue-course-b1571",
+		storageBucket: "vue-course-b1571.appspot.com",
+		messagingSenderId: "329391650263"
+} )
+const firebaseDB = firebaseApp.database()
+const firebaseStore = firebaseApp.storage()
+
+import firebaseui from 'firebaseui'
+window.firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
+
 import Vue from 'vue'
 
 import VueResource from 'vue-resource'
@@ -8,18 +24,6 @@ Vue.use ( VueResource )
 import Vuetify from 'vuetify'
 Vue.use ( Vuetify )
 import vuetifyCSS from '../node_modules/vuetify/dist/vuetify.min.css'
-
-const firebaseConfig = {
-	apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
-	authDomain: "vue-course-b1571.firebaseapp.com",
-	databaseURL: "https://vue-course-b1571.firebaseio.com",
-	projectId: "vue-course-b1571",
-	storageBucket: "vue-course-b1571.appspot.com",
-	messagingSenderId: "329391650263"
-}
-const firebaseApp = firebase.initializeApp ( firebaseConfig )
-const firebaseDB = firebaseApp.database()
-//const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 
 import googleFonts from '../css/googleFonts.css'
 
@@ -131,13 +135,13 @@ new Vue ( {
 			this.drawer = val
 		})
 		this.$vuetify.theme = {
-			primary: '#36465d',
-			secondary: '#4a8272',
-			accent: '#9b03a5',
-			error: '#d00',
-			info: '#09a',
-			success: '#266150',
-			warning: '#fa0'
+				primary: '#36465d',
+				secondary: '#4a8272',
+				accent: '#9b03a5',
+				error: '#d00',
+				info: '#09a',
+				success: '#266150',
+				warning: '#fa0'
 		}
 		this.windowResized ()
 	},
