@@ -13,11 +13,20 @@ const FullScreenChat = {
         }
     },
     computed: {
-        user: () => this.$root.$store.state.user,
-        userId: () => this.$root.$store.getters.currentUserId ( this.user ),
-        messagesDate: () => this.$root.$store.state.messagesDate,
-        messages: () => this.$root.$store.state.messages,
-        messagesRef: () => this.$root.$store.state.messagesRef
+        user: function () { return this.$root.$store.state.user },
+        userId: function () {
+          console.log ( 'this: ', this )
+          return this.$root.$store.getters.currentUserId ( this.user )
+        },
+        messagesDate: function () {
+            return this.$root.$store.state.messagesDate
+        },
+        messages: function () {
+            return this.$root.$store.state.messages
+        },
+        messagesRef: function () {
+            return this.$root.$store.state.messagesRef
+        }
     },
     template: `
     <v-layout row justify-left>
