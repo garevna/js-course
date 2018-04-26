@@ -15,10 +15,7 @@ const FullScreenChat = {
     computed: {
         user: function () { return this.$root.$store.state.user },
         userId: function () {
-          console.log ( 'this.$root: ', this.$root )
-          console.log ( 'this.$root.$store: ', this.$root.$store )
-          console.log ( 'this.$root.$store.getters: ', this.$root.$store.getters )
-          return this.$root.$store.getters.currentUserId ()
+          return this.$root.$store.getters.currentUserId
         },
         messagesDate: function () {
             return this.$root.$store.state.messagesDate
