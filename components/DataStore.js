@@ -42,7 +42,7 @@ const vueCourseStore = new Vuex.Store ({
     currentUserId: ( state, __user ) => {
         var userId = 'unknown'
         console.log ( 'state.user: ', state.user )
-        console.log ( 'state.user: ', __user )
+        console.log ( '__user: ', __user )
         for ( var prop in state.usersList ) {
             if ( state.usersList [ prop ].provider === __user.provider &&
                 state.usersList [ prop ].email == __user.email &&
