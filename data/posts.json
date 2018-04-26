@@ -111,6 +111,11 @@
           "ref": "https://vuetifyjs.com/",
           "ico": "vuetify",
           "comment": "CSS-framework"
+        },
+        {
+          "ref": "https://medium.com/vuetify/vuetiful-tabs-part-i-74ff5758e11e",
+          "ico": "medium",
+          "comment": "Vuetiful Tabs (Part I)"
         }
       ]
     },

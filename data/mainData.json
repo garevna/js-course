@@ -6,18 +6,14 @@
     "ref": "https://docs.google.com/presentation/d/e/2PACX-1vSZ7CaHA3n6o6tcyg_bImUvDQM2bukJacPcBbMVCUasx4MuvVMmVI-_77bg9Xd-3nTxGvks3n59TUCR/pub?start=true&loop=true&delayms=60000",
     "picture": false,
     "code": [
-      "Vue был успешно принят ",
-      "рядом компаний по всему миру, ",
+      "Vue был успешно принят рядом компаний по всему миру, ",
       "включая Adobe, GitLab, Codeship",
       "",
       "Evan You, the creator of Vue.js",
       "",
-      "It (Vue.js) has also grown from ",
-      "“yet another side project” ",
-      "into an ecosystem with ",
-      "over 300 contributors ",
-      "across the Vue.js organization, and",
-      "maintained by a core team of over ",
+      "It (Vue.js) has also grown from “yet another side project” ",
+      "into an ecosystem with over 300 contributors ",
+      "across the Vue.js organization, and maintained by a core team of over ",
       "20 active members across the globe."
     ],
     "usefull": [
@@ -217,7 +213,7 @@
       "<script src='https://unpkg.com/vue-router/dist/vue-router.js'></script>"
     ],
     "ref": false,
-    "picture": "./images/cabine.gif",
+    "picture": "./images/vue-router-logo.svg",
     "usefull": [
       {
         "ref": "https://vuejsdevelopers.com/2017/12/18/single-page-application-ux/?jsdojo_id=revue_spx&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
@@ -313,6 +309,7 @@
   {
     "name": "Vuex",
     "title": "State management",
+    "picture": "./images/vuex-logo.svg",
     "comment": "<p>В крупном проекте упрощает процесс отслеживания реактивных зависимостей при обмене данными между компонентами</p>Подключить библиотеку Vuex можно тегом:<pre class='code-snippet'>&lt;script src='https://unpkg.com/vuex@3.0.1/dist/vuex.js'>&lt;/script></pre><p>Ядром любого Vuex-приложения явлется реактивный объект, создать который можно с помощью конструктора <b>Vuex.Store</b></p>",
     "code": [
       "const store = new Vuex.Store ({",
@@ -372,9 +369,9 @@
   {
     "name": "back-end",
     "title": "Firebase",
-    "comment": "",
+    "comment": "<p>Backend-as-a-service ( BaaS )</p><p>База данных Firebase изменяется в реальном времени, данные в JSON</p><p>Пользовательская third-party аутентификация через Facebook, Twitter, GitHub, Google и т.д. по номеру телефона или t-mail. Данные передаются через защищенное соединение (SSL)</p><p>Облачный сервис</p>",
     "code": false,
-    "ref": "",
+    "ref": "http://firebase.apptractor.ru/",
     "picture": "./images/firebase.png",
     "usefull": [
       {
@@ -416,6 +413,36 @@
         "ref": "https://www.youtube.com/watch?v=nMrkQVSlabk",
         "ico": "link",
         "comment": "Пример работы с базой данных Firebase Database в Android"
+      }
+    ]
+  },
+  {
+    "name": "Canvas",
+    "title": "canvas",
+    "comment": "Пример компонента, работающего с canvas",
+    "code": false,
+    "ref": "",
+    "picture": "/images/stdlib.png",
+    "usefull": [
+      {
+        "ref": "https://alligator.io/vuejs/vue-html5-canvas/",
+        "ico": "alligator",
+        "comment": "Controlling the HTML5 Canvas with Vue.js"
+      },
+      {
+        "ref": "https://github.com/pablohpsilva/vuejs-component-style-guide/blob/master/README-RU.md",
+        "ico": "alligator",
+        "comment": "Несколько правил по разработке компонентов Vue"
+      },
+      {
+        "ref": "https://habrahabr.ru/post/332628/",
+        "ico": "habr",
+        "comment": "5 приемов в помощь разработке на vue.js + vuex"
+      },
+      {
+        "ref": "https://medium.com/@modex13/vue-js-2-%D1%81%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%BA-%D0%BC%D0%B5%D0%BB%D0%BA%D0%B8%D1%85-%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D0%BE%D0%B2-6e9897cf3d37",
+        "ico": "medium",
+        "comment": "Vue: сборник мелких советов"
       }
     ]
   },

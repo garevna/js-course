@@ -53,16 +53,15 @@ const LoginComponent = {
 	},
 	mounted: function () {
 		this.__route = '/vue-course.github.io/#' + this.$route.path
-		console.log ( 'this.__route: ', this.__route )
 		if ( this.user ) {
-			console.info ( 'User allready signed in' )
-			console.log ( this.user )
+			console.info ( 'User allready signed in: ', this.user )
 			this.sendCloseEvent ()
 		}
 		else {
 			var loginWidget = document.createElement ( 'figure' )
 			document.body.appendChild ( loginWidget )
 			loginWidget.id = "firebaseui-auth-container"
+			const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 			firebaseAuthUI.start( '#firebaseui-auth-container', this.uiConfig )
 			console.log ( 'LoginComponent authUI: ', firebaseAuthUI )
 		}

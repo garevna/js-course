@@ -60,6 +60,7 @@ const LoginComponent = ( 'login-component', {
 			var loginWidget = document.createElement ( 'figure' )
 			document.body.appendChild ( loginWidget )
 			loginWidget.id = "firebaseui-auth-container"
+			const firebaseAuthUI = new firebaseui.auth.AuthUI( firebase.auth() )
 			firebaseAuthUI.start( '#firebaseui-auth-container', this.uiConfig )
 		}
 	}
