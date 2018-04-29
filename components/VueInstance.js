@@ -120,6 +120,13 @@ new Vue ( {
 		})
 	},
 	mounted: function () {
+		this.defaultUser = {
+				email: "irina.h.fylyppova@gmail.com",
+				name: "Ирина Филиппова",
+				photoURL: "https://lh3.googleusercontent.com/-Aml2QMGE_d0/AAAAAAAAAAI/AAAAAAAAAAA/AIcfdXDrUEdvT9JmQbWM7_VZ80SCCRuzig/s32-c-mo/photo.jpg",
+				provider: "google.com"
+		}
+		window.addEventListener ( 'resize', this.windowResized )
 		this.$store.dispatch ( 'getAllUsers' )
 		this.$store.commit ( 'changeMessagesData', new Date() )
 		this.$on ( 'exit-quiz', function () {
@@ -153,31 +160,31 @@ new Vue ( {
         this.$router.push ( { name: "mainSection", params: { id: val } } )
     },
 		startUserLogin: function () {
-			this.userLoginDialog = true
+				this.userLoginDialog = true
 		},
 		startUserLogOut: function () {
-			this.userLogoutDialog = true
+				this.userLogoutDialog = true
 		},
 		startUserInfo: function () {
-			this.userInfoDialog = true
+				this.userInfoDialog = true
 		},
 		startChat: function () {
-			this.chatDialog = true
+				this.chatDialog = true
 		},
 		startNewQuiz: function () {
-			this.startQuiz = true
-			this.$http.get ( 'data/perspectivePictures.json' )
-					.then ( response => {
-						this.$store.commit ( 'buildPerspective', response.body )
-						this.perspectiveReady = true
-						this.level = 1
-					})
-			this.$http.get ( 'data/quiz_01.json' )
-					.then ( response => {
-						this.$store.commit ( 'buildQuiz', response.body )
-						this.quizReady = true
-						this.level = 1
-					})
+				this.startQuiz = true
+				this.$http.get ( 'data/perspectivePictures.json' )
+						.then ( response => {
+							this.$store.commit ( 'buildPerspective', response.body )
+							this.perspectiveReady = true
+							this.level = 1
+						})
+				this.$http.get ( 'data/quiz_01.json' )
+						.then ( response => {
+							this.$store.commit ( 'buildQuiz', response.body )
+							this.quizReady = true
+							this.level = 1
+						})
 		},
 		windowResized () {
         this.$emit ( 'win-resize' )

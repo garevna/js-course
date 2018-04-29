@@ -69,31 +69,27 @@ const vueCourseStore = new Vuex.Store ({
     changeMessagesData: ( state, newMessagesDate ) => {
       if ( typeof newMessagesDate === "string" )
                           state.messagesDate = newMessagesDate
-      else {
-            var m = newMessagesDate.getMonth() + 1
-            var d = newMessagesDate.getDate()
-            var y = newMessagesDate.getFullYear()
-            var __m = m < 10 ? "0" + m : m
-            var __d = d < 10 ? "0" + d : d
-            state.messagesDate = "" + y + '-' + __m + '-' + __d
-      }
+      else state.messagesDate = newMessagesDate.toLocaleString().split(", ")[0]
       if ( state.messagesRef ) state.messagesRef.off()
-      state.messagesRef = firebaseApp.database().ref ( 'message/' + state.messagesDate )
+      state.messagesRef = firebaseApp.database().ref ( 'message' )
       state.messagesRef.on  ( 'value', snapshot => {
-          var __messages = []
+          state.messages = []
           var snap = snapshot.val()
-          for ( var mess in snap ) {
-              var __user = state.usersList [ snap [ mess ].user ]
+          for ( var rec in snap ) {
+              var __user = state.usersList [ snap [ rec ].user ]
               if ( __user )
-                  __messages.push ({
-                      user: {
-                          name: __user.name,
-                          photoURL: __user.photoURL
-                      },
-                      text: snap [ mess ].text
+                  state.messages.push ({
+                                        data: snap [ rec ].data,
+                                        time: snap [ rec ].time,
+                                        edit: state.user == __user,
+                                        user: {
+                                            id: snap [ rec ].user,
+                                            name: __user.name,
+                                            photoURL: __user.photoURL
+                                        },
+                                        text: snap [ rec ].text
                   })
           }
-          state.messages = __messages
       })
     },
     buildPerspective: ( state, perspectiveData ) => {
@@ -172,7 +168,6 @@ const vueCourseStore = new Vuex.Store ({
             state.usersList = snapshot.val()
         })
     },
-
     userLoginError: state => {
         state.user = null
     },
