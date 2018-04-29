@@ -67,7 +67,7 @@ const FullScreenChat = {
             </v-toolbar>
             <v-container  class = "middle-of-the-window scroll-y"
                           id = "scroll-target"
-                          :style = "{ height: containerHeight, border: 'solid 3px red' }">
+                          :style = "{ height: containerHeight }">
               <div id = "scrolled-content" column align-center justify-center>
                 <v-card-text
                         class= "transparent"
