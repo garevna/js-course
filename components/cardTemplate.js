@@ -23,8 +23,8 @@ const cardTemplate = ( 'card-template', {
     watch: {
       'text': function ( newVal, oldVal ) {
           if ( !newVal ) return
-          this.elem = document.querySelector ( '#scroll-target' )
-          this.textElem = document.getElementById ( "textContainer" )
+          this.elem = document.querySelector ( '#scroll-container' )
+          this.textElem = document.querySelector ( '.scrolled-text-element' )
           this.$nextTick ( function () {
               this.getTextHeight ()
           })
@@ -48,8 +48,6 @@ const cardTemplate = ( 'card-template', {
         pictureWidth: function () { return this.pictureSize [0] + "px" },
     },
     mounted: function () {
-        this.elem = document.querySelector ( '#scroll-target' )
-        this.textElem = document.getElementById ( "textContainer" )
         this.pictureURL = this.picture ? "url(" + this.picture + ")" : null
         this.$root.$on ( 'win-resize', () => {
             this.winResized ()
@@ -65,13 +63,18 @@ const cardTemplate = ( 'card-template', {
             this.pictureMarginLeft = window.innerWidth < 960 ? "40%" : "-25px"
         },
         getContainerSize: function () {
-            this.elemParams.height = this.elem.offsetHeight
-            this.elemParams.width = this.elem.offsetWidth
-            this.elemParams.top = this.elem.offsetTop
-            this.elemParams.left = this.elem.offsetLeft
+            this.elem = document.querySelector ( '#scroll-container' )
+            if ( this.elem ) {
+                this.elemParams.height = this.elem.offsetHeight
+                this.elemParams.width = this.elem.offsetWidth
+                this.elemParams.top = this.elem.offsetTop
+                this.elemParams.left = this.elem.offsetLeft
+            }
         },
         getTextHeight: function () {
-            this.textElemHeight = this.textElem.scrollHeight + this.TEXT_MARGIN_Y * 2
+            this.textElem = document.querySelector ( '.scrolled-text-element' )
+            this.textElemHeight = this.textElem ?
+                    this.textElem.scrollHeight + this.TEXT_MARGIN_Y * 2 : 200
         },
     },
     template: `
@@ -80,9 +83,9 @@ const cardTemplate = ( 'card-template', {
               <v-layout row wrap>
                 <v-flex xs12 sm12 md9 offset-md0
                          :style = "{ height: containerHeight, overflow: 'auto' }">
-                  <v-card id = "scroll-target"
+                  <v-card id = "scroll-container"
                           class = "transparent elevation-0">
-                    <v-card-text  id = "textContainer"
+                    <v-card-text  class = "scrolled-text-element"
                                   v-html = "text">
                     </v-card-text>
                   </v-card>
@@ -93,7 +96,7 @@ const cardTemplate = ( 'card-template', {
                 </v-flex>
               </v-layout>
           </v-container>
-          <v-container grid-list-xl text-xs-justify class="primary" v-if = "!picture" >
+          <v-container grid-list-xl text-xs-justify v-if = "!picture" >
               <v-layout row wrap>
                 <v-flex xs12 sm12 md10 offset-md1>
                   <v-card class="transparent elevation-0">
