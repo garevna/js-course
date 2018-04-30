@@ -41,7 +41,7 @@ const currentPost = ( 'current-post', {
       }
   },
   template: `
-    <section id = "CURRENT POST" v-if = "postObject">
+    <section id = "CURRENT_POST" v-if = "postObject">
       <v-toolbar class = "dark accent" prominent height = "36px">
 
         <full-screen-dialog-window
@@ -89,20 +89,20 @@ const currentPost = ( 'current-post', {
   methods: {
       openRef: ref => window.open ( ref, "_blank" ),
       getScriptItems: function ( fileName ) {
-        var scriptElement = document.getElementById ( "dynamicJS" )
-        if ( scriptElement ) {
-          if ( scriptElement.src === fileName ) return
-          scriptElement.parentNode.removeChild ( scriptElement )
-        }
-        scriptElement = document.createElement ( 'script' )
-        document.getElementsByTagName('head')[0].appendChild ( scriptElement )
-        scriptElement.id = "dynamicJS"
-        var store = this.$store
-        scriptElement.onload = function () {
-            store.commit( 'setCurrentPostIdReadmeItems', items )
-            store.commit( 'setCurrentPostIdReadmeCommonText', items )
-        }
-        scriptElement.src = fileName
+          var scriptElement = document.getElementById ( "dynamicJS" )
+          if ( scriptElement ) {
+            if ( scriptElement.src === fileName ) return
+            scriptElement.parentNode.removeChild ( scriptElement )
+          }
+          scriptElement = document.createElement ( 'script' )
+          document.getElementsByTagName('head')[0].appendChild ( scriptElement )
+          scriptElement.id = "dynamicJS"
+          var store = this.$root.$store
+          scriptElement.onload = function () {
+              store.commit( 'setCurrentPostIdReadmeItems', items )
+              store.commit( 'setCurrentPostIdReadmeCommonText', items )
+          }
+          scriptElement.src = fileName
       },
       getPostObject: function () {
         var getReady = new Promise ( ( resolve, reject ) => {
