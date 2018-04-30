@@ -4,90 +4,105 @@ const cardTemplate = ( 'card-template', {
     props: [ "text", "picture" ],
     data: function () {
         return {
-          offsetTop: 0,
-          winHeight:0,
-          winWidth: 0,
+          winWidth: window.innerWidth,
+          winHeight: window.innerHeight,
+          TEXT_MARGIN_Y: 25,
           elem: null,
           elemParams: {
-            height:0,
-            width:0,
-            top:0,
-            left:0
+              height:0,
+              width:0,
+              top:0,
+              left:0
           },
           textElem: null,
           textElemHeight: 0,
-          image: null,
-          pictureSize: 0,
-          rootSection: null,
-          styles: null
+          pictureURL: "url()",
+          pictureMarginLeft: "0"
         }
     },
     watch: {
-      'picture': function ( newVal, oldVal ) {
-          var src = window.innerWidth < 480 ? null : newVal
-          this.image.style.backgroundImage = 'url(' + src + ')'
-      },
       'text': function ( newVal, oldVal ) {
+          if ( !newVal ) return
+          this.elem = document.querySelector ( '#scroll-target' )
+          this.textElem = document.getElementById ( "textContainer" )
           this.$nextTick ( function () {
-              this.resizeScrolledElements()
+              this.getTextHeight ()
           })
-      }
+      },
+      'picture': function ( newVal, oldVal ) {
+          if ( !newVal ) return
+          this.pictureURL = "url(" + newVal + ")"
+      },
+    },
+    computed: {
+        containerHeight: function () {
+            return Math.min ( this.textElemHeight, this.winHeight * 0.7 ) + "px"
+        },
+        pictureSize: function () {
+            return [
+                Math.min ( this.winWidth * 0.2, 200 ),
+                Math.min ( this.winHeight * 0.2, 200 )
+            ]
+        },
+        pictureHeight: function () { return this.pictureSize [1] + "px" },
+        pictureWidth: function () { return this.pictureSize [0] + "px" },
     },
     mounted: function () {
-        this.rootSection = document.querySelector( ':root' )
-        this.styles = this.rootSection.style
-
         this.elem = document.querySelector ( '#scroll-target' )
-        this.textElem = document.getElementsByClassName ( "textContainer" ) [0]
-        this.image = document.getElementsByClassName ( "scrolledPicture" ) [0]
-        this.resizeScrolledElements()
-        this.styles.setProperty( '--textPaddingLeft', 20 + 'px' )
+        this.textElem = document.getElementById ( "textContainer" )
+        this.pictureURL = this.picture ? "url(" + this.picture + ")" : null
         this.$root.$on ( 'win-resize', () => {
-            this.resizeScrolledElements()
+            this.winResized ()
         })
+        this.winResized ()
     },
     methods: {
-        resizeScrolledElements: function () {
+        winResized: function () {
+            this.winWidth = window.innerWidth
+            this.winHeight = window.innerHeight
+            this.getContainerSize ()
+            this.getTextHeight ()
+            this.pictureMarginLeft = window.innerWidth < 960 ? "40%" : "-25px"
+        },
+        getContainerSize: function () {
             this.elemParams.height = this.elem.offsetHeight
             this.elemParams.width = this.elem.offsetWidth
             this.elemParams.top = this.elem.offsetTop
             this.elemParams.left = this.elem.offsetLeft
-            this.winHeight = window.innerHeight - 300
-            this.winWidth = window.innerWidth - 100
-            this.textElemHeight = this.textElem.scrollHeight + 40
-            var h = Math.max ( Math.min ( this.textElemHeight, this.winHeight ), this.pictureSize )
-            this.styles.setProperty( '--winHeight', h + 'px' )
-            if ( !this.picture ) return
-            else this.changePictureSize ()
         },
-        changePicture: function () {
-
-            if ( !this.picture ) this.styles.setProperty( '--textPaddingLeft', 20 + 'px')
-            else  this.changePictureSize()
+        getTextHeight: function () {
+            this.textElemHeight = this.textElem.scrollHeight + this.TEXT_MARGIN_Y * 2
         },
-        changePictureSize: function () {
-            var src = window.innerWidth < 480 ? null : this.picture
-            this.image.style.backgroundImage = 'url(' + src + ')'
-            this.pictureSize = window.innerWidth < 480 ? 0 : this.winWidth * 0.1
-            this.styles.setProperty( '--pictureSize', this.pictureSize + 'px' )
-            this.styles.setProperty( '--textPaddingLeft', ( this.pictureSize + 10 ) + 'px')
-            this.styles.setProperty( '--pictureLeft', ( this.elemParams.left + 10 ) + 'px' )
-            this.styles.setProperty( '--pictureTop', ( this.elemParams.top + 30 ) + 'px' )
-        },
-        onScroll (e) {
-            this.offsetTop = e.target.scrollTop
-            if ( !this.picture ) return
-            this.styles.setProperty( '--pictureLeft', ( this.elemParams.left + 10 ) + 'px' )
-            this.styles.setProperty( '--pictureTop', ( this.elemParams.top + 30 ) + 'px' )
-        }
     },
     template: `
-        <v-container class = "resized scroll-y"
-                     v-scroll:#scroll-target="onScroll"
-                     id="scroll-target">
-            <div class = "textContainer" v-html = "text"></div>
-            <div class = "scrolledPicture"></div>
-        </v-container>
+      <div>
+          <v-container grid-list-xl text-xs-justify v-if = "picture" style="overflow:hidden">
+              <v-layout row wrap>
+                <v-flex xs12 sm12 md9 offset-md0
+                         :style = "{ height: containerHeight, overflow: 'auto' }">
+                  <v-card id = "scroll-target"
+                          class = "transparent elevation-0">
+                    <v-card-text  id = "textContainer"
+                                  v-html = "text">
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex md2 offset-md0 mx-auto>
+                    <div  :style = "{ backgroundImage: pictureURL, backgroundSize: 'contain', height: pictureHeight, width: pictureWidth, marginLeft: pictureMarginLeft }">
+                    </div>
+                </v-flex>
+              </v-layout>
+          </v-container>
+          <v-container grid-list-xl text-xs-justify class="primary" v-if = "!picture" >
+              <v-layout row wrap>
+                <v-flex xs12 sm12 md10 offset-md1>
+                  <v-card class="transparent elevation-0">
+                    <v-card-text v-html = "text"></v-card-text>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+          </v-container>
+      </div>
     `
 })
 export default cardTemplate

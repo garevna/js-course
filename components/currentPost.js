@@ -59,19 +59,6 @@ const currentPost = ( 'current-post', {
       <card-template v-resize = "$root.windowResized" :text="text" :picture="postObject.picture">
       </card-template>
       <v-card>
-        <!--<v-container fluid grid-list-lg class = "transparent">
-          <v-layout row wrap>
-            <v-flex xs12 sm8>
-                <div v-html = "text"></div>
-            </v-flex>
-            <v-flex xs12 sm4>
-                <v-card-media v-if = "postObject.picture"
-                  :src = "postObject.picture"
-                  height = "200"
-                  contain
-                ></v-card-media>
-            </v-flex>-->
-
           <v-container fluid grid-list-lg class = "transparent">
             <v-flex xs12>
               <div class = "code-snippet" v-if = "codeExist">

@@ -33,15 +33,11 @@ const FullScreenChat = {
     },
     watch: {
         dialog: function ( newVal, oldVal ) {
-            console.log ( newVal, oldVal )
             if ( !newVal ) return
             this.$nextTick ( function () {
-                console.info ( 'this.$el.nodeType: ' + this.$el.nodeType )
                 this.elem = document.getElementById ( "scrolled-content" )
-                console.log ( 'this.elem: ', this.elem )
                 this.container = document.getElementById ( "scroll-target" )
                 this.container.scrollTop = Math.floor ( this.elem.offsetHeight )
-                console.info ( 'container.scrollTop: ' + this.container.scrollTop )
             })
         }
     },
