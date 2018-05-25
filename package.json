@@ -1,14 +1,14 @@
 {
-  "name": "vue-course",
-  "version": "3.0.0",
-  "description": "web-courseware for vue.js beginners",
+  "name": "js-course",
+  "version": "1.0.0",
+  "description": "web-courseware for JS beginners",
   "author": "garevna <irina.h.fylyppova@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/garevna/vue-course.github.io"
+    "url": "https://github.com/garevna/js-course"
   },
   "keywords": [
-    "vue",
+    "js",
     "vuex",
     "router"
   ],

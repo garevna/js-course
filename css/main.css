@@ -35,7 +35,7 @@ p {
     color: var(--textColor);
 }
 .columns {
-	background-image: url(../images/columns.gif)!important;
+	background-image: url(./images/columns.gif)!important;
 	background-repeat:no-repeat;
 	background-size:cover;
 }
@@ -59,7 +59,7 @@ p {
 .middle-of-the-window {
 	margin-top: 56px;
 	padding-bottom: 110px;
-	background-image: url(../images/columns.gif)!important;
+	background-image: url(./images/columns.gif)!important;
 	background-size: cover;
 	background-attachment: fixed;
 	height: 90%;
@@ -80,7 +80,7 @@ footer {
 	padding:8px 10px;
 	text-align:right;
 	background-color: #ffffff70!important;
-	background-image:url(../images/a-level.png);
+	background-image:url(./images/a-level.png);
 	background-size:80px;
 	background-position:10px 3px;
 	background-repeat:no-repeat;
@@ -101,7 +101,7 @@ footer {
 	right:35%!important;
 	bottom:30%!important;
 	margin:0!important;
-	background-image:url(../images/js-cup.png);
+	background-image:url(./images/js-cup.png);
 	filter: drop-shadow(5px 5px 10px rgba(0,0,50,0.7));
 	background-size:contain;
 	background-repeat:no-repeat;
@@ -109,7 +109,7 @@ footer {
 }
 .my-photo {
     width:80px;
-    background-image:url(../images/my-photo.png);
+    background-image:url(./images/my-photo.png);
   	background-size:contain;
   	background-repeat:no-no-repeat;
 }
@@ -153,7 +153,7 @@ input[type="checkbox"] {
     display:block;
     width:50px;
     height:50px;
-    background-image: url(../images/google_slides.png);
+    background-image: url(./images/google_slides.png);
     background-size:contain;
     background-repeat:no-repeat;
 }

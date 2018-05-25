@@ -1,4 +1,6 @@
-# vue-course.github.io
-Vue.js courseware for my students
+# js-course
 
-demo:   https://garevna.github.io/vue-course.github.io/
+JS courseware for my students
+Quiz for testing results
+
+demo:   https://garevna.github.io/js-course/
