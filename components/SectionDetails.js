@@ -1,9 +1,9 @@
 'use strict'
 
-import styles from '../css/sectionDetails.css'
+import styles from 'CSS/sectionDetails.css'
 
-import currentPost from './currentPost'
-import CustomSelect from './CustomSelect'
+import currentPost from 'JS/currentPost'
+import CustomSelect from 'JS/CustomSelect'
 
 const SectionDetails = {
   data: function () {

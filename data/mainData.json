@@ -1,78 +1,46 @@
-﻿[
+[
   {
-    "name": "Vue.js",
-    "title": "Model | View",
-    "comment": "Подключение библиотеки Vue.js:<br/> &lt;script src ='https://unpkg.com/vue'>&lt;/script>",
-    "ref": "https://docs.google.com/presentation/d/e/2PACX-1vSZ7CaHA3n6o6tcyg_bImUvDQM2bukJacPcBbMVCUasx4MuvVMmVI-_77bg9Xd-3nTxGvks3n59TUCR/pub?start=true&loop=true&delayms=60000",
+    "name": "Introduction",
+    "title": "Языки программирования",
+    "comment": "",
+    "ref": "https://docs.google.com/presentation/d/e/2PACX-1vR0MHmYvkb7UgdCFIlsJ4xdt0JztYrnbMOzDeWa0OM-x7-K1_gHTdVi4f_oN-YWV5Q9SFCl0qxUOogg/pub?start=true&loop=true&delayms=30000&slide=id.p3",
     "picture": false,
-    "code": [
-      "Vue был успешно принят рядом компаний по всему миру, ",
-      "включая Adobe, GitLab, Codeship",
-      "",
-      "Evan You, the creator of Vue.js",
-      "",
-      "It (Vue.js) has also grown from “yet another side project” ",
-      "into an ecosystem with over 300 contributors ",
-      "across the Vue.js organization, and maintained by a core team of over ",
-      "20 active members across the globe."
-    ],
+    "code": [],
     "usefull": [
       {
-        "ref": "https://ru.vuejs.org/",
-        "ico": "stdlib",
-        "comment": "Прогрессивный JavaScript-фреймворк"
-      },
-      {
-        "ref": "https://medium.com/vue-mastery/why-43-of-front-end-developers-want-to-learn-vue-js-7f23348bc5be",
-        "ico": "medium-1",
-        "comment": "Why 43% of Front-End Developers want to learn Vue.js"
-      },
-      {
-        "ref": "https://medium.com/js-dojo/whats-the-deal-with-vue-s-virtual-dom-3ed4fc0dbb20",
-        "ico": "vue-developers",
-        "comment": "What’s The Deal With Vue’s Virtual DOM?"
-      },
-      {
-        "ref": "https://johnpapa.net/vue-typescript/?utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
+        "ref": "https://docs.google.com/forms/d/e/1FAIpQLSdvfQMUIMrqy6s8eQCoxNLwGIvWmD9r89OdgHf96WUe425ZGQ/viewform",
         "ico": "link",
-        "comment": "Vue.js with TypeScript"
+        "comment": "Занятие 1"
       },
       {
-        "ref": "https://vuetifyjs.com/?ref=vuejsdevelopers&utm_campaign=Revue%20newsletter&utm_medium=Newsletter&utm_source=Vue.js%20Developers",
-        "ico": "vuetify",
-        "comment": "Material Component Framework"
+        "ref": "https://tproger.ru/articles/github-top-10-languages-2017/",
+        "ico": "link",
+        "comment": "Топ-10 языков программирования в 2017 году по версии GitHub"
       },
       {
-        "ref": "http://devdocs.io/vue~2/",
-        "ico": "vue",
-        "comment": "What is Vue.js?"
+        "ref": "https://www.tiobe.com/tiobe-index//",
+        "ico": "link",
+        "comment": "TIOBE Index"
+      },
+      {
+        "ref": "https://docs.google.com/presentation/d/e/2PACX-1vT9NDRlX0YBgJnG8mnfBWUN7amXuTu80kGWfPMwNPT0AgWLZUrL7IwntyHIo2Lp1o6h1HnF3gOZUETC/pub?start=true&loop=true&delayms=30000",
+        "ico": "slides",
+        "comment": "Язык гипертекстовой разметки"
+      },
+      {
+        "ref": "https://docs.google.com/presentation/d/e/2PACX-1vQmHcWRjdwPwZbciTavoqSt8hJzjP8ifwx8ktGL5Cr72d66qAg9Y7tADq1n1UpP1iNRucheGd6ZeJmt/pub?start=true&loop=true&delayms=30000",
+        "ico": "slides",
+        "comment": "Всемирная паутина"
       }
     ]
   },
   {
-    "name": "Directives",
-    "title": "Директивы Vue.js",
-    "comment": "Директивы расширяют множество стандартных атрибутов тегов, позволяя использовать встроенные возможности Vue.js по управлению отображением данных модели в представлении.<br/>По сути, директива - это особый токен в разметке, который сообщает библиотеке Vue.js, что делать с элементом DOM.<br/>Все директивы Vue.js имеют префикс (v-)",
-    "code": [
-      "<tag v-[directiveId] = '...'></tag>",
-      "// Следующая директива инструктирует",
-      "// Vue.js обновлять текст в элементе ",
-      "// div при изменении значения message ",
-      "// в модели",
-      "<div v-text='message'></div>",
-      "// Далее используется вычисляемое ",
-      "// выражение вместо одного ключевого ",
-      "// свойства. ",
-      "// Vue.js автоматически отслеживает ",
-      "// свойства, от которых зависит ",
-      "// выражение, и обновляет директиву, ",
-      "// когда изменяется зависимость",
-      "<div ",
-      "    v-text='message + user.name'>",
-      "</div>"
-    ],
-    "ref": "https://docs.google.com/presentation/d/e/2PACX-1vSn1eN9Gd55gzgGVT7Xa1Qle6btYpjZaZjN7gGdQpOPjkwn69YsEnscM5QrYdMY-QbuQpngagtTAJRc/pub?start=true&loop=true&delayms=60000",
-    "picture": false,
+    "name": "JavaScript",
+    "title": "JavaScript",
+    "comment": "",
+    "code": [],
+    "ref": "https://docs.google.com/presentation/d/e/2PACX-1vTjNjbNRgBj7jsZiiH7npIW_jl66UX-pxo1_ONBYXlbvGqTD62gYGZvM7HpskIiDYmmI2skqJs5Wf1j/pub?start=true&loop=true&delayms=30000&slide=id.p3",
+    "picture": "../images/js_cup.png",
     "usefull": [
       {
         "ref": "http://vegibit.com/vue-js-directives/",
@@ -87,34 +55,17 @@
     ]
   },
   {
-    "name": "Components",
-    "title": "Компоненты",
-    "comment": "Основа модульной системы Vue.js<br/>Структура компонента может быть достаточно сложной, но, как правило (за исключением случая функционального компонента), в описание компонента входит свойство template",
-    "code": [
-      "const TheChild = ( 'child-component', {",
-      "    props:['rec'],",
-      "    data: function () {",
-      "        return {",
-      "            articleText: this.rec.text,",
-      "            pictURL: this.rec.picture",
-      "        }",
-      "    template: `",
-      "        <article>",
-      "            <img :src='pictURL'",
-      "                 class='picture'/>",
-      "            <div class='articleClass'",
-      "                 v-html='articleText'>",
-      "            </div>",
-      "        </article>`",
-      "</div>"
-    ],
-    "ref": "https://docs.google.com/presentation/d/e/2PACX-1vTv_TIAOs3rHy-QQKl_NYkL98MMOztYRIKX90aP_Lrw-rTCK8-MPKOu5FXGOrl9rptxY8qgk5WxfBer/pub?start=true&loop=true&delayms=60000",
-    "picture": "./images/broke.gif",
+    "name": "lesson-2",
+    "title": "Занятие 2",
+    "comment": "<p>Типы данных. Последовательность, ветвление, цикл. Условный оператор if и оператор цикла for</p>",
+    "code": [],
+    "ref": "https://docs.google.com/forms/d/e/1FAIpQLSdMWKoMbPmyXc1Nq8aO2fAxiHO1FJNp_E16lKCn_r2srLn1oA/viewform",
+    "picture": "./images/js-cup.png",
     "usefull": [
       {
-        "ref": "https://medium.com/tldr-tech/vuejs-series-part-2-1-components-custom-events-630c1595cfcb",
-        "ico": "medium",
-        "comment": "VueJS Series, Part 2.1 — Components Custom events"
+        "ref": "https://msdn.microsoft.com/ru-ru/library/7wkd9z69(v=vs.94).aspx",
+        "ico": "mdn",
+        "comment": "Типы данных (JavaScript)"
       },
       {
         "ref": "https://medium.com/@sky790312/about-vue-2-parent-to-child-props-af3b5bb59829",
@@ -327,7 +278,6 @@
       ""
     ],
     "ref": false,
-    "picture": "https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/111/full/EGH_VueJSNuxt_Final_1000.png",
     "usefull": [
       {
         "ref": "https://medium.com/3yourmind/large-scale-vuex-application-structures-651e44863e2f",

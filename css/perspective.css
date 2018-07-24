@@ -74,7 +74,7 @@
     box-shadow:inset 0px 0px 20px rgba(0,0,0,0.7);
     background-color:#ffffff50;
     cursor:pointer;
-    background-image: url(./images/cabine.gif);
+    background-image: url(../images/cabine.gif);
 }
 #perspectiveBottomSide,
 #perspectiveRightSide,

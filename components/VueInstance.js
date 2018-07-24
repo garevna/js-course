@@ -1,6 +1,6 @@
 'use strict'
 
-import * as firebase from "firebase"
+import firebase from "firebase"
 window.firebase = firebase
 window.firebaseApp = firebase.initializeApp ( {
 		apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
@@ -23,36 +23,38 @@ Vue.use ( VueResource )
 
 import Vuetify from 'vuetify'
 Vue.use ( Vuetify )
-import vuetifyCSS from '../node_modules/vuetify/dist/vuetify.min.css'
+import vuetifyCSS from 'MODULES/vuetify/dist/vuetify.min.css'
 
-import googleFonts from '../css/googleFonts.css'
+import googleFonts from 'CSS/googleFonts.css'
 
-import LoginComponent from './loginComponent.esm.js'
-import UserInfo from './userInfo'
+import LoginComponent from 'JS/loginComponent.esm.js'
+import UserInfo from 'JS/userInfo'
 
-import ToggleButtons from './toggleButtons'
-import CustomSelect from './CustomSelect'
-import MainSection from './mainSection'
-import FullScreenChat from './FullScreenChat'
-import NavigationPanel from './NavigationPanel'
-import appFooter from './appFooter'
-import QuizComponent from './QuizComponent'
+import ToggleButtons from 'JS/toggleButtons'
+import CustomSelect from 'JS/CustomSelect'
+import MainSection from 'JS/mainSection'
+import FullScreenChat from 'JS/FullScreenChat'
+import NavigationPanel from 'JS/NavigationPanel'
+import appFooter from 'JS/appFooter'
+import QuizComponent from 'JS/QuizComponent'
 
-import router from './routerInstance'
-import store from './DataStore'
+import router from 'JS/routerInstance'
+import store from 'JS/DataStore'
 
-import rootCSS from '../css/root.css'
-import mainCSS from '../css/main.css'
-import forVuetify from '../css/forVuetify.css'
-import scrolledPicture from '../css/scrolledPicture.css'
+import rootCSS from 'CSS/root.css'
+import mainCSS from 'CSS/main.css'
+import forVuetify from 'CSS/forVuetify.css'
+import scrolledPicture from 'CSS/scrolledPicture.css'
+
+const path = require('path')
 
 new Vue ( {
 	store,
 	router,
 	data: function () {
 		return {
-			mainDataSource: "data/mainData.json",
-			postDataSource: "data/posts.json",
+			mainDataSource: path.resolve(__dirname, 'data/') + "/mainData.json",
+			postDataSource: path.resolve(__dirname, 'data/') + "/posts.json",
 			usersDBref: null,
 			messagesDBref: null,
 			newMessage: {},
@@ -86,6 +88,7 @@ new Vue ( {
 	created: function () {
 		this.$http.get ( this.mainDataSource )
 				.then ( response => {
+					console.log ( response.body )
 					this.$store.commit ( 'getMainData', response.body )
 				})
 				.catch ( err => {
@@ -93,6 +96,7 @@ new Vue ( {
 				})
 		this.$http.get ( this.postDataSource )
 				.then ( response => {
+					console.log ( response.body )
 					this.$store.commit ( 'getPostData', response.body )
 				})
 				.catch ( err => {
@@ -202,4 +206,4 @@ new Vue ( {
 		'quiz-component': QuizComponent
 	},
   //render: h => h(App)
-}).$mount ( '#VueCourseware' )
+}).$mount ( '#JS-courseware' )

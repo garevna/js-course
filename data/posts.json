@@ -1,258 +1,65 @@
 ﻿{
-  "Vue.js": [
+  "Introduction": [
     {
-      "head": "Введение",
-      "picture": false,
-      "code": [],
-      "text": "",
-      "textURL": "./data/vue/vue-start.html",
-      "readme": "./data/vue/vue-start.js",
-      "samples": [],
-      "usefull": [
-        {
-          "ref": "https://ru.vuejs.org/",
-          "ico": "stdlib",
-          "comment": "Прогрессивный JavaScript-фреймворк"
-        },
-        {
-          "ref": "https://vuejs.org/v2/guide/instance.html",
-          "ico": "vue",
-          "comment": "The Vue Instance"
-        },
-        {
-          "ref": "https://www.neontsunami.com/posts/mounting-a-vue-instance-to-a-dom-element",
-          "ico": "link",
-          "comment": "Mounting a Vue instance to a DOM element"
-        },
-        {
-          "ref": "https://codingexplained.com/coding/front-end/vue-js/mounting-templates-dynamically",
-          "ico": "link",
-          "comment": "Mounting Vue.js Templates Dynamically"
-        }
-      ]
-    },
-    {
-      "head": "Реактивные данные модели",
-      "code": [
-        "data : {",
-        "  priceUSD: 10,",
-        "  course: 25.4",
-        "},",
-        "computed: {",
-        "  priceUA: function () {",
-        "    return this.priceUSD * this.course",
-        "  }",
-        "}"
-      ],
-      "text": "﻿<p>Реактивными являются данные, которые объявлены в свойствах <spec_words>data</spec_words> и <spec_words>computed</spec_words></p>",
-      "textURL": "",
-      "readme": "./data/vue/reactive-data.html",
-      "samples": [
-        "https://codepen.io/garevna/pen/QqEMoa",
-        "https://codepen.io/garevna/pen/dZVqqZ"
-      ],
-      "usefull": [
-        {
-          "ref": "https://alligator.io/vuejs/property-validation/",
-          "ico": "alligator",
-          "comment": "Vue.js Property Validation"
-        }
-      ]
-    },
-    {
-      "head": "computed",
-      "picture": "",
-      "code": [
-        "data : {",
-        "  userId: 'Иван',",
-        "  message: 'зайди в бухгалтерию'",
-        "},",
-        "computed: {",
-        "  announcement: function () {",
-        "    return this.userId + ', ' + this.message",
-        "  }",
-        "}"
-      ],
-      "text": "<p>Вычисляемое свойство announcement будет пересчитано  только тогда, когда изменится одна из его зависимостей - userId или message</p>",
-      "textURL": "",
-      "readme": "./data/vue/computed.js",
-      "samples": [
-        "https://plnkr.co/edit/WZJjpiGafaUXiGl61SsG?p=preview",
-        "https://codepen.io/garevna/pen/veqNzL"
-      ],
-      "usefull": [
-        {
-          "ref": "https://alligator.io/vuejs/computed-properties",
-          "ico": "alligator",
-          "comment": "Introduction to Computed Properties in Vue.js"
-        }
-      ]
-    },
-    {
-      "head": "$emit",
+      "head": "Язык программирования",
       "picture": false,
       "code": false,
-      "text": "<p>Метод, позволяющий эмитировать событие</p><p><small>( подробнее см. раздел Events )</small></p>",
-      "textURL": "",
-      "samples": [
-        "https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
-      ],
+      "text": "",
+      "textURL": "./data/intro/program-languages.html",
+      "readme": "",
+      "samples": [],
       "usefull": []
     },
     {
-      "head": "Vuetify",
-      "picture": "https://vuetifyjs.com/static/doc-images/logo.svg",
+      "head": "Архитектура процессора",
       "code": false,
-      "text": "<p>Material Component Framework</p>",
-      "textURL": "",
+      "text": "",
+      "textURL": "./data/intro/processor-architecture.html",
       "readme": "",
       "samples": [],
-      "usefull": [
-        {
-          "ref": "https://vuetifyjs.com/",
-          "ico": "vuetify",
-          "comment": "CSS-framework"
-        },
-        {
-          "ref": "https://medium.com/vuetify/vuetiful-tabs-part-i-74ff5758e11e",
-          "ico": "medium",
-          "comment": "Vuetiful Tabs (Part I)"
-        }
-      ]
+      "usefull": []
     },
     {
-      "head": "vue-devtools",
+      "head": "Машинный язык",
+      "picture": "",
+      "code": [],
+      "text": "",
+      "textURL": "./data/intro/engine-language.html",
+      "readme": "",
+      "samples": [],
+      "usefull": []
+    },
+    {
+      "head": "Парадигма",
       "picture": false,
       "code": false,
-      "text": "<p>Расширение Chrome для vue-разработчика</p>",
-      "textURL": "",
-      "readme": "./data/vue/devtools.html",
-      "samples": [
-        "https://plnkr.co/edit/vdEIxZYvoN4x6VFMX3kb?p=preview"
-      ],
-      "usefull": [
-        {
-          "ref": "https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd",
-          "ico": "dev-tools",
-          "comment": "Vue.js devtools"
-        }
-      ]
+      "text": "",
+      "textURL": "./data/intro/paradigma.html",
+      "samples": [],
+      "usefull": []
     },
     {
-      "head": "filters",
-      "picture": false,
-      "code": [
-        "// Глобальный фильтр",
-        "Vue.filter ( 'toUA', function ( value ) {",
-        "     return `${value} грн`",
-        "})",
-        "new Vue({",
-        "     el: '#sample',",
-        "     data: {",
-        "         name: 'windows'",
-        "     }",
-        "     // Локальный фильтр",
-        "     filters: {",
-        "         bigLetters ( value ) {",
-        "             ...",
-        "         }",
-        "     }",
-        "})",
-        "// index.html:",
-        "<div id='sample'>",
-        "     <p>{{ price | toUA }}</p>",
-        "     <p>{{ 'windows' | bigLetters }}</p>",
-        "</div>"
-      ],
-      "text": "<p>Собственные фильты можно зарегистрировать глобально и локально</p><p>Объявление фильтра нужно делать до создания экземпляра Vue</p><p>Фильтры - это обычные функции, поэтому им можно передавать параметры</p>",
-      "textURL": "",
-      "readme": false,
-      "samples": [
-        "https://plnkr.co/edit/Adqs21lTs6snJXnRpHZu?p=preview"
-      ],
-      "usefull": [
-        {
-          "ref": "https://ru.vuejs.org/v2/guide/filters.html",
-          "ico": "stdlib",
-          "comment": "Фильтры"
-        },
-        {
-          "ref": "https://css-tricks.com/using-filters-vue-js/",
-          "ico": "css-tricks",
-          "comment": "Using Filters in Vue.js"
-        },
-        {
-          "ref": "https://alligator.io/vuejs/using-filters/",
-          "ico": "alligator",
-          "comment": "Using Filters to Format Data in Vue.js"
-        },
-        {
-          "ref": "https://scotch.io/tutorials/how-to-create-filters-in-vuejs-with-examples",
-          "ico": "scotch-io",
-          "comment": "How to Create Filters in Vue.js with Examples"
-        }
-      ]
+      "head": "ООП",
+      "picture": "",
+      "code": false,
+      "text": "",
+      "textURL": "./data/intro/oop.html",
+      "readme": "",
+      "samples": [],
+      "usefull": []
     },
     {
-      "head": "life cycle",
+      "head": "Трансляторы",
       "picture": false,
-      "code": [
-        "new Vue ({",
-        "     beforeCreate: function () {",
-        "     }",
-        "     created: function () {",
-        "     }",
-        "     beforeMount: function () {",
-        "     }",
-        "     mounted: function () {",
-        "     }",
-        "     beforeDestroy: function () {",
-        "     }",
-        "     destroied: function () {",
-        "     }",
-        "})",
-        "// index.html:",
-        "<div id='sample'>",
-        "     <p>{{ price | toUA }}</p>",
-        "     <p>{{ 'windows' | bigLetters }}</p>",
-        "</div>"
-      ],
-      "text": "<p>Хуки жизненного цикла</p>",
-      "textURL": "",
-      "readme": false,
-      "samples": [
-        "https://repl.it/@garevna/Vue-Lificycle-Hooks"
-      ],
-      "usefull": [
-        {
-          "ref": "https://ru.vuejs.org/v2/guide/instance.html",
-          "ico": "stdlib",
-          "comment": "Экземпляр Vue"
-        },
-        {
-          "ref": "https://alligator.io/vuejs/component-lifecycle/",
-          "ico": "alligator",
-          "comment": "Understanding Vue.js Lifecycle Hooks"
-        },
-        {
-          "ref": "https://scotch.io/tutorials/demystifying-vue-lifecycle-methods",
-          "ico": "scotch-io",
-          "comment": "Demystifying Vue Lifecycle Methods"
-        },
-        {
-          "ref": "https://codingexplained.com/coding/front-end/vue-js/using-vue-instance-lifecycle-hooks",
-          "ico": "link",
-          "comment": "Using Vue Instance Lifecycle Hooks"
-        },
-        {
-          "ref": "https://metanit.com/web/vuejs/1.13.php",
-          "ico": "link",
-          "comment": "Жизненный цикл Vue"
-        }
-      ]
+      "code": false,
+      "text": "",
+      "textURL": "./data/intro/translators.html",
+      "readme": "",
+      "samples": [],
+      "usefull": []
     }
   ],
-  "Directives": [
+  "JavaScript": [
     {
       "head": "v-bind",
       "picture": "",

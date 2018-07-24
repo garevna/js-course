@@ -3,11 +3,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import HomePage from './HomePage'
-import MainSection from './mainSection'
-import SectionInfo from './SectionInfo'
-import SectionDetails from './SectionDetails'
-import currentPost from './currentPost'
+import HomePage from 'JS/HomePage'
+import MainSection from 'JS/mainSection'
+import SectionInfo from 'JS/SectionInfo'
+import SectionDetails from 'JS/SectionDetails'
+import currentPost from 'JS/currentPost'
 
 Vue.use ( VueRouter )
 
@@ -21,7 +21,7 @@ const router = new VueRouter ({
       component: HomePage,
       props: true,
       meta: {
-          title: 'Vue courseware',
+          title: 'JS courseware',
           metaTags: [
             {
                 name: 'description',
@@ -39,15 +39,15 @@ const router = new VueRouter ({
       name: 'mainSection',
       component: MainSection,
       meta: {
-          title: "Vue courseware",
+          title: "JS courseware",
           metaTags: [
             {
                 name: 'description',
-                content: 'Vue.js courseware | samples and explanations'
+                content: 'JS courseware | Irina H. Fylyppova'
             },
             {
                 property: 'og:description',
-                content: 'Vue.js courseware | samples and explanations'
+                content: 'JS courseware | Irina H. Fylyppova'
             }
           ]
       },

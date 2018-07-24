@@ -1,8 +1,8 @@
 'use strict'
 
-import styles from '../css/sectionInfo.css'
+import styles from 'CSS/sectionInfo.css'
 
-import BottomSheet from './bottomSheet'
+import BottomSheet from 'JS/bottomSheet'
 
 const SectionInfo = {
   props:[ 'id' ],

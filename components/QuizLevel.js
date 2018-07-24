@@ -1,6 +1,6 @@
 'use strict'
 
-import quizTemplate from './quizTemplate'
+import quizTemplate from 'JS/quizTemplate'
 
 const QuizLevel = {
   props: [ "level" ],

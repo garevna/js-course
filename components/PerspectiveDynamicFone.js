@@ -1,6 +1,6 @@
 'use strict'
 
-import styles from '../css/perspective.css'
+import styles from 'CSS/perspective.css'
 
 const PerspectiveDynamicFone = {
     props: [ "level" ],
@@ -140,7 +140,7 @@ const PerspectiveDynamicFone = {
             }
         },
         personage: function () {
-            if ( !this.$root.$store.state.perspectiveData ) return "/vue-course.github.io/images/astronaut.gif"
+            if ( !this.$root.$store.state.perspectiveData ) return "images/astronaut.gif"
             return this.$root.$store.state.perspectiveData.personage
         },
     },

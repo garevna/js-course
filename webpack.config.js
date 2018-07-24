@@ -5,6 +5,8 @@ const path = require('path')
 const glob = require("glob")
 const webpack = require("webpack")
 
+//console.log ( '__webpack_public_path__: ', __webpack_public_path__ )
+
 module.exports = {
     entry: './components/vueInstance.js',
     mode: 'production',
@@ -34,22 +36,18 @@ module.exports = {
           test: /\.css$/,
           use: [
             { loader: 'style-loader' },
-            {
-              loader: 'css-loader'
-            }
+            { loader: 'css-loader' }
           ]
         },
         {
             test: /\.(png|jpe?g|gif|svg|ico)$/,
-            loaders: [
-                'url-loader?limit=5000&name=images/[name].[ext]',
-                'image-webpack-loader'
+            use: [
+              'file-loader'
             ]
         },
         {
             test: /https:\/\/drive\.google\.com\/uc*/,
-            loader: 'file-loader',
-            options: { name: 'images/[name]' }
+            loader: 'file-loader'
         },
         {
             test: /\.styl$/,
@@ -59,7 +57,10 @@ module.exports = {
     },
     resolve: {
       alias: {
-        'vue$': 'vue/dist/vue.esm.js'
+        'vue$': 'vue/dist/vue.esm.js',
+        MODULES: path.resolve(__dirname, 'node_modules/'),
+        CSS: path.resolve(__dirname, 'css/'),
+        JS: path.resolve(__dirname, 'components/')
       }
-}
+    }
 }

@@ -6,282 +6,355 @@
   "failurePictureURL": "https://drive.google.com/uc?export=download&id=0BxaMB69y7fvSMzNOUGc3QndEOGM",
   "levels": [
     {
-      "type": "choice",
+      "type": "input",
+      "question": "Сколько элементов будет в объекте __list",
+      "inputLegend": {
+        "before": "",
+        "after": ""
+      },
+      "rightInput": "4",
       "picture": "https://d33wubrfki0l68.cloudfront.net/bfafcc3ea3a39fe3baae3a8d005f1c1076139b20/dbcc4/images/posts/reusable_transitions.jpg",
       "codeHTML": [
         "<main id = 'scene'>",
-        "    <section id = 'sample'>",
-        "        <div id = 'permission'",
-        "             v-if = 'access'>",
-        "            Привет",
-        "        </div>",
-        "        <div id = 'not-permitted'",
-        "             v-else>",
-        "            Пока",
-        "        </div>",
-        "    </section>",
-        "    <nav class = 'sample'></nav>",
+        "    <div class='permissions'>",
+        "        <input type='color'>",
+        "        <input type='number'>",
+        "    </div>",
+        "    <div class='permissions'>",
+        "        <input type='text'>",
+        "        <input type='file'>",
+        "    </div>",
         "</main>"
       ],
       "codeJS": [
-        "var app = new Vue ({",
-        "    el: '#sample',",
-        "    data: {",
-        "       users: [",
-        "           { name: 'Иван', role: 'admin' },",
-        "           { name: 'Ксения', role: 'guest' },",
-        "           { name: 'Дмитрий', role: 'registered' }",
-        "       ]",
-        "       currentUser: 0",
-        "    },",
-        "    computed: {",
-        "       access: function () {",
-        "           return this.users [ this.currentUser ].role === 'admin' ?",
-        "                        'admitted' : 'denied'",
-        "       }",
-        "    }",
-        "})"
+        "var __list = document.querySelectorAll ( 'input' )"
       ],
-      "question": "На каком элементе будет смонтирован экземпляр Vue",
-      "rightChoicesNums": [ 1 ],
-      "balls": 2,
+      "balls": 3
+    },
+    {
+      "type": "choice",
+      "codeJS": [
+        "var User = function ( name ) {",
+        "    this.name = name || 'Иван'",
+        "    this.mother = null",
+        "    this.father = null",
+        "    this.children = null",
+        "    Object.defineProperty ( this, 'family', {",
+        "         get: () => {",
+        "              return {",
+        "                   mother: this.mother || '-',",
+        "                   father: this.father || '-',",
+        "                   children: this.children || '-'",
+        "              }",
+        "         },",
+        "         set: family => {",
+        "              if ( typeof family !== 'object' || !family ) return",
+        "              if ( family.mother ) this.mother = family.mother",
+        "              if ( family.father ) this.father = family.father",
+        "              if ( family.children ) this.children = family.children",
+        "         }",
+        "    })",
+        "}",
+        "var user = new User ()",
+        "user.family = { mother: 'Mary' }"
+      ],
+      "question": "Что вернет user.family",
+      "rightChoicesNums": [ 0 ],
+      "balls": 7,
       "choiceVariants": [
-        "main",
-        "section",
-        "div",
-        "nav",
-        "p",
+        "объект",
+        "массив",
+        "строку",
+        "null",
+        "undefined",
         "другое..."
       ]
     },
     {
       "type": "choice",
-      "codeHTML": [
-        "<main id = 'scene'>",
-        "    <section id = 'sample'>",
-        "        <div id = 'permission'",
-        "             v-if = 'access'>",
-        "            Привет, {{ user.name }}",
-        "        </div>",
-        "        <div id = 'not-permitted'",
-        "             v-else>",
-        "            Пока, {{ user.name }}",
-        "        </div>",
-        "    </section>",
-        "</main>"
-      ],
       "codeJS": [
-        "var app = new Vue ({",
-        "    el: '#sample',",
-        "    data: {",
-        "       users: [",
-        "           { name: 'Иван', role: 'admin' },",
-        "           { name: 'Ксения', role: 'guest' },",
-        "           { name: 'Дмитрий', role: 'registered' }",
-        "       ]",
-        "       currentUser: 0",
-        "    },",
-        "    computed: {",
-        "       user: function () {",
-        "            return this.users [ this.currentUser ]",
-        "       }",
-        "       access: function () {",
-        "           return this.user.role === 'admin' ?",
-        "                        'admitted' : 'denied'",
-        "       }",
+        "var Client = function ( name, pin ) {",
+        "    this.name = name || 'Иван'",
+        "    var pincode = pin || '0000'",
+        "    var cache = 0",
+        "    var getMoney = sum => {",
+        "         if ( sum > cache ) return null",
+        "         cache -= sum",
+        "         return sum",
         "    }",
-        "})"
+        "    this.receiveMoney = sum => cache += sum",
+        "    this.payment = ( sum, pin ) => ",
+        "              pin === pincode ? getMoney ( sum ) : null",
+        "    }",
+        "}",
+        "var client = new Client ( 'Гриша', '0001' )",
+        "client.receiveMoney ( 5400 )"
       ],
-      "question": "Что будет выведено на страницу",
-      "rightChoicesNums": [ 1 ],
-      "balls": 2,
+      "question": "В каком случае клиент заплатит ?",
+      "rightChoicesNums": [ 5 ],
+      "balls": 5,
       "choiceVariants": [
-        "Привет, admin",
-        "Привет, Иван",
-        "Привет, Ксения",
-        "Привет, Дмитрий",
-        "Привет, guest",
-        "Привет, registered",
-        "Пока, Иван",
-        "Пока, Ксения",
-        "Пока, Дмитрий"
+        "client.getMoney ( 2000 )",
+        "client.payment ( 1000 )",
+        "client.getMoney ( 3000 )",
+        "client.getMoney ( 7000, '0001' )",
+        "client.payment ( 3000, '0000' )",
+        "client.payment ( 3000, '0001' )"
       ]
     },
     {
       "type": "input",
-      "question": "С помощью какой директивы можно связать элемент формы с переменной userName модели",
+      "question": "Какое значение вернет выражение:",
       "inputLegend": {
-        "before": "<input type = 'text' ",
-        "after": " = 'userName'>"
+        "before": "-[4] + 5 + null === ",
+        "after": ""
       },
-      "rightInput": "v-model",
-      "balls": 1
+      "rightInput": "1",
+      "balls": 2
     },
     {
       "type": "findError",
-      "question": "Найти и исправить ошибки в коде",
+      "question": "Перепишите func как стрелочную функцию",
       "wrongContent": [
-        "const UserInfo = ( 'user-info', {",
-        "    props: 'user',",
-        "    data: {",
-        "       ",
-        "           this.id = 'unknown'",
-        "           this.date = new Date ()",
-        "       ",
-        "    }",
-        "}"
+        "var func = function ( x ) { return x * 5 }"
       ],
       "rightContent": [
-        "const UserInfo = ( 'user-info', {",
-        "    props: ['user'],",
-        "    data: function () {",
-        "        return {",
-        "             id: 'unknown',",
-        "             date: new Date ()",
-        "        }",
-        "    }",
-        "}"
+        "var func = x => x * 5"
       ],
-      "balls": 7
+      "balls": 4
     },
     {
       "type": "choice",
-      "question": "Как правильно вывести изображение на страницу, если ссылка на изображение находится в переменной sourceURL",
-      "rightChoicesNums": [
-        3
+      "question": "Что будет в переменной users[0] ?",
+      "codeJS": [
+        "var users = []",
+        "users[0] = {",
+        "     name: 'Jeck',",
+        "     age: 25,",
+        "     hobby: [ 'football', 'bicycle' ]",
+        "}",
+        "users[1] = {",
+        "     name: 'Mary',",
+        "     city: 'Kharkiv',",
+        "     hobby: [ 'flowers', 'bicycle' ]",
+        "     family: {",
+        "          mother: 'Olga', ",
+        "          father: 'Petro'",
+        "     }",
+        "}",
+        "Object.assign ( users[0], users[1].family )"
       ],
-      "balls": 2,
+      "rightChoicesNums": [ 0, 2, 3, 7, 8 ],
+      "balls": 4,
       "choiceVariants": [
-        "<img src = {{ sourceURL }}>",
-        "<img src = '{{ sourceURL }}'>",
-        "<img src = 'sourceURL'>",
-        "<img :src = 'sourceURL'>"
+        "name: 'Jeck'",
+        "name: 'Mary'",
+        "age: 25",
+        "hobby: [ 'football', 'bicycle' ]",
+        "hobby: [ 'flowers', 'bicycle' ]",
+        "city: 'Kharkiv'",
+        "family: { mother: 'Olga', father: 'Petro' }",
+        "mother: 'Olga'",
+        "father: 'Petro'"
       ]
     },
     {
       "type": "choice",
-      "question": "Как динамически переключать класс изображения  по значению переменной модели",
-      "rightChoicesNums": [
-        0,
-        1
+      "question": "Что произойдет в результате работы кода:",
+      "codeJS": [
+        "var user = ( function ( name = 'Иван', hobby = 'футбол' ) {",
+        "     return {",
+        "          name: name,",
+        "          hobby: Array.isArray ( hobby ) ? hobby : [ hobby ],",
+        "          addHobby: newHobby => this.hobby.push ( newHobby )",
+        "     }",
+        "}) ( 'Мария', 'цветы' )"
       ],
-      "balls": 2,
+      "rightChoicesNums": [ 0, 2, 6 ],
+      "balls": 3,
       "choiceVariants": [
-        "<img class = '{ wide: isWide, small: isIcon }' ... >",
-        "<img :class = 'className' ...>",
-        "<img  className = 'wide' ...>",
-        "<img  v-if = 'isIcon'  className = 'small'  ...>"
+        "будет создан объект user",
+        "значение user.name будет 'Иван'",
+        "значение user.name будет 'Мария'",
+        "значение user.hobby будет 'футбол'",
+        "значение user.hobby будет 'цветы'",
+        "значение user.hobby будет [ 'футбол' ]",
+        "значение user.hobby будет [ 'цветы' ]"
       ]
     },
     {
-      "type": "findError",
-      "question": "Заменить ??? на нужные выражения",
-      "wrongContent": [
-        "<main id = 'scene'>",
-        "        <section v-for = '( ???, ??? ) in ???' :key = 'index'>",
-        "                <img v-if = '???' :src = '???'>",
-        "                <p> {{ index }} : {{ item.id }} </p>",
-        "        </section>",
-        "</main>"
-      ],
-      "rightContent": [
-        "<main id = 'scene'>",
-        "        <section v-for = '( item, index ) in pictures' :key = 'index' >",
-        "                <img v-if = 'item.show' :src = 'getURL(item.id)'>",
-        "                <p> {{ index }} : {{ item.id }} </p>",
-        "        </section>",
-        "</main>"
-      ],
+      "type": "input",
+      "question": "На что указывает this в методе addHobby ?",
       "codeJS": [
-        "var app = new Vue ({",
-        "        el: '#scene',",
-        "        data: {",
-        "               pictures [",
-        "                   { show: false, id: 459000 },",
-        "                   { show: true, id: 459005 },",
-        "                   { show: true, id: 459008 }",
-        "               ]",
-        "        },",
-        "        methods: {",
-        "               getURL: function ( pictureId ) {",
-        "                       return 'https://static.pexels.com/photos/' +",
-        "                                pictureId + '/pexels-photo-' +",
-        "                                pictureId + '.jpeg'",
-        "               }",
-        "        }",
-        "})"
+        "var user = ( function ( name = 'Иван', hobby = 'футбол' ) {",
+        "     return {",
+        "          name: name,",
+        "          hobby: Array.isArray ( hobby ) ? hobby : [ hobby ],",
+        "          addHobby: newHobby => this.hobby.push ( newHobby )",
+        "     }",
+        "}) ( 'Мария', 'цветы' )"
       ],
-      "balls": 8
-    },
-    {
-      "type": "findError",
-      "question": "Заменить ??? на нужные выражения",
-      "codeJS": [
-        "var sample = new Vue  ( {",
-        "    el: '#sample',",
-        "    data: { text: 'Привет' },",
-        "    methods:  {",
-        "         changeContent: function () {",
-        "              this.text = 'До свидания'",
-        "         }",
-        "    }",
-        "})"
-      ],
-      "wrongContent": [
-        "<div id = '???'>",
-        "    <p> {{ text }} </p>",
-        "    <button v-on:??? = '???'>",
-        "        Изменить контент",
-        "    </button>",
-        "</div>"
-      ],
-      "rightContent": [
-        "<div id = 'sample'>",
-        "    <p> {{ text }} </p>",
-        "    <button v-on:click = 'changeContent'>",
-        "        Изменить контент",
-        "    </button>",
-        "</div>"
-      ],
+      "inputLegend": {
+        "before": "",
+        "after": ""
+      },
+      "rightInput": "window",
       "balls": 5
     },
     {
       "type": "choice",
-      "question": "Что будет выведено при клике на кнопке, если пользователь ввел текст 'Пока' ?",
+      "question": "Что произойдет в результате user.addHobby ( 'книги' ) ?",
+      "codeJS": [
+        "var user = ( function ( name = 'Иван', hobby = 'футбол' ) {",
+        "     return {",
+        "          name: name,",
+        "          hobby: Array.isArray ( hobby ) ? hobby : [ hobby ],",
+        "          addHobby: newHobby => this.hobby.push ( newHobby )",
+        "     }",
+        "}) ( 'Мария', 'цветы' )"
+      ],
+      "rightChoicesNums": [ 3 ],
+      "balls": 2,
+      "choiceVariants": [
+        "значение user.hobby станет 'книги'",
+        "значение user.hobby станет [ 'цветы', 'книги' ]",
+        "значение user.hobby станет [ 'футбол', 'книги' ]",
+        "будет сгенерировано исключение TypeError",
+        "глобальному объекту будет добавлено свойство hobby",
+        "будет сгенерировано исключение SyntaxError"
+      ]
+    },
+    {
+      "type": "findError",
+      "question": "Исправьте код так, чтобы метод addHobby работал нормально",
+      "wrongContent": [
+        "var user = ( function ( name = 'Иван', hobby = 'футбол' ) {",
+        "     return {",
+        "          name: name,",
+        "          hobby: Array.isArray ( hobby ) ? hobby : [ hobby ],",
+        "          addHobby: newHobby => this.hobby.push ( newHobby )",
+        "     }",
+        "}) ( 'Мария', 'цветы' )"
+      ],
+      "rightContent": [
+        "var user = ( function ( name = 'Иван', hobby = 'футбол' ) {",
+        "     return {",
+        "          name: name,",
+        "          hobby: Array.isArray ( hobby ) ? hobby : [ hobby ],",
+        "          addHobby: function ( newHobby ){ this.hobby.push ( newHobby ) }",
+        "     }",
+        "}) ( 'Мария', 'цветы' )"
+      ],
+      "balls": 7
+    },
+    {
+      "type": "findError",
+      "question": "Заменить ??? на нужные выражения",
+      "wrongContent": [
+        "var transport = new XMLHttpRequest()",
+        "transport.open ( 'POST', url )",
+        "transport.setRequestHeader ( 'Content-Type', '???/???' )",
+        "transport.onreadystatechange = function() {",
+        "     if( this.??? == 4 && this.??? == 200 )",
+        "          console.log ( 'success' )",
+        "transport.send ( ???.stringify ({",
+        "               id: '1784590', ",
+        "               text: 'Show must go on'",
+        "         })",
+        ")"
+      ],
+      "rightContent": [
+        "var transport = new XMLHttpRequest()",
+        "transport.open ( 'POST', url )",
+        "transport.setRequestHeader ( 'Content-Type', 'application/json' )",
+        "transport.onreadystatechange = function() {",
+        "     if( this.readyState == 4 && this.status == 200 )",
+        "          console.log ( 'success' )",
+        "transport.send ( JSON.stringify ({",
+        "               id: '1784590', ",
+        "               text: 'Show must go on'",
+        "         })",
+        ")"
+      ],
+      "balls": 8
+    },
+    {
+      "type": "choice",
+      "question": "Что будет выведено при клике на кнопке, если пользователь ввел текст 'Иван, привет' ?",
       "codeHTML": [
-        "<main id='sample'>",
+        "<main id = 'sample'>",
         "     <h2>Введите текст</h2>",
-        "     <textarea v-model = 'message'>",
+        "     <textarea oninput = 'updateDemo ( event )'>",
         "     </textarea><br>",
-        "     <button v-show = 'message'>",
+        "     <button onclick = 'showDemo ( event )'>",
         "          Показать сообщение",
         "     </button>",
-        "     <p v-show = 'message'",
-        "        v-text = 'showMessage'>",
-        "     </p>",
+        "     <pre id = 'demo' style = 'visibility: hidden'>",
+        "     </pre>",
         "</main>"
       ],
       "codeJS": [
-        "var sample = new Vue  ({",
-        "     el: '#sample',",
-        "     data: { message: '...' },",
-        "     computed: {",
-        "          showMessage: function () {",
-        "               return '<div>' + ",
-        "                  this.message + '</div>'",
-        "          }",
-        "     }",
-        "})"
+        "function updateDemo ( event ) {",
+        "     document.querySelector ( '#demo' )",
+        "          .innerText = event.target.value",
+        "                  .split ( 'привет' ).join ( 'пока' )",
+        "                  .split ( 'Иван' ).join ( 'Дима' )",
+        "}",
+        "function showDemo ( event ) {",
+        "     var demo = document.querySelector ( '#demo' )",
+        "     var hidden = demo.style.visibility === 'hidden'",
+        "     demo.style.visibility = hidden ? 'visible' : 'hidden'",
+        "     document.querySelector ( 'button' ).innerText = hidden ? ",
+        "                    'Показать сообщение' : 'Скрыть сообщение'",
+        "}"
       ],
-      "rightChoicesNums": [
-        3
-      ],
-      "balls": 1,
+      "rightChoicesNums": [ 3 ],
+      "balls": 2,
       "choiceVariants": [
-        "...",
-        "Пока",
-        "<div>...</div>",
-        "<div>Пока</div>"
+        "Иван, привет",
+        "Иван, пока",
+        "Дима, привет",
+        "Дима, пока"
+      ]
+    },
+    {
+      "type": "choice",
+      "question": "Что будет выведено при клике на кнопке, если пользователь ввел текст 'Иван, привет' ?",
+      "codeHTML": [
+        "<main id = 'sample'>",
+        "     <h2>Введите текст</h2>",
+        "     <textarea oninput = 'updateDemo ( event )'>",
+        "     </textarea><br>",
+        "     <button onclick = 'showDemo ( event )'>",
+        "          Показать сообщение",
+        "     </button>",
+        "     <pre id = 'demo' style = 'visibility: hidden'>",
+        "     </pre>",
+        "</main>"
+      ],
+      "codeJS": [
+        "function updateDemo ( event ) {",
+        "     document.querySelector ( '#demo' )",
+        "          .innerText = event.target.value",
+        "                  .split ( '' ).map ( x => '?' ).join ( '' )",
+        "}",
+        "function showDemo ( event ) {",
+        "     var demo = document.querySelector ( '#demo' )",
+        "     var hidden = demo.style.visibility === 'hidden'",
+        "     demo.style.visibility = hidden ? 'visible' : 'hidden'",
+        "     document.querySelector ( 'button' ).innerText = hidden ? ",
+        "                    'Показать сообщение' : 'Скрыть сообщение'",
+        "}"
+      ],
+      "rightChoicesNums": [ 5 ],
+      "balls": 4,
+      "choiceVariants": [
+        "Иван, привет",
+        "Иван, пока",
+        "Дима, привет",
+        "Дима, пока",
+        "?",
+        "????????????"
       ]
     },
     {
@@ -289,223 +362,151 @@
       "question": "Введите правильное выражение, которым следует заменить ???",
       "codeHTML": [
         "<div id = 'example'>",
-        "     <p>Цена: {{ priceUSD }} USD</p>",
-        "     <p>Курс доллара: {{ courseUSD }}</p>",
-        "     <p>К оплате: {{ priceUA }} грн</p>",
+        "     <p>Цена:</p>",
+        "     <input id = 'price' type = 'number'",
+        "            oninput = 'calcPrice ( event )'>",
+        "     <span>USD</span>",
+        "     <p>Курс доллара:</p>",
+        "     <input id = 'course' type = 'number'",
+        "            oninput = 'calcPrice ( event )'>",
+        "     <p>К оплате: </p>",
+        "     <span id = 'result'></span>",
+        "     <span> грн</span>",
         "</div>"
       ],
       "codeJS": [
-        "const vm = new Vue ({",
-        "     el: '#example',",
-        "     data: {",
-        "          priceUSD: 10,",
-        "          courseUSD: 28",
-        "     },",
-        "     ???: {",
-        "          priceUA: function () {",
-        "               return this.priceUSD * this.courseUSD",
-        "          }",
-        "     }",
-        "})"
+        "function calcPrice ( event ) {",
+        "     var self = ???",
+        "     self.result.innerText = ",
+        "          self.price.value * self.course.value",
+        "}",
+        "calcPrice.__proto__.result = document.querySelector ( '#result' )",
+        "calcPrice.__proto__.price = document.querySelector ( '#price' )",
+        "calcPrice.__proto__.course = document.querySelector ( '#course' )"
       ],
       "inputLegend": {
         "before": "",
         "after": ""
       },
-      "rightInput": "computed",
-      "balls": 3
-    },
-    {
-      "type": "input",
-      "question": "Применить фильтр для вывода первых 10 символов текста",
-      "codeJS": [
-        "Vue.filter ( 'continueReading', ",
-        "    function ( text, length, suffix ) {",
-        "          return text.substring ( 0, length ) + suffix",
-        "})",
-        "new Vue ({",
-        "     el: '#app',",
-        "     data: {",
-        "          text: `",
-        "             Что б они ни делали - ",
-        "             не идут дела, ",
-        "             видно, в понедельник их ",
-        "             мама родила....`",
-        "     }",
-        "})"
-      ],
-      "inputLegend": {
-        "before": "<p>{{ text | ",
-        "after": "( 10, '...' ) }}</p>"
-      },
-      "rightInput": "continueReading",
-      "balls": 3
-    },
-    {
-      "type": "choice",
-      "question": "Какие директивы нужно использовать, чтобы вывести на страницу все изображения из массива pictures?",
-      "codeJS": [
-        "new Vue ({",
-        "     data: {",
-        "          pictures: [",
-        "             { id: '459101', section: 'Небо' },",
-        "             { id: '459201', section: 'Цветы' },",
-        "             { id: '459001', section: 'Птицы' },",
-        "             { id: '459505', section: 'Пейзажи' },",
-        "             { id: '760285', section: 'Фрукты' }",
-        "          ]",
-        "     },",
-        "     computed: {",
-        "          urls: function () {",
-        "               return  this.pictures.map ( x => ",
-        "                       'https://static.pexels.com/photos/' + ",
-        "                       x.id + '/pexels-photo-' + x.id + '.jpeg' )",
-        "          }",
-        "     }",
-        "}).$mount('#sample')"
-      ],
-      "rightChoicesNums": [
-        4,
-        6
-      ],
-      "balls": 1,
-      "choiceVariants": [
-        "v-if",
-        "v-show",
-        "v-html",
-        "v-text",
-        "v-bind",
-        "v-on",
-        "v-for",
-        "v-cloak"
-      ]
+      "rightInput": "arguments.callee",
+      "balls": 10
     },
     {
       "type": "findError",
-      "question": "Заменить ??? на нужные выражения",
-      "codeJS": [
-        "new Vue ({",
-        "     data: {",
-        "          pictures: [",
-        "             { id: '459101', section: 'Небо' },",
-        "             { id: '459201', section: 'Цветы' },",
-        "             { id: '459001', section: 'Птицы' },",
-        "             { id: '459505', section: 'Пейзажи' },",
-        "             { id: '760285', section: 'Фрукты' }",
-        "          ],",
-        "          currentPicture: 'Небо'",
-        "     },",
-        "     computed: {",
-        "          refs: function () {",
-        "               return this.pictures.map ( x => ",
-        "                       'https://static.pexels.com/photos/' + ",
-        "                       x.id + '/pexels-photo-' + x.id + '.jpeg' )",
-        "          },",
-        "          elems: function () {",
-        "               return this.refs.map ( x => ",
-        "                   '<img src = ' + x + '>' )",
-        "          }",
-        "     }",
-        "}).$mount('#sample')"
-      ],
+      "question": "Заменить ??? на правильное выражение",
       "wrongContent": [
-        "<main id = '???'>",
-        "     <section  v-for = '(item, index) in ???",
-        "               :key = 'index'>",
-        "         <div v-??? = 'item'></div>",
-        "     </section>",
-        "</main>"
+        "var sample = {",
+        "    type: 'drinks',",
+        "    name: 'milk',",
+        "    vol: '200ml'",
+        "}",
+        "for ( var key of ??? ) {",
+        "     console.log ( sample [ key ] )",
+        "}"
       ],
       "rightContent": [
-        "<main id = 'sample'>",
-        "     <section  v-for = '(item, index) in elems",
-        "               :key = 'index'>",
-        "         <div v-html = 'item'></div>",
-        "     </section>",
-        "</main>"
+        "var sample = {",
+        "    type: 'drinks',",
+        "    name: 'milk',",
+        "    vol: '200ml'",
+        "}",
+        "for ( var key of Object.keys ( sample ) ) {",
+        "     console.log ( sample [ key ] )",
+        "}"
       ],
       "balls": 4
     },
     {
-      "type": "choice",
-      "question": "Что происходит на этапе жизненного цикла beforeCreate",
-      "rightChoicesNums": [
-        5,
-        6,
-        7
+      "type": "findError",
+      "question": "Замените ??? на правильные выражения, чтобы вывести на страницу все изображения из массива pictures",
+      "codeJS": [
+        "var sample = {",
+        "     pictures: [",
+        "          { id: '459101', section: 'Небо' },",
+        "          { id: '459201', section: 'Цветы' },",
+        "          { id: '459001', section: 'Птицы' },",
+        "          { id: '459505', section: 'Пейзажи' },",
+        "          { id: '760285', section: 'Фрукты' }",
+        "     ]",
+        "     getURL: function ( id ) {",
+        "          return `https://static.pexels.com/photos/${id}/pexels-photo-${id}.jpeg`",
+        "     }",
+        "}"
       ],
-      "choiceVariants": [
-        "Данные доступны",
-        "Методы доступны",
-        "Точка монтирования создана",
-        "Рендеринг темплейтов",
-        "Экземпляр смонтирован",
-        "Данные не доступны",
-        "Методы не доступны",
-        "Точка монтирования не создана"
+      "wrongContent": [
+        "for ( var x of ??? ) {",
+        "     var elem = document.body.appendChild ( ",
+        "          document.createElement ( 'img' ) )",
+        "     elem.src = sample.getURL ( ??? )",
+        "     elem.width = '120'",
+        "}"
       ],
-      "balls": 5
-    },
-    {
-      "type": "choice",
-      "question": "Что происходит на этапе жизненного цикла created",
-      "rightChoicesNums": [
-        0,
-        1,
-        7
-      ],
-      "choiceVariants": [
-        "Данные доступны",
-        "Методы доступны",
-        "Точка монтирования создана",
-        "Рендеринг темплейтов",
-        "Экземпляр смонтирован",
-        "Данные не доступны",
-        "Методы не доступны",
-        "Точка монтирования не создана"
+      "rightContent": [
+        "for ( var x of sample.pictures ) {",
+        "     var elem = document.body.appendChild ( ",
+        "          document.createElement ( 'img' ) )",
+        "     elem.src = sample.getURL ( x.id )",
+        "     elem.width = '120'",
+        "}"
       ],
       "balls": 5
     },
     {
       "type": "choice",
-      "question": "Что происходит на этапе жизненного цикла beforeMount",
-      "rightChoicesNums": [
-        0,
-        1,
-        2,
-        3
+      "question": "Какие свойства унаследует экземпляр ?",
+      "codeHTML": [
+        "<svg width='500' height='500' style='border: 1px solid red'></svg>"
       ],
+      "codeJS": [
+        "function Figure ( params ) {",
+        "     this.type = params ? params.type || 'circle' : 'square'",
+        "     this.elem = this.canvas.appendChild (",
+        "          document.createElementNS ( 'http://www.w3.org/2000/svg',",
+        "                                      this.type )",
+        "     )",
+        "     for ( var attr in this.default [ this.type ] ) {",
+        "          var val = params ? ",
+        "              params [ attr ] || this.default [ this.type ] [attr ] :",
+        "              this.default [ this.type ] [attr ]",
+        "          this.elem.setAttributeNS ( null, attr, val )",
+        "     }",
+        "     for ( var attr in this.attrs ) {",
+        "          var val = params ? params [ attr ] ||",
+        "                    this.attrs [ attr ] : this.attrs [ attr ]",
+        "          this.elem.setAttributeNS ( null, attr, val )",
+        "     }",
+        "}",
+        "Figure.prototype.canvas = document.querySelector ( 'svg' )",
+        "Figure.prototype.default = {",
+        "     circle: { cx:100, cy:100, r:100 },",
+        "     ellipse: { cx:100, cy:100, rx:150, ry:80 },",
+        "     rect: { x:80, y:80, width:150, height:100 },",
+        "     line: { x1:50, y1:20, x2:200, y2:200 },",
+        "     polyline: { points: '20,20 100,90 50,10 20,20' },",
+        "     polygon: { points: '200,10 250,190 160,210' }",
+        "}",
+        "Figure.prototype.attrs = {",
+        "     fill: 'transparent',",
+        "     stroke: '#000',",
+        "     'stroke-width': 2",
+        "}",
+        "",
+        "var circle = new Figure ( {",
+        "     type: 'circle',",
+        "     cx: 150,",
+        "     cy: 200,",
+        "     r: 100,",
+        "     stroke: '#f0f',",
+        "     'stroke-width': 10,",
+        "})"
+      ],
+      "rightChoicesNums": [ 2, 3, 4 ],
       "choiceVariants": [
-        "Данные доступны",
-        "Методы доступны",
-        "Точка монтирования создана",
-        "Рендеринг темплейтов",
-        "Экземпляр смонтирован",
-        "Данные не доступны",
-        "Методы не доступны",
-        "Точка монтирования не создана"
-      ],
-      "balls": 5
-    },
-    {
-      "type": "choice",
-      "question": "Что происходит на этапе жизненного цикла mounted",
-      "rightChoicesNums": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "choiceVariants": [
-        "Данные доступны",
-        "Методы доступны",
-        "Точка монтирования создана",
-        "Рендеринг темплейтов",
-        "Экземпляр смонтирован",
-        "Данные не доступны",
-        "Методы не доступны",
-        "Точка монтирования не создана"
+        "type",
+        "elem",
+        "canvas",
+        "default",
+        "attrs"
       ],
       "balls": 5
     }

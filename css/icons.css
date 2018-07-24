@@ -1,26 +1,29 @@
 .firebase, .json-editor,
 .json-placeholder, .github,
-.link, .mdn  {
+.link, .mdn, .slides  {
   width: 30px;
   height: 30px;
   background-size:contain;
 }
 
 .firebase {
-  background-image: url(./images/firebase.png);
+  background-image: url(../images/firebase.png);
 }
 .json-editor {
-  background-image: url(./images/json-editor-online.png);
+  background-image: url(../images/json-editor-online.png);
 }
 .json-placeholder {
-  background-image: url(./images/json-placeholder.png);
+  background-image: url(../images/json-placeholder.png);
 }
 .github {
-  background-image: url(./images/github.png);
+  background-image: url(../images/github.png);
 }
 .link {
-  background-image: url(./images/link.ico);
+  background-image: url(../images/link.ico);
 }
 .mdn {
-  background-image: url(./images/mdn-web-docs.jpg);
+  background-image: url(../images/mdn-web-docs.jpg);
+}
+.slides {
+  background-image: url(../images/google_slides.png);
 }

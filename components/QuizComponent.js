@@ -1,11 +1,11 @@
 'use strict'
 
 import { TweenMax, Power2, TimelineLite } from "gsap"
-import styles from '../css/quiz.css'
+import styles from 'CSS/quiz.css'
 
-import PerspectiveDynamicFone from './PerspectiveDynamicFone'
-import QuizLevel from './QuizLevel'
-import quizFinish from './quizFinish'
+import PerspectiveDynamicFone from 'JS/PerspectiveDynamicFone'
+import QuizLevel from 'JS/QuizLevel'
+import quizFinish from 'JS/quizFinish'
 
 const QuizComponent = {
     props: [ "perspectiveReady", "quizReady" ],
