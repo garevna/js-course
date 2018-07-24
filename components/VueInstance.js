@@ -53,8 +53,8 @@ new Vue ( {
 	router,
 	data: function () {
 		return {
-			mainDataSource: "DATA/mainData.json",
-			postDataSource: "DATA/posts.json",
+			mainDataSource: "data/mainData.json",
+			postDataSource: "data/posts.json",
 			usersDBref: null,
 			messagesDBref: null,
 			newMessage: {},
