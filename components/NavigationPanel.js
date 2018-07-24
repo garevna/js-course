@@ -20,7 +20,7 @@ const NavigationPanel = {
             <v-list class="pa-1">
                 <v-list-tile avatar>
                     <v-list-tile-avatar>
-                        <img src="./images/vue.svg" >
+                        <img src="./images/js_cup.png" >
                     </v-list-tile-avatar>
                     <v-list-tile-content>
                         <v-list-tile-title>

@@ -53,8 +53,8 @@ new Vue ( {
 	router,
 	data: function () {
 		return {
-			mainDataSource: path.resolve(__dirname, 'data/') + "/mainData.json",
-			postDataSource: path.resolve(__dirname, 'data/') + "/posts.json",
+			mainDataSource: "DATA/mainData.json",
+			postDataSource: "DATA/posts.json",
 			usersDBref: null,
 			messagesDBref: null,
 			newMessage: {},
@@ -88,7 +88,6 @@ new Vue ( {
 	created: function () {
 		this.$http.get ( this.mainDataSource )
 				.then ( response => {
-					console.log ( response.body )
 					this.$store.commit ( 'getMainData', response.body )
 				})
 				.catch ( err => {
@@ -96,7 +95,6 @@ new Vue ( {
 				})
 		this.$http.get ( this.postDataSource )
 				.then ( response => {
-					console.log ( response.body )
 					this.$store.commit ( 'getPostData', response.body )
 				})
 				.catch ( err => {
