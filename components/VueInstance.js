@@ -7,7 +7,7 @@ window.firebaseApp = firebase.initializeApp ( {
 	authDomain: "js-course-78562.firebaseapp.com",
 	databaseURL: "https://js-course-78562.firebaseio.com",
 	projectId: "js-course-78562",
-	storageBucket: "",
+	storageBucket: "js-course-78562.appspot.com",
 	messagingSenderId: "998536580537"
 } )
 const firebaseDB = firebaseApp.database()
