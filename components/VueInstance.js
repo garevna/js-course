@@ -3,12 +3,12 @@
 import firebase from "firebase"
 window.firebase = firebase
 window.firebaseApp = firebase.initializeApp ( {
-		apiKey: "AIzaSyAE1LDfl-AWDIaauE6CUGWPDvJU4sdDnLE",
-		authDomain: "vue-course-b1571.firebaseapp.com",
-		databaseURL: "https://vue-course-b1571.firebaseio.com",
-		projectId: "vue-course-b1571",
-		storageBucket: "vue-course-b1571.appspot.com",
-		messagingSenderId: "329391650263"
+	apiKey: "AIzaSyC_cCWrXR2TIOeqy3UMap_Fk3P4yR8juIk",
+	authDomain: "js-course-78562.firebaseapp.com",
+	databaseURL: "https://js-course-78562.firebaseio.com",
+	projectId: "js-course-78562",
+	storageBucket: "",
+	messagingSenderId: "998536580537"
 } )
 const firebaseDB = firebaseApp.database()
 const firebaseStore = firebaseApp.storage()

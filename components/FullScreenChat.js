@@ -68,7 +68,7 @@ const FullScreenChat = {
                 <v-card-text
                         class= "transparent"
                         v-for = "item in messages"
-                        :key = "item.user.name">
+                        :key = "item.data+item.time">
                     <v-avatar v-if = "item.user.photoURL">
                         <img :src = "item.user.photoURL">
                     </v-avatar>

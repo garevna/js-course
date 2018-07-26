@@ -7,7 +7,7 @@ const LoginComponent = {
 			uiConfig: {
 				callbacks: {
 					signInSuccess: ( currentUser, credential, redirectUrl ) => {
-							console.info ( 'user: ' + currentUser + ' signIn Success' )
+							console.log ( 'user signIn Success', currentUser )
 							this.$root.$store.dispatch ( 'registerUser', currentUser )
 							var loginWidget = document.getElementById ( "firebaseui-auth-container" )
 							if ( loginWidget ) loginWidget.parentNode.removeChild ( loginWidget )
@@ -23,7 +23,7 @@ const LoginComponent = {
 				signInSuccessUrl: this.__route,
 				signInOptions: [
 						firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-						firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+						//firebase.auth.TwitterAuthProvider.PROVIDER_ID,
 						firebase.auth.GithubAuthProvider.PROVIDER_ID,
 						firebase.auth.FacebookAuthProvider.PROVIDER_ID
 				],
@@ -53,7 +53,7 @@ const LoginComponent = {
 	mounted: function () {
 		this.__route = '/vue-course.github.io/#' + this.$route.path
 		if ( this.user ) {
-			console.info ( 'User allready signed in: ', this.user )
+			console.info ( 'User allready signed in' )
 			this.sendCloseEvent ()
 		}
 		else {
