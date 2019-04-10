@@ -173,23 +173,86 @@ b {
 
 </style>
 <div class="main">
-      <h2>Task 1</h2>
+      <h2>Observer</h2>
+      <img src="https://github.com/garevna/js-course/blob/master/pictures/observer-1.gif?raw=true" width="300"/>
       <div class="wrap-collabsible">
         <input id="collapsible" class="toggle" type="checkbox">
-        <label for="collapsible" class="lbl-toggle">Медвежья доставка</label>
+        
+        <label for="collapsible" class="lbl-toggle">Полный код примера</label>
         <div class="collapsible-content">
           <div class="content-inner">
             <pre><code data-language="js">
-function job ( params ) {
-    var x = 10
-    const mid = false
-    let grid = "table"
-    Object.assign ( {}, { name: "title" } )
-    console.log ( "Hello" )
-}
-const promise = new Promise (
-    ( resolve, reject ) => resolve ( "success" )
+const inputs = [
+    "author",
+    "topic",
+    "message"
+]
+
+const addElem = ( tag = "input", container ) =>
+    ( container && container.nodeType === 1 ? 
+                container : document.body )
+        .appendChild ( document.createElement ( tag ) )
+
+
+const observed = inputs.map (
+    item => {
+        let label = addElem ( "label" )
+        let elem = addElem()
+        elem.id = item
+        label.for = item
+        label.innerText = item
+        addElem ( "br" )
+        return elem
+    }
 )
+
+const subscriber = document.body.appendChild (
+    document.createElement ( "section" )
+)
+
+subscriber.showInfo = function ( data ) {
+    this.topic = data.topic ? data.topic : this.topic ? this.topic : "topic"
+    this.author = data.author ? data.author: this.author ? this.author : "author"
+    this.message = data.message ? data.message: this.message ? this.message : "message"
+    this.innerHTML = `
+       <h3>${this.topic}</h3>
+       <small>${this.author}</small>
+       <p>${this.message}</p>
+    `
+}.bind ( subscriber )
+
+
+class Observer {
+    constructor ( subjects ) {
+        this.subscribers = []
+        this.events = subjects.map (
+            function ( elem ) {
+                elem.oninput = function ( event ) {
+                    this.broadcast ( { [elem.id]: event.target.value } )
+                }.bind(this)
+                return elem.oninput
+            },
+            this
+        )
+    }
+    subscibe ( client ) {
+        typeof client === "function" ? this.subscribers.push ( client ) : 
+            console.warn ( "Invalide subscriber" )
+    }
+    unsubscibe ( client ) {
+        this.subscribers = this.subscribers
+            .filter ( subscriber !== client )
+    }
+    broadcast ( data ) {
+        this.subscribers.forEach (
+            client => client ( data )
+        )
+    }
+}
+
+const observer = new Observer ( observed )
+
+observer.subscibe ( subscriber.showInfo )
             </code></pre>
           </div>
         </div>
