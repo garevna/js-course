@@ -180,13 +180,16 @@ b {
         <div class="collapsible-content">
           <div class="content-inner">
             <pre><code data-language="js">
-              function job ( params ) {
-                  var x = 10
-                  const mid = false
-                  let grid = "table"
-                  Object.assign ( {}, { name: "title" } )
-                  console.log ( "Hello" )
-              }
+function job ( params ) {
+    var x = 10
+    const mid = false
+    let grid = "table"
+    Object.assign ( {}, { name: "title" } )
+    console.log ( "Hello" )
+}
+const promise = new Promise (
+    ( resolve, reject ) => resolve ( "success" )
+)
             </code></pre>
           </div>
         </div>
